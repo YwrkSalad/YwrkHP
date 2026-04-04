@@ -21,12 +21,10 @@
 
 ページへのアクセスを記録し、今日のページビュー数をサイト上に表示するために使用する。
 
-なお、サーバー側のセットアップは完了済みである。
+ローカル・本番ともに `prisma/docker-compose.yml` で PostgreSQL 18 を Docker で起動する。
 
 <details>
-<summary>2.1. セットアップ (ローカル環境)</summary>
-
-`prisma/docker-compose.yml` を使って PostgreSQL 18 を起動する。
+<summary>2.1. セットアップ</summary>
 
 `.env` に以下を設定する：
 
@@ -47,7 +45,7 @@ docker compose -f prisma/docker-compose.yml up -d
 
 ## 3. 実行方法 (ローカル環境)
 
-事前に [2.1. データベース > セットアップ](#21-セットアップ-ローカル環境) を参照すること。
+事前に [2.1. データベース > セットアップ](#21-セットアップ) を参照すること。
 
 <details>
 <summary>3.1. セットアップ</summary>
@@ -107,6 +105,12 @@ yarn build
 
 <details>
 <summary>4.1. セットアップ</summary>
+
+DB 起動
+
+```bash
+docker compose -f prisma/docker-compose.yml up -d
+```
 
 pm2 で起動
 
