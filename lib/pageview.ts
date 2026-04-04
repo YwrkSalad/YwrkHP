@@ -22,8 +22,6 @@ export async function recordVisitAndGetCount(
 ): Promise<number> {
   const db = getDb();
   await db.ref(`pageviews/${generateKey()}`).set({ ts: Date.now(), ip, page });
-  const result = await db
-    .ref("count")
-    .transaction((current: number | null) => (current ?? 0) + 1);
-  return result.snapshot.val() as number;
+  const snapshot = await db.ref("pageviews").once("value");
+  return snapshot.numChildren();
 }
