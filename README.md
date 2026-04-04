@@ -114,7 +114,7 @@ yarn build
 ## 4. デプロイ (Xserver VPS)
 
 <details>
-<summary>4.1. セットアップ</summary>
+<summary>4.1. セットアップ (済)</summary>
 
 DB 起動
 
