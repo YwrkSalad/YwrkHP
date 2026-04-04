@@ -1,10 +1,16 @@
 export const dynamic = "force-dynamic";
 
-import { incrementAndGetTodayCount } from "@/lib/pageview";
+import { headers } from "next/headers";
+import { recordVisitAndGetTodayCount } from "@/lib/pageview";
 import PageViewCounter from "./_components/PageViewCounter";
 
 export default async function Home() {
-  const count = await incrementAndGetTodayCount();
+  const h = await headers();
+  const ip =
+    h.get("x-forwarded-for")?.split(",")[0].trim() ??
+    h.get("x-real-ip") ??
+    "unknown";
+  const count = await recordVisitAndGetTodayCount(ip, "/");
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-white">
