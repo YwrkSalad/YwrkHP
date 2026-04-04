@@ -24,8 +24,8 @@
 **インストール (Arch Linux)**
 
 ```bash
-sudo pacman -Sy       # ミラーリストを更新
-sudo pacman -S postgresql  # postgresql 18 系がインストールされる
+yay -Sy               # ミラーリストを更新
+yay -S postgresql     # postgresql 18 系がインストールされる
 
 sudo -u postgres initdb -D /var/lib/postgres/data
 sudo systemctl enable --now postgresql
