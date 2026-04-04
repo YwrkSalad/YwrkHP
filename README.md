@@ -26,25 +26,22 @@
 <details>
 <summary>2.1. セットアップ (ローカル環境)</summary>
 
-各自の OS に合わせて PostgreSQL をインストールすること。なお、本番環境は PostgreSQL 18 を使用している。
+`prisma/docker-compose.yml` を使って PostgreSQL 18 を起動する。
 
-PostgreSQL にユーザーと DB を作成する。以下は Arch Linux での例。
-
-```bash
-# ユーザー作成
-sudo -u postgres psql -c "CREATE USER ywrk WITH PASSWORD 'パスワード';"
-
-# DB作成
-sudo -u postgres psql -c "CREATE DATABASE ywrkdb OWNER ywrk;"
-```
-
-作成後、`.env` に接続情報を設定する：
+`.env` に以下を設定する：
 
 ```env
+POSTGRES_USER=ywrk
+POSTGRES_PASSWORD=パスワード
+POSTGRES_DB=ywrkdb
 DATABASE_URL="postgresql://ywrk:パスワード@localhost:5432/ywrkdb?schema=public"
 ```
 
 なお、パスワードは管理者 elsy0111 に尋ねること。
+
+```bash
+docker compose -f prisma/docker-compose.yml up -d
+```
 
 </details>
 
