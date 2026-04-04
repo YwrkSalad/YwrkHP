@@ -16,12 +16,13 @@ function generateKey(): string {
   return `${datePart}_${randomPart}`;
 }
 
-export async function recordVisitAndGetCount(
-  ip: string,
-  page: string,
-): Promise<number> {
-  const db = getDb();
-  await db.ref(`pageviews/${generateKey()}`).set({ ts: Date.now(), ip, page });
-  const snapshot = await db.ref("pageviews").once("value");
+export async function recordVisit(ip: string, page: string): Promise<void> {
+  await getDb()
+    .ref(`pageviews/${generateKey()}`)
+    .set({ ts: Date.now(), ip, page });
+}
+
+export async function getCount(): Promise<number> {
+  const snapshot = await getDb().ref("pageviews").once("value");
   return snapshot.numChildren();
 }
