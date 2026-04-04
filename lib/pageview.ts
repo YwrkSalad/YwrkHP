@@ -9,16 +9,17 @@ const startOfToday = () => {
 function generateKey(): string {
   const now = new Date();
   const pad = (n: number, len = 2) => String(n).padStart(len, "0");
-  const datePart =
-    now.getFullYear().toString() +
-    pad(now.getMonth() + 1) +
-    pad(now.getDate()) +
-    pad(now.getHours()) +
-    pad(now.getMinutes()) +
-    pad(now.getSeconds()) +
-    pad(now.getMilliseconds(), 3);
+  const datePart = [
+    now.getFullYear(),
+    pad(now.getMonth() + 1),
+    pad(now.getDate()),
+    pad(now.getHours()),
+    pad(now.getMinutes()),
+    pad(now.getSeconds()),
+    pad(now.getMilliseconds(), 3),
+  ].join("-");
   const randomPart = Math.random().toString(36).slice(2, 8);
-  return `${datePart}-${randomPart}`;
+  return `${datePart}_${randomPart}`;
 }
 
 export async function recordVisitAndGetTodayCount(
