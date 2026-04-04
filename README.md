@@ -10,7 +10,6 @@
 | [Tailwind CSS](https://tailwindcss.com)                                                                                      | 4          | スタイリング                |
 | [Prettier](https://prettier.io) + [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) | -          | フォーマッタ                |
 | [ESLint](https://eslint.org)                                                                                                 | 9          | Linter                      |
-| [Prisma](https://www.prisma.io)                                                                                              | 7          | ORM                         |
 
 - Node.js 22 以上
 - App Router を使用
@@ -18,48 +17,10 @@
 - パッケージマネージャ: yarn
 - 本番環境VPS OS: Arch Linux (Xserver VPS)
 
-## 2. データベース
-
-ページへのアクセスを記録し、今日のページビュー数をサイト上に表示するために使用する。
-
-接続には `@prisma/adapter-pg` を使用し、`.env` の3変数から接続文字列を構成する。
+## 2. 実行方法 (ローカル環境)
 
 <details>
-<summary>2.1. セットアップ (ローカル環境)</summary>
-
-`prisma/docker-compose.yml` で PostgreSQL 18 を Docker で起動する。
-
-`.env` に以下を設定する：
-
-```env
-POSTGRES_USER=ywrk
-POSTGRES_PASSWORD=パスワード
-POSTGRES_DB=ywrkdb
-```
-
-なお、パスワードは管理者 elsy0111 に尋ねること。
-
-```bash
-docker compose -f prisma/docker-compose.yml up -d
-```
-
-</details>
-
-<details>
-<summary>2.2. セットアップ (本番環境VPS)</summary>
-
-本番環境VPSでは PostgreSQL 18 をネイティブで動かす。セットアップは管理者が行う。
-
-`.env` に同様の3変数を設定すること。
-
-</details>
-
-## 3. 実行方法 (ローカル環境)
-
-事前に [2.1. データベース > セットアップ](#21-セットアップ) を参照すること。
-
-<details>
-<summary>3.1. セットアップ</summary>
+<summary>2.1. セットアップ</summary>
 
 1. クローン
 
@@ -77,7 +38,7 @@ yarn
 </details>
 
 <details>
-<summary>3.2. サーバー起動</summary>
+<summary>2.2. サーバー起動</summary>
 
 開発サーバーを起動する。
 
@@ -90,7 +51,7 @@ yarn dev
 </details>
 
 <details>
-<summary>3.3. その他開発用コマンド (fmt, lint, build)</summary>
+<summary>2.3. その他開発用コマンド (fmt, lint, build)</summary>
 
 フォーマット
 
@@ -112,16 +73,10 @@ yarn build
 
 </details>
 
-## 4. デプロイ (本番環境VPS)
+## 3. デプロイ (本番環境VPS)
 
 <details>
-<summary>4.1. セットアップ (済)</summary>
-
-DB 起動
-
-```bash
-docker compose -f prisma/docker-compose.yml up -d
-```
+<summary>3.1. セットアップ (済)</summary>
 
 pm2 で起動
 
@@ -140,13 +95,11 @@ pm2 save && pm2 startup
 </details>
 
 <details>
-<summary>4.2. 更新手順</summary>
+<summary>3.2. 更新手順</summary>
 
 ```bash
 git pull
 yarn install
-npx prisma generate       # Prismaクライアントを再生成
-npx prisma migrate deploy # マイグレーションを適用
 yarn build
 pm2 reload ywrk-hp        # ゼロダウンタイムで再起動
 ```
