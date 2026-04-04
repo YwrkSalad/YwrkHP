@@ -12,9 +12,7 @@ export default function PageViewCounter({ initial }: { initial: number }) {
   useEffect(() => {
     const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
       let n = 0;
-      snapshot.forEach(() => {
-        n++;
-      });
+      snapshot.forEach(() => { n++; });
       if (n !== prevCount.current) {
         prevCount.current = n;
         setCount(n);
@@ -37,11 +35,9 @@ export default function PageViewCounter({ initial }: { initial: number }) {
       </div>
 
       {/* Count */}
-      <NumberFlow
-        value={count}
-        format={{ useGrouping: true }}
-        className="text-8xl font-semibold tracking-tight text-zinc-900 sm:text-9xl"
-      />
+      <span className="text-8xl font-semibold tracking-tight text-zinc-900 sm:text-9xl">
+        <NumberFlow value={count} locales="ja-JP" />
+      </span>
 
       {/* Label */}
       <div className="flex flex-col items-center gap-3">
