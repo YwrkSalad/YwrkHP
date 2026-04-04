@@ -74,12 +74,6 @@ yarn dev
 
 ### 3.3. その他コマンド
 
-ビルド
-
-```bash
-yarn build
-```
-
 フォーマット
 
 ```bash
@@ -90,6 +84,12 @@ Lint
 
 ```bash
 yarn lint
+```
+
+ビルド
+
+```bash
+yarn build
 ```
 
 ## 4. デプロイ (Xserver VPS)
