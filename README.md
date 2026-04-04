@@ -66,11 +66,16 @@ yarn
 yarn build
 ```
 
-3. pm2 で永続起動
+3. pm2 で起動
 
 ```bash
 # ポート3939でyarn startをpm2に登録して起動
 PORT=3939 pm2 start yarn --name ywrk-hp -- start
+```
+
+4. 自動起動の設定
+
+```bash
 # 現在のプロセス一覧を保存し、サーバー再起動時に自動起動するよう OS に登録
 pm2 save && pm2 startup
 ```
