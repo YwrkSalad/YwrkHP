@@ -2,9 +2,7 @@ import { type NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 function getIp(req: NextRequest): string {
-  return (
-    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown"
-  );
+  return req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
 }
 
 function todayStart(): Date {
