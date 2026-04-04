@@ -21,15 +21,7 @@
 
 ### 2.1. セットアップ
 
-**インストール (Arch Linux)**
-
-```bash
-yay -Sy               # ミラーリストを更新
-yay -S postgresql     # postgresql 18 系がインストールされる
-
-sudo -u postgres initdb -D /var/lib/postgres/data
-sudo systemctl enable --now postgresql
-```
+各自の OS に合わせて PostgreSQL をインストールすること。なお、本番環境は PostgreSQL 18 を使用している。
 
 PostgreSQL にユーザーと DB を作成する。
 
