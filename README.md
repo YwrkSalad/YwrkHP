@@ -45,36 +45,9 @@ DATABASE_URL="postgresql://ywrk:パスワード@localhost:5432/ywrkdb?schema=pub
 
 ## 3. 実行方法
 
-```bash
-# 開発サーバー起動
-yarn dev
-
-# ビルド
-yarn build
-
-# フォーマット
-yarn fmt
-
-# Lint
-yarn lint
-```
-
-開発サーバー起動後、[http://localhost:3000](http://localhost:3000) をブラウザで開く。
-
-## 4. デプロイ (Xserver VPS)
-
-### 4.1. 構成
-
-```
-ywrk.org
-  └─ nginx (リバースプロキシ)
-       └─ localhost(127.0.0.1):3939
-            └─ pm2 (yarn start を永続化)
-```
-
-### 4.2. セットアップ
-
 事前に [2.1. データベース > セットアップ](#21-セットアップ) を参照すること。
+
+### 3.1. セットアップ
 
 1. クローン
 
@@ -104,7 +77,39 @@ PORT=3939 pm2 start yarn --name ywrk-hp -- start
 pm2 save && pm2 startup
 ```
 
-### 4.3. 更新手順
+### 3.2. 開発
+
+開発サーバーを起動する。
+
+```bash
+yarn dev
+```
+
+[http://localhost:3000](http://localhost:3000) をブラウザで開く。
+
+### 3.3. その他コマンド
+
+ビルド
+
+```bash
+yarn build
+```
+
+フォーマット
+
+```bash
+yarn fmt
+```
+
+Lint
+
+```bash
+yarn lint
+```
+
+## 4. デプロイ (Xserver VPS)
+
+### 4.1. 更新手順
 
 ```bash
 git pull
