@@ -109,7 +109,23 @@ yarn lint
 
 ## 4. デプロイ (Xserver VPS)
 
-### 4.1. 更新手順
+### 4.1. セットアップ
+
+pm2 で起動
+
+```bash
+# ポート3939でyarn startをpm2に登録して起動
+PORT=3939 pm2 start yarn --name ywrk-hp -- start
+```
+
+自動起動の設定
+
+```bash
+# 現在のプロセス一覧を保存し、サーバー再起動時に自動起動するよう OS に登録
+pm2 save && pm2 startup
+```
+
+### 4.2. 更新手順
 
 ```bash
 git pull
