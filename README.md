@@ -14,6 +14,7 @@
 - App Router を使用
 - React Compiler 有効 (`reactCompiler: true`)
 - パッケージマネージャ: yarn
+- 本番環境 OS: Arch Linux (Xserver VPS)
 
 ## 2. データベース
 
@@ -23,7 +24,7 @@
 
 各自の OS に合わせて PostgreSQL をインストールすること。なお、本番環境は PostgreSQL 18 を使用している。
 
-PostgreSQL にユーザーと DB を作成する。
+PostgreSQL にユーザーと DB を作成する。以下は Arch Linux での例。
 
 ```bash
 # ユーザー作成
