@@ -1,4 +1,4 @@
-import { PrismaClient } from "@/app/generated/prisma";
+import { PrismaClient } from "@/app/generated/prisma/client";
 
 const { POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB } = process.env;
 
