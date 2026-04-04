@@ -16,10 +16,10 @@ export default function Nav() {
   return (
     <>
       <header className="fixed top-0 right-0 left-0 z-50 border-b border-stone-200/60 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-12 max-w-screen-xl items-center justify-between px-6">
+        <div className="mx-auto flex h-18 max-w-screen-xl items-center justify-between px-6">
           <Link
             href="/"
-            className="text-sm font-medium tracking-widest text-zinc-700"
+            className="text-xl font-medium tracking-widest text-zinc-700"
             onClick={() => setOpen(false)}
           >
             ywrk
@@ -27,16 +27,16 @@ export default function Nav() {
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="メニュー"
-            className="flex h-8 w-8 flex-col items-center justify-center gap-1.5"
+            className="flex h-8 w-8 flex-col items-center justify-center gap-2.5"
           >
             <span
-              className={`block h-px w-5 bg-zinc-700 transition-all duration-300 ${open ? "translate-y-[5px] rotate-45" : ""}`}
+              className={`block h-px bg-zinc-700 transition-all duration-300 ${open ? "w-7 -translate-x-[7px] translate-y-[14px] rotate-[38deg]" : "w-8"}`}
             />
             <span
-              className={`block h-px w-5 bg-zinc-700 transition-all duration-300 ${open ? "opacity-0" : ""}`}
+              className={`block h-px bg-zinc-700 transition-all duration-300 ${open ? "w-8 translate-x-[11px] rotate-90" : "w-8"}`}
             />
             <span
-              className={`block h-px w-5 bg-zinc-700 transition-all duration-300 ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
+              className={`block h-px bg-zinc-700 transition-all duration-300 ${open ? "w-7 -translate-x-[7px] -translate-y-[14px] -rotate-[38deg]" : "w-8"}`}
             />
           </button>
         </div>
