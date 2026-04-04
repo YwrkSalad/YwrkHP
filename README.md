@@ -15,27 +15,11 @@
 - React Compiler 有効 (`reactCompiler: true`)
 - パッケージマネージャ: yarn
 
-## 2. 実行方法
+## 2. データベース
 
-```bash
-# 開発サーバー起動
-yarn dev
+ページへのアクセスを記録し、今日のページビュー数をサイト上に表示するために使用する。
 
-# ビルド
-yarn build
-
-# フォーマット
-yarn fmt
-
-# Lint
-yarn lint
-```
-
-開発サーバー起動後、[http://localhost:3000](http://localhost:3000) をブラウザで開く。
-
-## 3. データベース
-
-### 3.1. セットアップ
+### 2.1. セットアップ
 
 PostgreSQL にユーザーと DB を作成する。
 
@@ -55,6 +39,24 @@ DATABASE_URL="postgresql://ywrk:パスワード@localhost:5432/ywrkdb?schema=pub
 
 なお、パスワードは管理者 elsy0111 に尋ねること。
 
+## 3. 実行方法
+
+```bash
+# 開発サーバー起動
+yarn dev
+
+# ビルド
+yarn build
+
+# フォーマット
+yarn fmt
+
+# Lint
+yarn lint
+```
+
+開発サーバー起動後、[http://localhost:3000](http://localhost:3000) をブラウザで開く。
+
 ## 4. デプロイ (Xserver VPS)
 
 ### 4.1. 構成
@@ -68,7 +70,7 @@ ywrk.org
 
 ### 4.2. セットアップ
 
-事前に [3.1. データベース > セットアップ](#31-セットアップ) を参照すること。
+事前に [2.1. データベース > セットアップ](#21-セットアップ) を参照すること。
 
 1. クローン
 
