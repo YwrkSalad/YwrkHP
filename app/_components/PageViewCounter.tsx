@@ -25,15 +25,21 @@ function AnimatedDigit({ digit }: { digit: string }) {
 }
 
 export default function PageViewCounter({ initial }: { initial: number }) {
-  const [count, setCount] = useState(initial);
+  const [count, setCount] = useState(Math.max(0, initial - 1));
 
   useEffect(() => {
-    const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
-      let n = 0;
-      snapshot.forEach(() => { n++; });
-      setCount(n);
-    });
-    return unsubscribe;
+    let unsubscribe: () => void = () => {};
+    const timer = setTimeout(() => {
+      unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
+        let n = 0;
+        snapshot.forEach(() => { n++; });
+        setCount(n);
+      });
+    }, 600);
+    return () => {
+      clearTimeout(timer);
+      unsubscribe();
+    };
   }, []);
 
   const formatted = count.toLocaleString("ja-JP");
