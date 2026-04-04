@@ -9,7 +9,7 @@ export async function GET() {
   const stream = new ReadableStream({
     start(controller) {
       listener = (snapshot: DataSnapshot) => {
-        const val = snapshot.val() ?? 0;
+        const val = snapshot.numChildren();
         try {
           controller.enqueue(encoder.encode(`data: ${val}\n\n`));
         } catch {
