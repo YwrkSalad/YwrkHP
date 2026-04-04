@@ -30,13 +30,13 @@ export default function Nav() {
             className="flex h-8 w-8 flex-col items-center justify-center gap-2.5"
           >
             <span
-              className={`block h-px bg-zinc-700 transition-all duration-300 ${open ? "w-7 -translate-x-[7px] translate-y-[14px] rotate-[38deg]" : "w-8"}`}
+              className={`block h-[1.5px] bg-zinc-700 transition-all duration-300 ${open ? "w-7 -translate-x-[7px] translate-y-[14px] rotate-[38deg]" : "w-8"}`}
             />
             <span
-              className={`block h-px bg-zinc-700 transition-all duration-300 ${open ? "w-8 translate-x-[11px] rotate-90" : "w-8"}`}
+              className={`block h-[1.5px] bg-zinc-700 transition-all duration-300 ${open ? "w-8 translate-x-[11px] rotate-90" : "w-8"}`}
             />
             <span
-              className={`block h-px bg-zinc-700 transition-all duration-300 ${open ? "w-7 -translate-x-[7px] -translate-y-[14px] -rotate-[38deg]" : "w-8"}`}
+              className={`block h-[1.5px] bg-zinc-700 transition-all duration-300 ${open ? "w-7 -translate-x-[7px] -translate-y-[14px] -rotate-[38deg]" : "w-8"}`}
             />
           </button>
         </div>
