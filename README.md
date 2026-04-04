@@ -17,6 +17,8 @@
 
 ## セットアップ
 
+事前に [データベース](#データベース) のセットアップを行うこと。
+
 ```bash
 yarn
 ```
@@ -38,6 +40,24 @@ yarn lint
 ```
 
 開発サーバー起動後、[http://localhost:3000](http://localhost:3000) をブラウザで開く。
+
+## データベース
+
+PostgreSQL にユーザーと DB を作成する。
+
+```bash
+# ユーザー作成
+sudo -u postgres psql -c "CREATE USER ywrk WITH PASSWORD 'パスワード';"
+
+# DB作成
+sudo -u postgres psql -c "CREATE DATABASE ywrkdb OWNER ywrk;"
+```
+
+作成後、`.env` に接続情報を設定する：
+
+```env
+DATABASE_URL="postgresql://ywrk:パスワード@localhost:5432/ywrkdb?schema=public"
+```
 
 ## デプロイ (Xserver VPS)
 
