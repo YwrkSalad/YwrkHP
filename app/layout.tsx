@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     siteName: "ywrk",
     images: [
       {
-        url: "https://ywrk.org/ywrksalad.png",
-        width: 128,
-        height: 128,
+        url: "https://ywrk.org/OGP/OGP_1200x630.png",
+        width: 1200,
+        height: 630,
         alt: "ywrk",
       },
     ],
@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     site: "@ywrk81",
     title: "ywrk",
     description: "全ての人にやわらかい顔つきを",
-    images: ["https://ywrk.org/ywrksalad.png"],
+    images: ["https://ywrk.org/OGP/OGP_1200x630.png"],
   },
 };
 
