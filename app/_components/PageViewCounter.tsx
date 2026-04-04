@@ -2,24 +2,23 @@
 
 import NumberFlow from "@number-flow/react";
 import { onValue, ref } from "firebase/database";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { getClientDb } from "@/lib/firebase-client";
 
 export default function PageViewCounter({ initial }: { initial: number }) {
-  const [count, setCount] = useState(initial);
-  const prevCount = useRef(initial);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
+    // マウント直後に 0 → initial でアニメーション
+    setCount(initial);
+
     const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
       let n = 0;
       snapshot.forEach(() => { n++; });
-      if (n !== prevCount.current) {
-        prevCount.current = n;
-        setCount(n);
-      }
+      setCount(n);
     });
     return unsubscribe;
-  }, []);
+  }, [initial]);
 
   return (
     <div className="flex flex-col items-center gap-8">
