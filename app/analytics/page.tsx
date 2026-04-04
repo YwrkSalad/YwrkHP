@@ -11,7 +11,7 @@ export default async function Analytics() {
     <>
       <Nav />
       <main>
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-stone-50/40 to-stone-100/60 px-8 pt-12">
+        <section className="relative flex h-svh flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-stone-50/40 to-stone-100/60 px-8">
           {/* 背景装飾 */}
           <span
             aria-hidden
@@ -35,12 +35,6 @@ export default async function Analytics() {
           </div>
         </section>
       </main>
-
-      <footer className="bg-white px-8 py-6">
-        <div className="mx-auto max-w-screen-xl border-t border-stone-100 pt-6">
-          <p className="text-xs text-stone-300">© 2026 ywrk</p>
-        </div>
-      </footer>
     </>
   );
 }
