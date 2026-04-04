@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { incrementAndGetTodayCount } from "@/lib/pageview";
+import PageViewCounter from "./_components/PageViewCounter";
 
 export default async function Home() {
   const count = await incrementAndGetTodayCount();
@@ -10,7 +11,7 @@ export default async function Home() {
       <h1 className="text-4xl font-semibold tracking-tight text-zinc-900">
         ywrk
       </h1>
-      <p className="mt-4 text-sm text-zinc-500">今日の訪問者数: {count}</p>
+      <PageViewCounter initial={count} />
     </main>
   );
 }
