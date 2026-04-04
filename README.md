@@ -89,7 +89,7 @@ yarn dev
 </details>
 
 <details>
-<summary>3.3. その他コマンド</summary>
+<summary>3.3. その他開発用コマンド (fmt, lint, build)</summary>
 
 フォーマット
 
