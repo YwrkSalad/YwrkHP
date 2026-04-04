@@ -23,7 +23,8 @@
 
 なお、サーバー側のセットアップは完了済みである。
 
-### 2.1. セットアップ (ローカル環境)
+<details>
+<summary>2.1. セットアップ (ローカル環境)</summary>
 
 各自の OS に合わせて PostgreSQL をインストールすること。なお、本番環境は PostgreSQL 18 を使用している。
 
@@ -45,11 +46,14 @@ DATABASE_URL="postgresql://ywrk:パスワード@localhost:5432/ywrkdb?schema=pub
 
 なお、パスワードは管理者 elsy0111 に尋ねること。
 
+</details>
+
 ## 3. 実行方法 (ローカル環境)
 
-事前に [2.1. データベース > セットアップ](#21-セットアップ) を参照すること。
+事前に [2.1. データベース > セットアップ](#21-セットアップ-ローカル環境) を参照すること。
 
-### 3.1. セットアップ
+<details>
+<summary>3.1. セットアップ</summary>
 
 1. クローン
 
@@ -64,7 +68,10 @@ cd YwrkHP
 yarn
 ```
 
-### 3.2. サーバー起動
+</details>
+
+<details>
+<summary>3.2. サーバー起動</summary>
 
 開発サーバーを起動する。
 
@@ -74,7 +81,10 @@ yarn dev
 
 [http://localhost:3000](http://localhost:3000) をブラウザで開く。
 
-### 3.3. その他コマンド
+</details>
+
+<details>
+<summary>3.3. その他コマンド</summary>
 
 フォーマット
 
@@ -94,9 +104,12 @@ yarn lint
 yarn build
 ```
 
+</details>
+
 ## 4. デプロイ (Xserver VPS)
 
-### 4.1. セットアップ
+<details>
+<summary>4.1. セットアップ</summary>
 
 pm2 で起動
 
@@ -112,10 +125,15 @@ PORT=3939 pm2 start yarn --name ywrk-hp -- start
 pm2 save && pm2 startup
 ```
 
-### 4.2. 更新手順
+</details>
+
+<details>
+<summary>4.2. 更新手順</summary>
 
 ```bash
 git pull
 yarn build
 pm2 reload ywrk-hp  # ゼロダウンタイムで再起動
 ```
+
+</details>
