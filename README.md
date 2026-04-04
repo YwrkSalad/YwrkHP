@@ -80,5 +80,5 @@ pm2 save && pm2 startup
 ```bash
 git pull
 yarn build
-pm2 reload ywrk-hp
+pm2 reload ywrk-hp  # ゼロダウンタイムで再起動
 ```
