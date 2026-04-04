@@ -10,6 +10,7 @@
 | [Tailwind CSS](https://tailwindcss.com)                                                                                      | 4          | スタイリング                |
 | [Prettier](https://prettier.io) + [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) | -          | フォーマッタ                |
 | [ESLint](https://eslint.org)                                                                                                 | 9          | Linter                      |
+| [Prisma](https://www.prisma.io)                                                                                              | 7          | ORM                         |
 
 - App Router を使用
 - React Compiler 有効 (`reactCompiler: true`)
