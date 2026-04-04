@@ -15,7 +15,7 @@
 - App Router を使用
 - React Compiler 有効 (`reactCompiler: true`)
 - パッケージマネージャ: yarn
-- 本番環境 OS: Arch Linux (Xserver VPS)
+- 本番環境VPS OS: Arch Linux (Xserver VPS)
 
 ## 2. データベース
 
@@ -45,9 +45,9 @@ docker compose -f prisma/docker-compose.yml up -d
 </details>
 
 <details>
-<summary>2.2. セットアップ (本番環境)</summary>
+<summary>2.2. セットアップ (本番環境VPS)</summary>
 
-本番環境 (VPS) では PostgreSQL 18 をネイティブで動かす。セットアップは管理者が行う。
+本番環境VPSでは PostgreSQL 18 をネイティブで動かす。セットアップは管理者が行う。
 
 `.env` に同様の3変数を設定すること。
 
@@ -111,7 +111,7 @@ yarn build
 
 </details>
 
-## 4. デプロイ (Xserver VPS)
+## 4. デプロイ (本番環境VPS)
 
 <details>
 <summary>4.1. セットアップ (済)</summary>
