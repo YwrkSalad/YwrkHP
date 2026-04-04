@@ -12,7 +12,9 @@ export default function PageViewCounter({ initial }: { initial: number }) {
   useEffect(() => {
     const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
       let n = 0;
-      snapshot.forEach(() => { n++; });
+      snapshot.forEach(() => {
+        n++;
+      });
       if (n !== prevCount.current) {
         prevCount.current = n;
         setCount(n);
