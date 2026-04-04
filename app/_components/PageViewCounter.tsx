@@ -5,16 +5,16 @@ import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { getClientDb } from "@/lib/firebase-client";
 
-function AnimatedDigit({ digit, index }: { digit: string; index: number }) {
+function AnimatedDigit({ digit }: { digit: string }) {
   return (
     <span className="relative inline-block overflow-hidden" style={{ verticalAlign: "bottom" }}>
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={digit}
           initial={{ y: "100%", opacity: 0 }}
           animate={{ y: "0%", opacity: 1 }}
           exit={{ y: "-100%", opacity: 0 }}
-          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: index * 0.04 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           className="inline-block"
         >
           {digit}
@@ -59,7 +59,7 @@ export default function PageViewCounter({ initial }: { initial: number }) {
               ,
             </span>
           ) : (
-            <AnimatedDigit key={`digit-${i}`} digit={char} index={i} />
+            <AnimatedDigit key={`digit-${i}`} digit={char} />
           ),
         )}
       </p>
