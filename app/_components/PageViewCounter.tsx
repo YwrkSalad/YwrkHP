@@ -1,46 +1,25 @@
 "use client";
 
+import NumberFlow from "@number-flow/react";
 import { onValue, ref } from "firebase/database";
 import { useEffect, useRef, useState } from "react";
 import { getClientDb } from "@/lib/firebase-client";
 
-function AnimatedDigit({ digit, delay }: { digit: string; delay: number }) {
-  return (
-    <span
-      className="inline-block overflow-hidden leading-[1]"
-      style={{ height: "1em" }}
-    >
-      <span
-        className="animate-rollup inline-block"
-        style={{ animationDelay: `${delay}ms` }}
-      >
-        {digit}
-      </span>
-    </span>
-  );
-}
-
 export default function PageViewCounter({ initial }: { initial: number }) {
   const [count, setCount] = useState(initial);
-  const [gen, setGen] = useState(0);
   const prevCount = useRef(initial);
 
   useEffect(() => {
     const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
       let n = 0;
-      snapshot.forEach(() => {
-        n++;
-      });
+      snapshot.forEach(() => { n++; });
       if (n !== prevCount.current) {
         prevCount.current = n;
         setCount(n);
-        setGen((g) => g + 1);
       }
     });
     return unsubscribe;
   }, []);
-
-  const formatted = count.toLocaleString("ja-JP");
 
   return (
     <div className="flex flex-col items-center gap-8">
@@ -56,17 +35,11 @@ export default function PageViewCounter({ initial }: { initial: number }) {
       </div>
 
       {/* Count */}
-      <p className="flex items-end text-8xl font-semibold tracking-tight text-zinc-900 sm:text-9xl">
-        {formatted.split("").map((char, i) =>
-          char === "," ? (
-            <span key={`sep-${i}`} className="pb-1 text-stone-300">
-              ,
-            </span>
-          ) : (
-            <AnimatedDigit key={`${i}-${gen}`} digit={char} delay={i * 40} />
-          ),
-        )}
-      </p>
+      <NumberFlow
+        value={count}
+        format={{ useGrouping: true }}
+        className="text-8xl font-semibold tracking-tight text-zinc-900 sm:text-9xl"
+      />
 
       {/* Label */}
       <div className="flex flex-col items-center gap-3">
