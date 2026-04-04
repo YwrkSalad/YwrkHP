@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ywrk",
-  description: "全ての人にやわらかい顔つきを",
+  description: "全ての人にやわらかな顔つきを",
   icons: { icon: "/ywrksalad.png" },
   openGraph: {
     title: "ywrk",
-    description: "全ての人にやわらかい顔つきを",
+    description: "全ての人にやわらかな顔つきを",
     url: "https://ywrk.org",
     siteName: "ywrk",
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@ywrk81",
     title: "ywrk",
-    description: "全ての人にやわらかい顔つきを",
+    description: "全ての人にやわらかな顔つきを",
     images: ["https://ywrk.org/OGP/OGP_1200x630.png"],
   },
 };
