@@ -16,5 +16,31 @@ export default function PageViewCounter({ initial }: { initial: number }) {
     return unsubscribe;
   }, []);
 
-  return <p className="mt-4 text-sm text-zinc-500">訪問者数: {count}</p>;
+  return (
+    <div className="flex flex-col items-center gap-8">
+      {/* Live indicator */}
+      <div className="flex items-center gap-2">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+        </span>
+        <span className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+          Live
+        </span>
+      </div>
+
+      {/* Count */}
+      <p className="text-8xl font-semibold tabular-nums tracking-tight text-zinc-900 sm:text-9xl">
+        {count.toLocaleString("ja-JP")}
+      </p>
+
+      {/* Label */}
+      <div className="flex flex-col items-center gap-3">
+        <div className="h-px w-12 bg-stone-200" />
+        <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+          Total Visits
+        </p>
+      </div>
+    </div>
+  );
 }
