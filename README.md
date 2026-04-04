@@ -32,7 +32,6 @@
 POSTGRES_USER=ywrk
 POSTGRES_PASSWORD=パスワード
 POSTGRES_DB=ywrkdb
-DATABASE_URL="postgresql://ywrk:パスワード@localhost:5432/ywrkdb?schema=public"
 ```
 
 なお、パスワードは管理者 elsy0111 に尋ねること。
