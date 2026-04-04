@@ -12,6 +12,7 @@
 | [ESLint](https://eslint.org)                                                                                                 | 9          | Linter                      |
 | [Prisma](https://www.prisma.io)                                                                                              | 7          | ORM                         |
 
+- Node.js 22 以上
 - App Router を使用
 - React Compiler 有効 (`reactCompiler: true`)
 - パッケージマネージャ: yarn
