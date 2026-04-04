@@ -52,10 +52,13 @@ ywrk.org
 
 ### 初回セットアップ
 
-1. クローン・依存関係インストール・ビルド
-2. pm2 で永続起動
-
 ```bash
+git clone https://github.com/YwrkSalad/YwrkHP.git
+cd YwrkHP
+yarn
+yarn build
+
+# pm2 で永続起動
 PORT=3939 pm2 start yarn --name ywrk-hp -- start
 pm2 save && pm2 startup
 ```
