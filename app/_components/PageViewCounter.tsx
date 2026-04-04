@@ -5,16 +5,16 @@ import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { getClientDb } from "@/lib/firebase-client";
 
-function AnimatedDigit({ digit }: { digit: string }) {
+function AnimatedDigit({ digit, index }: { digit: string; index: number }) {
   return (
     <span className="relative inline-block overflow-hidden" style={{ verticalAlign: "bottom" }}>
-      <AnimatePresence mode="popLayout" initial={false}>
+      <AnimatePresence mode="popLayout">
         <motion.span
           key={digit}
           initial={{ y: "100%", opacity: 0 }}
           animate={{ y: "0%", opacity: 1 }}
           exit={{ y: "-100%", opacity: 0 }}
-          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: index * 0.04 }}
           className="inline-block"
         >
           {digit}
@@ -25,21 +25,15 @@ function AnimatedDigit({ digit }: { digit: string }) {
 }
 
 export default function PageViewCounter({ initial }: { initial: number }) {
-  const [count, setCount] = useState(Math.max(0, initial - 1));
+  const [count, setCount] = useState(initial);
 
   useEffect(() => {
-    let unsubscribe: () => void = () => {};
-    const timer = setTimeout(() => {
-      unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
-        let n = 0;
-        snapshot.forEach(() => { n++; });
-        setCount(n);
-      });
-    }, 600);
-    return () => {
-      clearTimeout(timer);
-      unsubscribe();
-    };
+    const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
+      let n = 0;
+      snapshot.forEach(() => { n++; });
+      setCount(n);
+    });
+    return unsubscribe;
   }, []);
 
   const formatted = count.toLocaleString("ja-JP");
@@ -65,7 +59,7 @@ export default function PageViewCounter({ initial }: { initial: number }) {
               ,
             </span>
           ) : (
-            <AnimatedDigit key={`digit-${i}`} digit={char} />
+            <AnimatedDigit key={`digit-${i}`} digit={char} index={i} />
           ),
         )}
       </p>
