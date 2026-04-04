@@ -19,7 +19,7 @@ export default function Nav() {
         <div className="mx-auto flex h-18 max-w-screen-xl items-center justify-between px-6">
           <Link
             href="/"
-            className="text-xl font-medium tracking-widest text-zinc-700"
+            className="text-2xl font-medium tracking-widest text-zinc-700"
             onClick={() => setOpen(false)}
           >
             ywrk
