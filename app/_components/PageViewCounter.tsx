@@ -11,7 +11,7 @@ function AnimatedDigit({ digit, delay }: { digit: string; delay: number }) {
       style={{ height: "1em" }}
     >
       <span
-        className="inline-block animate-rollup"
+        className="animate-rollup inline-block"
         style={{ animationDelay: `${delay}ms` }}
       >
         {digit}
@@ -28,7 +28,9 @@ export default function PageViewCounter({ initial }: { initial: number }) {
   useEffect(() => {
     const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
       let n = 0;
-      snapshot.forEach(() => { n++; });
+      snapshot.forEach(() => {
+        n++;
+      });
       if (n !== prevCount.current) {
         prevCount.current = n;
         setCount(n);
@@ -61,11 +63,7 @@ export default function PageViewCounter({ initial }: { initial: number }) {
               ,
             </span>
           ) : (
-            <AnimatedDigit
-              key={`${i}-${gen}`}
-              digit={char}
-              delay={i * 40}
-            />
+            <AnimatedDigit key={`${i}-${gen}`} digit={char} delay={i * 40} />
           ),
         )}
       </p>

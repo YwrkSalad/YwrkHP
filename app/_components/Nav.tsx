@@ -8,12 +8,14 @@ export default function Nav() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-stone-200/60 bg-white/80 backdrop-blur-md">
+      <header className="fixed top-0 right-0 left-0 z-50 border-b border-stone-200/60 bg-white/80 backdrop-blur-md">
         <div className="mx-auto flex h-12 max-w-screen-xl items-center justify-between px-6">
           <Link
             href="/"

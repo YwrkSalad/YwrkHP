@@ -23,7 +23,7 @@ export default async function Home() {
           {/* 背景装飾 */}
           <span
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none text-[22rem] font-bold leading-none text-stone-100 sm:text-[32rem]"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold text-stone-100 select-none sm:text-[32rem]"
           >
             yw
           </span>
@@ -56,7 +56,7 @@ export default async function Home() {
           {/* セクション番号装飾 */}
           <span
             aria-hidden
-            className="pointer-events-none absolute right-8 top-1/2 -translate-y-1/2 select-none text-[14rem] font-bold leading-none text-stone-100 sm:text-[20rem]"
+            className="pointer-events-none absolute top-1/2 right-8 -translate-y-1/2 text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
           >
             01
           </span>
@@ -73,7 +73,7 @@ export default async function Home() {
               やわらかな暮らし
             </h2>
             <div className="mt-10 h-px w-16 bg-stone-200" />
-            <p className="mt-10 max-w-xl text-center text-lg font-light leading-loose text-stone-500 sm:text-xl">
+            <p className="mt-10 max-w-xl text-center text-lg leading-loose font-light text-stone-500 sm:text-xl">
               心地よいリズムで、毎日をていねいに。
               <br />
               あたたかさに満ちた空間と時間が、
@@ -84,7 +84,7 @@ export default async function Home() {
             <p className="mt-16 text-4xl font-light text-stone-200 select-none">
               〝
             </p>
-            <p className="text-center text-base font-light italic text-stone-400">
+            <p className="text-center text-base font-light text-stone-400 italic">
               ていねいであること、それがすべての始まり。
             </p>
           </div>
@@ -95,7 +95,7 @@ export default async function Home() {
           {/* セクション番号装飾 */}
           <span
             aria-hidden
-            className="pointer-events-none absolute left-8 top-1/2 -translate-y-1/2 select-none text-[14rem] font-bold leading-none text-stone-100 sm:text-[20rem]"
+            className="pointer-events-none absolute top-1/2 left-8 -translate-y-1/2 text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
           >
             02
           </span>
@@ -112,7 +112,7 @@ export default async function Home() {
               やわらかな顔つき
             </h2>
             <div className="mt-10 h-px w-16 bg-stone-200" />
-            <p className="mt-10 max-w-xl text-center text-lg font-light leading-loose text-stone-500 sm:text-xl">
+            <p className="mt-10 max-w-xl text-center text-lg leading-loose font-light text-stone-500 sm:text-xl">
               おだやかに、自分らしく。
               <br />
               やわらかな表情がそこにあるだけで、
@@ -122,7 +122,7 @@ export default async function Home() {
             <p className="mt-16 text-4xl font-light text-stone-200 select-none">
               〝
             </p>
-            <p className="text-center text-base font-light italic text-stone-400">
+            <p className="text-center text-base font-light text-stone-400 italic">
               あなたの顔つきが、誰かの一日を変えるかもしれない。
             </p>
           </div>
@@ -133,7 +133,7 @@ export default async function Home() {
           {/* 背景装飾 */}
           <span
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none text-[18rem] font-bold leading-none text-zinc-800 sm:text-[26rem]"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18rem] leading-none font-bold text-zinc-800 select-none sm:text-[26rem]"
           >
             yw
           </span>
