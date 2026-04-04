@@ -46,7 +46,7 @@ yarn lint
 ```
 ywrk.org
   └─ nginx (リバースプロキシ)
-       └─ localhost:3939
+       └─ localhost(127.0.0.1):3939
             └─ pm2 (yarn start を永続化)
 ```
 
