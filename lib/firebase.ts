@@ -4,9 +4,7 @@ import { getDatabase } from "firebase-admin/database";
 function getFirebaseApp() {
   if (getApps().length > 0) return getApp();
 
-  const serviceAccount = JSON.parse(
-    process.env.FIREBASE_SERVICE_ACCOUNT_JSON!,
-  );
+  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON!);
 
   return initializeApp({
     credential: cert(serviceAccount),
