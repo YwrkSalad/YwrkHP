@@ -21,6 +21,16 @@
 
 ### 2.1. セットアップ
 
+**インストール (Arch Linux)**
+
+```bash
+sudo pacman -Sy       # ミラーリストを更新
+sudo pacman -S postgresql  # postgresql 18 系がインストールされる
+
+sudo -u postgres initdb -D /var/lib/postgres/data
+sudo systemctl enable --now postgresql
+```
+
 PostgreSQL にユーザーと DB を作成する。
 
 ```bash
