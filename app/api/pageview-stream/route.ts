@@ -1,10 +1,8 @@
 import type { DataSnapshot } from "firebase-admin/database";
 import { getDb } from "@/lib/firebase";
 
-const todayKey = () => new Date().toISOString().slice(0, 10);
-
 export async function GET() {
-  const ref = getDb().ref(`pageviews/${todayKey()}`);
+  const ref = getDb().ref("pageviews");
   const encoder = new TextEncoder();
   let listener: ((s: DataSnapshot) => void) | null = null;
 

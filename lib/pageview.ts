@@ -1,11 +1,5 @@
 import { getDb } from "./firebase";
 
-const startOfToday = () => {
-  const d = new Date();
-  d.setHours(0, 0, 0, 0);
-  return d.getTime();
-};
-
 function generateKey(): string {
   const now = new Date();
   const pad = (n: number, len = 2) => String(n).padStart(len, "0");
@@ -22,23 +16,16 @@ function generateKey(): string {
   return `${datePart}_${randomPart}`;
 }
 
-export async function recordVisitAndGetTodayCount(
+export async function recordVisitAndGetCount(
   ip: string,
   page: string,
 ): Promise<number> {
   const db = getDb();
   await db.ref(`pageviews/${generateKey()}`).set({ ts: Date.now(), ip, page });
-  const snapshot = await db
-    .ref("pageviews")
-    .orderByChild("ts")
-    .startAt(startOfToday())
-    .once("value");
+  const snapshot = await db.ref("pageviews").once("value");
   return snapshot.numChildren();
 }
 
-export function todayRef() {
-  return getDb()
-    .ref("pageviews")
-    .orderByChild("ts")
-    .startAt(startOfToday());
+export function allRef() {
+  return getDb().ref("pageviews");
 }

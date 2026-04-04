@@ -11,5 +11,5 @@ export default function PageViewCounter({ initial }: { initial: number }) {
     return () => es.close();
   }, []);
 
-  return <p className="mt-4 text-sm text-zinc-500">今日の訪問者数: {count}</p>;
+  return <p className="mt-4 text-sm text-zinc-500">訪問者数: {count}</p>;
 }
