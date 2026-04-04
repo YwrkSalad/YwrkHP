@@ -145,9 +145,10 @@ pm2 save && pm2 startup
 ```bash
 git pull
 yarn install
-npx prisma generate  # Prismaクライアントを再生成
+npx prisma generate       # Prismaクライアントを再生成
+npx prisma migrate deploy # マイグレーションを適用
 yarn build
-pm2 reload ywrk-hp  # ゼロダウンタイムで再起動
+pm2 reload ywrk-hp        # ゼロダウンタイムで再起動
 ```
 
 </details>
