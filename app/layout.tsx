@@ -4,6 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ywrk",
   description: "ywrk",
+  icons: { icon: "/ywrksalad.png" },
 };
 
 export default function RootLayout({
