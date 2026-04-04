@@ -11,3 +11,8 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model PageView {
+  id        Int      @id @default(autoincrement())
+  visitedAt DateTime @default(now())
+}
