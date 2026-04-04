@@ -1,20 +1,44 @@
 "use client";
 
 import { onValue, ref } from "firebase/database";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getClientDb } from "@/lib/firebase-client";
+
+function AnimatedDigit({ digit, delay }: { digit: string; delay: number }) {
+  return (
+    <span
+      className="inline-block overflow-hidden leading-[1]"
+      style={{ height: "1em" }}
+    >
+      <span
+        className="inline-block animate-rollup"
+        style={{ animationDelay: `${delay}ms` }}
+      >
+        {digit}
+      </span>
+    </span>
+  );
+}
 
 export default function PageViewCounter({ initial }: { initial: number }) {
   const [count, setCount] = useState(initial);
+  const [gen, setGen] = useState(0);
+  const prevCount = useRef(initial);
 
   useEffect(() => {
     const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
       let n = 0;
       snapshot.forEach(() => { n++; });
-      setCount(n);
+      if (n !== prevCount.current) {
+        prevCount.current = n;
+        setCount(n);
+        setGen((g) => g + 1);
+      }
     });
     return unsubscribe;
   }, []);
+
+  const formatted = count.toLocaleString("ja-JP");
 
   return (
     <div className="flex flex-col items-center gap-8">
@@ -30,8 +54,20 @@ export default function PageViewCounter({ initial }: { initial: number }) {
       </div>
 
       {/* Count */}
-      <p className="text-8xl font-semibold tabular-nums tracking-tight text-zinc-900 sm:text-9xl">
-        {count.toLocaleString("ja-JP")}
+      <p className="flex items-end text-8xl font-semibold tracking-tight text-zinc-900 sm:text-9xl">
+        {formatted.split("").map((char, i) =>
+          char === "," ? (
+            <span key={`sep-${i}`} className="pb-1 text-stone-300">
+              ,
+            </span>
+          ) : (
+            <AnimatedDigit
+              key={`${i}-${gen}`}
+              digit={char}
+              delay={i * 40}
+            />
+          ),
+        )}
       </p>
 
       {/* Label */}
