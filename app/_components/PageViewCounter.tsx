@@ -7,7 +7,10 @@ import { getClientDb } from "@/lib/firebase-client";
 
 function AnimatedDigit({ digit }: { digit: string }) {
   return (
-    <span className="relative inline-block overflow-hidden" style={{ verticalAlign: "bottom" }}>
+    <span
+      className="relative inline-block overflow-hidden"
+      style={{ verticalAlign: "bottom" }}
+    >
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={digit}
@@ -30,7 +33,9 @@ export default function PageViewCounter({ initial }: { initial: number }) {
   useEffect(() => {
     const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
       let n = 0;
-      snapshot.forEach(() => { n++; });
+      snapshot.forEach(() => {
+        n++;
+      });
       setCount(n);
     });
     return unsubscribe;

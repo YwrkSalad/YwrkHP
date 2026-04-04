@@ -3,6 +3,8 @@ export const dynamic = "force-dynamic";
 import { headers } from "next/headers";
 import { recordVisit } from "@/lib/pageview";
 import Nav from "./_components/Nav";
+import HeroAnimation from "./_components/HeroAnimation";
+import ScrollReveal from "./_components/ScrollReveal";
 
 export default async function Home() {
   const h = await headers();
@@ -18,42 +20,10 @@ export default async function Home() {
       <Nav />
 
       <main>
-        {/* Hero */}
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-stone-50/40 to-stone-100/60 px-8 pt-12">
-          {/* 背景装飾 */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold text-stone-100 select-none sm:text-[32rem]"
-          >
-            yw
-          </span>
-
-          <div className="relative z-10 flex flex-col items-center">
-            <p className="mb-8 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
-              ywrk
-            </p>
-            <h1 className="text-center text-6xl font-semibold tracking-tight text-zinc-900 sm:text-8xl md:text-9xl">
-              やわらかな
-              <br />
-              顔つきを。
-            </h1>
-            <p className="mt-10 text-center text-xl font-light text-stone-400 sm:text-2xl">
-              全ての人に。
-            </p>
-
-            {/* スクロールインジケーター */}
-            <div className="mt-24 flex flex-col items-center gap-2">
-              <span className="text-xs tracking-widest text-stone-300 uppercase">
-                Scroll
-              </span>
-              <div className="h-12 w-px bg-gradient-to-b from-stone-300 to-transparent" />
-            </div>
-          </div>
-        </section>
+        <HeroAnimation />
 
         {/* やわらかな暮らし */}
         <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-stone-50 px-8">
-          {/* セクション番号装飾 */}
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 right-8 -translate-y-1/2 text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
@@ -62,37 +32,45 @@ export default async function Home() {
           </span>
 
           <div className="relative z-10 flex flex-col items-center">
-            <div className="mb-8 flex items-center gap-4">
-              <div className="h-px w-8 bg-stone-300" />
-              <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
-                Lifestyle
+            <ScrollReveal delay={0}>
+              <div className="mb-8 flex items-center gap-4">
+                <div className="h-px w-8 bg-stone-300" />
+                <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                  Lifestyle
+                </p>
+                <div className="h-px w-8 bg-stone-300" />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.15} blur>
+              <h2 className="text-center text-5xl font-semibold tracking-tight text-zinc-900 sm:text-6xl md:text-7xl">
+                やわらかな暮らし
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <div className="mt-10 h-px w-16 bg-stone-200" />
+            </ScrollReveal>
+            <ScrollReveal delay={0.45}>
+              <p className="mt-10 max-w-xl text-center text-lg leading-loose font-light text-stone-500 sm:text-xl">
+                心地よいリズムで、毎日をていねいに。
+                <br />
+                あたたかさに満ちた空間と時間が、
+                <br />
+                やわらかな毎日をかたちづくる。
               </p>
-              <div className="h-px w-8 bg-stone-300" />
-            </div>
-            <h2 className="text-center text-5xl font-semibold tracking-tight text-zinc-900 sm:text-6xl md:text-7xl">
-              やわらかな暮らし
-            </h2>
-            <div className="mt-10 h-px w-16 bg-stone-200" />
-            <p className="mt-10 max-w-xl text-center text-lg leading-loose font-light text-stone-500 sm:text-xl">
-              心地よいリズムで、毎日をていねいに。
-              <br />
-              あたたかさに満ちた空間と時間が、
-              <br />
-              やわらかな毎日をかたちづくる。
-            </p>
-            {/* 引用装飾 */}
-            <p className="mt-16 text-4xl font-light text-stone-200 select-none">
-              〝
-            </p>
-            <p className="text-center text-base font-light text-stone-400 italic">
-              ていねいであること、それがすべての始まり。
-            </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.6}>
+              <p className="mt-16 text-4xl font-light text-stone-200 select-none">
+                〝
+              </p>
+              <p className="text-center text-base font-light text-stone-400 italic">
+                ていねいであること、それがすべての始まり。
+              </p>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* やわらかな顔つき */}
         <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-8">
-          {/* セクション番号装飾 */}
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-8 -translate-y-1/2 text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
@@ -101,36 +79,45 @@ export default async function Home() {
           </span>
 
           <div className="relative z-10 flex flex-col items-center">
-            <div className="mb-8 flex items-center gap-4">
-              <div className="h-px w-8 bg-stone-300" />
-              <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
-                Expression
+            <ScrollReveal delay={0}>
+              <div className="mb-8 flex items-center gap-4">
+                <div className="h-px w-8 bg-stone-300" />
+                <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                  Expression
+                </p>
+                <div className="h-px w-8 bg-stone-300" />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.15} blur>
+              <h2 className="text-center text-5xl font-semibold tracking-tight text-zinc-900 sm:text-6xl md:text-7xl">
+                やわらかな顔つき
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <div className="mt-10 h-px w-16 bg-stone-200" />
+            </ScrollReveal>
+            <ScrollReveal delay={0.45}>
+              <p className="mt-10 max-w-xl text-center text-lg leading-loose font-light text-stone-500 sm:text-xl">
+                おだやかに、自分らしく。
+                <br />
+                やわらかな表情がそこにあるだけで、
+                <br />
+                世界は少しやさしくなる。
               </p>
-              <div className="h-px w-8 bg-stone-300" />
-            </div>
-            <h2 className="text-center text-5xl font-semibold tracking-tight text-zinc-900 sm:text-6xl md:text-7xl">
-              やわらかな顔つき
-            </h2>
-            <div className="mt-10 h-px w-16 bg-stone-200" />
-            <p className="mt-10 max-w-xl text-center text-lg leading-loose font-light text-stone-500 sm:text-xl">
-              おだやかに、自分らしく。
-              <br />
-              やわらかな表情がそこにあるだけで、
-              <br />
-              世界は少しやさしくなる。
-            </p>
-            <p className="mt-16 text-4xl font-light text-stone-200 select-none">
-              〝
-            </p>
-            <p className="text-center text-base font-light text-stone-400 italic">
-              あなたの顔つきが、誰かの一日を変えるかもしれない。
-            </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.6}>
+              <p className="mt-16 text-4xl font-light text-stone-200 select-none">
+                〝
+              </p>
+              <p className="text-center text-base font-light text-stone-400 italic">
+                あなたの顔つきが、誰かの一日を変えるかもしれない。
+              </p>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Bottom CTA */}
         <section className="relative flex min-h-[60vh] flex-col items-center justify-center overflow-hidden bg-zinc-900 px-8">
-          {/* 背景装飾 */}
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18rem] leading-none font-bold text-zinc-800 select-none sm:text-[26rem]"
@@ -138,15 +125,21 @@ export default async function Home() {
             yw
           </span>
           <div className="relative z-10 flex flex-col items-center">
-            <p className="mb-8 text-xs font-medium tracking-[0.3em] text-zinc-500 uppercase">
-              ywrk
-            </p>
-            <p className="text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              全ての人に、
-              <br />
-              やわらかな顔つきを。
-            </p>
-            <div className="mt-12 h-px w-16 bg-zinc-700" />
+            <ScrollReveal delay={0}>
+              <p className="mb-8 text-xs font-medium tracking-[0.3em] text-zinc-500 uppercase">
+                ywrk
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2} blur>
+              <p className="text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
+                全ての人に、
+                <br />
+                やわらかな顔つきを。
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.4}>
+              <div className="mt-12 h-px w-16 bg-zinc-700" />
+            </ScrollReveal>
           </div>
         </section>
       </main>
