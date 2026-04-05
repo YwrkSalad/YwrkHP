@@ -28,34 +28,24 @@ function Row({
       className={[
         "flex items-center justify-between rounded-xl px-4 py-2.5 text-sm backdrop-blur-sm transition-colors",
         isYou
-          ? "border border-violet-300/60 bg-violet-500/75 text-white shadow-[0_2px_12px_rgba(139,92,246,0.25)]"
-          : "border border-white/40 bg-white/20 text-stone-700",
+          ? "border border-zinc-700/60 bg-zinc-900/80 text-white shadow-[0_2px_12px_rgba(0,0,0,0.18)]"
+          : "border border-white/50 bg-white/25 text-zinc-600",
       ].join(" ")}
     >
       <div className="flex items-center gap-3">
-        <span
-          className={[
-            "w-5 text-right font-mono text-xs",
-            isYou ? "text-violet-200" : "text-stone-400",
-          ].join(" ")}
-        >
+        <span className={["w-5 text-right font-mono text-xs", isYou ? "text-zinc-500" : "text-zinc-300"].join(" ")}>
           {rank}
         </span>
-        <span className={["font-medium", isYou ? "text-white" : "text-stone-700"].join(" ")}>
+        <span className={["font-medium", isYou ? "text-white" : "text-zinc-700"].join(" ")}>
           {name}
         </span>
         {isYou && (
-          <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs font-medium tracking-wide text-white">
+          <span className="rounded-full bg-white/15 px-2 py-0.5 text-xs font-medium tracking-wide text-zinc-300">
             you
           </span>
         )}
       </div>
-      <span
-        className={[
-          "font-mono text-xs tabular-nums",
-          isYou ? "text-violet-100" : "text-stone-500",
-        ].join(" ")}
-      >
+      <span className={["font-mono text-xs tabular-nums", isYou ? "text-zinc-400" : "text-zinc-400"].join(" ")}>
         {count.toLocaleString("ja-JP")}
       </span>
     </div>
@@ -101,9 +91,9 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
       {!myInTop && !expanded && myRank !== -1 && (
         <>
           <div className="flex items-center gap-2 px-1 py-0.5">
-            <div className="h-px flex-1 bg-violet-200/40" />
-            <span className="text-xs text-violet-300/60">···</span>
-            <div className="h-px flex-1 bg-violet-200/40" />
+            <div className="h-px flex-1 bg-zinc-300/30" />
+            <span className="text-xs text-zinc-300/60">···</span>
+            <div className="h-px flex-1 bg-zinc-300/30" />
           </div>
           <Row rank={myRank + 1} name={myName} count={counts[myName] ?? 0} isYou />
         </>
@@ -117,7 +107,7 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
       {hasMore && (
         <button
           onClick={() => setExpanded((v) => !v)}
-          className="mt-1 self-center text-xs font-medium tracking-widest text-violet-400/70 uppercase transition-colors hover:text-violet-600"
+          className="mt-1 self-center text-xs font-medium tracking-widest text-zinc-400 uppercase transition-colors hover:text-zinc-700"
         >
           {expanded ? "less" : `more  +${rest.length}`}
         </button>
