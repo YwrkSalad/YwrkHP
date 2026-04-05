@@ -19,11 +19,11 @@ export default async function Home() {
     <>
       <Nav />
 
-      <main>
+      <main className="h-svh overflow-y-scroll snap-y snap-mandatory">
         <HeroAnimation />
 
         {/* やわらかな暮らし */}
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-stone-50 px-8">
+        <section className="relative flex h-svh snap-start flex-col items-center justify-center overflow-hidden bg-stone-50 px-8">
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 right-8 -translate-y-1/2 text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
@@ -70,7 +70,7 @@ export default async function Home() {
         </section>
 
         {/* やわらかな顔つき */}
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-8">
+        <section className="relative flex h-svh snap-start flex-col items-center justify-center overflow-hidden bg-white px-8">
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-8 -translate-y-1/2 text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
@@ -117,14 +117,14 @@ export default async function Home() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="relative flex min-h-[60vh] flex-col items-center justify-center overflow-hidden bg-zinc-900 px-8">
+        <section className="relative flex h-svh snap-start flex-col overflow-hidden bg-zinc-900 px-8">
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18rem] leading-none font-bold text-zinc-800 select-none sm:text-[26rem]"
           >
             yw
           </span>
-          <div className="relative z-10 flex flex-col items-center">
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-center">
             <ScrollReveal delay={0}>
               <p className="mb-8 text-xs font-medium tracking-[0.3em] text-zinc-500 uppercase">
                 ywrk
@@ -141,14 +141,11 @@ export default async function Home() {
               <div className="mt-12 h-px w-16 bg-zinc-700" />
             </ScrollReveal>
           </div>
+          <div className="relative z-10 mx-auto w-full max-w-screen-xl border-t border-zinc-800 py-6">
+            <p className="text-xs text-zinc-700">© 2026 ywrk</p>
+          </div>
         </section>
       </main>
-
-      <footer className="bg-zinc-900 px-8 pb-8">
-        <div className="mx-auto max-w-screen-xl border-t border-zinc-800 pt-6">
-          <p className="text-xs text-zinc-700">© 2026 ywrk</p>
-        </div>
-      </footer>
     </>
   );
 }

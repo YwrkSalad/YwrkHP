@@ -9,7 +9,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroAnimation() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-stone-50/40 to-stone-100/60 px-8 pt-12">
+    <section className="relative flex h-svh snap-start flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-stone-50/40 to-stone-100/60 px-8 pt-12">
       {/* ページ全体を覆うホワイトオーバーレイ */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[60] bg-white"
