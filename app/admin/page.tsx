@@ -34,14 +34,36 @@ export default function AdminPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem(TOKEN_KEY) ?? "";
-    verifyToken(token).then((ok) => {
-      if (!ok) router.replace("/admin/login");
-      else {
-        setAuthed(true);
-        recordAdminVisit();
+    let cancelled = false;
+
+    async function guard() {
+      const token = localStorage.getItem(TOKEN_KEY) ?? "";
+      if (!token) {
+        localStorage.removeItem(TOKEN_KEY);
+        if (!cancelled) router.replace("/admin/login");
+        return;
       }
-    });
+
+      try {
+        const ok = await verifyToken(token);
+        if (!ok) {
+          localStorage.removeItem(TOKEN_KEY);
+          if (!cancelled) router.replace("/admin/login");
+          return;
+        }
+        if (cancelled) return;
+        setAuthed(true);
+        void recordAdminVisit();
+      } catch {
+        localStorage.removeItem(TOKEN_KEY);
+        if (!cancelled) router.replace("/admin/login");
+      }
+    }
+
+    void guard();
+    return () => {
+      cancelled = true;
+    };
   }, [router]);
 
   useEffect(() => {

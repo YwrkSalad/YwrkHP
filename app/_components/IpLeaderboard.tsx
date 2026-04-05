@@ -1,6 +1,6 @@
 "use client";
 
-import { onChildAdded, onChildRemoved, ref } from "firebase/database";
+import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { getClientDb } from "@/lib/firebase-client";
 import { ipToName } from "@/lib/ipname";
@@ -68,31 +68,19 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
 
   useEffect(() => {
     const pvRef = ref(getClientDb(), "pageviews");
-    const keyToName = new Map<string, string>(); // firebaseKey → ipName
-
-    const unsubAdd = onChildAdded(pvRef, (snap) => {
-      const ip: string = snap.val()?.ip;
-      if (!ip) return;
-      const name = ipToName(ip);
-      keyToName.set(snap.key!, name);
-      setCounts((prev) => ({ ...prev, [name]: (prev[name] ?? 0) + 1 }));
-    });
-
-    const unsubRemove = onChildRemoved(pvRef, (snap) => {
-      const name = keyToName.get(snap.key!);
-      if (!name) return;
-      keyToName.delete(snap.key!);
-      setCounts((prev) => {
-        const next = { ...prev };
-        if ((next[name] ?? 0) <= 1) delete next[name];
-        else next[name]--;
-        return next;
+    const unsub = onValue(pvRef, (snap) => {
+      const next: Record<string, number> = {};
+      snap.forEach((child) => {
+        const ip: string = child.val()?.ip;
+        if (!ip) return;
+        const name = ipToName(ip);
+        next[name] = (next[name] ?? 0) + 1;
       });
+      setCounts(next);
     });
 
     return () => {
-      unsubAdd();
-      unsubRemove();
+      unsub();
     };
   }, []);
 
