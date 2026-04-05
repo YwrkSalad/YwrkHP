@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { onValue, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
 import { ipToName } from "@/lib/ipname";
-import { verifyToken, recordAdminVisit } from "./actions";
+import { verifyToken, recordAdminVisit, eraseVisitorLog } from "./actions";
 
 const TOKEN_KEY = "ywrk-admin-token";
 
@@ -207,6 +207,19 @@ export default function AdminPage() {
                 </dd>
               </div>
             </dl>
+
+            <div className="mt-8 border-t border-stone-100 pt-6">
+              <button
+                onClick={async () => {
+                  if (!confirm(`${modal.name} のログを全て削除しますか？`)) return;
+                  await eraseVisitorLog(modal.ip);
+                  setModal(null);
+                }}
+                className="w-full rounded-lg border border-red-100 bg-red-50 py-2 text-xs font-medium text-red-400 transition-colors hover:bg-red-100 hover:text-red-600"
+              >
+                Erase log about this user
+              </button>
+            </div>
           </div>
         </div>
       )}

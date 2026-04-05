@@ -15,6 +15,16 @@ export async function verifyToken(token: string): Promise<boolean> {
   return token === TOKEN;
 }
 
+export async function eraseVisitorLog(ip: string): Promise<void> {
+  const db = (await import("@/lib/firebase")).getDb();
+  const snapshot = await db.ref("pageviews").once("value");
+  const deletes: Promise<void>[] = [];
+  snapshot.forEach((child) => {
+    if (child.val()?.ip === ip) deletes.push(child.ref.remove());
+  });
+  await Promise.all(deletes);
+}
+
 export async function recordAdminVisit(): Promise<void> {
   const h = await headers();
   const ua = h.get("user-agent") ?? "";
