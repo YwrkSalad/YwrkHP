@@ -18,6 +18,7 @@ type Pageview = {
 
 type VisitorStat = {
   name: string;
+  ip: string;
   count: number;
   pages: Set<string>;
   first: number;
@@ -59,7 +60,7 @@ export default function AdminPage() {
   // 集計
   const visitorMap = new Map<string, VisitorStat>();
   for (const pv of pageviews) {
-    const s = visitorMap.get(pv.name) ?? { name: pv.name, count: 0, pages: new Set(), first: pv.ts, last: pv.ts };
+    const s = visitorMap.get(pv.name) ?? { name: pv.name, ip: pv.ip, count: 0, pages: new Set(), first: pv.ts, last: pv.ts };
     s.count++;
     s.pages.add(pv.page);
     s.first = Math.min(s.first, pv.ts);
@@ -138,7 +139,7 @@ export default function AdminPage() {
                   <td className="py-3">
                     <button
                       onClick={() => setModal(v)}
-                      className="text-xs text-stone-300 hover:text-stone-600 transition-colors"
+                      className="rounded-md bg-stone-100 px-2.5 py-1 text-xs font-medium text-stone-500 hover:bg-stone-200 hover:text-zinc-700 transition-colors"
                     >
                       ···
                     </button>
@@ -179,6 +180,10 @@ export default function AdminPage() {
               <button onClick={() => setModal(null)} className="text-stone-300 hover:text-stone-600 transition-colors text-lg leading-none">×</button>
             </div>
             <dl className="flex flex-col gap-4 text-sm">
+              <div className="flex justify-between">
+                <dt className="text-stone-400">IP</dt>
+                <dd className="font-mono text-xs text-zinc-700">{modal.ip}</dd>
+              </div>
               <div className="flex justify-between">
                 <dt className="text-stone-400">Visits</dt>
                 <dd className="font-medium text-zinc-700">{modal.count}</dd>
