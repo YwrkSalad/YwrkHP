@@ -28,14 +28,16 @@ export default async function Analytics() {
         <section className="relative flex h-full flex-col items-center overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-100 px-8">
           <div
             aria-hidden
-            className="pointer-events-none absolute top-[calc(50%-2rem)] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-[18rem] leading-none font-bold text-stone-200 select-none"
+            className="pointer-events-none absolute top-[calc(50%-2rem)] left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center text-[18rem] leading-none font-bold text-stone-200 select-none"
             style={{ gap: "2svh" }}
           >
             <div className="flex" style={{ gap: "8vw" }}>
-              <span>y</span><span>w</span>
+              <span>y</span>
+              <span>w</span>
             </div>
             <div className="flex" style={{ gap: "8vw" }}>
-              <span>r</span><span>k</span>
+              <span>r</span>
+              <span>k</span>
             </div>
           </div>
 
@@ -50,9 +52,12 @@ export default async function Analytics() {
               </p>
             </div>
 
-            <PageViewCounter initial={count} initialVisitors={Object.keys(ipCounts).length} />
+            <PageViewCounter
+              initial={count}
+              initialVisitors={Object.keys(ipCounts).length}
+            />
 
-            <div className="w-full max-w-sm max-h-[40svh] overflow-y-auto">
+            <div className="max-h-[40svh] w-full max-w-sm overflow-y-auto">
               <IpLeaderboard initialCounts={ipCounts} myName={myName} />
             </div>
           </div>

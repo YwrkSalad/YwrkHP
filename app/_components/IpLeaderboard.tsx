@@ -12,7 +12,17 @@ type Props = {
   myName: string;
 };
 
-function Row({ rank, name, count, isYou }: { rank: number; name: string; count: number; isYou: boolean }) {
+function Row({
+  rank,
+  name,
+  count,
+  isYou,
+}: {
+  rank: number;
+  name: string;
+  count: number;
+  isYou: boolean;
+}) {
   return (
     <div
       className={[
@@ -23,10 +33,20 @@ function Row({ rank, name, count, isYou }: { rank: number; name: string; count: 
       ].join(" ")}
     >
       <div className="flex items-center gap-3">
-        <span className={["w-5 text-right font-mono text-xs", isYou ? "text-zinc-500" : "text-zinc-300"].join(" ")}>
+        <span
+          className={[
+            "w-5 text-right font-mono text-xs",
+            isYou ? "text-zinc-500" : "text-zinc-300",
+          ].join(" ")}
+        >
           {rank}
         </span>
-        <span className={["font-medium", isYou ? "text-white" : "text-zinc-700"].join(" ")}>
+        <span
+          className={[
+            "font-medium",
+            isYou ? "text-white" : "text-zinc-700",
+          ].join(" ")}
+        >
           {name}
         </span>
         {isYou && (
@@ -35,7 +55,7 @@ function Row({ rank, name, count, isYou }: { rank: number; name: string; count: 
           </span>
         )}
       </div>
-      <span className="font-mono text-xs tabular-nums text-zinc-400">
+      <span className="font-mono text-xs text-zinc-400 tabular-nums">
         {count.toLocaleString("ja-JP")}
       </span>
     </div>
@@ -70,7 +90,10 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
       });
     });
 
-    return () => { unsubAdd(); unsubRemove(); };
+    return () => {
+      unsubAdd();
+      unsubRemove();
+    };
   }, []);
 
   const sorted = Object.entries(counts).sort(([, a], [, b]) => b - a);
@@ -85,7 +108,13 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
   return (
     <div className="flex w-full flex-col gap-1.5">
       {top.map(([name, count], i) => (
-        <Row key={name} rank={i + 1} name={name} count={count} isYou={name === myName} />
+        <Row
+          key={name}
+          rank={i + 1}
+          name={name}
+          count={count}
+          isYou={name === myName}
+        />
       ))}
 
       {!myInTop && !expanded && myRank !== -1 && (
@@ -95,13 +124,25 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
             <span className="text-xs text-zinc-300/60">···</span>
             <div className="h-px flex-1 bg-zinc-300/30" />
           </div>
-          <Row rank={myRank + 1} name={myName} count={counts[myName] ?? 0} isYou />
+          <Row
+            rank={myRank + 1}
+            name={myName}
+            count={counts[myName] ?? 0}
+            isYou
+          />
         </>
       )}
 
-      {expanded && rest.map(([name, count], i) => (
-        <Row key={name} rank={TOP_N + i + 1} name={name} count={count} isYou={name === myName} />
-      ))}
+      {expanded &&
+        rest.map(([name, count], i) => (
+          <Row
+            key={name}
+            rank={TOP_N + i + 1}
+            name={name}
+            count={count}
+            isYou={name === myName}
+          />
+        ))}
 
       {hasMore && (
         <button

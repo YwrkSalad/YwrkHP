@@ -51,9 +51,7 @@ export default function AdminLogin() {
             autoFocus
             className="w-48 border-b border-stone-300 bg-transparent py-2 text-center text-sm text-zinc-800 outline-none placeholder:text-stone-300 focus:border-zinc-500"
           />
-          {error && (
-            <p className="text-xs text-red-400">incorrect password</p>
-          )}
+          {error && <p className="text-xs text-red-400">incorrect password</p>}
         </div>
 
         <button

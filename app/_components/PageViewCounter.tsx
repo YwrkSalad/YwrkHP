@@ -55,7 +55,10 @@ export default function PageViewCounter({
       setVisitors(new Set(ips.values()).size);
     });
 
-    return () => { unsubAdd(); unsubRemove(); };
+    return () => {
+      unsubAdd();
+      unsubRemove();
+    };
   }, []);
 
   const formatted = count.toLocaleString("ja-JP");
@@ -75,7 +78,9 @@ export default function PageViewCounter({
       <p className="flex items-end text-7xl font-semibold tracking-tight text-zinc-900 sm:text-8xl">
         {formatted.split("").map((char, i) =>
           char === "," ? (
-            <span key={`sep-${i}`} className="pb-1 text-zinc-300">,</span>
+            <span key={`sep-${i}`} className="pb-1 text-zinc-300">
+              ,
+            </span>
           ) : (
             <AnimatedDigit key={`digit-${i}`} digit={char} />
           ),

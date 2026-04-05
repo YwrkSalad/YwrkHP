@@ -19,7 +19,7 @@ export default async function Home() {
     <>
       <Nav />
 
-      <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] overflow-y-scroll snap-y snap-mandatory">
+      <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] snap-y snap-mandatory overflow-y-scroll">
         <HeroAnimation />
 
         {/* やわらかな暮らし */}
