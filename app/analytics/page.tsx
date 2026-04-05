@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 import { headers } from "next/headers";
 import { getStats, recordVisit } from "@/lib/pageview";
 import { ipToName } from "@/lib/ipname";
+import { isBot } from "@/lib/isBot";
 import Nav from "../_components/Nav";
 import PageViewCounter from "../_components/PageViewCounter";
 import IpLeaderboard from "../_components/IpLeaderboard";
@@ -16,8 +17,7 @@ export default async function Analytics() {
   ).replace(/^::ffff:/, "");
   const myName = ipToName(ip);
   const ua = h.get("user-agent") ?? "";
-  const isBot = /bot|crawler|spider|crawling|headless|prerender|lighthouse|facebookexternalhit/i.test(ua);
-  if (!isBot) await recordVisit(ip, "/analytics");
+  if (!isBot(ua)) await recordVisit(ip, "/analytics");
 
   const { count, ipCounts } = await getStats();
 
