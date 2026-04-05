@@ -140,7 +140,7 @@ export default function AdminPage() {
       </div>
 
       {/* Summary */}
-      <div className="mb-10 flex gap-12">
+      <div className="mb-10 flex items-end gap-12">
         <div>
           <p className="text-4xl font-semibold text-zinc-900">
             {pageviews.length.toLocaleString("ja-JP")}
@@ -156,6 +156,15 @@ export default function AdminPage() {
           <p className="mt-1 text-xs tracking-[0.2em] text-stone-500 uppercase">
             Visitors
           </p>
+        </div>
+        <div className="ml-auto flex items-center gap-2 pb-1">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          </span>
+          <span className="text-xs font-medium tracking-[0.3em] text-zinc-400 uppercase">
+            Live
+          </span>
         </div>
       </div>
 
