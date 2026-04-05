@@ -27,14 +27,27 @@ function AnimatedDigit({ digit }: { digit: string }) {
   );
 }
 
-export default function PageViewCounter({ initial }: { initial: number }) {
+export default function PageViewCounter({
+  initial,
+  initialVisitors,
+}: {
+  initial: number;
+  initialVisitors: number;
+}) {
   const [count, setCount] = useState(initial);
+  const [visitors, setVisitors] = useState(initialVisitors);
 
   useEffect(() => {
     const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
       let n = 0;
-      snapshot.forEach(() => { n++; });
+      const ips = new Set<string>();
+      snapshot.forEach((child) => {
+        n++;
+        const ip: string = child.val()?.ip;
+        if (ip) ips.add(ip);
+      });
       setCount(n);
+      setVisitors(ips.size);
     });
     return unsubscribe;
   }, []);
@@ -56,9 +69,7 @@ export default function PageViewCounter({ initial }: { initial: number }) {
       <p className="flex items-end text-7xl font-semibold tracking-tight text-zinc-900 sm:text-8xl">
         {formatted.split("").map((char, i) =>
           char === "," ? (
-            <span key={`sep-${i}`} className="pb-1 text-zinc-300">
-              ,
-            </span>
+            <span key={`sep-${i}`} className="pb-1 text-zinc-300">,</span>
           ) : (
             <AnimatedDigit key={`digit-${i}`} digit={char} />
           ),
@@ -69,6 +80,9 @@ export default function PageViewCounter({ initial }: { initial: number }) {
         <div className="h-px w-10 bg-zinc-200" />
         <p className="text-xs font-medium tracking-[0.3em] text-zinc-400 uppercase">
           Total Visits
+        </p>
+        <p className="text-xs font-medium tracking-[0.3em] text-zinc-300 uppercase">
+          Visitors : {visitors.toLocaleString("ja-JP")}
         </p>
       </div>
     </div>
