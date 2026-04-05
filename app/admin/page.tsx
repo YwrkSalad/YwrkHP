@@ -193,7 +193,7 @@ export default function AdminPage() {
           >
             <div className="mb-6 flex items-start justify-between">
               <p className="font-semibold text-zinc-800">{modal.name}</p>
-              <button onClick={() => setModal(null)} className="text-stone-300 hover:text-stone-600 transition-colors text-lg leading-none">×</button>
+              <button onClick={() => setModal(null)} className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-100 text-sm text-stone-400 hover:bg-stone-200 hover:text-zinc-700 transition-colors">×</button>
             </div>
             <dl className="flex flex-col gap-4 text-sm">
               <div className="flex justify-between">
