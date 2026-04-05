@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { onChildAdded, onChildRemoved, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
 import { ipToName } from "@/lib/ipname";
+import { MoreHorizontal, X } from "lucide-react";
 import { verifyToken, recordAdminVisit, eraseVisitorLog } from "./actions";
 
 const TOKEN_KEY = "ywrk-admin-token";
@@ -213,9 +214,9 @@ export default function AdminPage() {
                   <td className="py-3">
                     <button
                       onClick={() => setModal(v)}
-                      className="rounded bg-stone-200 px-2.5 py-1 text-xs font-medium text-stone-600 transition-colors hover:bg-stone-300 hover:text-zinc-700"
+                      className="flex items-center justify-center rounded bg-stone-200 p-1.5 text-stone-600 transition-colors hover:bg-stone-300 hover:text-zinc-700"
                     >
-                      ···
+                      <MoreHorizontal size={14} />
                     </button>
                   </td>
                 </tr>
@@ -286,9 +287,9 @@ export default function AdminPage() {
               </p>
               <button
                 onClick={() => setModal(null)}
-                className="flex h-9 w-9 items-center justify-center rounded bg-stone-200 text-base text-stone-500 transition-colors hover:bg-stone-300 hover:text-zinc-700"
+                className="flex h-9 w-9 items-center justify-center rounded bg-stone-200 text-stone-500 transition-colors hover:bg-stone-300 hover:text-zinc-700"
               >
-                ×
+                <X size={16} />
               </button>
             </div>
             <dl className="flex flex-col gap-5 text-base">
