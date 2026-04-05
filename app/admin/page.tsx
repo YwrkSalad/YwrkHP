@@ -27,6 +27,7 @@ type VisitorStat = {
 export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [pageviews, setPageviews] = useState<Pageview[]>([]);
+  const [modal, setModal] = useState<VisitorStat | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -111,9 +112,10 @@ export default function AdminPage() {
                 <th className="pb-3 pr-8 font-medium">#</th>
                 <th className="pb-3 pr-8 font-medium">Name</th>
                 <th className="pb-3 pr-8 font-medium">Visits</th>
-                <th className="pb-3 pr-8 font-medium">Pages</th>
-                <th className="pb-3 pr-8 font-medium">First</th>
-                <th className="pb-3 font-medium">Last</th>
+                <th className="hidden pb-3 pr-8 font-medium md:table-cell">Pages</th>
+                <th className="hidden pb-3 pr-8 font-medium md:table-cell">First</th>
+                <th className="pb-3 pr-8 font-medium">Last</th>
+                <th className="pb-3 font-medium" />
               </tr>
             </thead>
             <tbody>
@@ -122,7 +124,7 @@ export default function AdminPage() {
                   <td className="py-3 pr-8 font-mono text-xs text-stone-300">{i + 1}</td>
                   <td className="py-3 pr-8 font-medium text-zinc-700">{v.name}</td>
                   <td className="py-3 pr-8 tabular-nums text-zinc-700">{v.count}</td>
-                  <td className="py-3 pr-8">
+                  <td className="hidden py-3 pr-8 md:table-cell">
                     <div className="flex flex-wrap gap-1">
                       {[...v.pages].map((page) => (
                         <span key={page} className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-500">
@@ -131,8 +133,16 @@ export default function AdminPage() {
                       ))}
                     </div>
                   </td>
-                  <td className="py-3 pr-8 font-mono text-xs text-stone-400">{fmt(v.first)}</td>
-                  <td className="py-3 font-mono text-xs text-stone-400">{fmt(v.last)}</td>
+                  <td className="hidden py-3 pr-8 font-mono text-xs text-stone-400 md:table-cell">{fmt(v.first)}</td>
+                  <td className="py-3 pr-8 font-mono text-xs text-stone-400">{fmt(v.last)}</td>
+                  <td className="py-3">
+                    <button
+                      onClick={() => setModal(v)}
+                      className="text-xs text-stone-300 hover:text-stone-600 transition-colors"
+                    >
+                      ···
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -153,6 +163,48 @@ export default function AdminPage() {
           ))}
         </div>
       </section>
+
+      {/* Modal */}
+      {modal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm"
+          onClick={() => setModal(null)}
+        >
+          <div
+            className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-6 flex items-start justify-between">
+              <p className="font-semibold text-zinc-800">{modal.name}</p>
+              <button onClick={() => setModal(null)} className="text-stone-300 hover:text-stone-600 transition-colors text-lg leading-none">×</button>
+            </div>
+            <dl className="flex flex-col gap-4 text-sm">
+              <div className="flex justify-between">
+                <dt className="text-stone-400">Visits</dt>
+                <dd className="font-medium text-zinc-700">{modal.count}</dd>
+              </div>
+              <div className="flex justify-between">
+                <dt className="text-stone-400">First</dt>
+                <dd className="font-mono text-xs text-zinc-700">{fmt(modal.first)}</dd>
+              </div>
+              <div className="flex justify-between">
+                <dt className="text-stone-400">Last</dt>
+                <dd className="font-mono text-xs text-zinc-700">{fmt(modal.last)}</dd>
+              </div>
+              <div>
+                <dt className="mb-2 text-stone-400">Pages</dt>
+                <dd className="flex flex-wrap gap-1">
+                  {[...modal.pages].map((page) => (
+                    <span key={page} className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-500">
+                      {page}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
