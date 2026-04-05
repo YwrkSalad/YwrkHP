@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { onChildAdded, onChildRemoved, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
 import { ipToName } from "@/lib/ipname";
+import BrandHeader from "@/app/_components/BrandHeader";
 import { MoreHorizontal, X } from "lucide-react";
 import { verifyToken, recordAdminVisit, eraseVisitorLog } from "./actions";
 
@@ -141,26 +142,10 @@ export default function AdminPage() {
   }
 
   return (
-    <main className="h-svh overflow-y-auto bg-stone-50 px-8 py-12">
+    <main className="h-svh overflow-y-auto bg-stone-50 px-8 pb-12">
       {/* Header */}
-      <div className="mb-12 flex items-center justify-between">
-        <div className="flex items-start gap-8">
-          <button
-            onClick={() => router.push("/")}
-            className="pt-0.5 text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
-          >
-            back
-          </button>
-          <div className="flex flex-col gap-3">
-            <p className="text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
-              ywrk
-            </p>
-            <div className="h-px w-8 bg-stone-300" />
-            <p className="text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
-              Admin
-            </p>
-          </div>
-        </div>
+      <div className="sticky top-0 z-20 -mx-8 mb-12 flex items-center justify-between bg-stone-50/95 px-8 pt-8 pb-6 backdrop-blur-sm">
+        <BrandHeader section="Admin" />
         <button
           onClick={logout}
           className="text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"

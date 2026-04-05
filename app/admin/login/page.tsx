@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginAdmin } from "../actions";
+import BrandHeader from "@/app/_components/BrandHeader";
 
 const TOKEN_KEY = "ywrk-admin-token";
 
@@ -31,26 +32,17 @@ export default function AdminLogin() {
   }
 
   return (
-    <main className="relative flex h-svh items-center justify-center bg-stone-50">
-      <button
-        onClick={() => router.push("/")}
-        className="absolute top-6 left-6 text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
-      >
-        back
-      </button>
+    <main className="flex h-svh items-center justify-center bg-stone-50">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col items-center gap-8"
       >
-        <div className="flex flex-col items-center gap-3">
-          <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
-            ywrk
-          </p>
-          <div className="h-px w-8 bg-stone-200" />
-          <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
-            Admin
-          </p>
-        </div>
+        <BrandHeader
+          section="Admin"
+          textClassName="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase"
+          dividerClassName="h-px w-8 bg-stone-200"
+          className="flex flex-col items-center gap-3"
+        />
 
         <div className="flex flex-col items-center gap-3">
           <input
