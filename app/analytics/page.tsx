@@ -46,9 +46,7 @@ export default async function Analytics() {
               </p>
             </div>
 
-            <div className="w-full rounded-3xl border border-white/80 bg-white/40 px-10 py-8 shadow-[0_8px_32px_rgba(0,0,0,0.06)] backdrop-blur-2xl">
-              <PageViewCounter initial={count} />
-            </div>
+            <PageViewCounter initial={count} />
 
             <div className="w-full max-h-[40svh] overflow-y-auto">
               <IpLeaderboard initialCounts={ipCounts} myName={myName} />
