@@ -25,10 +25,10 @@ export default async function Analytics() {
     <>
       <Nav />
       <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] overflow-hidden">
-        <section className="relative flex h-full flex-col items-center overflow-hidden bg-gradient-to-br from-violet-100 via-sky-100/60 to-fuchsia-50 px-8">
+        <section className="relative flex h-full flex-col items-center overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-100 px-8">
           <span
             aria-hidden
-            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[14rem] leading-none font-bold text-violet-200/60 select-none sm:text-[20rem]"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[14rem] leading-none font-bold text-stone-200 select-none sm:text-[20rem]"
           >
             yw
             <br />
@@ -37,16 +37,16 @@ export default async function Analytics() {
 
           <div className="relative z-10 flex h-full w-full max-w-sm flex-col items-center justify-center gap-10">
             <div className="flex flex-col items-center gap-3">
-              <p className="text-xs font-medium tracking-[0.3em] text-violet-400/80 uppercase">
+              <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
                 ywrk
               </p>
-              <div className="h-px w-8 bg-violet-200/60" />
-              <p className="text-xs font-medium tracking-[0.3em] text-violet-400/80 uppercase">
+              <div className="h-px w-8 bg-stone-200" />
+              <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
                 Analytics
               </p>
             </div>
 
-            <div className="w-full rounded-3xl border border-white/70 bg-white/30 px-10 py-8 shadow-[0_8px_32px_rgba(139,92,246,0.12)] backdrop-blur-2xl">
+            <div className="w-full rounded-3xl border border-white/80 bg-white/40 px-10 py-8 shadow-[0_8px_32px_rgba(0,0,0,0.06)] backdrop-blur-2xl">
               <PageViewCounter initial={count} />
             </div>
 
