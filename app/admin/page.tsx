@@ -72,6 +72,9 @@ export default function AdminPage() {
   const fmt = (ts: number) =>
     new Date(ts).toLocaleString("ja-JP", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
 
+  const fmtFull = (ts: number) =>
+    new Date(ts).toLocaleString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
   function logout() {
     localStorage.removeItem(TOKEN_KEY);
     router.replace("/admin/login");
@@ -154,12 +157,21 @@ export default function AdminPage() {
       {/* Recent log */}
       <section>
         <p className="mb-4 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">Recent Activity</p>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col">
           {pageviews.slice(0, 100).map((pv, i) => (
-            <div key={i} className="flex items-center gap-6 py-1.5 border-b border-stone-100 text-sm">
-              <span className="font-mono text-xs text-stone-300 w-28 shrink-0">{fmt(pv.ts)}</span>
-              <span className="font-medium text-zinc-700 w-40 shrink-0">{pv.name}</span>
-              <span className="text-stone-400">{pv.page}</span>
+            <div key={i} className="grid grid-cols-[1fr_auto] gap-x-4 border-b border-stone-100 py-3">
+              {/* left: name + ip */}
+              <div className="flex flex-col gap-0.5">
+                <span className="text-sm font-medium text-zinc-700">{pv.name}</span>
+                <span className="font-mono text-xs text-stone-400">{pv.ip}</span>
+              </div>
+              {/* right: page badge + timestamp */}
+              <div className="flex flex-col items-end gap-1">
+                <span className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-500">
+                  {pv.page}
+                </span>
+                <span className="font-mono text-xs text-stone-300">{fmtFull(pv.ts)}</span>
+              </div>
             </div>
           ))}
         </div>
