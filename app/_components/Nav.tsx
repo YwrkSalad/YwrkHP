@@ -16,7 +16,7 @@ export default function Nav() {
   return (
     <>
       <header className="fixed top-0 right-0 left-0 z-50 border-b border-stone-200/60 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-18 max-w-screen-xl items-center justify-between px-6">
+        <div className="flex h-18 items-center justify-between px-6">
           <Link
             href="/"
             className="text-2xl font-medium tracking-widest text-zinc-700"
