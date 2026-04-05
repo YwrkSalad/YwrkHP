@@ -1,4 +1,5 @@
 import { getDb } from "./firebase";
+import { ipToName } from "./ipname";
 
 function generateKey(): string {
   const now = new Date();
@@ -22,7 +23,17 @@ export async function recordVisit(ip: string, page: string): Promise<void> {
     .set({ ts: Date.now(), ip, page });
 }
 
-export async function getCount(): Promise<number> {
+export async function getStats(): Promise<{
+  count: number;
+  ipCounts: Record<string, number>;
+}> {
   const snapshot = await getDb().ref("pageviews").once("value");
-  return snapshot.numChildren();
+  const ipCounts: Record<string, number> = {};
+  snapshot.forEach((child) => {
+    const ip: string = child.val()?.ip;
+    if (!ip) return;
+    const name = ipToName(ip);
+    ipCounts[name] = (ipCounts[name] ?? 0) + 1;
+  });
+  return { count: snapshot.numChildren(), ipCounts };
 }
