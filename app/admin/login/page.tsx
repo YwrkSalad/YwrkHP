@@ -16,14 +16,18 @@ export default function AdminLogin() {
     e.preventDefault();
     setLoading(true);
     setError(false);
-    const token = await loginAdmin(password);
-    if (token) {
-      localStorage.setItem(TOKEN_KEY, token);
-      router.replace("/admin");
-    } else {
+    try {
+      const token = await loginAdmin(password);
+      if (token) {
+        localStorage.setItem(TOKEN_KEY, token);
+        router.replace("/admin");
+        return;
+      }
       setError(true);
-      setLoading(false);
+    } catch {
+      setError(true);
     }
+    setLoading(false);
   }
 
   return (
