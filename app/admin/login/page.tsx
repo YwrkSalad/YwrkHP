@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginAdmin } from "../actions";
-import BrandHeader from "@/app/_components/BrandHeader";
+import Nav from "@/app/_components/Nav";
 
 const TOKEN_KEY = "ywrk-admin-token";
 
@@ -32,38 +32,40 @@ export default function AdminLogin() {
   }
 
   return (
-    <main className="flex h-svh items-center justify-center bg-stone-50">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col items-center gap-8"
-      >
-        <BrandHeader
-          section="Admin"
-          textClassName="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase"
-          dividerClassName="h-px w-8 bg-stone-200"
-          className="flex flex-col items-center gap-3"
-        />
-
-        <div className="flex flex-col items-center gap-3">
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="password"
-            autoFocus
-            className="w-48 border-b border-stone-300 bg-transparent py-2 text-center text-sm text-zinc-800 outline-none placeholder:text-stone-300 focus:border-zinc-500"
-          />
-          {error && <p className="text-xs text-red-400">incorrect password</p>}
-        </div>
-
-        <button
-          type="submit"
-          disabled={loading || !password}
-          className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase transition-colors hover:text-zinc-700 disabled:opacity-30"
+    <>
+      <Nav />
+      <main className="mt-[4.5rem] flex h-[calc(100svh-4.5rem)] items-center justify-center bg-stone-50 px-8 pb-12">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-center gap-8"
         >
-          {loading ? "..." : "enter"}
-        </button>
-      </form>
-    </main>
+          <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+            Admin Login
+          </p>
+
+          <div className="flex flex-col items-center gap-3">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
+              autoFocus
+              className="w-48 border-b border-stone-300 bg-transparent py-2 text-center text-sm text-zinc-800 outline-none placeholder:text-stone-300 focus:border-zinc-500"
+            />
+            {error && (
+              <p className="text-xs text-red-400">incorrect password</p>
+            )}
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading || !password}
+            className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase transition-colors hover:text-zinc-700 disabled:opacity-30"
+          >
+            {loading ? "..." : "enter"}
+          </button>
+        </form>
+      </main>
+    </>
   );
 }

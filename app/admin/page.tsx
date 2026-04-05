@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { onChildAdded, onChildRemoved, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
 import { ipToName } from "@/lib/ipname";
-import BrandHeader from "@/app/_components/BrandHeader";
+import Nav from "@/app/_components/Nav";
 import { MoreHorizontal, X } from "lucide-react";
 import { verifyToken, recordAdminVisit, eraseVisitorLog } from "./actions";
 
@@ -142,234 +142,239 @@ export default function AdminPage() {
   }
 
   return (
-    <main className="h-svh overflow-y-auto bg-stone-50 px-8 pb-12">
-      {/* Header */}
-      <div className="sticky top-0 z-20 -mx-8 mb-12 flex items-center justify-between bg-stone-50/95 px-8 pt-8 pb-6 backdrop-blur-sm">
-        <BrandHeader section="Admin" />
-        <button
-          onClick={logout}
-          className="text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
-        >
-          logout
-        </button>
-      </div>
-
-      {/* Summary */}
-      <div className="mb-10 flex items-end gap-12">
-        <div>
-          <p className="text-4xl font-semibold text-zinc-900">
-            {pageviews.length.toLocaleString("ja-JP")}
-          </p>
-          <p className="mt-1 text-xs tracking-[0.2em] text-stone-500 uppercase">
-            Total Visits
-          </p>
+    <>
+      <Nav />
+      <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] overflow-y-auto bg-stone-50 px-8 pb-12">
+        <div className="mb-10 flex justify-end pt-8">
+          <button
+            onClick={logout}
+            className="text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
+          >
+            logout
+          </button>
         </div>
-        <div>
-          <p className="text-4xl font-semibold text-zinc-900">
-            {visitors.length.toLocaleString("ja-JP")}
-          </p>
-          <p className="mt-1 text-xs tracking-[0.2em] text-stone-500 uppercase">
+
+        {/* Summary */}
+        <div className="mb-10 flex items-end gap-12">
+          <div>
+            <p className="text-4xl font-semibold text-zinc-900">
+              {pageviews.length.toLocaleString("ja-JP")}
+            </p>
+            <p className="mt-1 text-xs tracking-[0.2em] text-stone-500 uppercase">
+              Total Visits
+            </p>
+          </div>
+          <div>
+            <p className="text-4xl font-semibold text-zinc-900">
+              {visitors.length.toLocaleString("ja-JP")}
+            </p>
+            <p className="mt-1 text-xs tracking-[0.2em] text-stone-500 uppercase">
+              Visitors
+            </p>
+          </div>
+          <div className="ml-auto flex items-center gap-2 pb-1">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            <span className="text-xs font-medium tracking-[0.3em] text-zinc-400 uppercase">
+              Live
+            </span>
+          </div>
+        </div>
+
+        {/* Visitors table */}
+        <section className="mb-12">
+          <p className="mb-4 text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
             Visitors
           </p>
-        </div>
-        <div className="ml-auto flex items-center gap-2 pb-1">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-          </span>
-          <span className="text-xs font-medium tracking-[0.3em] text-zinc-400 uppercase">
-            Live
-          </span>
-        </div>
-      </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-stone-300 text-left text-xs tracking-widest text-stone-500 uppercase">
+                  <th className="pr-8 pb-3 font-medium">#</th>
+                  <th className="pr-8 pb-3 font-medium">Name</th>
+                  <th className="pr-8 pb-3 font-medium">Visits</th>
+                  <th className="hidden pr-8 pb-3 font-medium md:table-cell">
+                    Pages
+                  </th>
+                  <th className="hidden pr-8 pb-3 font-medium md:table-cell">
+                    First
+                  </th>
+                  <th className="pr-8 pb-3 font-medium">Last</th>
+                  <th className="pb-3 font-medium" />
+                </tr>
+              </thead>
+              <tbody>
+                {visitors.map((v, i) => (
+                  <tr key={v.name} className="border-b border-stone-200">
+                    <td className="py-3 pr-8 font-mono text-xs text-stone-400">
+                      {i + 1}
+                    </td>
+                    <td className="py-3 pr-8 font-medium text-zinc-700">
+                      {v.name}
+                    </td>
+                    <td className="py-3 pr-8 text-zinc-700 tabular-nums">
+                      {v.count}
+                    </td>
+                    <td className="hidden py-3 pr-8 md:table-cell">
+                      <div className="flex flex-wrap gap-1">
+                        {[...v.pages].map((page) => (
+                          <span
+                            key={page}
+                            className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600"
+                          >
+                            {page}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                    <td className="hidden py-3 pr-8 font-mono text-xs text-stone-500 md:table-cell">
+                      {fmt(v.first)}
+                    </td>
+                    <td className="py-3 pr-8 font-mono text-xs text-stone-500">
+                      {fmt(v.last)}
+                    </td>
+                    <td className="py-3">
+                      <button
+                        onClick={() => setModal(v)}
+                        className="flex items-center justify-center rounded bg-stone-200 p-1.5 text-stone-600 transition-colors hover:bg-stone-300 hover:text-zinc-700"
+                      >
+                        <MoreHorizontal size={14} />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-      {/* Visitors table */}
-      <section className="mb-12">
-        <p className="mb-4 text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
-          Visitors
-        </p>
-        <div className="overflow-x-auto">
+        {/* Recent log */}
+        <section>
+          <p className="mb-4 text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
+            Recent Activity
+          </p>
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-stone-300 text-left text-xs tracking-widest text-stone-500 uppercase">
-                <th className="pr-8 pb-3 font-medium">#</th>
-                <th className="pr-8 pb-3 font-medium">Name</th>
-                <th className="pr-8 pb-3 font-medium">Visits</th>
-                <th className="hidden pr-8 pb-3 font-medium md:table-cell">
-                  Pages
+                <th className="pr-6 pb-2 font-medium">Name</th>
+                <th className="hidden pr-6 pb-2 font-medium md:table-cell">
+                  IP
                 </th>
-                <th className="hidden pr-8 pb-3 font-medium md:table-cell">
-                  First
-                </th>
-                <th className="pr-8 pb-3 font-medium">Last</th>
-                <th className="pb-3 font-medium" />
+                <th className="pr-6 pb-2 font-medium">Page</th>
+                <th className="pb-2 font-medium">Time</th>
               </tr>
             </thead>
             <tbody>
-              {visitors.map((v, i) => (
-                <tr key={v.name} className="border-b border-stone-200">
-                  <td className="py-3 pr-8 font-mono text-xs text-stone-400">
-                    {i + 1}
+              {pageviews.slice(0, logLimit).map((pv, i) => (
+                <tr key={i} className="border-b border-stone-200">
+                  <td className="py-2.5 pr-6 font-medium text-zinc-700">
+                    {pv.name}
                   </td>
-                  <td className="py-3 pr-8 font-medium text-zinc-700">
-                    {v.name}
+                  <td className="hidden py-2.5 pr-6 font-mono text-xs text-stone-500 md:table-cell">
+                    {pv.ip}
                   </td>
-                  <td className="py-3 pr-8 text-zinc-700 tabular-nums">
-                    {v.count}
+                  <td className="py-2.5 pr-6">
+                    <span className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600">
+                      {pv.page}
+                    </span>
                   </td>
-                  <td className="hidden py-3 pr-8 md:table-cell">
-                    <div className="flex flex-wrap gap-1">
-                      {[...v.pages].map((page) => (
-                        <span
-                          key={page}
-                          className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600"
-                        >
-                          {page}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
-                  <td className="hidden py-3 pr-8 font-mono text-xs text-stone-500 md:table-cell">
-                    {fmt(v.first)}
-                  </td>
-                  <td className="py-3 pr-8 font-mono text-xs text-stone-500">
-                    {fmt(v.last)}
-                  </td>
-                  <td className="py-3">
-                    <button
-                      onClick={() => setModal(v)}
-                      className="flex items-center justify-center rounded bg-stone-200 p-1.5 text-stone-600 transition-colors hover:bg-stone-300 hover:text-zinc-700"
-                    >
-                      <MoreHorizontal size={14} />
-                    </button>
+                  <td className="py-2.5 font-mono text-xs text-stone-400">
+                    {fmtFull(pv.ts)}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-      </section>
+          {pageviews.length > logLimit && (
+            <button
+              onClick={() => setLogLimit((n) => n + 50)}
+              className="mt-4 text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
+            >
+              +50 more ({pageviews.length - logLimit} remaining)
+            </button>
+          )}
+        </section>
 
-      {/* Recent log */}
-      <section>
-        <p className="mb-4 text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
-          Recent Activity
-        </p>
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-stone-300 text-left text-xs tracking-widest text-stone-500 uppercase">
-              <th className="pr-6 pb-2 font-medium">Name</th>
-              <th className="hidden pr-6 pb-2 font-medium md:table-cell">IP</th>
-              <th className="pr-6 pb-2 font-medium">Page</th>
-              <th className="pb-2 font-medium">Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pageviews.slice(0, logLimit).map((pv, i) => (
-              <tr key={i} className="border-b border-stone-200">
-                <td className="py-2.5 pr-6 font-medium text-zinc-700">
-                  {pv.name}
-                </td>
-                <td className="hidden py-2.5 pr-6 font-mono text-xs text-stone-500 md:table-cell">
-                  {pv.ip}
-                </td>
-                <td className="py-2.5 pr-6">
-                  <span className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600">
-                    {pv.page}
-                  </span>
-                </td>
-                <td className="py-2.5 font-mono text-xs text-stone-400">
-                  {fmtFull(pv.ts)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        {pageviews.length > logLimit && (
-          <button
-            onClick={() => setLogLimit((n) => n + 50)}
-            className="mt-4 text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
-          >
-            +50 more ({pageviews.length - logLimit} remaining)
-          </button>
-        )}
-      </section>
-
-      {/* Modal */}
-      {modal && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm"
-          onClick={() => setModal(null)}
-        >
+        {/* Modal */}
+        {modal && (
           <div
-            className="w-full max-w-lg rounded-lg bg-white p-10 shadow-xl"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm"
+            onClick={() => setModal(null)}
           >
-            <div className="mb-8 flex items-start justify-between">
-              <p className="text-xl font-semibold text-zinc-800">
-                {modal.name}
-              </p>
-              <button
-                onClick={() => setModal(null)}
-                className="flex h-9 w-9 items-center justify-center rounded bg-stone-200 text-stone-500 transition-colors hover:bg-stone-300 hover:text-zinc-700"
-              >
-                <X size={16} />
-              </button>
-            </div>
-            <dl className="flex flex-col gap-5 text-base">
-              <div className="flex justify-between">
-                <dt className="text-stone-500">IP</dt>
-                <dd className="font-mono text-sm text-zinc-700">{modal.ip}</dd>
+            <div
+              className="w-full max-w-lg rounded-lg bg-white p-10 shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="mb-8 flex items-start justify-between">
+                <p className="text-xl font-semibold text-zinc-800">
+                  {modal.name}
+                </p>
+                <button
+                  onClick={() => setModal(null)}
+                  className="flex h-9 w-9 items-center justify-center rounded bg-stone-200 text-stone-500 transition-colors hover:bg-stone-300 hover:text-zinc-700"
+                >
+                  <X size={16} />
+                </button>
               </div>
-              <div className="flex justify-between">
-                <dt className="text-stone-500">Visits</dt>
-                <dd className="font-medium text-zinc-700">{modal.count}</dd>
-              </div>
-              <div className="flex justify-between">
-                <dt className="text-stone-500">First</dt>
-                <dd className="font-mono text-sm text-zinc-700">
-                  {fmt(modal.first)}
-                </dd>
-              </div>
-              <div className="flex justify-between">
-                <dt className="text-stone-500">Last</dt>
-                <dd className="font-mono text-sm text-zinc-700">
-                  {fmt(modal.last)}
-                </dd>
-              </div>
-              <div className="flex items-center justify-between gap-4">
-                <dt className="shrink-0 text-stone-500">Pages</dt>
-                <dd className="overflow-x-auto">
-                  <div className="flex gap-1.5">
-                    {[...modal.pages].map((page) => (
-                      <span
-                        key={page}
-                        className="shrink-0 rounded bg-stone-200 px-2.5 py-1 font-mono text-sm text-stone-600"
-                      >
-                        {page}
-                      </span>
-                    ))}
-                  </div>
-                </dd>
-              </div>
-            </dl>
+              <dl className="flex flex-col gap-5 text-base">
+                <div className="flex justify-between">
+                  <dt className="text-stone-500">IP</dt>
+                  <dd className="font-mono text-sm text-zinc-700">
+                    {modal.ip}
+                  </dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-stone-500">Visits</dt>
+                  <dd className="font-medium text-zinc-700">{modal.count}</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-stone-500">First</dt>
+                  <dd className="font-mono text-sm text-zinc-700">
+                    {fmt(modal.first)}
+                  </dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-stone-500">Last</dt>
+                  <dd className="font-mono text-sm text-zinc-700">
+                    {fmt(modal.last)}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-4">
+                  <dt className="shrink-0 text-stone-500">Pages</dt>
+                  <dd className="overflow-x-auto">
+                    <div className="flex gap-1.5">
+                      {[...modal.pages].map((page) => (
+                        <span
+                          key={page}
+                          className="shrink-0 rounded bg-stone-200 px-2.5 py-1 font-mono text-sm text-stone-600"
+                        >
+                          {page}
+                        </span>
+                      ))}
+                    </div>
+                  </dd>
+                </div>
+              </dl>
 
-            <div className="mt-10 border-t border-stone-200 pt-6">
-              <button
-                onClick={async () => {
-                  if (!confirm(`${modal.name} のログを全て削除しますか？`))
-                    return;
-                  await eraseVisitorLog(modal.ip);
-                  setModal(null);
-                }}
-                className="w-full rounded-lg border border-red-100 bg-red-50 py-3 text-sm font-medium text-red-400 transition-colors hover:bg-red-100 hover:text-red-600"
-              >
-                Erase log about this user
-              </button>
+              <div className="mt-10 border-t border-stone-200 pt-6">
+                <button
+                  onClick={async () => {
+                    if (!confirm(`${modal.name} のログを全て削除しますか？`))
+                      return;
+                    await eraseVisitorLog(modal.ip);
+                    setModal(null);
+                  }}
+                  className="w-full rounded-lg border border-red-100 bg-red-50 py-3 text-sm font-medium text-red-400 transition-colors hover:bg-red-100 hover:text-red-600"
+                >
+                  Erase log about this user
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </main>
+        )}
+      </main>
+    </>
   );
 }
