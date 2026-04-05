@@ -19,7 +19,7 @@ export default function AdminLogin() {
     const token = await loginAdmin(password);
     if (token) {
       localStorage.setItem(TOKEN_KEY, token);
-      router.replace("/ywrk/admin");
+      router.replace("/admin");
     } else {
       setError(true);
       setLoading(false);

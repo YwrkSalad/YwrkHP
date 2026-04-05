@@ -32,7 +32,7 @@ export default function AdminPage() {
   useEffect(() => {
     const token = localStorage.getItem(TOKEN_KEY) ?? "";
     verifyToken(token).then((ok) => {
-      if (!ok) router.replace("/ywrk/admin/login");
+      if (!ok) router.replace("/admin/login");
       else setAuthed(true);
     });
   }, []);
@@ -72,7 +72,7 @@ export default function AdminPage() {
 
   function logout() {
     localStorage.removeItem(TOKEN_KEY);
-    router.replace("/ywrk/admin/login");
+    router.replace("/admin/login");
   }
 
   return (
