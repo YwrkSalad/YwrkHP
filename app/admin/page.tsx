@@ -197,7 +197,7 @@ export default function AdminPage() {
                       {[...v.pages].map((page) => (
                         <span
                           key={page}
-                          className="rounded-md bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600"
+                          className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600"
                         >
                           {page}
                         </span>
@@ -213,7 +213,7 @@ export default function AdminPage() {
                   <td className="py-3">
                     <button
                       onClick={() => setModal(v)}
-                      className="rounded-md bg-stone-200 px-2.5 py-1 text-xs font-medium text-stone-600 transition-colors hover:bg-stone-300 hover:text-zinc-700"
+                      className="rounded bg-stone-200 px-2.5 py-1 text-xs font-medium text-stone-600 transition-colors hover:bg-stone-300 hover:text-zinc-700"
                     >
                       ···
                     </button>
@@ -249,7 +249,7 @@ export default function AdminPage() {
                   {pv.ip}
                 </td>
                 <td className="py-2.5 pr-6">
-                  <span className="rounded-md bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600">
+                  <span className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600">
                     {pv.page}
                   </span>
                 </td>
@@ -277,7 +277,7 @@ export default function AdminPage() {
           onClick={() => setModal(null)}
         >
           <div
-            className="w-full max-w-lg rounded-2xl bg-white p-10 shadow-xl"
+            className="w-full max-w-lg rounded-lg bg-white p-10 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-8 flex items-start justify-between">
@@ -286,7 +286,7 @@ export default function AdminPage() {
               </p>
               <button
                 onClick={() => setModal(null)}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-stone-200 text-base text-stone-500 transition-colors hover:bg-stone-300 hover:text-zinc-700"
+                className="flex h-9 w-9 items-center justify-center rounded bg-stone-200 text-base text-stone-500 transition-colors hover:bg-stone-300 hover:text-zinc-700"
               >
                 ×
               </button>
@@ -319,7 +319,7 @@ export default function AdminPage() {
                     {[...modal.pages].map((page) => (
                       <span
                         key={page}
-                        className="shrink-0 rounded-md bg-stone-200 px-2.5 py-1 font-mono text-sm text-stone-600"
+                        className="shrink-0 rounded bg-stone-200 px-2.5 py-1 font-mono text-sm text-stone-600"
                       >
                         {page}
                       </span>
