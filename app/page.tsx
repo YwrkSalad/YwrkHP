@@ -19,11 +19,11 @@ export default async function Home() {
     <>
       <Nav />
 
-      <main className="h-svh overflow-y-scroll snap-y snap-mandatory">
+      <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] overflow-y-scroll snap-y snap-mandatory">
         <HeroAnimation />
 
         {/* やわらかな暮らし */}
-        <section className="relative flex h-svh snap-start flex-col items-center justify-center overflow-hidden bg-stone-50 px-8">
+        <section className="relative flex h-[calc(100svh-4.5rem)] snap-start flex-col items-center justify-center overflow-hidden bg-stone-50 px-8">
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 right-8 -translate-y-1/2 text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
@@ -70,7 +70,7 @@ export default async function Home() {
         </section>
 
         {/* やわらかな顔つき */}
-        <section className="relative flex h-svh snap-start flex-col items-center justify-center overflow-hidden bg-white px-8">
+        <section className="relative flex h-[calc(100svh-4.5rem)] snap-start flex-col items-center justify-center overflow-hidden bg-white px-8">
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-8 -translate-y-1/2 text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
@@ -117,7 +117,7 @@ export default async function Home() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="relative flex h-svh snap-start flex-col overflow-hidden bg-zinc-900 px-8">
+        <section className="relative flex h-[calc(100svh-4.5rem)] snap-start flex-col overflow-hidden bg-zinc-900 px-8">
           <span
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18rem] leading-none font-bold text-zinc-800 select-none sm:text-[26rem]"
