@@ -26,31 +26,26 @@ function Row({
   return (
     <div
       className={[
-        "flex items-center justify-between rounded-lg px-4 py-2.5 text-sm transition-colors",
+        "flex items-center justify-between rounded-xl px-4 py-2.5 text-sm backdrop-blur-sm transition-colors",
         isYou
-          ? "bg-zinc-900 text-white ring-1 ring-zinc-700"
-          : "bg-stone-50 text-stone-500",
+          ? "border border-violet-300/60 bg-violet-500/75 text-white shadow-[0_2px_12px_rgba(139,92,246,0.25)]"
+          : "border border-white/40 bg-white/20 text-stone-700",
       ].join(" ")}
     >
       <div className="flex items-center gap-3">
         <span
           className={[
             "w-5 text-right font-mono text-xs",
-            isYou ? "text-zinc-400" : "text-stone-300",
+            isYou ? "text-violet-200" : "text-stone-400",
           ].join(" ")}
         >
           {rank}
         </span>
-        <span
-          className={[
-            "font-medium",
-            isYou ? "text-white" : "text-stone-600",
-          ].join(" ")}
-        >
+        <span className={["font-medium", isYou ? "text-white" : "text-stone-700"].join(" ")}>
           {name}
         </span>
         {isYou && (
-          <span className="rounded-full bg-zinc-700 px-2 py-0.5 text-xs font-medium tracking-wide text-zinc-300">
+          <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs font-medium tracking-wide text-white">
             you
           </span>
         )}
@@ -58,7 +53,7 @@ function Row({
       <span
         className={[
           "font-mono text-xs tabular-nums",
-          isYou ? "text-zinc-300" : "text-stone-400",
+          isYou ? "text-violet-100" : "text-stone-500",
         ].join(" ")}
       >
         {count.toLocaleString("ja-JP")}
@@ -98,52 +93,31 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
   const hasMore = rest.length > 0;
 
   return (
-    <div className="flex w-full max-w-sm flex-col gap-1">
-      {/* Top 5 */}
+    <div className="flex w-full flex-col gap-1.5">
       {top.map(([name, count], i) => (
-        <Row
-          key={name}
-          rank={i + 1}
-          name={name}
-          count={count}
-          isYou={name === myName}
-        />
+        <Row key={name} rank={i + 1} name={name} count={count} isYou={name === myName} />
       ))}
 
-      {/* 自分が top5 外で、まだ展開していない場合のみ自分の行を表示 */}
       {!myInTop && !expanded && myRank !== -1 && (
         <>
           <div className="flex items-center gap-2 px-1 py-0.5">
-            <div className="h-px flex-1 bg-stone-200" />
-            <span className="text-xs text-stone-300">···</span>
-            <div className="h-px flex-1 bg-stone-200" />
+            <div className="h-px flex-1 bg-violet-200/40" />
+            <span className="text-xs text-violet-300/60">···</span>
+            <div className="h-px flex-1 bg-violet-200/40" />
           </div>
-          <Row
-            rank={myRank + 1}
-            name={myName}
-            count={counts[myName] ?? 0}
-            isYou
-          />
+          <Row rank={myRank + 1} name={myName} count={counts[myName] ?? 0} isYou />
         </>
       )}
 
-      {/* 展開時：残り全員 */}
       {expanded &&
         rest.map(([name, count], i) => (
-          <Row
-            key={name}
-            rank={TOP_N + i + 1}
-            name={name}
-            count={count}
-            isYou={name === myName}
-          />
+          <Row key={name} rank={TOP_N + i + 1} name={name} count={count} isYou={name === myName} />
         ))}
 
-      {/* more / less ボタン */}
       {hasMore && (
         <button
           onClick={() => setExpanded((v) => !v)}
-          className="mt-1 self-center text-xs font-medium tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
+          className="mt-1 self-center text-xs font-medium tracking-widest text-violet-400/70 uppercase transition-colors hover:text-violet-600"
         >
           {expanded ? "less" : `more  +${rest.length}`}
         </button>
