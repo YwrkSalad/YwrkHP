@@ -122,7 +122,15 @@ export default function AdminPage() {
                   <td className="py-3 pr-8 font-mono text-xs text-stone-300">{i + 1}</td>
                   <td className="py-3 pr-8 font-medium text-zinc-700">{v.name}</td>
                   <td className="py-3 pr-8 tabular-nums text-zinc-700">{v.count}</td>
-                  <td className="py-3 pr-8 text-stone-500">{[...v.pages].join(", ")}</td>
+                  <td className="py-3 pr-8">
+                    <div className="flex flex-wrap gap-1">
+                      {[...v.pages].map((page) => (
+                        <span key={page} className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-500">
+                          {page}
+                        </span>
+                      ))}
+                    </div>
+                  </td>
                   <td className="py-3 pr-8 font-mono text-xs text-stone-400">{fmt(v.first)}</td>
                   <td className="py-3 font-mono text-xs text-stone-400">{fmt(v.last)}</td>
                 </tr>
