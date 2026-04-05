@@ -24,13 +24,15 @@ export default async function Analytics() {
   return (
     <>
       <Nav />
-      <main>
-        <section className="relative flex h-svh flex-col items-center overflow-hidden bg-gradient-to-b from-white via-stone-50/40 to-stone-100/60 px-8 py-24">
+      <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] overflow-hidden">
+        <section className="relative flex h-full flex-col items-center overflow-hidden bg-gradient-to-b from-white via-stone-50/40 to-stone-100/60 px-8">
           <span
             aria-hidden
-            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold text-stone-100 select-none sm:text-[32rem]"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[14rem] leading-none font-bold text-stone-100 select-none sm:text-[20rem]"
           >
             yw
+            <br />
+            rk
           </span>
 
           <div className="relative z-10 flex h-full min-h-0 w-full max-w-sm flex-col items-center gap-12">
