@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { onValue, ref } from "firebase/database";
+import { onChildAdded, onChildRemoved, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
 import { ipToName } from "@/lib/ipname";
 import { verifyToken, recordAdminVisit, eraseVisitorLog } from "./actions";
@@ -41,18 +41,22 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!authed) return;
-    const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
-      const rows: Pageview[] = [];
-      snapshot.forEach((child) => {
-        const v = child.val();
-        if (v?.ts && v?.ip) {
-          rows.push({ ts: v.ts, ip: v.ip, page: v.page ?? "/", name: ipToName(v.ip) });
-        }
-      });
-      rows.sort((a, b) => b.ts - a.ts);
-      setPageviews(rows);
+    const pvRef = ref(getClientDb(), "pageviews");
+
+    const unsubAdd = onChildAdded(pvRef, (snap) => {
+      const v = snap.val();
+      if (!v?.ts || !v?.ip) return;
+      const row: Pageview = { ts: v.ts, ip: v.ip, page: v.page ?? "/", name: ipToName(v.ip) };
+      setPageviews((prev) => [row, ...prev].sort((a, b) => b.ts - a.ts));
     });
-    return unsubscribe;
+
+    const unsubRemove = onChildRemoved(pvRef, (snap) => {
+      const v = snap.val();
+      if (!v?.ts || !v?.ip) return;
+      setPageviews((prev) => prev.filter((p) => !(p.ts === v.ts && p.ip === v.ip)));
+    });
+
+    return () => { unsubAdd(); unsubRemove(); };
   }, [authed]);
 
   if (!authed) return null;
