@@ -196,14 +196,16 @@ export default function AdminPage() {
                 <dt className="text-stone-400">Last</dt>
                 <dd className="font-mono text-xs text-zinc-700">{fmt(modal.last)}</dd>
               </div>
-              <div>
-                <dt className="mb-2 text-stone-400">Pages</dt>
-                <dd className="flex flex-wrap gap-1">
-                  {[...modal.pages].map((page) => (
-                    <span key={page} className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-500">
-                      {page}
-                    </span>
-                  ))}
+              <div className="flex items-center justify-between gap-4">
+                <dt className="shrink-0 text-stone-400">Pages</dt>
+                <dd className="overflow-x-auto">
+                  <div className="flex gap-1">
+                    {[...modal.pages].map((page) => (
+                      <span key={page} className="shrink-0 rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-500">
+                        {page}
+                      </span>
+                    ))}
+                  </div>
                 </dd>
               </div>
             </dl>
