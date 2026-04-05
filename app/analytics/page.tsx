@@ -35,7 +35,7 @@ export default async function Analytics() {
             rk
           </span>
 
-          <div className="relative z-10 flex h-full w-full max-w-sm flex-col items-center justify-center gap-10">
+          <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-10">
             <div className="flex flex-col items-center gap-3">
               <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
                 ywrk
