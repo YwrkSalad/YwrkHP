@@ -28,7 +28,7 @@ export default async function Analytics() {
         <section className="relative flex h-full flex-col items-center overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-100 px-8">
           <div
             aria-hidden
-            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-[18rem] leading-none font-bold text-stone-200 select-none"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-[4svh] text-[18rem] leading-none font-bold text-stone-200 select-none"
           >
             <div className="flex gap-[8vw]">
               <span>y</span><span>w</span>
