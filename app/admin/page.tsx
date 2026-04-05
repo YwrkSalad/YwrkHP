@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { onValue, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
 import { ipToName } from "@/lib/ipname";
-import { verifyToken } from "./actions";
+import { verifyToken, recordAdminVisit } from "./actions";
 
 const TOKEN_KEY = "ywrk-admin-token";
 
@@ -33,7 +33,7 @@ export default function AdminPage() {
     const token = localStorage.getItem(TOKEN_KEY) ?? "";
     verifyToken(token).then((ok) => {
       if (!ok) router.replace("/admin/login");
-      else setAuthed(true);
+      else { setAuthed(true); recordAdminVisit(); }
     });
   }, []);
 
