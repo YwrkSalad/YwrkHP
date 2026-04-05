@@ -26,14 +26,17 @@ export default async function Analytics() {
       <Nav />
       <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] overflow-hidden">
         <section className="relative flex h-full flex-col items-center overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-100 px-8">
-          <span
+          <div
             aria-hidden
-            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[18rem] leading-none font-bold text-stone-200 select-none tracking-[8vw]"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-[18rem] leading-none font-bold text-stone-200 select-none"
           >
-            yw
-            <br />
-            rk
-          </span>
+            <div className="flex gap-[8vw]">
+              <span>y</span><span>w</span>
+            </div>
+            <div className="flex gap-[8vw]">
+              <span>r</span><span>k</span>
+            </div>
+          </div>
 
           <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-10">
             <div className="flex flex-col items-center gap-3">
