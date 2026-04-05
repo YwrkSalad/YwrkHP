@@ -19,15 +19,21 @@ export default function HeroAnimation() {
       />
 
       {/* 背景装飾 "yw" */}
-      <motion.span
+      <motion.div
         aria-hidden
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold text-stone-100 select-none sm:text-[32rem]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-[18rem] leading-none font-bold text-stone-100 select-none"
+        style={{ gap: "2svh" }}
         initial={{ opacity: 0, scale: 1.08 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 4, delay: 0.6, ease }}
       >
-        yw
-      </motion.span>
+        <div className="flex" style={{ gap: "8vw" }}>
+          <span>y</span><span>w</span>
+        </div>
+        <div className="flex" style={{ gap: "8vw" }}>
+          <span>r</span><span>k</span>
+        </div>
+      </motion.div>
 
       <div className="relative z-10 flex flex-col items-center">
         {/* ywrk ラベル */}
