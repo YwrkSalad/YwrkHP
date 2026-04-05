@@ -44,23 +44,23 @@ export default function PageViewCounter({ initial }: { initial: number }) {
   const formatted = count.toLocaleString("ja-JP");
 
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div className="flex flex-col items-center gap-6">
       {/* Live indicator */}
       <div className="flex items-center gap-2">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-60" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
         </span>
-        <span className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+        <span className="text-xs font-medium tracking-[0.3em] text-violet-400/80 uppercase">
           Live
         </span>
       </div>
 
       {/* Count */}
-      <p className="flex items-end text-8xl font-semibold tracking-tight text-zinc-900 sm:text-9xl">
+      <p className="flex items-end text-7xl font-semibold tracking-tight text-violet-950 sm:text-8xl">
         {formatted.split("").map((char, i) =>
           char === "," ? (
-            <span key={`sep-${i}`} className="pb-1 text-stone-300">
+            <span key={`sep-${i}`} className="pb-1 text-violet-300">
               ,
             </span>
           ) : (
@@ -70,9 +70,9 @@ export default function PageViewCounter({ initial }: { initial: number }) {
       </p>
 
       {/* Label */}
-      <div className="flex flex-col items-center gap-3">
-        <div className="h-px w-12 bg-stone-200" />
-        <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+      <div className="flex flex-col items-center gap-2">
+        <div className="h-px w-10 bg-violet-200/60" />
+        <p className="text-xs font-medium tracking-[0.3em] text-violet-400/80 uppercase">
           Total Visits
         </p>
       </div>
