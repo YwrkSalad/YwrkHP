@@ -5,12 +5,15 @@ import { headers } from "next/headers";
 import { recordVisit } from "@/lib/pageview";
 import { isBot } from "@/lib/isBot";
 
+const BIGINT_ZERO = BigInt(0);
+const BIGINT_MILLION = BigInt(1_000_000);
+
 function getTokenModulus(): bigint | null {
   const raw = process.env.ADMIN_TOKEN_MODULUS?.trim();
   if (!raw) return null;
   try {
     const modulus = BigInt(raw);
-    if (modulus <= 0n) return null;
+    if (modulus <= BIGINT_ZERO) return null;
     return modulus;
   } catch {
     return null;
@@ -20,13 +23,13 @@ function getTokenModulus(): bigint | null {
 function generateToken(modulus: bigint): string {
   const ts = BigInt(Date.now());
   const nonce = BigInt(randomInt(100_000, 1_000_000));
-  return ((ts * 1_000_000n + nonce) * modulus).toString();
+  return ((ts * BIGINT_MILLION + nonce) * modulus).toString();
 }
 
 function isValidToken(token: string, modulus: bigint): boolean {
   if (!token) return false;
   try {
-    return BigInt(token) % modulus === 0n;
+    return BigInt(token) % modulus === BIGINT_ZERO;
   } catch {
     return false;
   }
