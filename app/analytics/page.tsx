@@ -46,7 +46,7 @@ export default async function Analytics() {
               </p>
             </div>
 
-            <PageViewCounter initial={count} />
+            <PageViewCounter initial={count} initialVisitors={Object.keys(ipCounts).length} />
 
             <div className="w-full max-w-sm max-h-[40svh] overflow-y-auto">
               <IpLeaderboard initialCounts={ipCounts} myName={myName} />
