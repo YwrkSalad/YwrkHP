@@ -45,8 +45,8 @@ export default function PageViewCounter({ initial }: { initial: number }) {
     <div className="flex flex-col items-center gap-6">
       <div className="flex items-center gap-2">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-zinc-400 opacity-60" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-500" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
         </span>
         <span className="text-xs font-medium tracking-[0.3em] text-zinc-400 uppercase">
           Live
