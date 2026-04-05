@@ -76,7 +76,7 @@ export default function AdminPage() {
   }
 
   return (
-    <main className="min-h-svh bg-stone-50 px-8 py-12">
+    <main className="h-svh overflow-y-auto bg-stone-50 px-8 py-12">
       {/* Header */}
       <div className="mb-12 flex items-center justify-between">
         <div className="flex flex-col gap-3">
