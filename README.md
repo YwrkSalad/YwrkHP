@@ -34,9 +34,12 @@ Firebase Console → Project Settings → Service accounts → "Generate new pri
 ```env
 FIREBASE_SERVICE_ACCOUNT_JSON={"type":"service_account","project_id":"..."}
 FIREBASE_DATABASE_URL=https://your-project-default-rtdb.asia-southeast1.firebasedatabase.app
+ADMIN_PASSWORD=<set-secret-password>
+ADMIN_TOKEN_MODULUS=<set-secret-integer>
 ```
 
 `FIREBASE_SERVICE_ACCOUNT_JSON` は JSON を1行に展開した文字列を設定すること。
+`ADMIN_TOKEN_MODULUS` は公開しない秘密値を設定すること（数値）。
 
 なお、認証情報は管理者 elsy0111 に問い合わせること。
 
