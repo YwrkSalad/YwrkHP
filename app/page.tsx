@@ -141,7 +141,7 @@ export default async function Home() {
               <div className="mt-12 h-px w-16 bg-zinc-700" />
             </ScrollReveal>
           </div>
-          <div className="relative z-10 mx-auto w-full max-w-screen-xl border-t border-zinc-800 py-6">
+          <div className="relative z-10 w-full border-t border-zinc-800 py-6">
             <p className="text-xs text-zinc-700">© 2026 ywrk</p>
           </div>
         </section>
