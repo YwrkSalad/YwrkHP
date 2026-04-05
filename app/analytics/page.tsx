@@ -28,7 +28,7 @@ export default async function Analytics() {
         <section className="relative flex h-full flex-col items-center overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-100 px-8">
           <span
             aria-hidden
-            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[14rem] leading-none font-bold text-stone-200 select-none sm:text-[20rem]"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-[45vw] leading-none font-bold text-stone-200 select-none"
           >
             yw
             <br />
