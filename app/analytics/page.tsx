@@ -48,7 +48,7 @@ export default async function Analytics() {
 
             <PageViewCounter initial={count} />
 
-            <div className="w-full max-h-[40svh] overflow-y-auto">
+            <div className="w-full max-w-sm max-h-[40svh] overflow-y-auto">
               <IpLeaderboard initialCounts={ipCounts} myName={myName} />
             </div>
           </div>
