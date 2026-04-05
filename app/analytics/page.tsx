@@ -41,7 +41,7 @@ export default async function Analytics() {
             </div>
           </div>
 
-          <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-10">
+          <div className="relative z-10 mx-auto flex h-full w-full max-w-sm flex-col items-center px-2 pt-8 pb-4 sm:pt-10 sm:pb-6">
             <div className="flex flex-col items-center gap-3">
               <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
                 ywrk
@@ -57,7 +57,7 @@ export default async function Analytics() {
               initialVisitors={Object.keys(ipCounts).length}
             />
 
-            <div className="max-h-[40svh] w-full max-w-sm overflow-y-auto">
+            <div className="mt-8 min-h-0 w-full flex-1 overflow-y-auto pb-2">
               <IpLeaderboard initialCounts={ipCounts} myName={myName} />
             </div>
           </div>
