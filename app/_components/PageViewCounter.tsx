@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { onValue, ref } from "firebase/database";
+import { onChildAdded, onChildRemoved, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { getClientDb } from "@/lib/firebase-client";
 
@@ -38,18 +38,24 @@ export default function PageViewCounter({
   const [visitors, setVisitors] = useState(initialVisitors);
 
   useEffect(() => {
-    const unsubscribe = onValue(ref(getClientDb(), "pageviews"), (snapshot) => {
-      let n = 0;
-      const ips = new Set<string>();
-      snapshot.forEach((child) => {
-        n++;
-        const ip: string = child.val()?.ip;
-        if (ip) ips.add(ip);
-      });
-      setCount(n);
-      setVisitors(ips.size);
+    const pvRef = ref(getClientDb(), "pageviews");
+    const ips = new Map<string, string>(); // key → ip
+
+    const unsubAdd = onChildAdded(pvRef, (snap) => {
+      const ip: string = snap.val()?.ip;
+      if (!ip) return;
+      ips.set(snap.key!, ip);
+      setCount((n) => n + 1);
+      setVisitors(new Set(ips.values()).size);
     });
-    return unsubscribe;
+
+    const unsubRemove = onChildRemoved(pvRef, (snap) => {
+      ips.delete(snap.key!);
+      setCount((n) => Math.max(0, n - 1));
+      setVisitors(new Set(ips.values()).size);
+    });
+
+    return () => { unsubAdd(); unsubRemove(); };
   }, []);
 
   const formatted = count.toLocaleString("ja-JP");
