@@ -144,14 +144,22 @@ export default function AdminPage() {
     <main className="h-svh overflow-y-auto bg-stone-50 px-8 py-12">
       {/* Header */}
       <div className="mb-12 flex items-center justify-between">
-        <div className="flex flex-col gap-3">
-          <p className="text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
-            ywrk
-          </p>
-          <div className="h-px w-8 bg-stone-300" />
-          <p className="text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
-            Admin
-          </p>
+        <div className="flex items-start gap-8">
+          <button
+            onClick={() => router.push("/")}
+            className="pt-0.5 text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
+          >
+            back
+          </button>
+          <div className="flex flex-col gap-3">
+            <p className="text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
+              ywrk
+            </p>
+            <div className="h-px w-8 bg-stone-300" />
+            <p className="text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
+              Admin
+            </p>
+          </div>
         </div>
         <button
           onClick={logout}

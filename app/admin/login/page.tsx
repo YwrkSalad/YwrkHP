@@ -31,7 +31,13 @@ export default function AdminLogin() {
   }
 
   return (
-    <main className="flex h-svh items-center justify-center bg-stone-50">
+    <main className="relative flex h-svh items-center justify-center bg-stone-50">
+      <button
+        onClick={() => router.push("/")}
+        className="absolute top-6 left-6 text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
+      >
+        back
+      </button>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col items-center gap-8"
