@@ -35,7 +35,7 @@ function Row({
       <div className="flex items-center gap-3">
         <span
           className={[
-            "w-5 text-right font-mono text-xs",
+            "w-5 text-right font-mono text-xs transition-colors duration-1500",
             isYou ? "text-zinc-500" : "text-zinc-300",
           ].join(" ")}
         >
@@ -43,7 +43,7 @@ function Row({
         </span>
         <span
           className={[
-            "font-medium",
+            "font-medium transition-colors duration-1500",
             isYou ? "text-white" : "text-zinc-700",
           ].join(" ")}
         >
