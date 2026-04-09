@@ -98,9 +98,7 @@ export default function AdminPage() {
   if (!authed) return null;
 
   // uid → name マッピング（辞書順ソート = 初回訪問時刻の昇順）
-  const sortedUids = [
-    ...new Set(pageviews.map((pv) => pv.uid)),
-  ].sort();
+  const sortedUids = [...new Set(pageviews.map((pv) => pv.uid))].sort();
   const uidToName: Record<string, string> = {};
   sortedUids.forEach((uid, i) => {
     uidToName[uid] = indexToName(i);
