@@ -62,11 +62,13 @@ function Row({
   );
 }
 
-export default function IpLeaderboard({ initialCounts, myName }: Props) {
+export default function IpLeaderboard({ initialCounts, myName: myNameProp }: Props) {
   const [counts, setCounts] = useState(initialCounts);
   const [expanded, setExpanded] = useState(false);
+  const [myName, setMyName] = useState(myNameProp ?? null);
 
   useEffect(() => {
+    const myUid = localStorage.getItem("ywrk-visitor-id");
     const pvRef = ref(getClientDb(), "pageviews");
     const unsub = onValue(pvRef, (snap) => {
       // uid ごとのページビュー数を集計
@@ -81,7 +83,9 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
       const sortedUids = Object.keys(uidCounts).sort();
       const next: Record<string, number> = {};
       sortedUids.forEach((uid, i) => {
-        next[indexToName(i)] = uidCounts[uid];
+        const name = indexToName(i);
+        next[name] = uidCounts[uid];
+        if (uid === myUid) setMyName(name);
       });
       setCounts(next);
     });
