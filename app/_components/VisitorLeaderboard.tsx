@@ -62,7 +62,7 @@ function Row({
   );
 }
 
-export default function IpLeaderboard({ initialCounts, myName: myNameProp }: Props) {
+export default function VisitorLeaderboard({ initialCounts, myName: myNameProp }: Props) {
   const [counts, setCounts] = useState(initialCounts);
   const [expanded, setExpanded] = useState(false);
   const [myName, setMyName] = useState(myNameProp ?? null);

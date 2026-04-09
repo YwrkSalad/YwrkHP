@@ -3,7 +3,7 @@ export const dynamic = "force-dynamic";
 import { getStats } from "@/lib/pageview";
 import Nav from "../_components/Nav";
 import PageViewCounter from "../_components/PageViewCounter";
-import IpLeaderboard from "../_components/IpLeaderboard";
+import VisitorLeaderboard from "../_components/VisitorLeaderboard";
 import PageTracker from "../_components/PageTracker";
 
 export default async function Analytics() {
@@ -47,7 +47,7 @@ export default async function Analytics() {
             />
 
             <div className="max-h-[40svh] w-full max-w-sm overflow-y-auto">
-              <IpLeaderboard initialCounts={nameCounts} />
+              <VisitorLeaderboard initialCounts={nameCounts} />
             </div>
           </div>
         </section>
