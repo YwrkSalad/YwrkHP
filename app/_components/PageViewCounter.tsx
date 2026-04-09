@@ -41,15 +41,15 @@ export default function PageViewCounter({
     const pvRef = ref(getClientDb(), "pageviews");
     const unsub = onValue(pvRef, (snap) => {
       let nextCount = 0;
-      const uniqueIps = new Set<string>();
+      const uniqueUids = new Set<string>();
       snap.forEach((child) => {
-        const ip: string = child.val()?.ip;
-        if (!ip) return;
+        const uid: string = child.val()?.uid;
+        if (!uid) return;
         nextCount++;
-        uniqueIps.add(ip);
+        uniqueUids.add(uid);
       });
       setCount(nextCount);
-      setVisitors(uniqueIps.size);
+      setVisitors(uniqueUids.size);
     });
 
     return () => {
