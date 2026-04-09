@@ -1,25 +1,12 @@
 export const dynamic = "force-dynamic";
 
-import { headers } from "next/headers";
-import { getStats, recordVisit } from "@/lib/pageview";
-import { ipToName } from "@/lib/ipname";
-import { isBot } from "@/lib/isBot";
+import { getStats } from "@/lib/pageview";
 import Nav from "../_components/Nav";
 import PageViewCounter from "../_components/PageViewCounter";
 import IpLeaderboard from "../_components/IpLeaderboard";
 
 export default async function Analytics() {
-  const h = await headers();
-  const ip = (
-    h.get("x-forwarded-for")?.split(",")[0].trim() ??
-    h.get("x-real-ip") ??
-    "unknown"
-  ).replace(/^::ffff:/, "");
-  const myName = ipToName(ip);
-  const ua = h.get("user-agent") ?? "";
-  if (!isBot(ua)) await recordVisit(ip, "/analytics");
-
-  const { count, ipCounts } = await getStats();
+  const { count, nameCounts } = await getStats();
 
   return (
     <>
@@ -54,11 +41,11 @@ export default async function Analytics() {
 
             <PageViewCounter
               initial={count}
-              initialVisitors={Object.keys(ipCounts).length}
+              initialVisitors={Object.keys(nameCounts).length}
             />
 
             <div className="max-h-[40svh] w-full max-w-sm overflow-y-auto">
-              <IpLeaderboard initialCounts={ipCounts} myName={myName} />
+              <IpLeaderboard initialCounts={nameCounts} />
             </div>
           </div>
         </section>

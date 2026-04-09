@@ -1,20 +1,8 @@
-export const dynamic = "force-dynamic";
-
-import { headers } from "next/headers";
-import { recordVisit } from "@/lib/pageview";
 import Nav from "./_components/Nav";
 import HeroAnimation from "./_components/HeroAnimation";
 import ScrollReveal from "./_components/ScrollReveal";
 
 export default async function Home() {
-  const h = await headers();
-  const ip = (
-    h.get("x-forwarded-for")?.split(",")[0].trim() ??
-    h.get("x-real-ip") ??
-    "unknown"
-  ).replace(/^::ffff:/, "");
-  await recordVisit(ip, "/");
-
   return (
     <>
       <Nav />
