@@ -1,9 +1,6 @@
 "use server";
 
 import { randomInt } from "node:crypto";
-import { headers } from "next/headers";
-import { recordVisit } from "@/lib/pageview";
-import { isBot } from "@/lib/isBot";
 
 const BIGINT_ZERO = BigInt(0);
 const BIGINT_MILLION = BigInt(1_000_000);
@@ -48,24 +45,15 @@ export async function verifyToken(token: string): Promise<boolean> {
   return isValidToken(token, modulus);
 }
 
-export async function eraseVisitorLog(ip: string): Promise<void> {
+export async function eraseVisitorLog(uid: string): Promise<void> {
   const db = (await import("@/lib/firebase")).getDb();
   const snapshot = await db.ref("pageviews").once("value");
   const deletes: Promise<void>[] = [];
   snapshot.forEach((child) => {
-    if (child.val()?.ip === ip) deletes.push(child.ref.remove());
+    if (child.val()?.uid === uid) deletes.push(child.ref.remove());
   });
   await Promise.all(deletes);
 }
 
-export async function recordAdminVisit(): Promise<void> {
-  const h = await headers();
-  const ua = h.get("user-agent") ?? "";
-  if (isBot(ua)) return;
-  const ip = (
-    h.get("x-forwarded-for")?.split(",")[0].trim() ??
-    h.get("x-real-ip") ??
-    "unknown"
-  ).replace(/^::ffff:/, "");
-  await recordVisit(ip, "/admin");
-}
+// tracking は client-side PageTracker が担当する
+export async function recordAdminVisit(): Promise<void> {}
