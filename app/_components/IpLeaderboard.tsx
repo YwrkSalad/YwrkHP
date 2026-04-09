@@ -3,13 +3,13 @@
 import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { getClientDb } from "@/lib/firebase-client";
-import { ipToName } from "@/lib/ipname";
+import { indexToName } from "@/lib/visitorname";
 
 const TOP_N = 5;
 
 type Props = {
   initialCounts: Record<string, number>;
-  myName: string;
+  myName?: string;
 };
 
 function Row({
@@ -69,12 +69,19 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
   useEffect(() => {
     const pvRef = ref(getClientDb(), "pageviews");
     const unsub = onValue(pvRef, (snap) => {
-      const next: Record<string, number> = {};
+      // uid ごとのページビュー数を集計
+      const uidCounts: Record<string, number> = {};
       snap.forEach((child) => {
-        const ip: string = child.val()?.ip;
-        if (!ip) return;
-        const name = ipToName(ip);
-        next[name] = (next[name] ?? 0) + 1;
+        const uid: string = child.val()?.uid;
+        if (!uid) return;
+        uidCounts[uid] = (uidCounts[uid] ?? 0) + 1;
+      });
+
+      // uid を辞書順ソートして indexToName でインデックス決定
+      const sortedUids = Object.keys(uidCounts).sort();
+      const next: Record<string, number> = {};
+      sortedUids.forEach((uid, i) => {
+        next[indexToName(i)] = uidCounts[uid];
       });
       setCounts(next);
     });
@@ -89,8 +96,8 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
 
   const top = sorted.slice(0, TOP_N);
   const rest = sorted.slice(TOP_N);
-  const myRank = sorted.findIndex(([name]) => name === myName);
-  const myInTop = myRank < TOP_N;
+  const myRank = myName ? sorted.findIndex(([name]) => name === myName) : -1;
+  const myInTop = myRank >= 0 && myRank < TOP_N;
   const hasMore = rest.length > 0;
 
   return (
@@ -105,7 +112,7 @@ export default function IpLeaderboard({ initialCounts, myName }: Props) {
         />
       ))}
 
-      {!myInTop && !expanded && myRank !== -1 && (
+      {!myInTop && !expanded && myRank !== -1 && myName && (
         <>
           <div className="flex items-center gap-2 px-1 py-0.5">
             <div className="h-px flex-1 bg-zinc-300/30" />
