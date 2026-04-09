@@ -11,6 +11,7 @@ import { MoreHorizontal, X } from "lucide-react";
 import { verifyToken, eraseVisitorLog } from "./actions";
 
 const TOKEN_KEY = "ywrk-admin-token";
+const VISITOR_KEY = "ywrk-visitor-id";
 
 type Pageview = {
   ts: number;
@@ -32,6 +33,7 @@ export default function AdminPage() {
   const [pageviews, setPageviews] = useState<Pageview[]>([]);
   const [modal, setModal] = useState<VisitorStat | null>(null);
   const [logLimit, setLogLimit] = useState(20);
+  const [myUid, setMyUid] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -53,6 +55,7 @@ export default function AdminPage() {
           return;
         }
         if (cancelled) return;
+        setMyUid(localStorage.getItem(VISITOR_KEY));
         setAuthed(true);
       } catch {
         localStorage.removeItem(TOKEN_KEY);
@@ -101,7 +104,7 @@ export default function AdminPage() {
   const sortedUids = [...new Set(pageviews.map((pv) => pv.uid))].sort();
   const uidToName: Record<string, string> = {};
   sortedUids.forEach((uid, i) => {
-    uidToName[uid] = indexToName(i);
+    uidToName[uid] = uid === myUid ? "me" : indexToName(i);
   });
 
   // 集計
