@@ -104,8 +104,11 @@ export default function AdminPage() {
   const sortedUids = [...new Set(pageviews.map((pv) => pv.uid))].sort();
   const uidToName: Record<string, string> = {};
   sortedUids.forEach((uid, i) => {
-    uidToName[uid] = uid === myUid ? "me" : indexToName(i);
+    uidToName[uid] = indexToName(i);
   });
+
+  const displayName = (uid: string) =>
+    uid === myUid ? `${uidToName[uid] ?? uid} (me)` : (uidToName[uid] ?? uid);
 
   // 集計
   const visitorMap = new Map<string, VisitorStat>();
@@ -222,7 +225,7 @@ export default function AdminPage() {
                       {i + 1}
                     </td>
                     <td className="py-3 pr-8 font-medium text-zinc-700">
-                      {v.name}
+                      {displayName(v.uid)}
                     </td>
                     <td className="py-3 pr-8 text-zinc-700 tabular-nums">
                       {v.count}
@@ -277,7 +280,7 @@ export default function AdminPage() {
               {pageviews.slice(0, logLimit).map((pv, i) => (
                 <tr key={i} className="border-b border-stone-200">
                   <td className="py-2.5 pr-6 font-medium text-zinc-700">
-                    {uidToName[pv.uid] ?? pv.uid}
+                    {displayName(pv.uid)}
                   </td>
                   <td className="py-2.5 pr-6">
                     <span className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600">
@@ -313,7 +316,7 @@ export default function AdminPage() {
             >
               <div className="mb-8 flex items-start justify-between">
                 <p className="text-xl font-semibold text-zinc-800">
-                  {modal.name}
+                  {displayName(modal.uid)}
                 </p>
                 <button
                   onClick={() => setModal(null)}
