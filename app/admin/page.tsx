@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { onChildAdded, onChildRemoved, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
-import { ipToName } from "@/lib/ipname";
+import { indexToName } from "@/lib/visitorname";
 import Nav from "@/app/_components/Nav";
 import { MoreHorizontal, X } from "lucide-react";
 import { verifyToken, recordAdminVisit, eraseVisitorLog } from "./actions";
@@ -13,14 +13,13 @@ const TOKEN_KEY = "ywrk-admin-token";
 
 type Pageview = {
   ts: number;
-  ip: string;
+  uid: string;
   page: string;
-  name: string;
 };
 
 type VisitorStat = {
   name: string;
-  ip: string;
+  uid: string;
   count: number;
   pages: Set<string>;
   first: number;
@@ -73,21 +72,20 @@ export default function AdminPage() {
 
     const unsubAdd = onChildAdded(pvRef, (snap) => {
       const v = snap.val();
-      if (!v?.ts || !v?.ip) return;
+      if (!v?.ts || !v?.uid) return;
       const row: Pageview = {
         ts: v.ts,
-        ip: v.ip,
+        uid: v.uid,
         page: v.page ?? "/",
-        name: ipToName(v.ip),
       };
       setPageviews((prev) => [row, ...prev].sort((a, b) => b.ts - a.ts));
     });
 
     const unsubRemove = onChildRemoved(pvRef, (snap) => {
       const v = snap.val();
-      if (!v?.ts || !v?.ip) return;
+      if (!v?.ts || !v?.uid) return;
       setPageviews((prev) =>
-        prev.filter((p) => !(p.ts === v.ts && p.ip === v.ip)),
+        prev.filter((p) => !(p.ts === v.ts && p.uid === v.uid)),
       );
     });
 
@@ -99,12 +97,22 @@ export default function AdminPage() {
 
   if (!authed) return null;
 
+  // uid → name マッピング（辞書順ソート = 初回訪問時刻の昇順）
+  const sortedUids = [
+    ...new Set(pageviews.map((pv) => pv.uid)),
+  ].sort();
+  const uidToName: Record<string, string> = {};
+  sortedUids.forEach((uid, i) => {
+    uidToName[uid] = indexToName(i);
+  });
+
   // 集計
   const visitorMap = new Map<string, VisitorStat>();
   for (const pv of pageviews) {
-    const s = visitorMap.get(pv.name) ?? {
-      name: pv.name,
-      ip: pv.ip,
+    const name = uidToName[pv.uid] ?? pv.uid;
+    const s = visitorMap.get(pv.uid) ?? {
+      name,
+      uid: pv.uid,
       count: 0,
       pages: new Set(),
       first: pv.ts,
@@ -114,7 +122,7 @@ export default function AdminPage() {
     s.pages.add(pv.page);
     s.first = Math.min(s.first, pv.ts);
     s.last = Math.max(s.last, pv.ts);
-    visitorMap.set(pv.name, s);
+    visitorMap.set(pv.uid, s);
   }
   const visitors = [...visitorMap.values()].sort((a, b) => b.count - a.count);
 
@@ -207,7 +215,7 @@ export default function AdminPage() {
               </thead>
               <tbody>
                 {visitors.map((v, i) => (
-                  <tr key={v.name} className="border-b border-stone-200">
+                  <tr key={v.uid} className="border-b border-stone-200">
                     <td className="py-3 pr-8 font-mono text-xs text-stone-400">
                       {i + 1}
                     </td>
@@ -259,9 +267,6 @@ export default function AdminPage() {
             <thead>
               <tr className="border-b border-stone-300 text-left text-xs tracking-widest text-stone-500 uppercase">
                 <th className="pr-6 pb-2 font-medium">Name</th>
-                <th className="hidden pr-6 pb-2 font-medium md:table-cell">
-                  IP
-                </th>
                 <th className="pr-6 pb-2 font-medium">Page</th>
                 <th className="pb-2 font-medium">Time</th>
               </tr>
@@ -270,10 +275,7 @@ export default function AdminPage() {
               {pageviews.slice(0, logLimit).map((pv, i) => (
                 <tr key={i} className="border-b border-stone-200">
                   <td className="py-2.5 pr-6 font-medium text-zinc-700">
-                    {pv.name}
-                  </td>
-                  <td className="hidden py-2.5 pr-6 font-mono text-xs text-stone-500 md:table-cell">
-                    {pv.ip}
+                    {uidToName[pv.uid] ?? pv.uid}
                   </td>
                   <td className="py-2.5 pr-6">
                     <span className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600">
@@ -320,12 +322,6 @@ export default function AdminPage() {
               </div>
               <dl className="flex flex-col gap-5 text-base">
                 <div className="flex justify-between">
-                  <dt className="text-stone-500">IP</dt>
-                  <dd className="font-mono text-sm text-zinc-700">
-                    {modal.ip}
-                  </dd>
-                </div>
-                <div className="flex justify-between">
                   <dt className="text-stone-500">Visits</dt>
                   <dd className="font-medium text-zinc-700">{modal.count}</dd>
                 </div>
@@ -363,7 +359,7 @@ export default function AdminPage() {
                   onClick={async () => {
                     if (!confirm(`${modal.name} のログを全て削除しますか？`))
                       return;
-                    await eraseVisitorLog(modal.ip);
+                    await eraseVisitorLog(modal.uid);
                     setModal(null);
                   }}
                   className="w-full rounded-lg border border-red-100 bg-red-50 py-3 text-sm font-medium text-red-400 transition-colors hover:bg-red-100 hover:text-red-600"
