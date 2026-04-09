@@ -1,5 +1,5 @@
 import { getDb } from "./firebase";
-import { ipToName } from "./ipname";
+import { indexToName } from "./visitorname";
 
 function generateKey(): string {
   const now = new Date();
@@ -17,23 +17,34 @@ function generateKey(): string {
   return `${datePart}_${randomPart}`;
 }
 
-export async function recordVisit(ip: string, page: string): Promise<void> {
+export async function recordVisit(uid: string, page: string): Promise<void> {
   await getDb()
     .ref(`pageviews/${generateKey()}`)
-    .set({ ts: Date.now(), ip, page });
+    .set({ ts: Date.now(), uid, page });
 }
 
 export async function getStats(): Promise<{
   count: number;
-  ipCounts: Record<string, number>;
+  nameCounts: Record<string, number>;
 }> {
   const snapshot = await getDb().ref("pageviews").once("value");
-  const ipCounts: Record<string, number> = {};
+
+  // uid ごとのページビュー数を集計
+  const uidPageCounts: Record<string, number> = {};
   snapshot.forEach((child) => {
-    const ip: string = child.val()?.ip;
-    if (!ip) return;
-    const name = ipToName(ip);
-    ipCounts[name] = (ipCounts[name] ?? 0) + 1;
+    const uid: string = child.val()?.uid;
+    if (!uid) return;
+    uidPageCounts[uid] = (uidPageCounts[uid] ?? 0) + 1;
   });
-  return { count: snapshot.numChildren(), ipCounts };
+
+  // uid を辞書順ソート（先頭が JST 日時のため = 初回訪問時刻の昇順）
+  const sortedUids = Object.keys(uidPageCounts).sort();
+
+  // インデックス順に名前を割り当て
+  const nameCounts: Record<string, number> = {};
+  sortedUids.forEach((uid, i) => {
+    nameCounts[indexToName(i)] = uidPageCounts[uid];
+  });
+
+  return { count: snapshot.numChildren(), nameCounts };
 }
