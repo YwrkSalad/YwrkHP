@@ -6,8 +6,9 @@ import { onChildAdded, onChildRemoved, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
 import { indexToName } from "@/lib/visitorname";
 import Nav from "@/app/_components/Nav";
+import PageTracker from "@/app/_components/PageTracker";
 import { MoreHorizontal, X } from "lucide-react";
-import { verifyToken, recordAdminVisit, eraseVisitorLog } from "./actions";
+import { verifyToken, eraseVisitorLog } from "./actions";
 
 const TOKEN_KEY = "ywrk-admin-token";
 
@@ -53,7 +54,6 @@ export default function AdminPage() {
         }
         if (cancelled) return;
         setAuthed(true);
-        void recordAdminVisit();
       } catch {
         localStorage.removeItem(TOKEN_KEY);
         if (!cancelled) router.replace("/admin/login");
@@ -151,6 +151,7 @@ export default function AdminPage() {
 
   return (
     <>
+      <PageTracker page="/admin" />
       <Nav />
       <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] overflow-y-auto bg-stone-50 px-8 pb-12">
         <div className="mb-10 flex justify-end pt-8">

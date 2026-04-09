@@ -1,10 +1,12 @@
 import Nav from "./_components/Nav";
 import HeroAnimation from "./_components/HeroAnimation";
 import ScrollReveal from "./_components/ScrollReveal";
+import PageTracker from "./_components/PageTracker";
 
 export default async function Home() {
   return (
     <>
+      <PageTracker page="/" />
       <Nav />
 
       <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] snap-y snap-mandatory overflow-y-scroll">
