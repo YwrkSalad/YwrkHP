@@ -169,7 +169,7 @@ export default function AccessPage() {
 
         {/* 交通アクセス */}
         <section className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 Transportation
