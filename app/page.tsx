@@ -124,7 +124,7 @@ export default async function Home() {
                     <span className="w-20 shrink-0 rounded-full bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
                       {item.category}
                     </span>
-                    <span className="text-sm leading-relaxed text-zinc-700 sm:text-base">
+                    <span className="min-w-0 truncate text-sm text-zinc-700 sm:text-base">
                       {item.title}
                     </span>
                   </div>
@@ -305,7 +305,7 @@ export default async function Home() {
                 <ScrollReveal key={item.title} delay={i * 0.1}>
                   <div className="rounded-2xl bg-white p-7">
                     <div className="mb-4 h-1 w-8 rounded-full bg-stone-300" />
-                    <h3 className="mb-3 text-lg font-semibold text-zinc-900">
+                    <h3 className="mb-3 text-lg font-semibold whitespace-nowrap text-zinc-900">
                       {item.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-stone-500">
