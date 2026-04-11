@@ -2,27 +2,37 @@ import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+import CampusMap from "../_components/CampusMap";
 
 const routes = [
   {
     means: "電車",
     items: [
       { icon: "🚃", text: "JR やわらか線「やわらか駅」南口より徒歩 5 分" },
-      { icon: "🚇", text: "地下鉄やわらか線「やわらか大学前駅」1番出口より徒歩 2 分" },
+      {
+        icon: "🚇",
+        text: "地下鉄やわらか線「やわらか大学前駅」1番出口より徒歩 2 分",
+      },
     ],
   },
   {
     means: "バス",
     items: [
       { icon: "🚌", text: "やわらかバス「やわらか大学」停留所 すぐ" },
-      { icon: "🚌", text: "やわらか駅北口より 大学直通シャトルバス（平日のみ）" },
+      {
+        icon: "🚌",
+        text: "やわらか駅北口より 大学直通シャトルバス（平日のみ）",
+      },
     ],
   },
   {
     means: "お車・駐車場",
     items: [
       { icon: "🚗", text: "やわらか自動車道「やわらかIC」より約10分" },
-      { icon: "🅿️", text: "第1〜第3駐車場 合計200台（来客用は守衛室にご連絡ください）" },
+      {
+        icon: "🅿️",
+        text: "第1〜第3駐車場 合計200台（来客用は守衛室にご連絡ください）",
+      },
     ],
   },
 ];
@@ -34,7 +44,20 @@ const campuses = [
     address: "やわらか県やわらか市やわらか町 1-1-1",
     tel: "000-000-0000",
     email: "info@yawaraka-u.ac.jp",
-    buildings: ["総合研究棟", "文化創造学部棟", "生命環境学部棟", "共生社会学部棟", "情報デザイン学部棟", "やわらか図書館", "学生交流センター"],
+    buildings: [
+      "総合管理棟",
+      "理学部棟",
+      "工学部棟",
+      "情報科学部棟",
+      "農学部棟",
+      "医学部棟",
+      "附属病院",
+      "大学院研究棟 I・II",
+      "やわらか図書館",
+      "体育館",
+      "学生交流センター",
+      "学生食堂",
+    ],
   },
   {
     name: "サテライトキャンパス（やわらか市街地）",
@@ -42,7 +65,11 @@ const campuses = [
     address: "やわらか県やわらか市中央 2-3-4",
     tel: "000-000-1111",
     email: "satellite@yawaraka-u.ac.jp",
-    buildings: ["社会人大学院教室", "市民開放講座スタジオ", "就職・キャリアセンター"],
+    buildings: [
+      "社会人大学院教室",
+      "市民開放講座スタジオ",
+      "就職・キャリアセンター",
+    ],
   },
 ];
 
@@ -69,8 +96,25 @@ export default function AccessPage() {
           </div>
         </section>
 
+        {/* キャンパスマップ */}
+        <section id="map" className="bg-white px-6 py-24">
+          <div className="mx-auto max-w-5xl">
+            <ScrollReveal>
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+                Campus Map
+              </p>
+              <h2 className="mb-10 text-3xl font-semibold tracking-tight text-zinc-900">
+                キャンパスマップ
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <CampusMap />
+            </ScrollReveal>
+          </div>
+        </section>
+
         {/* キャンパス情報 */}
-        <section className="bg-white px-6 py-24">
+        <section className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
@@ -84,8 +128,10 @@ export default function AccessPage() {
             <div className="grid gap-6 sm:grid-cols-2">
               {campuses.map((c, i) => (
                 <ScrollReveal key={c.name} delay={i * 0.1}>
-                  <div className="rounded-md border border-stone-100 bg-stone-50 p-8">
-                    <h3 className="mb-4 text-lg font-semibold text-zinc-900">{c.name}</h3>
+                  <div className="rounded-md border border-stone-100 bg-white p-8">
+                    <h3 className="mb-4 text-lg font-semibold text-zinc-900">
+                      {c.name}
+                    </h3>
                     <address className="mb-5 not-italic text-sm leading-loose text-stone-600">
                       {c.zip}
                       <br />
@@ -122,7 +168,7 @@ export default function AccessPage() {
         </section>
 
         {/* 交通アクセス */}
-        <section className="bg-stone-50 px-6 py-24">
+        <section className="bg-white px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
               <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
@@ -136,11 +182,16 @@ export default function AccessPage() {
             <div className="space-y-6">
               {routes.map((r, i) => (
                 <ScrollReveal key={r.means} delay={i * 0.08}>
-                  <div className="rounded-md bg-white p-7">
-                    <h3 className="mb-4 text-sm font-semibold text-zinc-900">{r.means}</h3>
+                  <div className="rounded-md border border-stone-100 bg-stone-50 p-7">
+                    <h3 className="mb-4 text-sm font-semibold text-zinc-900">
+                      {r.means}
+                    </h3>
                     <ul className="space-y-3">
                       {r.items.map((item, j) => (
-                        <li key={j} className="flex items-start gap-3 text-sm text-stone-600">
+                        <li
+                          key={j}
+                          className="flex items-start gap-3 text-sm text-stone-600"
+                        >
                           <span className="shrink-0">{item.icon}</span>
                           <span>{item.text}</span>
                         </li>
@@ -150,25 +201,6 @@ export default function AccessPage() {
                 </ScrollReveal>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* キャンパスマップ（プレースホルダー） */}
-        <section id="map" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
-                Campus Map
-              </p>
-              <h2 className="mb-10 text-3xl font-semibold tracking-tight text-zinc-900">
-                キャンパスマップ
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <div className="flex h-80 items-center justify-center rounded-md border border-stone-100 bg-stone-50">
-                <p className="text-sm text-stone-400">キャンパスマップ（準備中）</p>
-              </div>
-            </ScrollReveal>
           </div>
         </section>
       </main>
