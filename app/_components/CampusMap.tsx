@@ -144,7 +144,7 @@ const BUILDINGS: BuildingData[] = [
     en: "Student Center",
     x: 390, y: 460, w: 160, h: 60,
     category: "facility",
-    description: "サークル活動室・多目的ホール・音楽スタジオ・DJ ブース（CDJ-004504X × 6、DJM-A810 × 1）を完備。",
+    description: "サークル活動室・多目的ホール・音楽スタジオ・DJ ブース（Pioneer CDJ-004504 × 4台、DDJ-A810 × 1台）を完備。",
   },
   {
     id: "parking",

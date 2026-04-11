@@ -7,38 +7,59 @@ import PageTracker from "../_components/PageTracker";
 export const metadata: Metadata = { title: "キャンパスライフ" };
 
 
-const clubs = [
+type Club = { name: string; note?: string };
+
+const clubs: { category: string; list: Club[] }[] = [
   {
     category: "体育系",
     list: [
-      "バスケットボール部",
-      "サッカー部",
-      "テニス部",
-      "水泳部",
-      "ダンスサークル",
-      "ヨガ部",
+      { name: "バスケットボール部" },
+      { name: "サッカー部" },
+      { name: "テニス部" },
+      { name: "水泳部" },
+      { name: "ダンスサークル" },
+      { name: "ヨガ部" },
+      { name: "バドミントンサークル" },
+      { name: "卓球部" },
+    ],
+  },
+  {
+    category: "音楽・DJ系",
+    list: [
+      {
+        name: "DJ研究会",
+        note: "Pioneer CDJ-004504 × 4台・DDJ-A810 × 1台 完備",
+      },
+      { name: "軽音楽部", note: "スタジオ2室・全楽器備品貸出あり" },
+      { name: "アカペラサークル" },
+      { name: "ジャズ研究会" },
+      { name: "DTMサークル", note: "DAW・MIDIキーボード常設" },
+      { name: "レコード研究会" },
+      { name: "吹奏楽団" },
     ],
   },
   {
     category: "文化系",
     list: [
-      "演劇部",
-      "写真部",
-      "映画研究会",
-      "文芸サークル",
-      "陶芸部",
-      "音楽サークル",
+      { name: "演劇部" },
+      { name: "写真部" },
+      { name: "映画研究会" },
+      { name: "文芸サークル" },
+      { name: "陶芸部" },
+      { name: "アニメ・マンガ研究会" },
+      { name: "ゲームサークル" },
     ],
   },
   {
     category: "学術系",
     list: [
-      "プログラミングサークル",
-      "国際交流サークル",
-      "環境活動団体",
-      "ボランティアサークル",
-      "起業研究会",
-      "AI研究会",
+      { name: "プログラミングサークル" },
+      { name: "国際交流サークル" },
+      { name: "環境活動団体" },
+      { name: "ボランティアサークル" },
+      { name: "起業研究会" },
+      { name: "AI研究会" },
+      { name: "天文サークル" },
     ],
   },
 ];
@@ -123,17 +144,20 @@ export default function CampusPage() {
               </p>
             </ScrollReveal>
 
-            <div className="grid gap-6 sm:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {clubs.map((c, i) => (
                 <ScrollReveal key={c.category} delay={i * 0.08}>
                   <div className="rounded-md bg-stone-50 p-6">
                     <h3 className="mb-4 text-sm font-semibold text-zinc-900">
                       {c.category}
                     </h3>
-                    <ul className="space-y-2">
-                      {c.list.map((name) => (
-                        <li key={name} className="text-sm text-stone-500">
-                          {name}
+                    <ul className="space-y-2.5">
+                      {c.list.map((club) => (
+                        <li key={club.name}>
+                          <span className="text-sm text-stone-600">{club.name}</span>
+                          {club.note && (
+                            <p className="mt-0.5 text-xs text-stone-400">{club.note}</p>
+                          )}
                         </li>
                       ))}
                     </ul>
