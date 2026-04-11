@@ -114,7 +114,7 @@ export default function FacultiesPage() {
             <div className="mx-auto max-w-5xl">
               <ScrollReveal>
                 <div className="mb-12 flex items-start gap-6">
-                  <span className="text-6xl font-bold leading-none text-stone-100">
+                  <span className="text-6xl font-bold leading-none text-accent-300">
                     {f.number}
                   </span>
                   <div>
