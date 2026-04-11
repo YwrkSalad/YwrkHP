@@ -311,9 +311,9 @@ export default function CampusMap() {
                   <rect
                     x={b.x} y={b.y} width={b.w} height={b.h}
                     fill={s.fill}
-                    stroke={isSelected ? "#80a486" : s.stroke}
-                    strokeWidth={isSelected ? 3 : 1}
-                    opacity={isHovered || isSelected ? 1 : 0.9}
+                    stroke={isSelected ? "#80a486" : b.id === lastShown ? "#aac4ae" : s.stroke}
+                    strokeWidth={isSelected ? 3 : b.id === lastShown ? 2 : 1}
+                    opacity={isHovered || isSelected || b.id === lastShown ? 1 : 0.9}
                     rx={1}
                   />
                   <text
