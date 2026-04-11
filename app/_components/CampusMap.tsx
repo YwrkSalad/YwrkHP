@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 
 type Category = "faculty" | "research" | "facility" | "sports" | "admin" | "parking";
 
@@ -199,26 +199,6 @@ export default function CampusMap() {
     setIsDragging(false);
   }, []);
 
-  // Non-passive wheel listener for zoom
-  useEffect(() => {
-    const el = svgRef.current;
-    if (!el) return;
-    const handler = (e: WheelEvent) => {
-      e.preventDefault();
-      const rect = el.getBoundingClientRect();
-      const cx = e.clientX - rect.left;
-      const cy = e.clientY - rect.top;
-      const factor = e.deltaY < 0 ? 1.12 : 0.89;
-      setScale((s) => {
-        const ns = Math.min(4, Math.max(0.35, s * factor));
-        const ratio = ns / s;
-        setPan((p) => ({ x: cx - ratio * (cx - p.x), y: cy - ratio * (cy - p.y) }));
-        return ns;
-      });
-    };
-    el.addEventListener("wheel", handler, { passive: false });
-    return () => el.removeEventListener("wheel", handler);
-  }, []);
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
@@ -261,7 +241,6 @@ export default function CampusMap() {
           ref={svgRef}
           viewBox="0 0 840 570"
           className={`h-full w-full select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
-          style={{ touchAction: "none" }}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
