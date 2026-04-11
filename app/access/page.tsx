@@ -8,31 +8,22 @@ const routes = [
   {
     means: "電車",
     items: [
-      { icon: "🚃", text: "JR やわらか線「やわらか駅」南口より徒歩 5 分" },
-      {
-        icon: "🚇",
-        text: "地下鉄やわらか線「やわらか大学前駅」1番出口より徒歩 2 分",
-      },
+      "JR やわらか線「やわらか駅」南口より徒歩 5 分",
+      "地下鉄やわらか線「やわらか大学前駅」1番出口より徒歩 2 分",
     ],
   },
   {
     means: "バス",
     items: [
-      { icon: "🚌", text: "やわらかバス「やわらか大学」停留所 すぐ" },
-      {
-        icon: "🚌",
-        text: "やわらか駅北口より 大学直通シャトルバス（平日のみ）",
-      },
+      "やわらかバス「やわらか大学」停留所 すぐ",
+      "やわらか駅北口より大学直通シャトルバス（平日のみ）",
     ],
   },
   {
     means: "お車・駐車場",
     items: [
-      { icon: "🚗", text: "やわらか自動車道「やわらかIC」より約10分" },
-      {
-        icon: "🅿️",
-        text: "第1〜第3駐車場 合計200台（来客用は守衛室にご連絡ください）",
-      },
+      "やわらか自動車道「やわらかIC」より約10分",
+      "第1〜第3駐車場 合計200台（来客用は守衛室にご連絡ください）",
     ],
   },
 ];
@@ -179,28 +170,29 @@ export default function AccessPage() {
               </h2>
             </ScrollReveal>
 
-            <div className="space-y-6">
-              {routes.map((r, i) => (
-                <ScrollReveal key={r.means} delay={i * 0.08}>
-                  <div className="rounded-md border border-stone-100 bg-stone-50 p-7">
-                    <h3 className="mb-4 text-sm font-semibold text-zinc-900">
-                      {r.means}
-                    </h3>
-                    <ul className="space-y-3">
-                      {r.items.map((item, j) => (
-                        <li
-                          key={j}
-                          className="flex items-start gap-3 text-sm text-stone-600"
-                        >
-                          <span className="shrink-0">{item.icon}</span>
-                          <span>{item.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+            <ScrollReveal delay={0.1}>
+              <table className="w-full border-collapse text-sm">
+                <tbody>
+                  {routes.map((r, i) => (
+                    <tr key={r.means} className="border-t border-stone-200">
+                      <th
+                        scope="row"
+                        className={`w-32 shrink-0 py-5 pr-8 text-left align-top text-xs font-semibold text-zinc-700 sm:w-40 ${i === 0 ? "pt-0" : ""}`}
+                      >
+                        {r.means}
+                      </th>
+                      <td className={`py-5 text-stone-600 ${i === 0 ? "pt-0" : ""}`}>
+                        <ul className="space-y-1.5">
+                          {r.items.map((text, j) => (
+                            <li key={j}>{text}</li>
+                          ))}
+                        </ul>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </ScrollReveal>
           </div>
         </section>
       </main>
