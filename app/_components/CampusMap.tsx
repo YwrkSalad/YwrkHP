@@ -70,7 +70,7 @@ const BUILDINGS: BuildingData[] = [
     en: "Faculty of Science",
     x: 40, y: 165, w: 160, h: 110,
     category: "faculty",
-    description: "数学・物理学・化学・生物学・地球惑星科学の5学科。大型実験室・観測ドームを備える。",
+    description: "数学・物理学・化学・生物学・地球惑星科学・宇宙科学の6学科。大型実験室・観測ドームを備える。",
   },
   {
     id: "eng",
