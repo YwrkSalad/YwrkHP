@@ -105,7 +105,7 @@ export default function FacultiesPage() {
       <Nav />
       <main className="pt-[4.5rem]">
         {/* ページヒーロー */}
-        <section className="bg-stone-50 px-6 py-20">
+        <section className="bg-accent-50 px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="mb-2 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
@@ -168,20 +168,141 @@ export default function FacultiesPage() {
         ))}
 
         {/* 大学院 */}
-        <section className="bg-zinc-900 px-6 py-24">
-          <div className="mx-auto max-w-4xl text-center">
+        <section className="bg-accent-900 px-6 py-24">
+          <div className="mx-auto max-w-5xl">
+
+            {/* ヘッダー */}
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-zinc-500 uppercase">
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-400 uppercase">
                 Graduate School
               </p>
-              <h2 className="mb-6 text-3xl font-semibold text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-semibold text-white sm:text-4xl">
                 やわらか大学院
               </h2>
-              <p className="mx-auto max-w-xl text-base font-light leading-loose text-zinc-400">
-                4つの研究科（文化創造・生命環境・共生社会・情報デザイン）を設置。
-                修士課程・博士課程を通じて、専門的な研究と社会への貢献を追求します。
+              <p className="mb-16 max-w-2xl text-base font-light leading-loose text-accent-200">
+                4つの学部知を2研究科に統合。修士・博士課程を通じて国際的な研究者・
+                高度専門職業人を育成するエリート大学院です。
+                年間150件以上の国際学会発表、80本以上の国際共著論文を誇ります。
               </p>
             </ScrollReveal>
+
+            {/* 統計 */}
+            <ScrollReveal delay={0.1}>
+              <div className="mb-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                {[
+                  { num: "150+", label: "年間国際学会発表" },
+                  { num: "80+", label: "国際共著論文／年" },
+                  { num: "30%", label: "外国人留学生比率" },
+                  { num: "12", label: "海外共同博士プログラム" },
+                ].map((s) => (
+                  <div key={s.label} className="rounded-xl border border-accent-700 bg-accent-800 p-5 text-center">
+                    <p className="text-2xl font-bold text-accent-300">{s.num}</p>
+                    <p className="mt-1 text-xs text-accent-400">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+
+            {/* 2研究科 */}
+            <div className="grid gap-6 sm:grid-cols-2">
+
+              {/* 研究科 1 */}
+              <ScrollReveal delay={0.1}>
+                <div className="rounded-2xl border border-accent-700 bg-accent-800 p-8">
+                  <p className="mb-1 text-xs tracking-widest text-accent-400 uppercase">
+                    Graduate School I
+                  </p>
+                  <h3 className="mb-3 text-xl font-semibold text-white">
+                    知識・表現研究科
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-accent-200">
+                    文化創造学部・情報デザイン学部の学知を統合。
+                    人間の表現・言語・メディア・テクノロジーが交差する領域で、
+                    次世代の知識創造者を育成します。
+                    欧米・アジアのトップ大学との共同博士プログラムを実施。
+                  </p>
+                  <div className="mb-5 space-y-2">
+                    {[
+                      { course: "修士課程", years: "2年", desc: "言語文化専攻 / デジタル表現専攻 / メディア研究専攻" },
+                      { course: "博士課程", years: "3年", desc: "知識創造学専攻 / 国際メディア専攻" },
+                    ].map((c) => (
+                      <div key={c.course} className="rounded-lg bg-accent-700/50 px-4 py-3">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-xs font-semibold text-accent-300">{c.course}</span>
+                          <span className="text-xs text-accent-500">（標準修業年限 {c.years}）</span>
+                        </div>
+                        <p className="text-xs text-accent-300">{c.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {["国際誌掲載 40+件/年", "NLP", "メディア人類学", "HCI", "計算言語学"].map((t) => (
+                      <span key={t} className="rounded-full border border-accent-600 px-2 py-0.5 text-xs text-accent-300">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* 研究科 2 */}
+              <ScrollReveal delay={0.18}>
+                <div className="rounded-2xl border border-accent-700 bg-accent-800 p-8">
+                  <p className="mb-1 text-xs tracking-widest text-accent-400 uppercase">
+                    Graduate School II
+                  </p>
+                  <h3 className="mb-3 text-xl font-semibold text-white">
+                    生命・共生デザイン研究科
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-accent-200">
+                    生命環境学部・共生社会学部の学知を統合。
+                    地球・生命・社会の複雑な関係を多角的に探究し、
+                    持続可能な未来をデザインする研究者・実践者を育てます。
+                    WHO・UNEP など国際機関との共同研究実績あり。
+                  </p>
+                  <div className="mb-5 space-y-2">
+                    {[
+                      { course: "修士課程", years: "2年", desc: "環境生命科学専攻 / 社会デザイン専攻 / 地域共生専攻" },
+                      { course: "博士課程", years: "3年", desc: "生命・環境統合科学専攻 / 共生社会デザイン専攻" },
+                    ].map((c) => (
+                      <div key={c.course} className="rounded-lg bg-accent-700/50 px-4 py-3">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-xs font-semibold text-accent-300">{c.course}</span>
+                          <span className="text-xs text-accent-500">（標準修業年限 {c.years}）</span>
+                        </div>
+                        <p className="text-xs text-accent-300">{c.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {["国際誌掲載 40+件/年", "気候科学", "バイオインフォマティクス", "社会疫学", "UXリサーチ"].map((t) => (
+                      <span key={t} className="rounded-full border border-accent-600 px-2 py-0.5 text-xs text-accent-300">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* 共通情報 */}
+            <ScrollReveal delay={0.25}>
+              <div className="mt-8 rounded-2xl border border-accent-700 bg-accent-800/60 p-8">
+                <h3 className="mb-4 text-base font-semibold text-white">共通の特色・支援制度</h3>
+                <ul className="grid gap-2 sm:grid-cols-2 text-sm text-accent-200">
+                  {[
+                    "RA・TA 制度による授業料免除（成績優秀者）",
+                    "国際学会発表費用の全額支援",
+                    "海外共同指導教員制度（コチューター）",
+                    "修士論文・博士論文の英語執筆推奨",
+                    "産学連携リサーチフェローシップ",
+                    "OB・OG ネットワークによるキャリア支援",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-0.5 shrink-0 text-accent-400">▸</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+
           </div>
         </section>
       </main>

@@ -114,7 +114,7 @@ export default async function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="divide-y divide-stone-100">
+            <div className="divide-y divide-accent-100">
               {news.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
                   <div className="flex items-start gap-6 py-5 sm:items-center">
@@ -185,7 +185,7 @@ export default async function Home() {
         </section>
 
         {/* 大学の理念 */}
-        <section className="overflow-hidden bg-white px-6 py-24">
+        <section className="overflow-hidden bg-accent-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
@@ -214,9 +214,9 @@ export default async function Home() {
             <div className="grid gap-8 sm:grid-cols-3">
               {values.map((v, i) => (
                 <ScrollReveal key={v.label} delay={i * 0.12}>
-                  <div className="text-center">
-                    <div className="mx-auto mb-4 h-px w-8 bg-accent-300" />
-                    <p className="mb-2 text-xs tracking-widest text-stone-400 uppercase">
+                  <div className="rounded-2xl bg-white p-8 text-center border border-accent-100">
+                    <div className="mx-auto mb-4 h-1 w-8 rounded-full bg-accent-400" />
+                    <p className="mb-2 text-xs tracking-widest text-accent-600 uppercase">
                       {v.label}
                     </p>
                     <h3 className="mb-3 text-lg font-semibold text-zinc-900">
@@ -233,7 +233,7 @@ export default async function Home() {
         </section>
 
         {/* 入試情報 */}
-        <section id="admissions" className="bg-zinc-900 px-6 py-24">
+        <section id="admissions" className="bg-accent-900 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
               <ScrollReveal className="text-center md:text-left">

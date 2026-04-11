@@ -10,7 +10,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroAnimation() {
   return (
-    <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-stone-50/40 to-stone-100/60 px-8">
+    <section className="relative flex h-[calc(100svh-4.5rem)] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-accent-50/60 to-accent-100/50 px-8">
       {/* ページ全体を覆うホワイトオーバーレイ */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[60] bg-white"
@@ -22,7 +22,7 @@ export default function HeroAnimation() {
       {/* 背景装飾 */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold text-stone-100/70 select-none sm:text-[32rem]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold text-accent-200/50 select-none sm:text-[32rem]"
         initial={{ opacity: 0, scale: 1.08 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 4, delay: 0.6, ease }}
@@ -33,7 +33,7 @@ export default function HeroAnimation() {
       <div className="relative z-10 flex flex-col items-center">
         {/* ラベル */}
         <motion.p
-          className="mb-8 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase"
+          className="mb-8 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.9, ease }}
@@ -77,7 +77,7 @@ export default function HeroAnimation() {
 
         {/* サブタイトル */}
         <motion.p
-          className="mt-10 text-center text-lg font-light text-stone-400 sm:text-xl"
+          className="mt-10 text-center text-lg font-light text-accent-600 sm:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.6, delay: 2.8, ease }}
@@ -113,7 +113,7 @@ export default function HeroAnimation() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8, delay: 3.8, ease }}
         >
-          <span className="text-xs tracking-widest text-stone-300 uppercase">
+          <span className="text-xs tracking-widest text-accent-400 uppercase">
             Scroll
           </span>
           <div className="h-12 w-px bg-gradient-to-b from-accent-300 to-transparent" />

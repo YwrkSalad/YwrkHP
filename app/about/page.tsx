@@ -15,9 +15,9 @@ const history = [
 
 const board = [
   { role: "学長", name: "やわらか", note: "文化創造学部教授 / 表現文化論" },
-  { role: "副学長（教育）", name: "しなやか 花子", note: "共生社会学部教授 / 福祉心理学" },
-  { role: "副学長（研究）", name: "おだやか 三郎", note: "生命環境学部教授 / 環境生態学" },
-  { role: "事務局長", name: "ていねい 四郎", note: "大学運営全般" },
+  { role: "副学長（教育）", name: "すき", note: "共生社会学部教授 / 福祉心理学" },
+  { role: "副学長（研究）", name: "える", note: "生命環境学部教授 / 環境生態学" },
+  { role: "事務局長", name: "わんわわ", note: "大学運営全般" },
 ];
 
 export default function AboutPage() {
@@ -109,7 +109,7 @@ export default function AboutPage() {
         </section>
 
         {/* 沿革 */}
-        <section id="history" className="bg-stone-50 px-6 py-24">
+        <section id="history" className="bg-accent-50 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
               <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
@@ -160,8 +160,8 @@ export default function AboutPage() {
                 { num: "78", unit: "年", label: "創立" },
               ].map((stat, i) => (
                 <ScrollReveal key={stat.label} delay={i * 0.08}>
-                  <div className="rounded-2xl bg-stone-50 p-6 text-center">
-                    <p className="text-3xl font-semibold text-zinc-900">
+                  <div className="rounded-2xl bg-accent-50 border border-accent-100 p-6 text-center">
+                    <p className="text-3xl font-semibold text-accent-700">
                       {stat.num}
                       <span className="text-lg text-stone-400">{stat.unit}</span>
                     </p>
