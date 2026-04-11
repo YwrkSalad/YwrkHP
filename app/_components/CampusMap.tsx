@@ -17,7 +17,7 @@ type BuildingData = {
 };
 
 const ROAD = "#ccc8c2";
-const CAMPUS_BG = "#eef3ee";
+const CAMPUS_BG = "#ffffff";
 const GRASS = "#c4d4c0";
 
 const CAT: Record<Category, { fill: string; stroke: string; fg: string }> = {
@@ -84,7 +84,7 @@ const BUILDINGS: BuildingData[] = [
     id: "infosc",
     name: "情報科学部棟",
     en: "Faculty of Info. Sci.",
-    x: 382, y: 165, w: 120, h: 110,
+    x: 372, y: 165, w: 120, h: 110,
     category: "faculty",
     description: "情報工学・知能情報・生体情報・数理情報の4学科。高性能 GPU クラスタ・演算センターを整備。",
   },
