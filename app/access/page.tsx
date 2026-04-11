@@ -1,8 +1,12 @@
+import type { Metadata } from "next";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
 import CampusMap from "../_components/CampusMap";
+
+export const metadata: Metadata = { title: "アクセス" };
+
 
 const routes = [
   {

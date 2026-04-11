@@ -1,8 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+
+export const metadata: Metadata = { title: "大学について" };
+
 
 const history = [
   {
@@ -232,3 +236,4 @@ export default function AboutPage() {
     </>
   );
 }
+

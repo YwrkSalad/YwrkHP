@@ -1,7 +1,11 @@
+import type { Metadata } from "next";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+
+export const metadata: Metadata = { title: "キャンパスライフ" };
+
 
 const clubs = [
   {

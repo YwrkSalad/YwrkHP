@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "やわらか大学",
+  metadataBase: new URL("https://ywrk.org"),
+  title: {
+    default: "やわらか大学",
+    template: "%s | やわらか大学",
+  },
   description: "やわらかな知性で、世界をひらく。",
   icons: { icon: "/ywrksalad.png" },
   openGraph: {
@@ -12,6 +16,20 @@ export const metadata: Metadata = {
     siteName: "やわらか大学",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: "/OGP/OGP_1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "やわらか大学",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "やわらか大学",
+    description: "やわらかな知性で、世界をひらく。",
+    images: ["/OGP/OGP_1200x630.png"],
   },
 };
 
