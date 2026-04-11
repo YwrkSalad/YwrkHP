@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { label: "ホーム", href: "/" },
-  { label: "学部・大学院", href: "#faculties" },
-  { label: "入試情報", href: "#admissions" },
-  { label: "研究・社会連携", href: "#research" },
-  { label: "キャンパスライフ", href: "#campus" },
-  { label: "アクセス", href: "#access" },
+  { label: "学部・大学院", href: "/faculties" },
+  { label: "入試情報", href: "/admissions" },
+  { label: "研究・社会連携", href: "/research" },
+  { label: "キャンパスライフ", href: "/campus" },
+  { label: "アクセス", href: "/access" },
 ];
 
 export default function Nav() {

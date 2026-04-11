@@ -93,13 +93,13 @@ export default function HeroAnimation() {
           transition={{ duration: 1.6, delay: 3.2, ease }}
         >
           <Link
-            href="#faculties"
+            href="/faculties"
             className="rounded-full bg-zinc-900 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
           >
             学部を見る
           </Link>
           <Link
-            href="#admissions"
+            href="/admissions"
             className="rounded-full border border-stone-300 px-8 py-3 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-500 hover:text-zinc-900"
           >
             入試情報

@@ -108,22 +108,16 @@ export default async function Home() {
                     お知らせ
                   </h2>
                 </div>
-                <a
-                  href="#"
-                  className="text-sm text-stone-400 transition-colors hover:text-zinc-700"
-                >
+                <span className="text-sm text-stone-200 select-none">
                   すべて見る →
-                </a>
+                </span>
               </div>
             </ScrollReveal>
 
             <div className="divide-y divide-stone-100">
               {news.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
-                  <a
-                    href="#"
-                    className="flex items-start gap-6 py-5 transition-colors hover:bg-stone-50 sm:items-center"
-                  >
+                  <div className="flex items-start gap-6 py-5 sm:items-center">
                     <span className="w-24 shrink-0 text-sm text-stone-400">
                       {item.date}
                     </span>
@@ -133,7 +127,7 @@ export default async function Home() {
                     <span className="text-sm leading-relaxed text-zinc-700 sm:text-base">
                       {item.title}
                     </span>
-                  </a>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
@@ -269,7 +263,7 @@ export default async function Home() {
                   </p>
                 </div>
                 <a
-                  href="#"
+                  href="/admissions"
                   className="mt-2 rounded-full border border-zinc-600 px-8 py-3 text-center text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-400 hover:text-white"
                 >
                   募集要項を見る
