@@ -43,7 +43,7 @@ const campuses = [
     zip: "〒000-0000",
     address: "やわらか県やわらか市やわらか町 1-1-1",
     tel: "000-000-0000",
-    email: "info@yawaraka-u.ac.jp",
+    email: "info@ywrk.org",
     buildings: [
       "総合管理棟",
       "理学部棟",
@@ -64,7 +64,7 @@ const campuses = [
     zip: "〒000-0001",
     address: "やわらか県やわらか市中央 2-3-4",
     tel: "000-000-1111",
-    email: "satellite@yawaraka-u.ac.jp",
+    email: "satellite@ywrk.org",
     buildings: [
       "社会人大学院教室",
       "市民開放講座スタジオ",

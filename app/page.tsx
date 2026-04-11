@@ -47,7 +47,13 @@ const faculties = [
     en: "Faculty of Engineering",
     description:
       "機械航空・電気情報・建設環境・化学システム・材料科学で社会を支えるエンジニアを育てます。",
-    departments: ["機械航空工学科", "電気情報工学科", "建設環境工学科", "化学システム工学科", "材料科学工学科"],
+    departments: [
+      "機械航空工学科",
+      "電気情報工学科",
+      "建設環境工学科",
+      "化学システム工学科",
+      "材料科学工学科",
+    ],
   },
   {
     number: "03",
@@ -55,7 +61,12 @@ const faculties = [
     en: "Faculty of Agriculture",
     description:
       "食料・生命・環境を横断する農学の視点から、持続可能な社会の実現に貢献します。",
-    departments: ["農業科学科", "生命機能科学科", "資源生物科学科", "応用生物化学科"],
+    departments: [
+      "農業科学科",
+      "生命機能科学科",
+      "資源生物科学科",
+      "応用生物化学科",
+    ],
   },
   {
     number: "04",
@@ -63,7 +74,12 @@ const faculties = [
     en: "Faculty of Information Science and Technology",
     description:
       "AI・数理・バイオインフォマティクスが融合した次世代情報研究者を育成します。",
-    departments: ["情報工学科", "知能情報工学科", "生体情報工学科", "数理情報科学科"],
+    departments: [
+      "情報工学科",
+      "知能情報工学科",
+      "生体情報工学科",
+      "数理情報科学科",
+    ],
   },
   {
     number: "05",
@@ -109,7 +125,7 @@ export default async function Home() {
             <ScrollReveal>
               <div className="mb-12 flex items-center justify-between">
                 <div>
-                  <p className="mb-2 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+                  <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
                     News
                   </p>
                   <h2 className="text-3xl font-semibold tracking-tight text-zinc-900">
@@ -122,14 +138,14 @@ export default async function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="divide-y divide-accent-100">
+            <div className="divide-accent-100 divide-y">
               {news.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
                   <div className="flex items-start gap-6 py-5 sm:items-center">
                     <span className="w-24 shrink-0 text-sm text-stone-400">
                       {item.date}
                     </span>
-                    <span className="shrink-0 whitespace-nowrap rounded bg-accent-50 px-3 py-0.5 text-center text-xs text-accent-600">
+                    <span className="bg-accent-50 text-accent-600 shrink-0 rounded px-3 py-0.5 text-center text-xs whitespace-nowrap">
                       {item.category}
                     </span>
                     <span className="min-w-0 truncate text-sm text-zinc-700 sm:text-base">
@@ -147,7 +163,7 @@ export default async function Home() {
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+                <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                   Faculties
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
@@ -163,7 +179,7 @@ export default async function Home() {
               {faculties.map((f, i) => (
                 <ScrollReveal key={f.number} delay={i * 0.1}>
                   <div className="group rounded-md bg-white p-8 transition-shadow hover:shadow-md">
-                    <span className="mb-4 block text-5xl font-bold text-accent-100 leading-none">
+                    <span className="text-accent-100 mb-4 block text-5xl leading-none font-bold">
                       {f.number}
                     </span>
                     <p className="mb-1 text-xs tracking-widest text-stone-400 uppercase">
@@ -179,7 +195,7 @@ export default async function Home() {
                       {f.departments.map((d) => (
                         <li
                           key={d}
-                          className="rounded border border-accent-200 px-3 py-1 text-xs text-accent-700"
+                          className="border-accent-200 text-accent-700 rounded border px-3 py-1 text-xs"
                         >
                           {d}
                         </li>
@@ -193,11 +209,11 @@ export default async function Home() {
         </section>
 
         {/* 大学の理念 */}
-        <section className="overflow-hidden bg-accent-50 px-6 py-24">
+        <section className="bg-accent-50 overflow-hidden px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+                <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                   Philosophy
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
@@ -211,7 +227,7 @@ export default async function Home() {
                 <p className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
                   やわらかであることは、強さである。
                 </p>
-                <p className="mt-6 mx-auto max-w-2xl text-base leading-loose font-light text-stone-500">
+                <p className="mx-auto mt-6 max-w-2xl text-base leading-loose font-light text-stone-500">
                   固定観念を手放し、しなやかに考え、ていねいに行動する。
                   やわらか大学は、知の柔軟性と人への深い敬意を根本に、
                   多様な知を育む場です。
@@ -222,9 +238,9 @@ export default async function Home() {
             <div className="grid gap-8 sm:grid-cols-3">
               {values.map((v, i) => (
                 <ScrollReveal key={v.label} delay={i * 0.12}>
-                  <div className="rounded-md bg-white p-8 text-center border border-accent-100">
-                    <div className="mx-auto mb-4 h-1 w-8 rounded bg-accent-400" />
-                    <p className="mb-2 text-xs tracking-widest text-accent-600 uppercase">
+                  <div className="border-accent-100 rounded-md border bg-white p-8 text-center">
+                    <div className="bg-accent-400 mx-auto mb-4 h-1 w-8 rounded" />
+                    <p className="text-accent-600 mb-2 text-xs tracking-widest uppercase">
                       {v.label}
                     </p>
                     <h3 className="mb-3 text-lg font-semibold text-zinc-900">
@@ -245,7 +261,7 @@ export default async function Home() {
           <div className="mx-auto max-w-4xl">
             <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
               <ScrollReveal className="text-center md:text-left">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-400 uppercase">
+                <p className="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                   Admissions
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -272,7 +288,7 @@ export default async function Home() {
                 </div>
                 <a
                   href="/admissions"
-                  className="mt-2 rounded border border-accent-600 px-8 py-3 text-center text-sm font-medium text-accent-300 transition-colors hover:border-accent-400 hover:text-accent-200"
+                  className="border-accent-600 text-accent-300 hover:border-accent-400 hover:text-accent-200 mt-2 rounded border px-8 py-3 text-center text-sm font-medium transition-colors"
                 >
                   募集要項を見る
                 </a>
@@ -286,7 +302,7 @@ export default async function Home() {
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-14 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+                <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                   Campus Life
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
@@ -312,7 +328,7 @@ export default async function Home() {
               ].map((item, i) => (
                 <ScrollReveal key={item.title} delay={i * 0.1}>
                   <div className="rounded-md bg-white p-7">
-                    <div className="mb-4 h-1 w-8 rounded bg-accent-300" />
+                    <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
                     <h3 className="mb-3 text-lg font-semibold whitespace-nowrap text-zinc-900">
                       {item.title}
                     </h3>
@@ -331,7 +347,7 @@ export default async function Home() {
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
               <div className="mb-12 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+                <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                   Access
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900">
@@ -347,14 +363,14 @@ export default async function Home() {
                     <h3 className="mb-4 text-lg font-semibold text-zinc-900">
                       やわらか大学 本キャンパス
                     </h3>
-                    <address className="not-italic text-sm leading-loose text-stone-600">
+                    <address className="text-sm leading-loose text-stone-600 not-italic">
                       〒000-0000
                       <br />
                       やわらか県やわらか市やわらか町 1-1-1
                       <br />
                       TEL: 000-000-0000
                       <br />
-                      Email: info@yawaraka-u.ac.jp
+                      Email: info@ywrk.org
                     </address>
                   </div>
                   <div>
