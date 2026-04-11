@@ -169,13 +169,14 @@ export default function CampusMap() {
   const svgRef = useRef<SVGSVGElement>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
+  const [lastShown, setLastShown] = useState<string | null>(null);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1);
   const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef<{ sx: number; sy: number; ox: number; oy: number } | null>(null);
 
-  const activeId = selected ?? hovered;
-  const activeBuilding = BUILDINGS.find((b) => b.id === activeId) ?? null;
+  const displayId = selected ?? lastShown;
+  const activeBuilding = BUILDINGS.find((b) => b.id === displayId) ?? null;
 
   const onPointerDown = useCallback(
     (e: React.PointerEvent<SVGSVGElement>) => {
@@ -289,7 +290,8 @@ export default function CampusMap() {
             {/* Buildings */}
             {BUILDINGS.map((b) => {
               const s = CAT[b.category];
-              const isActive = b.id === activeId;
+              const isSelected = b.id === selected;
+              const isHovered = b.id === hovered;
               const cx = b.x + b.w / 2;
               const cy = b.y + b.h / 2;
               const fontSize = b.w >= 140 ? 11 : b.w >= 100 ? 10 : 9;
@@ -299,7 +301,7 @@ export default function CampusMap() {
                 <g
                   key={b.id}
                   style={{ cursor: "pointer" }}
-                  onMouseEnter={() => setHovered(b.id)}
+                  onMouseEnter={() => { setHovered(b.id); setLastShown(b.id); }}
                   onMouseLeave={() => setHovered(null)}
                   onClick={(e) => {
                     e.stopPropagation();
@@ -309,9 +311,9 @@ export default function CampusMap() {
                   <rect
                     x={b.x} y={b.y} width={b.w} height={b.h}
                     fill={s.fill}
-                    stroke={isActive ? "#ffffff" : s.stroke}
-                    strokeWidth={isActive ? 2.5 : 1}
-                    opacity={isActive ? 1 : 0.9}
+                    stroke={isSelected ? "#80a486" : s.stroke}
+                    strokeWidth={isSelected ? 3 : 1}
+                    opacity={isHovered || isSelected ? 1 : 0.9}
                     rx={1}
                   />
                   <text
