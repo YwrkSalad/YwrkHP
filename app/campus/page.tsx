@@ -21,6 +21,7 @@ const clubs: { category: string; list: Club[] }[] = [
       { name: "ヨガ部" },
       { name: "バドミントンサークル" },
       { name: "卓球部" },
+      { name: "やわらか部" },
     ],
   },
   {
