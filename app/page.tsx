@@ -121,7 +121,7 @@ export default async function Home() {
                     <span className="w-24 shrink-0 text-sm text-stone-400">
                       {item.date}
                     </span>
-                    <span className="w-20 shrink-0 rounded-full bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
+                    <span className="shrink-0 whitespace-nowrap rounded-full bg-stone-100 px-3 py-0.5 text-xs text-stone-500">
                       {item.category}
                     </span>
                     <span className="min-w-0 truncate text-sm text-zinc-700 sm:text-base">
