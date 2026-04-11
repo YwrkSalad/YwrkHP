@@ -177,11 +177,11 @@ export default function AccessPage() {
                     <tr key={r.means} className="border-t border-stone-200">
                       <th
                         scope="row"
-                        className={`w-32 shrink-0 py-5 pr-8 text-left align-top text-xs font-semibold text-zinc-700 sm:w-40 ${i === 0 ? "pt-0" : ""}`}
+                        className="w-32 shrink-0 py-5 pr-8 text-left align-top text-xs font-semibold text-zinc-700 sm:w-40"
                       >
                         {r.means}
                       </th>
-                      <td className={`py-5 text-stone-600 ${i === 0 ? "pt-0" : ""}`}>
+                      <td className="py-5 text-stone-600">
                         <ul className="space-y-1.5">
                           {r.items.map((text, j) => (
                             <li key={j}>{text}</li>
