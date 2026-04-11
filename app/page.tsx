@@ -129,7 +129,7 @@ export default async function Home() {
                     <span className="w-24 shrink-0 text-sm text-stone-400">
                       {item.date}
                     </span>
-                    <span className="shrink-0 whitespace-nowrap rounded-full bg-accent-50 px-3 py-0.5 text-center text-xs text-accent-600">
+                    <span className="shrink-0 whitespace-nowrap rounded bg-accent-50 px-3 py-0.5 text-center text-xs text-accent-600">
                       {item.category}
                     </span>
                     <span className="min-w-0 truncate text-sm text-zinc-700 sm:text-base">
@@ -162,7 +162,7 @@ export default async function Home() {
             <div className="grid gap-6 sm:grid-cols-2">
               {faculties.map((f, i) => (
                 <ScrollReveal key={f.number} delay={i * 0.1}>
-                  <div className="group rounded-2xl bg-white p-8 transition-shadow hover:shadow-md">
+                  <div className="group rounded-md bg-white p-8 transition-shadow hover:shadow-md">
                     <span className="mb-4 block text-5xl font-bold text-accent-100 leading-none">
                       {f.number}
                     </span>
@@ -179,7 +179,7 @@ export default async function Home() {
                       {f.departments.map((d) => (
                         <li
                           key={d}
-                          className="rounded-full border border-accent-200 px-3 py-1 text-xs text-accent-700"
+                          className="rounded border border-accent-200 px-3 py-1 text-xs text-accent-700"
                         >
                           {d}
                         </li>
@@ -222,8 +222,8 @@ export default async function Home() {
             <div className="grid gap-8 sm:grid-cols-3">
               {values.map((v, i) => (
                 <ScrollReveal key={v.label} delay={i * 0.12}>
-                  <div className="rounded-2xl bg-white p-8 text-center border border-accent-100">
-                    <div className="mx-auto mb-4 h-1 w-8 rounded-full bg-accent-400" />
+                  <div className="rounded-md bg-white p-8 text-center border border-accent-100">
+                    <div className="mx-auto mb-4 h-1 w-8 rounded bg-accent-400" />
                     <p className="mb-2 text-xs tracking-widest text-accent-600 uppercase">
                       {v.label}
                     </p>
@@ -258,13 +258,13 @@ export default async function Home() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.15} className="flex flex-col gap-4">
-                <div className="rounded-xl border border-zinc-700 bg-zinc-800/60 px-8 py-5">
+                <div className="rounded border border-zinc-700 bg-zinc-800/60 px-8 py-5">
                   <p className="text-xs text-zinc-500">一般選抜</p>
                   <p className="mt-1 text-lg font-medium text-white">
                     2027年1月 出願開始
                   </p>
                 </div>
-                <div className="rounded-xl border border-zinc-700 bg-zinc-800/60 px-8 py-5">
+                <div className="rounded border border-zinc-700 bg-zinc-800/60 px-8 py-5">
                   <p className="text-xs text-zinc-500">総合型選抜</p>
                   <p className="mt-1 text-lg font-medium text-white">
                     2026年9月 出願開始
@@ -272,7 +272,7 @@ export default async function Home() {
                 </div>
                 <a
                   href="/admissions"
-                  className="mt-2 rounded-full border border-accent-600 px-8 py-3 text-center text-sm font-medium text-accent-300 transition-colors hover:border-accent-400 hover:text-accent-200"
+                  className="mt-2 rounded border border-accent-600 px-8 py-3 text-center text-sm font-medium text-accent-300 transition-colors hover:border-accent-400 hover:text-accent-200"
                 >
                   募集要項を見る
                 </a>
@@ -311,8 +311,8 @@ export default async function Home() {
                 },
               ].map((item, i) => (
                 <ScrollReveal key={item.title} delay={i * 0.1}>
-                  <div className="rounded-2xl bg-white p-7">
-                    <div className="mb-4 h-1 w-8 rounded-full bg-accent-300" />
+                  <div className="rounded-md bg-white p-7">
+                    <div className="mb-4 h-1 w-8 rounded bg-accent-300" />
                     <h3 className="mb-3 text-lg font-semibold whitespace-nowrap text-zinc-900">
                       {item.title}
                     </h3>
@@ -341,7 +341,7 @@ export default async function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <div className="rounded-2xl border border-stone-100 bg-stone-50 p-8 sm:p-12">
+              <div className="rounded-md border border-stone-100 bg-stone-50 p-8 sm:p-12">
                 <div className="grid gap-8 sm:grid-cols-2">
                   <div>
                     <h3 className="mb-4 text-lg font-semibold text-zinc-900">

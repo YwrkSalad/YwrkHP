@@ -76,7 +76,7 @@ export default function ResearchPage() {
             <div className="grid gap-6 sm:grid-cols-2">
               {centers.map((c, i) => (
                 <ScrollReveal key={c.name} delay={i * 0.09}>
-                  <div className="rounded-2xl border border-stone-100 bg-stone-50 p-7">
+                  <div className="rounded-md border border-stone-100 bg-stone-50 p-7">
                     <h3 className="mb-3 text-base font-semibold leading-snug text-zinc-900">
                       {c.name}
                     </h3>
@@ -87,7 +87,7 @@ export default function ResearchPage() {
                       {c.topics.map((t) => (
                         <span
                           key={t}
-                          className="rounded-full border border-accent-200 px-3 py-0.5 text-xs text-accent-600"
+                          className="rounded border border-accent-200 px-3 py-0.5 text-xs text-accent-600"
                         >
                           {t}
                         </span>
@@ -112,11 +112,11 @@ export default function ResearchPage() {
               </h2>
             </ScrollReveal>
 
-            <div className="divide-y divide-stone-100 rounded-2xl bg-white">
+            <div className="divide-y divide-stone-100 rounded-md bg-white">
               {partnerships.map((p, i) => (
                 <ScrollReveal key={p.name} delay={i * 0.07}>
                   <div className="flex flex-col gap-2 px-8 py-5 sm:flex-row sm:items-center sm:gap-6">
-                    <span className="w-20 shrink-0 rounded-full bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
+                    <span className="w-20 shrink-0 rounded bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
                       {p.type}
                     </span>
                     <span className="flex-1 text-sm font-medium text-zinc-800">{p.name}</span>

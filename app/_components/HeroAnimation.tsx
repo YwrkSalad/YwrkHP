@@ -94,13 +94,13 @@ export default function HeroAnimation() {
         >
           <Link
             href="/faculties"
-            className="rounded-full bg-accent-700 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-600"
+            className="rounded bg-accent-700 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-600"
           >
             学部を見る
           </Link>
           <Link
             href="/admissions"
-            className="rounded-full border border-accent-300 px-8 py-3 text-sm font-medium text-accent-700 transition-colors hover:border-accent-500 hover:text-accent-800"
+            className="rounded border border-accent-300 px-8 py-3 text-sm font-medium text-accent-700 transition-colors hover:border-accent-500 hover:text-accent-800"
           >
             入試情報
           </Link>

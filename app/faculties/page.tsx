@@ -182,8 +182,8 @@ export default function FacultiesPage() {
               <div className="grid gap-5 sm:grid-cols-3">
                 {f.departments.map((d, i) => (
                   <ScrollReveal key={d.name} delay={0.1 + i * 0.08}>
-                    <div className="rounded-2xl border border-accent-100 bg-white p-6">
-                      <div className="mb-3 h-1 w-6 rounded-full bg-accent-300" />
+                    <div className="rounded-md border border-accent-100 bg-white p-6">
+                      <div className="mb-3 h-1 w-6 rounded bg-accent-300" />
                       <h3 className="mb-2 text-base font-semibold text-zinc-900">{d.name}</h3>
                       <p className="text-sm leading-relaxed text-stone-500">{d.body}</p>
                     </div>
@@ -222,7 +222,7 @@ export default function FacultiesPage() {
                   { num: "30%", label: "外国人留学生比率" },
                   { num: "12", label: "海外共同博士プログラム" },
                 ].map((s) => (
-                  <div key={s.label} className="rounded-xl border border-accent-700 bg-accent-800 p-5 text-center">
+                  <div key={s.label} className="rounded border border-accent-700 bg-accent-800 p-5 text-center">
                     <p className="text-2xl font-bold text-accent-300">{s.num}</p>
                     <p className="mt-1 text-xs text-accent-400">{s.label}</p>
                   </div>
@@ -235,7 +235,7 @@ export default function FacultiesPage() {
 
               {/* 研究科 1 */}
               <ScrollReveal delay={0.1}>
-                <div className="rounded-2xl border border-accent-700 bg-accent-800 p-8">
+                <div className="rounded-md border border-accent-700 bg-accent-800 p-8">
                   <p className="mb-1 text-xs tracking-widest text-accent-400 uppercase">
                     Graduate School I
                   </p>
@@ -253,7 +253,7 @@ export default function FacultiesPage() {
                       { course: "修士課程", years: "2年", desc: "言語文化専攻 / デジタル表現専攻 / メディア研究専攻" },
                       { course: "博士課程", years: "3年", desc: "知識創造学専攻 / 国際メディア専攻" },
                     ].map((c) => (
-                      <div key={c.course} className="rounded-lg bg-accent-700/50 px-4 py-3">
+                      <div key={c.course} className="rounded bg-accent-700/50 px-4 py-3">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="text-xs font-semibold text-accent-300">{c.course}</span>
                           <span className="text-xs text-accent-500">（標準修業年限 {c.years}）</span>
@@ -264,7 +264,7 @@ export default function FacultiesPage() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {["国際誌掲載 40+件/年", "NLP", "メディア人類学", "HCI", "計算言語学"].map((t) => (
-                      <span key={t} className="rounded-full border border-accent-600 px-2 py-0.5 text-xs text-accent-300">{t}</span>
+                      <span key={t} className="rounded border border-accent-600 px-2 py-0.5 text-xs text-accent-300">{t}</span>
                     ))}
                   </div>
                 </div>
@@ -272,7 +272,7 @@ export default function FacultiesPage() {
 
               {/* 研究科 2 */}
               <ScrollReveal delay={0.18}>
-                <div className="rounded-2xl border border-accent-700 bg-accent-800 p-8">
+                <div className="rounded-md border border-accent-700 bg-accent-800 p-8">
                   <p className="mb-1 text-xs tracking-widest text-accent-400 uppercase">
                     Graduate School II
                   </p>
@@ -290,7 +290,7 @@ export default function FacultiesPage() {
                       { course: "修士課程", years: "2年", desc: "環境生命科学専攻 / 社会デザイン専攻 / 地域共生専攻" },
                       { course: "博士課程", years: "3年", desc: "生命・環境統合科学専攻 / 共生社会デザイン専攻" },
                     ].map((c) => (
-                      <div key={c.course} className="rounded-lg bg-accent-700/50 px-4 py-3">
+                      <div key={c.course} className="rounded bg-accent-700/50 px-4 py-3">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="text-xs font-semibold text-accent-300">{c.course}</span>
                           <span className="text-xs text-accent-500">（標準修業年限 {c.years}）</span>
@@ -301,7 +301,7 @@ export default function FacultiesPage() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {["国際誌掲載 40+件/年", "気候科学", "バイオインフォマティクス", "社会疫学", "UXリサーチ"].map((t) => (
-                      <span key={t} className="rounded-full border border-accent-600 px-2 py-0.5 text-xs text-accent-300">{t}</span>
+                      <span key={t} className="rounded border border-accent-600 px-2 py-0.5 text-xs text-accent-300">{t}</span>
                     ))}
                   </div>
                 </div>
@@ -310,7 +310,7 @@ export default function FacultiesPage() {
 
             {/* 共通情報 */}
             <ScrollReveal delay={0.25}>
-              <div className="mt-8 rounded-2xl border border-accent-700 bg-accent-800/60 p-8">
+              <div className="mt-8 rounded-md border border-accent-700 bg-accent-800/60 p-8">
                 <h3 className="mb-4 text-base font-semibold text-white">共通の特色・支援制度</h3>
                 <ul className="grid gap-2 sm:grid-cols-2 text-sm text-accent-200">
                   {[

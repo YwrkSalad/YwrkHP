@@ -84,7 +84,7 @@ export default function AccessPage() {
             <div className="grid gap-6 sm:grid-cols-2">
               {campuses.map((c, i) => (
                 <ScrollReveal key={c.name} delay={i * 0.1}>
-                  <div className="rounded-2xl border border-stone-100 bg-stone-50 p-8">
+                  <div className="rounded-md border border-stone-100 bg-stone-50 p-8">
                     <h3 className="mb-4 text-lg font-semibold text-zinc-900">{c.name}</h3>
                     <address className="mb-5 not-italic text-sm leading-loose text-stone-600">
                       {c.zip}
@@ -107,7 +107,7 @@ export default function AccessPage() {
                         {c.buildings.map((b) => (
                           <span
                             key={b}
-                            className="rounded-full border border-accent-200 bg-accent-50 px-3 py-0.5 text-xs text-accent-700"
+                            className="rounded border border-accent-200 bg-accent-50 px-3 py-0.5 text-xs text-accent-700"
                           >
                             {b}
                           </span>
@@ -136,7 +136,7 @@ export default function AccessPage() {
             <div className="space-y-6">
               {routes.map((r, i) => (
                 <ScrollReveal key={r.means} delay={i * 0.08}>
-                  <div className="rounded-2xl bg-white p-7">
+                  <div className="rounded-md bg-white p-7">
                     <h3 className="mb-4 text-sm font-semibold text-zinc-900">{r.means}</h3>
                     <ul className="space-y-3">
                       {r.items.map((item, j) => (
@@ -165,7 +165,7 @@ export default function AccessPage() {
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="flex h-80 items-center justify-center rounded-2xl border border-stone-100 bg-stone-50">
+              <div className="flex h-80 items-center justify-center rounded-md border border-stone-100 bg-stone-50">
                 <p className="text-sm text-stone-400">キャンパスマップ（準備中）</p>
               </div>
             </ScrollReveal>

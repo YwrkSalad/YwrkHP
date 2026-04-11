@@ -76,7 +76,7 @@ export default function CampusPage() {
             <div className="grid gap-6 sm:grid-cols-3">
               {clubs.map((c, i) => (
                 <ScrollReveal key={c.category} delay={i * 0.08}>
-                  <div className="rounded-2xl bg-stone-50 p-6">
+                  <div className="rounded-md bg-stone-50 p-6">
                     <h3 className="mb-4 text-sm font-semibold text-zinc-900">{c.category}</h3>
                     <ul className="space-y-2">
                       {c.list.map((name) => (
@@ -107,8 +107,8 @@ export default function CampusPage() {
             <div className="grid gap-6 sm:grid-cols-2">
               {facilities.map((f, i) => (
                 <ScrollReveal key={f.name} delay={i * 0.08}>
-                  <div className="rounded-2xl bg-white p-7">
-                    <div className="mb-4 h-1 w-8 rounded-full bg-accent-300" />
+                  <div className="rounded-md bg-white p-7">
+                    <div className="mb-4 h-1 w-8 rounded bg-accent-300" />
                     <h3 className="mb-2 text-lg font-semibold text-zinc-900">{f.name}</h3>
                     <p className="text-sm leading-relaxed text-stone-500">{f.description}</p>
                   </div>
@@ -136,7 +136,7 @@ export default function CampusPage() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {overseas.map((o, i) => (
                 <ScrollReveal key={o.country} delay={i * 0.08}>
-                  <div className="rounded-2xl border border-stone-100 bg-stone-50 p-6 text-center">
+                  <div className="rounded-md border border-stone-100 bg-stone-50 p-6 text-center">
                     <p className="text-2xl font-semibold text-zinc-900">{o.universities}</p>
                     <p className="text-xs text-stone-400">協定校</p>
                     <p className="mt-2 text-sm font-medium text-zinc-700">{o.country}</p>
@@ -144,7 +144,7 @@ export default function CampusPage() {
                       {o.programs.map((p) => (
                         <span
                           key={p}
-                          className="rounded-full border border-accent-200 px-2 py-0.5 text-xs text-accent-600"
+                          className="rounded border border-accent-200 px-2 py-0.5 text-xs text-accent-600"
                         >
                           {p}
                         </span>

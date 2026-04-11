@@ -83,7 +83,7 @@ export default function AdmissionsPage() {
             <div className="space-y-8">
               {methods.map((m, i) => (
                 <ScrollReveal key={m.name} delay={i * 0.1}>
-                  <div className="rounded-2xl border border-stone-100 bg-stone-50 p-8">
+                  <div className="rounded-md border border-stone-100 bg-stone-50 p-8">
                     <div className="mb-6 flex items-start gap-4">
                       <div>
                         <p className="text-xs tracking-widest text-stone-400 uppercase">
@@ -93,7 +93,7 @@ export default function AdmissionsPage() {
                       </div>
                     </div>
                     <p className="mb-6 text-sm leading-relaxed text-stone-600">{m.description}</p>
-                    <div className="divide-y divide-stone-200 rounded-xl bg-white">
+                    <div className="divide-y divide-stone-200 rounded bg-white">
                       {m.schedule.map((s) => (
                         <div key={s.label} className="flex gap-6 px-5 py-3">
                           <span className="w-36 shrink-0 text-xs text-stone-400">{s.label}</span>
@@ -121,7 +121,7 @@ export default function AdmissionsPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <div className="mb-10 rounded-2xl border border-stone-100 bg-white">
+              <div className="mb-10 rounded-md border border-stone-100 bg-white">
                 <div className="divide-y divide-stone-100">
                   {tuition.map((t) => (
                     <div key={t.item} className="flex justify-between px-8 py-4">
@@ -134,7 +134,7 @@ export default function AdmissionsPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="rounded-2xl bg-accent-800 p-8 text-white">
+              <div className="rounded-md bg-accent-800 p-8 text-white">
                 <h3 className="mb-3 text-lg font-semibold">やわらか奨学金制度</h3>
                 <p className="mb-4 text-sm leading-relaxed text-accent-200">
                   経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。

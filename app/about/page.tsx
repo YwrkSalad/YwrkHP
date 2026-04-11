@@ -55,7 +55,7 @@ export default function AboutPage() {
             <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-16">
               {/* 写真 */}
               <ScrollReveal className="shrink-0 md:w-80">
-                <div className="overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-md">
                   <Image
                     src="/gakucho.jpg"
                     alt="学長 やわらか"
@@ -129,7 +129,7 @@ export default function AboutPage() {
                       <span className="w-16 shrink-0 pt-0.5 text-right text-sm font-medium text-stone-400 sm:w-20">
                         {item.year}
                       </span>
-                      <div className="relative z-10 mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-400" />
+                      <div className="relative z-10 mt-2 h-2.5 w-2.5 shrink-0 rounded bg-accent-400" />
                       <p className="text-sm leading-relaxed text-stone-600">{item.event}</p>
                     </div>
                   </ScrollReveal>
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 { num: "78", unit: "年", label: "創立" },
               ].map((stat, i) => (
                 <ScrollReveal key={stat.label} delay={i * 0.08}>
-                  <div className="rounded-2xl bg-accent-50 border border-accent-100 p-6 text-center">
+                  <div className="rounded-md bg-accent-50 border border-accent-100 p-6 text-center">
                     <p className="text-3xl font-semibold text-accent-700">
                       {stat.num}
                       <span className="text-lg text-stone-400">{stat.unit}</span>
