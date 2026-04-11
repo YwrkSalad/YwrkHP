@@ -1,0 +1,156 @@
+import Nav from "../_components/Nav";
+import Footer from "../_components/Footer";
+import ScrollReveal from "../_components/ScrollReveal";
+import PageTracker from "../_components/PageTracker";
+
+const methods = [
+  {
+    name: "一般選抜",
+    en: "General Admission",
+    description: "大学入学共通テストと個別学力検査（前期・後期）による選抜です。学力の総合的な評価を重視します。",
+    schedule: [
+      { label: "出願期間", value: "2027年1月13日〜1月24日" },
+      { label: "共通テスト", value: "2027年1月17日・18日" },
+      { label: "個別試験（前期）", value: "2027年2月25日" },
+      { label: "合格発表（前期）", value: "2027年3月10日" },
+    ],
+  },
+  {
+    name: "総合型選抜",
+    en: "Comprehensive Admission",
+    description: "学力だけでなく、意欲・個性・将来の展望を総合的に評価する選抜です。書類審査・小論文・面接を実施します。",
+    schedule: [
+      { label: "出願期間", value: "2026年9月1日〜9月20日" },
+      { label: "第一次選考（書類）", value: "2026年10月上旬 通知" },
+      { label: "第二次選考（面接）", value: "2026年11月上旬" },
+      { label: "合格発表", value: "2026年11月30日" },
+    ],
+  },
+  {
+    name: "学校推薦型選抜",
+    en: "School Recommendation",
+    description: "高等学校長の推薦に基づき、調査書・推薦書・小論文によって選抜します。各学部の推薦基準を確認ください。",
+    schedule: [
+      { label: "出願期間", value: "2026年11月1日〜11月7日" },
+      { label: "選考（書類・面接）", value: "2026年11月下旬" },
+      { label: "合格発表", value: "2026年12月1日" },
+    ],
+  },
+];
+
+const tuition = [
+  { item: "入学金", amount: "200,000円" },
+  { item: "授業料（年額）", amount: "620,000円" },
+  { item: "施設設備費（年額）", amount: "80,000円" },
+  { item: "初年度合計", amount: "900,000円" },
+];
+
+export default function AdmissionsPage() {
+  return (
+    <>
+      <PageTracker page="/admissions" />
+      <Nav />
+      <main className="pt-[4.5rem]">
+        {/* ページヒーロー */}
+        <section className="bg-stone-50 px-6 py-20">
+          <div className="mx-auto max-w-5xl">
+            <ScrollReveal>
+              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                Admissions
+              </p>
+              <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
+                入試情報
+              </h1>
+              <p className="mt-4 text-base font-light text-stone-500">
+                やわらか大学は、3つの入試方式で2027年度学生を募集します。
+              </p>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* 入試方式 */}
+        <section className="bg-white px-6 py-24">
+          <div className="mx-auto max-w-5xl">
+            <ScrollReveal>
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                Admission Methods
+              </p>
+              <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
+                入試方式
+              </h2>
+            </ScrollReveal>
+
+            <div className="space-y-8">
+              {methods.map((m, i) => (
+                <ScrollReveal key={m.name} delay={i * 0.1}>
+                  <div className="rounded-2xl border border-stone-100 bg-stone-50 p-8">
+                    <div className="mb-6 flex items-start gap-4">
+                      <div>
+                        <p className="text-xs tracking-widest text-stone-400 uppercase">
+                          {m.en}
+                        </p>
+                        <h3 className="mt-1 text-xl font-semibold text-zinc-900">{m.name}</h3>
+                      </div>
+                    </div>
+                    <p className="mb-6 text-sm leading-relaxed text-stone-600">{m.description}</p>
+                    <div className="divide-y divide-stone-200 rounded-xl bg-white">
+                      {m.schedule.map((s) => (
+                        <div key={s.label} className="flex gap-6 px-5 py-3">
+                          <span className="w-36 shrink-0 text-xs text-stone-400">{s.label}</span>
+                          <span className="text-sm text-zinc-700">{s.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 学費 */}
+        <section className="bg-stone-50 px-6 py-24">
+          <div className="mx-auto max-w-4xl">
+            <ScrollReveal>
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                Tuition
+              </p>
+              <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
+                学費・奨学金
+              </h2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <div className="mb-10 rounded-2xl border border-stone-100 bg-white">
+                <div className="divide-y divide-stone-100">
+                  {tuition.map((t) => (
+                    <div key={t.item} className="flex justify-between px-8 py-4">
+                      <span className="text-sm text-stone-600">{t.item}</span>
+                      <span className="text-sm font-medium text-zinc-800">{t.amount}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.15}>
+              <div className="rounded-2xl bg-zinc-900 p-8 text-white">
+                <h3 className="mb-3 text-lg font-semibold">やわらか奨学金制度</h3>
+                <p className="mb-4 text-sm leading-relaxed text-zinc-400">
+                  経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
+                  入試成績優秀者には授業料の最大全額免除が適用されます。
+                </p>
+                <ul className="space-y-1 text-sm text-zinc-400">
+                  <li>• 特待生奨学金（授業料全額）：各学部5名</li>
+                  <li>• 優秀生奨学金（授業料半額）：各学部10名</li>
+                  <li>• 経済支援奨学金（月額3万円）：随時申請可</li>
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}

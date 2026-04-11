@@ -2,6 +2,7 @@ import Nav from "./_components/Nav";
 import HeroAnimation from "./_components/HeroAnimation";
 import ScrollReveal from "./_components/ScrollReveal";
 import PageTracker from "./_components/PageTracker";
+import Footer from "./_components/Footer";
 
 const news = [
   {
@@ -370,60 +371,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* フッター */}
-        <footer className="bg-zinc-900 px-6 py-12">
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-10 grid gap-8 sm:grid-cols-4">
-              <div>
-                <p className="mb-3 text-sm font-semibold text-white">
-                  やわらか大学
-                </p>
-                <p className="text-xs leading-relaxed text-zinc-500">
-                  やわらかな知性で、
-                  <br />
-                  世界をひらく。
-                </p>
-              </div>
-              {[
-                {
-                  title: "大学について",
-                  links: ["大学の理念", "沿革", "組織概要", "キャンパスマップ"],
-                },
-                {
-                  title: "学部・大学院",
-                  links: ["文化創造学部", "生命環境学部", "共生社会学部", "情報デザイン学部"],
-                },
-                {
-                  title: "情報",
-                  links: ["入試情報", "研究", "キャンパスライフ", "アクセス"],
-                },
-              ].map((col) => (
-                <div key={col.title}>
-                  <p className="mb-3 text-xs font-medium tracking-widest text-zinc-400 uppercase">
-                    {col.title}
-                  </p>
-                  <ul className="space-y-2">
-                    {col.links.map((l) => (
-                      <li key={l}>
-                        <a
-                          href="#"
-                          className="text-xs text-zinc-600 transition-colors hover:text-zinc-300"
-                        >
-                          {l}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-            <div className="border-t border-zinc-800 pt-6">
-              <p className="text-xs text-zinc-700">
-                © 2026 やわらか大学 Yawaraka University. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </>
   );
