@@ -108,7 +108,7 @@ export default function FacultiesPage() {
         <section className="bg-stone-50 px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 Faculties
               </p>
               <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">

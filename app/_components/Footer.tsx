@@ -4,7 +4,7 @@ const footerCols = [
   {
     title: "大学について",
     links: [
-      { label: "大学の理念", href: "/about#philosophy" },
+      { label: "学長挨拶", href: "/about#president" },
       { label: "沿革", href: "/about#history" },
       { label: "組織概要", href: "/about#organization" },
       { label: "キャンパスマップ", href: "/access#map" },

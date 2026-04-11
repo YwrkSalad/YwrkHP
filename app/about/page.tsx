@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -13,7 +14,7 @@ const history = [
 ];
 
 const board = [
-  { role: "学長", name: "やわらか 一郎", note: "文化創造学部教授 / 表現文化論" },
+  { role: "学長", name: "やわらか", note: "文化創造学部教授 / 表現文化論" },
   { role: "副学長（教育）", name: "しなやか 花子", note: "共生社会学部教授 / 福祉心理学" },
   { role: "副学長（研究）", name: "おだやか 三郎", note: "生命環境学部教授 / 環境生態学" },
   { role: "事務局長", name: "ていねい 四郎", note: "大学運営全般" },
@@ -29,7 +30,7 @@ export default function AboutPage() {
         <section className="bg-stone-50 px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 About
               </p>
               <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
@@ -39,47 +40,70 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 大学の理念 */}
-        <section id="philosophy" className="bg-white px-6 py-24">
+        {/* 学長挨拶 */}
+        <section id="president" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
-                Philosophy
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+                President's Message
               </p>
               <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
-                大学の理念
+                学長挨拶
               </h2>
             </ScrollReveal>
 
-            <ScrollReveal blur delay={0.1}>
-              <blockquote className="mb-16 border-l-2 border-accent-300 pl-8">
-                <p className="text-2xl font-semibold leading-snug tracking-tight text-zinc-900 sm:text-3xl">
-                  やわらかであることは、強さである。
-                </p>
-              </blockquote>
-            </ScrollReveal>
+            <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-16">
+              {/* 写真 */}
+              <ScrollReveal className="shrink-0 md:w-80">
+                <div className="overflow-hidden rounded-2xl">
+                  <Image
+                    src="/gakucho.jpg"
+                    alt="学長 やわらか"
+                    width={320}
+                    height={400}
+                    className="w-full object-cover"
+                  />
+                </div>
+                <p className="mt-4 text-center text-sm font-medium text-zinc-700">やわらか大学 学長</p>
+                <p className="mt-1 text-center text-base font-semibold text-zinc-900">やわらか</p>
+              </ScrollReveal>
 
-            <div className="space-y-8 text-base leading-loose font-light text-stone-600">
-              <ScrollReveal delay={0.1}>
-                <p>
-                  やわらか大学は、「知のやわらかさ」を根幹に置く大学です。
-                  固定観念を疑い、多様な視点から問いを立て、状況に応じてしなやかに考える力——
-                  それが、変化の激しい時代を生き抜くための本質的な強さだと私たちは考えます。
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.15}>
-                <p>
-                  私たちが目指すのは、知識を「生きる技術」へと変える教育です。
-                  他者への深い共感と敬意を根底に持ちながら、ていねいに行動できる人間を育てること。
-                  それが、やわらか大学のすべての教育活動の出発点です。
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.2}>
-                <p>
-                  学問の領域を越えた対話と協働を通じて、学生・教員・地域社会がともに学び、
-                  やわらかでひらかれたキャンパスをつくり続けます。
-                </p>
-              </ScrollReveal>
+              {/* 本文 */}
+              <div className="space-y-8 text-base leading-loose font-light text-stone-600">
+                <ScrollReveal delay={0.1}>
+                  <blockquote className="border-l-2 border-accent-300 pl-6">
+                    <p className="text-xl font-semibold leading-snug tracking-tight text-zinc-900 sm:text-2xl">
+                      やわらかであることは、強さである。
+                    </p>
+                  </blockquote>
+                </ScrollReveal>
+                <ScrollReveal delay={0.15}>
+                  <p>
+                    やわらか大学へようこそ。本学は、「知のやわらかさ」を根幹に置く大学です。
+                    固定観念を疑い、多様な視点から問いを立て、状況に応じてしなやかに考える力——
+                    それが、変化の激しい時代を生き抜くための本質的な強さだと私たちは考えます。
+                  </p>
+                </ScrollReveal>
+                <ScrollReveal delay={0.2}>
+                  <p>
+                    私たちが目指すのは、知識を「生きる技術」へと変える教育です。
+                    他者への深い共感と敬意を根底に持ちながら、ていねいに行動できる人間を育てること。
+                    それが、本学のすべての教育活動の出発点です。
+                  </p>
+                </ScrollReveal>
+                <ScrollReveal delay={0.25}>
+                  <p>
+                    学問の領域を越えた対話と協働を通じて、学生・教員・地域社会がともに学び、
+                    やわらかでひらかれたキャンパスをつくり続けます。
+                    みなさんと一緒に、この場所を育てていけることを心から楽しみにしています。
+                  </p>
+                </ScrollReveal>
+                <ScrollReveal delay={0.3}>
+                  <p className="text-right text-sm text-stone-400">
+                    やわらか大学 学長　やわらか
+                  </p>
+                </ScrollReveal>
+              </div>
             </div>
           </div>
         </section>
@@ -88,7 +112,7 @@ export default function AboutPage() {
         <section id="history" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 History
               </p>
               <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
@@ -119,7 +143,7 @@ export default function AboutPage() {
         <section id="organization" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 Organization
               </p>
               <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">

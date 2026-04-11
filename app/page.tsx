@@ -101,7 +101,7 @@ export default async function Home() {
             <ScrollReveal>
               <div className="mb-12 flex items-center justify-between">
                 <div>
-                  <p className="mb-2 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                  <p className="mb-2 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                     News
                   </p>
                   <h2 className="text-3xl font-semibold tracking-tight text-zinc-900">
@@ -135,11 +135,11 @@ export default async function Home() {
         </section>
 
         {/* 学部紹介 */}
-        <section id="faculties" className="bg-stone-50 px-6 py-24">
+        <section id="faculties" className="bg-accent-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                   Faculties
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
@@ -155,7 +155,7 @@ export default async function Home() {
               {faculties.map((f, i) => (
                 <ScrollReveal key={f.number} delay={i * 0.1}>
                   <div className="group rounded-2xl bg-white p-8 transition-shadow hover:shadow-md">
-                    <span className="mb-4 block text-5xl font-bold text-stone-100 leading-none">
+                    <span className="mb-4 block text-5xl font-bold text-accent-100 leading-none">
                       {f.number}
                     </span>
                     <p className="mb-1 text-xs tracking-widest text-stone-400 uppercase">
@@ -171,7 +171,7 @@ export default async function Home() {
                       {f.departments.map((d) => (
                         <li
                           key={d}
-                          className="rounded-full border border-stone-200 px-3 py-1 text-xs text-stone-500"
+                          className="rounded-full border border-accent-200 px-3 py-1 text-xs text-accent-700"
                         >
                           {d}
                         </li>
@@ -189,7 +189,7 @@ export default async function Home() {
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                   Philosophy
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
@@ -237,7 +237,7 @@ export default async function Home() {
           <div className="mx-auto max-w-4xl">
             <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
               <ScrollReveal className="text-center md:text-left">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-zinc-500 uppercase">
+                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-400 uppercase">
                   Admissions
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -274,11 +274,11 @@ export default async function Home() {
         </section>
 
         {/* キャンパスライフ */}
-        <section id="campus" className="bg-stone-50 px-6 py-24">
+        <section id="campus" className="bg-accent-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-14 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                   Campus Life
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
@@ -323,7 +323,7 @@ export default async function Home() {
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
               <div className="mb-12 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                   Access
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900">

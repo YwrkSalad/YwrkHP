@@ -56,7 +56,7 @@ export default function AccessPage() {
         <section className="bg-stone-50 px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 Access
               </p>
               <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
@@ -73,7 +73,7 @@ export default function AccessPage() {
         <section className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 Campuses
               </p>
               <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
@@ -125,7 +125,7 @@ export default function AccessPage() {
         <section className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 Transportation
               </p>
               <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
@@ -157,7 +157,7 @@ export default function AccessPage() {
         <section id="map" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
+              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
                 Campus Map
               </p>
               <h2 className="mb-10 text-3xl font-semibold tracking-tight text-zinc-900">
