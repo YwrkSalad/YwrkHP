@@ -45,7 +45,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-zinc-600 transition-colors hover:text-accent-700"
+                className="hover:text-accent-700 text-sm text-zinc-600 transition-colors"
               >
                 {link.label}
               </Link>
@@ -81,7 +81,7 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-3xl font-semibold tracking-tight text-zinc-900 transition-colors hover:text-accent-600"
+              className="hover:text-accent-600 text-3xl font-semibold tracking-tight text-zinc-900 transition-colors"
             >
               {link.label}
             </Link>

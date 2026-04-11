@@ -31,11 +31,31 @@ const centers = [
 ];
 
 const partnerships = [
-  { name: "やわらか市", type: "自治体", detail: "地域共生・まちづくり施策の共同研究" },
-  { name: "やわらかテクノロジー株式会社", type: "企業", detail: "情報デザイン・AI応用の産学連携" },
-  { name: "やわらか医療センター", type: "医療機関", detail: "生命科学・医療福祉分野の共同研究" },
-  { name: "Universität Weich（ドイツ）", type: "海外大学", detail: "共生社会・環境研究の国際共同研究" },
-  { name: "Soft University（カナダ）", type: "海外大学", detail: "文化・メディア研究の国際交流" },
+  {
+    name: "やわらか市",
+    type: "自治体",
+    detail: "地域共生・まちづくり施策の共同研究",
+  },
+  {
+    name: "やわらかテクノロジー株式会社",
+    type: "企業",
+    detail: "情報デザイン・AI応用の産学連携",
+  },
+  {
+    name: "やわらか医療センター",
+    type: "医療機関",
+    detail: "生命科学・医療福祉分野の共同研究",
+  },
+  {
+    name: "Universität Weich（ドイツ）",
+    type: "海外大学",
+    detail: "共生社会・環境研究の国際共同研究",
+  },
+  {
+    name: "Soft University（カナダ）",
+    type: "海外大学",
+    detail: "文化・メディア研究の国際交流",
+  },
 ];
 
 export default function ResearchPage() {
@@ -48,7 +68,7 @@ export default function ResearchPage() {
         <section className="bg-stone-50 px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+              <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
                 Research
               </p>
               <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
@@ -65,7 +85,7 @@ export default function ResearchPage() {
         <section className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                 Research Centers
               </p>
               <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
@@ -77,7 +97,7 @@ export default function ResearchPage() {
               {centers.map((c, i) => (
                 <ScrollReveal key={c.name} delay={i * 0.09}>
                   <div className="rounded-md border border-stone-100 bg-stone-50 p-7">
-                    <h3 className="mb-3 text-base font-semibold leading-snug text-zinc-900">
+                    <h3 className="mb-3 text-base leading-snug font-semibold text-zinc-900">
                       {c.name}
                     </h3>
                     <p className="mb-4 text-sm leading-relaxed text-stone-500">
@@ -87,7 +107,7 @@ export default function ResearchPage() {
                       {c.topics.map((t) => (
                         <span
                           key={t}
-                          className="rounded border border-accent-200 px-3 py-0.5 text-xs text-accent-600"
+                          className="border-accent-200 text-accent-600 rounded border px-3 py-0.5 text-xs"
                         >
                           {t}
                         </span>
@@ -104,7 +124,7 @@ export default function ResearchPage() {
         <section className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                 Partnerships
               </p>
               <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
@@ -119,7 +139,9 @@ export default function ResearchPage() {
                     <span className="w-20 shrink-0 rounded bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
                       {p.type}
                     </span>
-                    <span className="flex-1 text-sm font-medium text-zinc-800">{p.name}</span>
+                    <span className="flex-1 text-sm font-medium text-zinc-800">
+                      {p.name}
+                    </span>
                     <span className="text-xs text-stone-400">{p.detail}</span>
                   </div>
                 </ScrollReveal>

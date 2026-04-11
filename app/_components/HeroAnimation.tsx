@@ -10,7 +10,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroAnimation() {
   return (
-    <section className="relative flex h-[calc(100svh-4.5rem)] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-accent-50/60 to-accent-100/50 px-8">
+    <section className="via-accent-50/60 to-accent-100/50 relative flex h-[calc(100svh-4.5rem)] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white px-8">
       {/* ページ全体を覆うホワイトオーバーレイ */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[60] bg-white"
@@ -22,7 +22,7 @@ export default function HeroAnimation() {
       {/* 背景装飾 */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold text-accent-200/50 select-none sm:text-[32rem]"
+        className="text-accent-200/50 pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold select-none sm:text-[32rem]"
         initial={{ opacity: 0, scale: 1.08 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 4, delay: 0.6, ease }}
@@ -33,7 +33,7 @@ export default function HeroAnimation() {
       <div className="relative z-10 flex flex-col items-center">
         {/* ラベル */}
         <motion.p
-          className="mb-8 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase"
+          className="text-accent-600 mb-8 text-xs font-medium tracking-[0.3em] uppercase"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.9, ease }}
@@ -77,7 +77,7 @@ export default function HeroAnimation() {
 
         {/* サブタイトル */}
         <motion.p
-          className="mt-10 text-center text-lg font-light text-accent-600 sm:text-xl"
+          className="text-accent-600 mt-10 text-center text-lg font-light sm:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.6, delay: 2.8, ease }}
@@ -94,13 +94,13 @@ export default function HeroAnimation() {
         >
           <Link
             href="/faculties"
-            className="rounded bg-accent-700 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-600"
+            className="bg-accent-700 hover:bg-accent-600 rounded px-8 py-3 text-sm font-medium text-white transition-colors"
           >
             学部を見る
           </Link>
           <Link
             href="/admissions"
-            className="rounded border border-accent-300 px-8 py-3 text-sm font-medium text-accent-700 transition-colors hover:border-accent-500 hover:text-accent-800"
+            className="border-accent-300 text-accent-700 hover:border-accent-500 hover:text-accent-800 rounded border px-8 py-3 text-sm font-medium transition-colors"
           >
             入試情報
           </Link>
@@ -113,10 +113,10 @@ export default function HeroAnimation() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8, delay: 3.8, ease }}
         >
-          <span className="text-xs tracking-widest text-accent-400 uppercase">
+          <span className="text-accent-400 text-xs tracking-widest uppercase">
             Scroll
           </span>
-          <div className="h-12 w-px bg-gradient-to-b from-accent-300 to-transparent" />
+          <div className="from-accent-300 h-12 w-px bg-gradient-to-b to-transparent" />
         </motion.div>
       </div>
     </section>
