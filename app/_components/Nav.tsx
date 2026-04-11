@@ -3,6 +3,15 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const navLinks = [
+  { label: "ホーム", href: "/" },
+  { label: "学部・大学院", href: "#faculties" },
+  { label: "入試情報", href: "#admissions" },
+  { label: "研究・社会連携", href: "#research" },
+  { label: "キャンパスライフ", href: "#campus" },
+  { label: "アクセス", href: "#access" },
+];
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
@@ -19,15 +28,35 @@ export default function Nav() {
         <div className="flex h-18 items-center justify-between px-6">
           <Link
             href="/"
-            className="text-2xl font-medium tracking-widest text-zinc-700"
+            className="flex flex-col leading-tight"
             onClick={() => setOpen(false)}
           >
-            ywrk
+            <span className="text-xl font-semibold tracking-widest text-zinc-800">
+              やわらか大学
+            </span>
+            <span className="text-[10px] tracking-[0.25em] text-stone-400 uppercase">
+              Yawaraka University
+            </span>
           </Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-8 md:flex">
+            {navLinks.slice(1).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-zinc-600 transition-colors hover:text-zinc-900"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile hamburger */}
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="メニュー"
-            className="flex h-8 w-8 flex-col items-center justify-center gap-2.5"
+            className="flex h-8 w-8 flex-col items-center justify-center gap-2.5 md:hidden"
           >
             <span
               className={`block h-[2px] bg-zinc-700 transition-all duration-300 ${open ? "w-7 -translate-x-[7px] translate-y-[14px] rotate-[38deg]" : "w-8"}`}
@@ -42,28 +71,24 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Full-screen overlay menu */}
+      {/* Mobile full-screen overlay */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col items-center justify-center bg-white transition-all duration-500 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-40 flex flex-col items-center justify-center bg-white transition-all duration-500 md:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
       >
-        <nav className="flex flex-col items-center gap-10">
-          <Link
-            href="/"
-            onClick={() => setOpen(false)}
-            className="text-4xl font-semibold tracking-tight text-zinc-900 transition-colors hover:text-stone-400"
-          >
-            Home
-          </Link>
-          <Link
-            href="/analytics"
-            onClick={() => setOpen(false)}
-            className="text-4xl font-semibold tracking-tight text-zinc-900 transition-colors hover:text-stone-400"
-          >
-            Analytics
-          </Link>
+        <nav className="flex flex-col items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="text-3xl font-semibold tracking-tight text-zinc-900 transition-colors hover:text-stone-400"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
         <p className="absolute bottom-10 text-xs tracking-widest text-stone-300 uppercase">
-          ywrk
+          Yawaraka University
         </p>
       </div>
     </>
