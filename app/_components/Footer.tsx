@@ -17,6 +17,7 @@ const footerCols = [
       { label: "生命環境学部", href: "/faculties#life-environment" },
       { label: "共生社会学部", href: "/faculties#coexistence" },
       { label: "情報デザイン学部", href: "/faculties#information-design" },
+      { label: "ポップカルチャー学部", href: "/faculties#pop-culture" },
     ],
   },
   {
