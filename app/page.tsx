@@ -35,43 +35,43 @@ const news = [
 const faculties = [
   {
     number: "01",
-    name: "文化創造学部",
-    en: "Faculty of Cultural Creation",
+    name: "理学部",
+    en: "Faculty of Science",
     description:
-      "言語・芸術・メディアを横断し、人間の表現と文化の力で社会をつなぐ人材を育成します。",
-    departments: ["日本語文化学科", "映像表現学科", "国際コミュニケーション学科"],
+      "数学・物理学・化学・生物学・地球惑星科学の5学科で自然界の本質を探究します。",
+    departments: ["数学科", "物理学科", "化学科", "生物学科", "地球惑星科学科"],
   },
   {
     number: "02",
-    name: "生命環境学部",
-    en: "Faculty of Life & Environment",
+    name: "工学部",
+    en: "Faculty of Engineering",
     description:
-      "地球と生命のつながりを探究し、持続可能な社会を設計する科学的思考力を養います。",
-    departments: ["生物科学科", "環境デザイン学科", "食農共生学科"],
+      "機械航空・電気情報・建設環境・化学システム・材料科学で社会を支えるエンジニアを育てます。",
+    departments: ["機械航空工学科", "電気情報工学科", "建設環境工学科", "化学システム工学科", "材料科学工学科"],
   },
   {
     number: "03",
-    name: "共生社会学部",
-    en: "Faculty of Coexistence Studies",
+    name: "農学部",
+    en: "Faculty of Agriculture",
     description:
-      "多様な人々が支え合う社会の仕組みを学び、ケアとウェルビーイングの実践者を育てます。",
-    departments: ["福祉心理学科", "地域共生学科", "子ども発達学科"],
+      "食料・生命・環境を横断する農学の視点から、持続可能な社会の実現に貢献します。",
+    departments: ["農業科学科", "生命機能科学科", "資源生物科学科", "応用生物化学科"],
   },
   {
     number: "04",
-    name: "情報デザイン学部",
-    en: "Faculty of Information Design",
+    name: "情報科学部",
+    en: "Faculty of Information Science and Technology",
     description:
-      "テクノロジーと感性を融合させ、人にやさしい情報環境と新しい価値を創造します。",
-    departments: ["情報システム学科", "UXデザイン学科", "データサイエンス学科"],
+      "AI・数理・バイオインフォマティクスが融合した次世代情報研究者を育成します。",
+    departments: ["情報工学科", "知能情報工学科", "生体情報工学科", "数理情報科学科"],
   },
   {
     number: "05",
-    name: "ポップカルチャー学部",
-    en: "Faculty of Pop Culture Studies",
+    name: "医学部",
+    en: "Faculty of Medicine",
     description:
-      "ギャル文化・ゲーム・アニメ・ストリートカルチャーを真剣に研究する日本唯一の学部。",
-    departments: ["ギャルズパニック専攻", "ゲーム・eスポーツ学科", "アニメ・マンガ文化学科", "ストリートカルチャー学科"],
+      "基礎医学から臨床・公衆衛生・看護科学まで幅広く学び、科学的根拠に基づいた医療人・研究者を育成します。",
+    departments: ["医学科", "保健学科"],
   },
 ];
 
@@ -154,7 +154,7 @@ export default async function Home() {
                   学部紹介
                 </h2>
                 <p className="mt-4 text-base font-light text-stone-500">
-                  4つの学部で、多様な知の世界を探究します。
+                  5つの学部で、理学・工学・農学・情報・医学を探究します。
                 </p>
               </div>
             </ScrollReveal>

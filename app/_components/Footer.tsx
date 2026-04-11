@@ -13,11 +13,11 @@ const footerCols = [
   {
     title: "学部・大学院",
     links: [
-      { label: "文化創造学部", href: "/faculties#cultural-creation" },
-      { label: "生命環境学部", href: "/faculties#life-environment" },
-      { label: "共生社会学部", href: "/faculties#coexistence" },
-      { label: "情報デザイン学部", href: "/faculties#information-design" },
-      { label: "ポップカルチャー学部", href: "/faculties#pop-culture" },
+      { label: "理学部", href: "/faculties#science" },
+      { label: "工学部", href: "/faculties#engineering" },
+      { label: "農学部", href: "/faculties#agriculture" },
+      { label: "情報科学部", href: "/faculties#information-science" },
+      { label: "医学部", href: "/faculties#medicine" },
     ],
   },
   {
