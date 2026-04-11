@@ -108,7 +108,7 @@ export default function CampusPage() {
               {facilities.map((f, i) => (
                 <ScrollReveal key={f.name} delay={i * 0.08}>
                   <div className="rounded-2xl bg-white p-7">
-                    <div className="mb-4 h-1 w-8 rounded-full bg-stone-300" />
+                    <div className="mb-4 h-1 w-8 rounded-full bg-accent-300" />
                     <h3 className="mb-2 text-lg font-semibold text-zinc-900">{f.name}</h3>
                     <p className="text-sm leading-relaxed text-stone-500">{f.description}</p>
                   </div>
@@ -144,7 +144,7 @@ export default function CampusPage() {
                       {o.programs.map((p) => (
                         <span
                           key={p}
-                          className="rounded-full border border-stone-200 px-2 py-0.5 text-xs text-stone-500"
+                          className="rounded-full border border-accent-200 px-2 py-0.5 text-xs text-accent-600"
                         >
                           {p}
                         </span>

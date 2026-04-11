@@ -96,7 +96,7 @@ export default function AccessPage() {
                       Email:{" "}
                       <a
                         href={`mailto:${c.email}`}
-                        className="text-zinc-700 underline underline-offset-2 hover:text-zinc-900"
+                        className="text-accent-700 underline underline-offset-2 hover:text-accent-800"
                       >
                         {c.email}
                       </a>
@@ -107,7 +107,7 @@ export default function AccessPage() {
                         {c.buildings.map((b) => (
                           <span
                             key={b}
-                            className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500"
+                            className="rounded-full border border-accent-200 bg-accent-50 px-3 py-0.5 text-xs text-accent-700"
                           >
                             {b}
                           </span>

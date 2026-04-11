@@ -121,7 +121,7 @@ export default async function Home() {
                     <span className="w-24 shrink-0 text-sm text-stone-400">
                       {item.date}
                     </span>
-                    <span className="shrink-0 whitespace-nowrap rounded-full bg-stone-100 px-3 py-0.5 text-xs text-stone-500">
+                    <span className="shrink-0 whitespace-nowrap rounded-full bg-accent-50 px-3 py-0.5 text-center text-xs text-accent-600">
                       {item.category}
                     </span>
                     <span className="min-w-0 truncate text-sm text-zinc-700 sm:text-base">
@@ -215,7 +215,7 @@ export default async function Home() {
               {values.map((v, i) => (
                 <ScrollReveal key={v.label} delay={i * 0.12}>
                   <div className="text-center">
-                    <div className="mx-auto mb-4 h-px w-8 bg-stone-300" />
+                    <div className="mx-auto mb-4 h-px w-8 bg-accent-300" />
                     <p className="mb-2 text-xs tracking-widest text-stone-400 uppercase">
                       {v.label}
                     </p>
@@ -264,7 +264,7 @@ export default async function Home() {
                 </div>
                 <a
                   href="/admissions"
-                  className="mt-2 rounded-full border border-zinc-600 px-8 py-3 text-center text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-400 hover:text-white"
+                  className="mt-2 rounded-full border border-accent-600 px-8 py-3 text-center text-sm font-medium text-accent-300 transition-colors hover:border-accent-400 hover:text-accent-200"
                 >
                   募集要項を見る
                 </a>
@@ -304,7 +304,7 @@ export default async function Home() {
               ].map((item, i) => (
                 <ScrollReveal key={item.title} delay={i * 0.1}>
                   <div className="rounded-2xl bg-white p-7">
-                    <div className="mb-4 h-1 w-8 rounded-full bg-stone-300" />
+                    <div className="mb-4 h-1 w-8 rounded-full bg-accent-300" />
                     <h3 className="mb-3 text-lg font-semibold whitespace-nowrap text-zinc-900">
                       {item.title}
                     </h3>

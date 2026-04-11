@@ -52,7 +52,7 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal blur delay={0.1}>
-              <blockquote className="mb-16 border-l-2 border-stone-200 pl-8">
+              <blockquote className="mb-16 border-l-2 border-accent-300 pl-8">
                 <p className="text-2xl font-semibold leading-snug tracking-tight text-zinc-900 sm:text-3xl">
                   やわらかであることは、強さである。
                 </p>
@@ -97,7 +97,7 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <div className="relative">
-              <div className="absolute top-0 bottom-0 left-[5.5rem] w-px bg-stone-200 sm:left-24" />
+              <div className="absolute top-0 bottom-0 left-[5.5rem] w-px bg-accent-200 sm:left-24" />
               <div className="space-y-10">
                 {history.map((item, i) => (
                   <ScrollReveal key={item.year} delay={i * 0.08}>
@@ -105,7 +105,7 @@ export default function AboutPage() {
                       <span className="w-16 shrink-0 pt-0.5 text-right text-sm font-medium text-stone-400 sm:w-20">
                         {item.year}
                       </span>
-                      <div className="relative z-10 mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-stone-300" />
+                      <div className="relative z-10 mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-400" />
                       <p className="text-sm leading-relaxed text-stone-600">{item.event}</p>
                     </div>
                   </ScrollReveal>

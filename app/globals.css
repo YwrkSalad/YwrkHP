@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
+/* ── アクセントカラー（セージグリーン） ─────────────────────── */
+@theme {
+  --color-accent-50:  #f4f8f4;
+  --color-accent-100: #e5ede6;
+  --color-accent-200: #cddccf;
+  --color-accent-300: #aac4ae;
+  --color-accent-400: #80a486;
+  --color-accent-500: #5e8665;
+  --color-accent-600: #4a6c51;
+  --color-accent-700: #3c573f;
+  --color-accent-800: #2d4030;
+  --color-accent-900: #1e2b20;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem; /* fixed nav の高さ分オフセット */
+  scroll-padding-top: 4.5rem;
 }

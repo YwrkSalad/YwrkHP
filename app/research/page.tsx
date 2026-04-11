@@ -87,7 +87,7 @@ export default function ResearchPage() {
                       {c.topics.map((t) => (
                         <span
                           key={t}
-                          className="rounded-full border border-stone-200 px-3 py-0.5 text-xs text-stone-500"
+                          className="rounded-full border border-accent-200 px-3 py-0.5 text-xs text-accent-600"
                         >
                           {t}
                         </span>

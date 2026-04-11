@@ -155,8 +155,8 @@ export default function FacultiesPage() {
               <div className="grid gap-5 sm:grid-cols-3">
                 {f.departments.map((d, i) => (
                   <ScrollReveal key={d.name} delay={0.1 + i * 0.08}>
-                    <div className="rounded-2xl border border-stone-100 bg-white p-6">
-                      <div className="mb-3 h-1 w-6 rounded-full bg-stone-300" />
+                    <div className="rounded-2xl border border-accent-100 bg-white p-6">
+                      <div className="mb-3 h-1 w-6 rounded-full bg-accent-300" />
                       <h3 className="mb-2 text-base font-semibold text-zinc-900">{d.name}</h3>
                       <p className="text-sm leading-relaxed text-stone-500">{d.body}</p>
                     </div>

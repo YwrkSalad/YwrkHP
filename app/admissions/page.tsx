@@ -134,13 +134,13 @@ export default function AdmissionsPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="rounded-2xl bg-zinc-900 p-8 text-white">
+              <div className="rounded-2xl bg-accent-800 p-8 text-white">
                 <h3 className="mb-3 text-lg font-semibold">やわらか奨学金制度</h3>
-                <p className="mb-4 text-sm leading-relaxed text-zinc-400">
+                <p className="mb-4 text-sm leading-relaxed text-accent-200">
                   経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
                   入試成績優秀者には授業料の最大全額免除が適用されます。
                 </p>
-                <ul className="space-y-1 text-sm text-zinc-400">
+                <ul className="space-y-1 text-sm text-accent-200">
                   <li>• 特待生奨学金（授業料全額）：各学部5名</li>
                   <li>• 優秀生奨学金（授業料半額）：各学部10名</li>
                   <li>• 経済支援奨学金（月額3万円）：随時申請可</li>
