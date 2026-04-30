@@ -11,18 +11,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroAnimation() {
   return (
-    <section className="relative flex h-[calc(100svh-4.5rem)] flex-col items-center justify-center overflow-hidden px-8">
-      {/* 背景画像 */}
-      <Image
-        src="/campus_over.png"
-        alt=""
-        fill
-        className="object-cover object-center"
-        priority
-      />
-      {/* 背景オーバーレイ */}
-      <div className="pointer-events-none absolute inset-0 bg-white/70" />
-
+    <section className="relative flex h-[calc(100svh-4.5rem)] overflow-hidden bg-stone-50">
       {/* ページ全体を覆うホワイトオーバーレイ */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[60] bg-white"
@@ -31,7 +20,8 @@ export default function HeroAnimation() {
         transition={{ duration: 1.8, ease: "easeInOut" }}
       />
 
-      <div className="relative z-10 flex flex-col items-center">
+      {/* 左：テキストエリア */}
+      <div className="relative z-10 flex w-full flex-col justify-center px-8 sm:px-16 md:w-1/2 md:px-20">
         {/* ラベル */}
         <motion.p
           className="text-accent-600 mb-8 text-xs font-medium tracking-[0.3em] uppercase"
@@ -43,7 +33,7 @@ export default function HeroAnimation() {
         </motion.p>
 
         {/* メイン見出し — 一文字ずつ */}
-        <h1 className="text-center text-5xl font-semibold tracking-tight text-zinc-900 sm:text-7xl md:text-8xl">
+        <h1 className="text-5xl font-semibold tracking-tight text-zinc-900 sm:text-6xl lg:text-7xl">
           <span className="block">
             {heading1.map((char, i) => (
               <motion.span
@@ -78,17 +68,19 @@ export default function HeroAnimation() {
 
         {/* サブタイトル */}
         <motion.p
-          className="text-accent-600 mt-10 text-center text-lg font-light sm:text-xl"
+          className="mt-8 text-base font-light leading-relaxed text-stone-500 sm:text-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.6, delay: 2.8, ease }}
         >
-          固定観念を手放し、しなやかに考え、ていねいに行動する。
+          固定観念を手放し、しなやかに考え、
+          <br />
+          ていねいに行動する。
         </motion.p>
 
         {/* CTA ボタン */}
         <motion.div
-          className="mt-12 flex flex-col items-center gap-4 sm:flex-row"
+          className="mt-10 flex flex-wrap gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.6, delay: 3.2, ease }}
@@ -109,7 +101,7 @@ export default function HeroAnimation() {
 
         {/* スクロールインジケーター */}
         <motion.div
-          className="mt-20 flex flex-col items-center gap-2"
+          className="mt-16 flex flex-col gap-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.8, delay: 3.8, ease }}
@@ -120,6 +112,24 @@ export default function HeroAnimation() {
           <div className="from-accent-300 h-12 w-px bg-gradient-to-b to-transparent" />
         </motion.div>
       </div>
+
+      {/* 右：キャンパス画像 */}
+      <motion.div
+        className="relative hidden md:block md:w-1/2"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.6, delay: 0.6, ease }}
+      >
+        <Image
+          src="/campus_over.png"
+          alt="やわらか大学キャンパス"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* 左端フェード：テキスト側へのなじみ */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-stone-50 to-transparent" />
+      </motion.div>
     </section>
   );
 }
