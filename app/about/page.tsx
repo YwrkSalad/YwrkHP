@@ -45,7 +45,7 @@ export default function AboutPage() {
               <ScrollReveal className="shrink-0 md:w-80">
                 <div className="overflow-hidden rounded-md">
                   <Image
-                    src="/gakucho.jpg"
+                    src="/about/gakucho.jpg"
                     alt="学長 やわらか"
                     width={320}
                     height={400}

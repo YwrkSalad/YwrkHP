@@ -61,7 +61,7 @@ export default function AdmissionsPage() {
         {/* ページヒーロー */}
         <section className="relative flex h-72 overflow-hidden sm:h-96">
           <Image
-            src="/examing.jpg"
+            src="/admissions/examing.jpg"
             alt="入試の様子"
             fill
             className="object-cover object-center"

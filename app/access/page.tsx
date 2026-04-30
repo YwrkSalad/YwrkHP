@@ -77,7 +77,7 @@ export default function AccessPage() {
         {/* ページヒーロー */}
         <section className="relative flex h-72 overflow-hidden sm:h-96">
           <Image
-            src="/bus_stop_faculty_of_engineering.png"
+            src="/access/bus_stop_faculty_of_engineering.png"
             alt="やわらか大学 バス停"
             fill
             className="object-cover object-center"

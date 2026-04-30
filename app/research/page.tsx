@@ -71,7 +71,7 @@ export default function ResearchPage() {
         {/* ページヒーロー */}
         <section className="relative flex h-72 overflow-hidden sm:h-96">
           <Image
-            src="/researching.png"
+            src="/research/researching.png"
             alt="研究の様子"
             fill
             className="object-cover object-center"

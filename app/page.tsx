@@ -292,7 +292,7 @@ export default async function Home() {
           className="relative overflow-hidden px-6 py-24"
         >
           <Image
-            src="/expand_examing.jpg"
+            src="/admissions/expand_examing.jpg"
             alt="入試の様子"
             fill
             className="object-cover object-center"
