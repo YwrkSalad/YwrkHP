@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "./_components/Nav";
 import HeroAnimation from "./_components/HeroAnimation";
 import ScrollReveal from "./_components/ScrollReveal";
@@ -286,8 +287,18 @@ export default async function Home() {
         </section>
 
         {/* 入試情報 */}
-        <section id="admissions" className="bg-accent-900 px-6 py-24">
-          <div className="mx-auto max-w-4xl">
+        <section
+          id="admissions"
+          className="relative overflow-hidden px-6 py-24"
+        >
+          <Image
+            src="/expand_examing.jpg"
+            alt="入試の様子"
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/65" />
+          <div className="relative z-10 mx-auto max-w-4xl">
             <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
               <ScrollReveal className="text-center md:text-left">
                 <p className="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
