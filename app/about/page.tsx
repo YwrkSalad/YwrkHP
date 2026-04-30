@@ -4,48 +4,9 @@ import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+import { history, board, stats } from "../../data/about";
 
 export const metadata: Metadata = { title: "大学について" };
-
-
-const history = [
-  {
-    year: "1948",
-    event: "やわらか大学設立。文化創造学部・生命環境学部の2学部からスタート。",
-  },
-  {
-    year: "1965",
-    event: "共生社会学部を設置。福祉・地域学の先駆的な教育を開始。",
-  },
-  {
-    year: "1987",
-    event: "大学院を設置。研究機能を強化し、社会連携活動を本格化。",
-  },
-  {
-    year: "2002",
-    event: "情報デザイン学部を設置。テクノロジーと感性の融合を探求。",
-  },
-  { year: "2015", event: "国際交流センター開設。協定校が60大学に拡大。" },
-  {
-    year: "2026",
-    event: "創立78周年。学生数5,200名、専任教員240名の総合大学へ。",
-  },
-];
-
-const board = [
-  { role: "学長", name: "やわらか", note: "理学部教授 / 数理物理学" },
-  {
-    role: "副学長（教育）",
-    name: "すき",
-    note: "工学部教授 / 情報システム工学",
-  },
-  {
-    role: "副学長（研究）",
-    name: "える",
-    note: "農学部教授 / 生命機能科学",
-  },
-  { role: "事務局長", name: "わんわわ", note: "大学運営全般" },
-];
 
 export default function AboutPage() {
   return (
@@ -186,12 +147,7 @@ export default function AboutPage() {
 
             {/* 数字 */}
             <div className="mb-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
-              {[
-                { num: "6,800", unit: "名", label: "学生数" },
-                { num: "380", unit: "名", label: "専任教員数" },
-                { num: "5", unit: "学部", label: "学部構成" },
-                { num: "78", unit: "年", label: "創立" },
-              ].map((stat, i) => (
+              {stats.map((stat, i) => (
                 <ScrollReveal key={stat.label} delay={i * 0.08}>
                   <div className="bg-accent-50 border-accent-100 rounded-md border p-6 text-center">
                     <p className="text-accent-700 text-3xl font-semibold">
