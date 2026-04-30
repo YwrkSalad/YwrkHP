@@ -51,7 +51,7 @@ const BUILDINGS: BuildingData[] = [
     id: "grad2",
     name: "大学院研究棟 II",
     en: "Graduate School II",
-    x: 405, y: 40, w: 87, h: 90,
+    x: 405, y: 40, w: 150, h: 90,
     category: "research",
     description: "生命農学・医科学研究科（修士・博士課程）。WHO・FAO との共同研究拠点として国際的評価が高い。",
   },
@@ -142,7 +142,7 @@ const BUILDINGS: BuildingData[] = [
     id: "scenter",
     name: "学生交流センター",
     en: "Student Center",
-    x: 390, y: 460, w: 102, h: 60,
+    x: 390, y: 460, w: 170, h: 60,
     category: "facility",
     description: "サークル活動室・多目的ホール・音楽スタジオ・DJ ブース（Pioneer CDJ-004504 × 4台、DDJ-A810 × 1台）を完備。",
   },
@@ -255,9 +255,9 @@ export default function CampusMap() {
 
             {/* Roads — vertical separators */}
             <rect x={200} y={20} width={40} height={520} fill={ROAD} />
-            <rect x={492} y={20} width={108} height={520} fill={ROAD} />
-            {/* Green median in wider right road */}
-            <rect x={530} y={20} width={18} height={520} fill={GRASS} />
+            <rect x={560} y={20} width={40} height={520} fill={ROAD} />
+            {/* Green median in right road */}
+            <rect x={570} y={20} width={10} height={520} fill={GRASS} />
 
             {/* Roads — horizontal row separators */}
             <rect x={20} y={130} width={800} height={35} fill={ROAD} />
@@ -268,9 +268,9 @@ export default function CampusMap() {
             <rect x={370} y={540} width={100} height={26} fill={ROAD} />
 
             {/* Central courtyard */}
-            <rect x={240} y={315} width={252} height={105} fill={GRASS} rx={1} />
+            <rect x={240} y={315} width={320} height={105} fill={GRASS} rx={1} />
             <text
-              x={366} y={372}
+              x={400} y={372}
               textAnchor="middle"
               fill="#3c573f"
               fontSize={10}
