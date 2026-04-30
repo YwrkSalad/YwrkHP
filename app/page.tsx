@@ -145,22 +145,24 @@ export default async function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="divide-accent-100 divide-y">
-              {news.map((item, i) => (
-                <ScrollReveal key={i} delay={i * 0.08}>
-                  <div className="flex items-start gap-6 py-5 sm:items-center">
-                    <span className="w-24 shrink-0 text-sm text-stone-400">
-                      {item.date}
-                    </span>
-                    <span className="bg-accent-50 text-accent-600 shrink-0 rounded px-3 py-0.5 text-center text-xs whitespace-nowrap">
-                      {item.category}
-                    </span>
-                    <span className="min-w-0 truncate text-sm text-zinc-700 sm:text-base">
-                      {item.title}
-                    </span>
-                  </div>
-                </ScrollReveal>
-              ))}
+            <div className="overflow-x-auto">
+              <div className="divide-accent-100 divide-y">
+                {news.map((item, i) => (
+                  <ScrollReveal key={i} delay={i * 0.08}>
+                    <div className="flex min-w-max items-center gap-5 py-4">
+                      <span className="w-22 shrink-0 text-xs text-stone-400">
+                        {item.date}
+                      </span>
+                      <span className="bg-accent-50 text-accent-600 w-[5.5rem] shrink-0 rounded px-2 py-0.5 text-center text-xs">
+                        {item.category}
+                      </span>
+                      <span className="text-xs text-zinc-700 sm:text-sm">
+                        {item.title}
+                      </span>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
           </div>
         </section>
