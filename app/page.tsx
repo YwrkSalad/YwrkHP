@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Nav from "./_components/Nav";
 import HeroAnimation from "./_components/HeroAnimation";
 import ScrollReveal from "./_components/ScrollReveal";
@@ -139,9 +140,12 @@ export default async function Home() {
                     お知らせ
                   </h2>
                 </div>
-                <span className="text-sm text-stone-200 select-none">
-                  すべて見る →
-                </span>
+                <Link
+                  href="/admissions"
+                  className="text-accent-600 hover:text-accent-700 text-sm font-medium transition-colors"
+                >
+                  入試情報を見る →
+                </Link>
               </div>
             </ScrollReveal>
 
@@ -181,6 +185,12 @@ export default async function Home() {
                 <p className="mt-4 text-base font-light text-stone-500">
                   5つの学部で、理学・工学・農学・情報・医学を探究します。
                 </p>
+                <Link
+                  href="/faculties"
+                  className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
+                >
+                  学部・大学院を詳しく見る →
+                </Link>
               </div>
             </ScrollReveal>
 
@@ -228,6 +238,12 @@ export default async function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
                   やわらか大学の理念
                 </h2>
+                <Link
+                  href="/about"
+                  className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
+                >
+                  大学について詳しく見る →
+                </Link>
               </div>
             </ScrollReveal>
 
@@ -317,6 +333,12 @@ export default async function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
                   キャンパスライフ
                 </h2>
+                <Link
+                  href="/campus"
+                  className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
+                >
+                  キャンパスライフを詳しく見る →
+                </Link>
               </div>
             </ScrollReveal>
 
@@ -362,6 +384,12 @@ export default async function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-zinc-900">
                   アクセス
                 </h2>
+                <Link
+                  href="/access"
+                  className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
+                >
+                  アクセス詳細・キャンパスマップ →
+                </Link>
               </div>
             </ScrollReveal>
 
