@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 
 const heading1 = "やわらかな知性で、".split("");
 const heading2 = "世界をひらく。".split("");
@@ -10,7 +11,18 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroAnimation() {
   return (
-    <section className="via-accent-50/60 to-accent-100/50 relative flex h-[calc(100svh-4.5rem)] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white px-8">
+    <section className="relative flex h-[calc(100svh-4.5rem)] flex-col items-center justify-center overflow-hidden px-8">
+      {/* 背景画像 */}
+      <Image
+        src="/campus_over.png"
+        alt=""
+        fill
+        className="object-cover object-center"
+        priority
+      />
+      {/* 背景オーバーレイ */}
+      <div className="pointer-events-none absolute inset-0 bg-white/70" />
+
       {/* ページ全体を覆うホワイトオーバーレイ */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[60] bg-white"
@@ -18,17 +30,6 @@ export default function HeroAnimation() {
         animate={{ opacity: 0 }}
         transition={{ duration: 1.8, ease: "easeInOut" }}
       />
-
-      {/* 背景装飾 */}
-      <motion.div
-        aria-hidden
-        className="text-accent-200/50 pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22rem] leading-none font-bold select-none sm:text-[32rem]"
-        initial={{ opacity: 0, scale: 1.08 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 4, delay: 0.6, ease }}
-      >
-        大
-      </motion.div>
 
       <div className="relative z-10 flex flex-col items-center">
         {/* ラベル */}
