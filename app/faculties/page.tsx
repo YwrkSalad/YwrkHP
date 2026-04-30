@@ -30,6 +30,18 @@ export default function FacultiesPage() {
           </div>
         </section>
 
+        {/* 学士課程 */}
+        <section id="undergraduate" className="bg-stone-50 px-6 py-12">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-accent-600 text-xs font-medium tracking-[0.3em] uppercase">
+              Undergraduate
+            </p>
+            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-zinc-900">
+              学士課程
+            </h2>
+          </div>
+        </section>
+
         {/* 各学部 */}
         {faculties.map((f, fi) => (
           <section
@@ -83,7 +95,7 @@ export default function FacultiesPage() {
         ))}
 
         {/* 大学院 */}
-        <section className="bg-accent-900 px-6 py-24">
+        <section id="graduate" className="bg-accent-900 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             {/* ヘッダー */}
             <ScrollReveal>

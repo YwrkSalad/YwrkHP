@@ -17,7 +17,10 @@ const footerCols: PageGroup[][] = [
   [
     {
       page: { label: "学部・大学院", href: "/faculties" },
-      sections: [],
+      sections: [
+        { label: "学士課程", href: "/faculties#undergraduate" },
+        { label: "やわらか大学院", href: "/faculties#graduate" },
+      ],
     },
     {
       page: { label: "入試情報", href: "/admissions" },
