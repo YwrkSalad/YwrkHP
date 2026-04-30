@@ -128,21 +128,21 @@ export default async function Home() {
         <HeroAnimation />
 
         {/* お知らせ */}
-        <section className="bg-white px-6 py-24">
+        <section className="bg-white px-4 py-12 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <div className="mb-12 flex items-center justify-between">
+              <div className="mb-6 flex items-center justify-between sm:mb-12">
                 <div>
-                  <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
+                  <p className="text-accent-600 mb-1 text-[10px] font-medium tracking-[0.3em] uppercase sm:mb-2 sm:text-xs">
                     News
                   </p>
-                  <h2 className="text-3xl font-semibold tracking-tight text-zinc-900">
+                  <h2 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
                     お知らせ
                   </h2>
                 </div>
                 <Link
                   href="/admissions"
-                  className="text-accent-600 hover:text-accent-700 text-sm font-medium transition-colors"
+                  className="text-accent-600 hover:text-accent-700 text-xs font-medium transition-colors sm:text-sm"
                 >
                   入試情報を見る →
                 </Link>
@@ -153,14 +153,14 @@ export default async function Home() {
               <div className="divide-accent-100 divide-y">
                 {news.map((item, i) => (
                   <ScrollReveal key={i} delay={i * 0.08}>
-                    <div className="flex min-w-max items-center gap-5 py-4">
-                      <span className="w-22 shrink-0 text-xs text-stone-400">
+                    <div className="flex min-w-max items-center gap-3 py-3 sm:gap-5 sm:py-4">
+                      <span className="w-20 shrink-0 text-[10px] text-stone-400 sm:w-22 sm:text-xs">
                         {item.date}
                       </span>
-                      <span className="bg-accent-50 text-accent-600 w-[5.5rem] shrink-0 rounded px-2 py-0.5 text-center text-xs">
+                      <span className="bg-accent-50 text-accent-600 w-[4.5rem] shrink-0 rounded px-1.5 py-0.5 text-center text-[10px] sm:w-[5.5rem] sm:px-2 sm:text-xs">
                         {item.category}
                       </span>
-                      <span className="text-xs text-zinc-700 sm:text-sm">
+                      <span className="text-[10px] text-zinc-700 sm:text-sm">
                         {item.title}
                       </span>
                     </div>
