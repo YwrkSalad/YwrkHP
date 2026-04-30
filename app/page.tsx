@@ -194,32 +194,36 @@ export default async function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="space-y-4">
               {faculties.map((f, i) => (
-                <ScrollReveal key={f.number} delay={i * 0.1}>
-                  <div className="group rounded-md bg-white p-8 transition-shadow hover:shadow-md">
-                    <span className="text-accent-100 mb-4 block text-5xl leading-none font-bold">
+                <ScrollReveal key={f.number} delay={i * 0.08}>
+                  <div className="flex items-start gap-6 rounded-md bg-white p-6 transition-shadow hover:shadow-md">
+                    <span className="text-accent-100 w-12 shrink-0 text-4xl leading-none font-bold">
                       {f.number}
                     </span>
-                    <p className="mb-1 text-xs tracking-widest text-stone-400 uppercase">
-                      {f.en}
-                    </p>
-                    <h3 className="mb-3 text-xl font-semibold text-zinc-900">
-                      {f.name}
-                    </h3>
-                    <p className="mb-5 text-sm leading-relaxed text-stone-500">
-                      {f.description}
-                    </p>
-                    <ul className="flex flex-wrap gap-2">
-                      {f.departments.map((d) => (
-                        <li
-                          key={d}
-                          className="border-accent-200 text-accent-700 rounded border px-3 py-1 text-xs"
-                        >
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="min-w-0 flex-1">
+                      <div className="mb-2 flex flex-wrap items-baseline gap-3">
+                        <h3 className="text-lg font-semibold text-zinc-900">
+                          {f.name}
+                        </h3>
+                        <p className="text-xs tracking-widest text-stone-400 uppercase">
+                          {f.en}
+                        </p>
+                      </div>
+                      <p className="mb-3 text-sm leading-relaxed text-stone-500">
+                        {f.description}
+                      </p>
+                      <ul className="flex flex-wrap gap-2">
+                        {f.departments.map((d) => (
+                          <li
+                            key={d}
+                            className="border-accent-200 text-accent-700 rounded border px-3 py-0.5 text-xs"
+                          >
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </ScrollReveal>
               ))}
