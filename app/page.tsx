@@ -297,7 +297,7 @@ export default async function Home() {
             fill
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/65" />
+          <div className="absolute inset-0 bg-black/15" />
           <div className="relative z-10 mx-auto max-w-5xl">
             <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
               <ScrollReveal className="text-center md:text-left">
@@ -307,28 +307,28 @@ export default async function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   入試情報
                 </h2>
-                <p className="mt-4 max-w-sm text-base font-light text-zinc-400">
+                <p className="mt-4 max-w-sm text-base font-light text-zinc-100">
                   やわらか大学では、一般選抜・総合型選抜・学校推薦型選抜の
                   3つの入試方式で学生を募集しています。
                 </p>
               </ScrollReveal>
 
               <ScrollReveal delay={0.15} className="flex flex-col gap-4">
-                <div className="rounded border border-zinc-700 bg-zinc-800/60 px-8 py-5">
-                  <p className="text-xs text-zinc-500">一般選抜</p>
+                <div className="rounded border border-zinc-700 bg-zinc-800/90 px-8 py-5">
+                  <p className="text-sm text-white">一般選抜</p>
                   <p className="mt-1 text-lg font-medium text-white">
                     2027年1月 出願開始
                   </p>
                 </div>
-                <div className="rounded border border-zinc-700 bg-zinc-800/60 px-8 py-5">
-                  <p className="text-xs text-zinc-500">総合型選抜</p>
+                <div className="rounded border border-zinc-700 bg-zinc-800/90 px-8 py-5">
+                  <p className="text-sm text-white">総合型選抜</p>
                   <p className="mt-1 text-lg font-medium text-white">
                     2026年9月 出願開始
                   </p>
                 </div>
                 <a
                   href="/admissions"
-                  className="border-accent-600 text-accent-300 hover:border-accent-400 hover:text-accent-200 mt-2 rounded border px-8 py-3 text-center text-sm font-medium transition-colors"
+                  className="hover:bg-accent-100/90 border-accent-600 bg-accent-50/90 text-accent-800 font-medium mt-2 rounded border px-8 py-3 text-center text-sm font-medium transition-colors"
                 >
                   募集要項を見る
                 </a>
