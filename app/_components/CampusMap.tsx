@@ -212,8 +212,24 @@ export default function CampusMap() {
         <div className="absolute top-3 right-3 z-10 flex flex-col gap-1">
           {(
             [
-              { label: "+", action: () => setScale((s) => Math.min(4, s * 1.2)) },
-              { label: "−", action: () => setScale((s) => Math.max(0.35, s * 0.8)) },
+              {
+                label: "+",
+                action: () => {
+                  const next = Math.min(4, scale * 1.2);
+                  const f = next / scale;
+                  setScale(next);
+                  setPan({ x: 420 - (420 - pan.x) * f, y: 285 - (285 - pan.y) * f });
+                },
+              },
+              {
+                label: "−",
+                action: () => {
+                  const next = Math.max(0.35, scale * 0.8);
+                  const f = next / scale;
+                  setScale(next);
+                  setPan({ x: 420 - (420 - pan.x) * f, y: 285 - (285 - pan.y) * f });
+                },
+              },
               {
                 label: "⊙",
                 action: () => {
