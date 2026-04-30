@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -13,6 +14,7 @@ const dorms = [
     en: "Dormitory A",
     target: "男子学生向け",
     capacity: "定員 120 名",
+    image: "/dormitory/first_dormitory.png",
     description:
       "緑豊かな南側エリアに位置する男子寮。全室個室にユニットバスを完備し、プライバシーを確保しながら快適な一人暮らしをサポートします。",
     features: [
@@ -28,6 +30,7 @@ const dorms = [
     en: "Dormitory B",
     target: "女子・混合棟",
     capacity: "定員 200 名",
+    image: "/dormitory/second_dormitory.png",
     description:
       "学食に直結した利便性の高い大型寮。個室・2人部屋から選択でき、低層フロアはバリアフリー対応。24時間セキュリティ体制で安心して生活できます。",
     features: [
@@ -43,6 +46,7 @@ const dorms = [
     en: "International House",
     target: "留学生・研究者向け",
     capacity: "定員 80 名",
+    image: "/dormitory/third_dormitory.png",
     description:
       "海外からの留学生や研究者を対象としたインターナショナルハウス。日本語・英語の両言語対応スタッフが常駐し、来日直後の生活サポートも万全です。",
     features: [
@@ -107,7 +111,16 @@ export default function DormitoryPage() {
             <div className="space-y-8">
               {dorms.map((d, i) => (
                 <ScrollReveal key={d.id} delay={i * 0.1}>
-                  <div className="rounded-md border border-stone-100 bg-stone-50 p-8">
+                  <div className="overflow-hidden rounded-md border border-stone-100 bg-stone-50">
+                    <div className="relative h-56 w-full sm:h-72">
+                      <Image
+                        src={d.image}
+                        alt={d.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-8">
                     <div className="mb-6">
                       <p className="text-xs tracking-widest text-stone-400 uppercase">{d.en}</p>
                       <h3 className="mt-1 text-xl font-semibold text-zinc-900">{d.name}</h3>
@@ -128,6 +141,7 @@ export default function DormitoryPage() {
                           <span className="text-sm text-zinc-700">{f.value}</span>
                         </div>
                       ))}
+                    </div>
                     </div>
                   </div>
                 </ScrollReveal>
