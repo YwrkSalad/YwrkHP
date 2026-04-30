@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -74,19 +75,25 @@ export default function AccessPage() {
       <Nav />
       <main className="pt-[4.5rem]">
         {/* ページヒーロー */}
-        <section className="bg-stone-50 px-6 py-20">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
-                Access
-              </p>
-              <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-                アクセス
-              </h1>
-              <p className="mt-4 text-base font-light text-stone-500">
-                やわらか大学へのアクセス方法とキャンパス情報をご案内します。
-              </p>
-            </ScrollReveal>
+        <section className="relative flex h-72 overflow-hidden sm:h-96">
+          <Image
+            src="/bus_stop_faculty_of_engineering.png"
+            alt="やわらか大学 バス停"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
+          <div className="relative z-10 flex w-full flex-col justify-end px-8 pb-10 sm:px-14 sm:pb-14">
+            <p className="mb-2 text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
+              Access
+            </p>
+            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              アクセス
+            </h1>
+            <p className="mt-3 text-sm font-light text-white/75">
+              やわらか大学へのアクセス方法とキャンパス情報をご案内します。
+            </p>
           </div>
         </section>
 
