@@ -130,7 +130,7 @@ export default async function Home() {
 
         {/* お知らせ */}
         <section className="bg-white px-4 py-12 sm:px-6 sm:py-24">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-6 flex items-center justify-between sm:mb-12">
                 <div>
@@ -298,7 +298,7 @@ export default async function Home() {
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/65" />
-          <div className="relative z-10 mx-auto max-w-4xl">
+          <div className="relative z-10 mx-auto max-w-5xl">
             <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
               <ScrollReveal className="text-center md:text-left">
                 <p className="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
@@ -390,7 +390,7 @@ export default async function Home() {
 
         {/* アクセス */}
         <section id="access" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-12 text-center">
                 <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
