@@ -23,7 +23,6 @@ const footerCols = [
       { label: "キャンパスライフ", href: "/campus" },
       { label: "学生寮", href: "/dormitory" },
       { label: "アクセス", href: "/access" },
-      { label: "キャンパスマップ", href: "/access#map" },
     ],
   },
 ];
