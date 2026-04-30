@@ -26,6 +26,7 @@ const footerCols = [
       { label: "入試情報", href: "/admissions" },
       { label: "研究・社会連携", href: "/research" },
       { label: "キャンパスライフ", href: "/campus" },
+      { label: "学生寮", href: "/dormitory" },
       { label: "アクセス", href: "/access" },
     ],
   },
