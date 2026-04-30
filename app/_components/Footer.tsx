@@ -60,6 +60,8 @@ const footerCols: PageGroup[][] = [
       page: { label: "アクセス", href: "/access" },
       sections: [
         { label: "キャンパスマップ", href: "/access#map" },
+        { label: "キャンパス一覧", href: "/access#campuses" },
+        { label: "交通アクセス", href: "/access#transportation" },
       ],
     },
   ],

@@ -109,7 +109,7 @@ export default function AccessPage() {
         </section>
 
         {/* キャンパス情報 */}
-        <section className="bg-stone-50 px-6 py-24">
+        <section id="campuses" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
@@ -163,7 +163,7 @@ export default function AccessPage() {
         </section>
 
         {/* 交通アクセス */}
-        <section className="bg-white px-6 py-24">
+        <section id="transportation" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
