@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -113,8 +114,16 @@ export default function CampusPage() {
       <Nav />
       <main className="pt-[4.5rem]">
         {/* ページヒーロー */}
-        <section className="bg-stone-50 px-6 py-20">
-          <div className="mx-auto max-w-5xl">
+        <section className="relative overflow-hidden px-6 py-20">
+          <Image
+            src="/campus/campus_over.png"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-white/70" />
+          <div className="relative mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
                 Campus Life

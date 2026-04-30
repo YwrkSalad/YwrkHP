@@ -14,7 +14,7 @@ export default function HeroAnimation() {
     <section className="relative flex h-[calc(100svh-4.5rem)] overflow-hidden">
       {/* 背景画像 */}
       <Image
-        src="/campus/campus_over.png"
+        src="/campus/ywrk_univ_stone.png"
         alt="やわらか大学キャンパス"
         fill
         className="object-cover object-center"
