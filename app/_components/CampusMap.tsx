@@ -242,6 +242,7 @@ export default function CampusMap() {
           ref={svgRef}
           viewBox="0 0 840 570"
           className={`h-full w-full select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+          style={{ touchAction: "none" }}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
