@@ -71,7 +71,7 @@ export default function Footer() {
   return (
     <footer className="bg-zinc-900 px-6 py-12">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-10 grid gap-8 sm:grid-cols-5">
+        <div className="mb-10 grid grid-cols-2 gap-8 sm:grid-cols-5">
           <div>
             <Link
               href="/"
