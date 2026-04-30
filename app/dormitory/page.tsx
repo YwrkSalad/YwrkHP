@@ -173,7 +173,7 @@ export default function DormitoryPage() {
               {dorms.map((d, i) => (
                 <ScrollReveal key={d.id} delay={i * 0.1}>
                   <div className="overflow-hidden rounded-md border border-stone-100 bg-stone-50">
-                    <div className="relative h-56 w-full sm:h-72">
+                    <div className="relative h-72 w-full sm:h-96">
                       <Image
                         src={d.image}
                         alt={d.name}
