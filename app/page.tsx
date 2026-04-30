@@ -328,7 +328,7 @@ export default async function Home() {
                 </div>
                 <a
                   href="/admissions"
-                  className="hover:bg-accent-100/90 border-accent-600 bg-accent-50/90 text-accent-800 font-medium mt-2 rounded border px-8 py-3 text-center text-sm font-medium transition-colors"
+                  className="hover:bg-accent-100/90 border-accent-600 bg-accent-50/90 text-accent-800 mt-2 rounded border px-8 py-3 text-center text-sm font-medium transition-colors"
                 >
                   募集要項を見る
                 </a>
