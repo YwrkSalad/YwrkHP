@@ -131,7 +131,7 @@ export default function CampusPage() {
         </section>
 
         {/* クラブ・サークル */}
-        <section className="bg-white px-6 py-24">
+        <section id="clubs" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
@@ -170,7 +170,7 @@ export default function CampusPage() {
         </section>
 
         {/* 施設 */}
-        <section className="bg-stone-50 px-6 py-24">
+        <section id="facilities" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
@@ -200,7 +200,7 @@ export default function CampusPage() {
         </section>
 
         {/* 国際交流 */}
-        <section className="bg-white px-6 py-24">
+        <section id="international" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">

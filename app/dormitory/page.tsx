@@ -97,7 +97,7 @@ export default function DormitoryPage() {
         </section>
 
         {/* 各寮の紹介 */}
-        <section className="bg-white px-6 py-24">
+        <section id="dorms" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
@@ -151,7 +151,7 @@ export default function DormitoryPage() {
         </section>
 
         {/* 費用 */}
-        <section className="bg-stone-50 px-6 py-24">
+        <section id="fees" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
@@ -189,7 +189,7 @@ export default function DormitoryPage() {
         </section>
 
         {/* 申し込みの流れ */}
-        <section className="bg-white px-6 py-24">
+        <section id="apply" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">

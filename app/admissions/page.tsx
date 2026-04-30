@@ -76,7 +76,7 @@ export default function AdmissionsPage() {
         </section>
 
         {/* 入試方式 */}
-        <section className="bg-white px-6 py-24">
+        <section id="methods" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
@@ -124,7 +124,7 @@ export default function AdmissionsPage() {
         </section>
 
         {/* 学費 */}
-        <section className="bg-stone-50 px-6 py-24">
+        <section id="tuition" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">

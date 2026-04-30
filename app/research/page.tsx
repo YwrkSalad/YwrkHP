@@ -86,7 +86,7 @@ export default function ResearchPage() {
         </section>
 
         {/* 研究センター */}
-        <section className="bg-white px-6 py-24">
+        <section id="centers" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
@@ -125,7 +125,7 @@ export default function ResearchPage() {
         </section>
 
         {/* 社会連携 */}
-        <section className="bg-stone-50 px-6 py-24">
+        <section id="collaboration" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
