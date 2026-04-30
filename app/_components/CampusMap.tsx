@@ -2,7 +2,7 @@
 
 import { useRef, useState, useCallback } from "react";
 
-type Category = "faculty" | "research" | "facility" | "sports" | "admin" | "parking";
+type Category = "faculty" | "research" | "facility" | "sports" | "admin" | "parking" | "dorm";
 
 type BuildingData = {
   id: string;
@@ -27,6 +27,7 @@ const CAT: Record<Category, { fill: string; stroke: string; fg: string }> = {
   sports:   { fill: "#a06840", stroke: "#6a4020", fg: "#ffffff" },
   admin:    { fill: "#556070", stroke: "#3a4450", fg: "#ffffff" },
   parking:  { fill: "#b8b4ae", stroke: "#8a8680", fg: "#4a4440" },
+  dorm:     { fill: "#7a9c7a", stroke: "#4a6a4a", fg: "#ffffff" },
 };
 
 const BUILDINGS: BuildingData[] = [
@@ -154,6 +155,31 @@ const BUILDINGS: BuildingData[] = [
     category: "parking",
     description: "第1〜第3駐車場 合計 200 台。来客の方は守衛室（管理棟横）にご連絡ください。",
   },
+  // Row 5 — y: 555–645
+  {
+    id: "dormA",
+    name: "第一学生寮",
+    en: "Dormitory A",
+    x: 40, y: 555, w: 160, h: 90,
+    category: "dorm",
+    description: "男子学生向け寮。全室個室（ユニットバス付）。共用ラウンジ・自習室・ランドリールームを完備。定員 120 名。",
+  },
+  {
+    id: "dormB",
+    name: "第二学生寮",
+    en: "Dormitory B",
+    x: 240, y: 555, w: 320, h: 90,
+    category: "dorm",
+    description: "女子・混合棟。個室タイプ（A〜C室）と2人部屋を選択可。食堂直結・24時間セキュリティ対応。定員 200 名。",
+  },
+  {
+    id: "dormInt",
+    name: "国際学生寮",
+    en: "International House",
+    x: 600, y: 555, w: 200, h: 90,
+    category: "dorm",
+    description: "留学生・海外研究者向けインターナショナルハウス。日本語・英語対応スタッフ常駐。交流ラウンジ付き。定員 80 名。",
+  },
 ];
 
 const LEGEND: { category: Category; label: string }[] = [
@@ -163,6 +189,7 @@ const LEGEND: { category: Category; label: string }[] = [
   { category: "sports",   label: "体育・課外施設" },
   { category: "admin",    label: "管理棟" },
   { category: "parking",  label: "駐車場" },
+  { category: "dorm",     label: "学生寮" },
 ];
 
 export default function CampusMap() {
@@ -256,7 +283,7 @@ export default function CampusMap() {
 
         <svg
           ref={svgRef}
-          viewBox="0 0 840 570"
+          viewBox="0 0 840 720"
           className={`h-full w-full select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
           style={{ touchAction: "none" }}
           onPointerDown={onPointerDown}
@@ -267,21 +294,22 @@ export default function CampusMap() {
         >
           <g transform={`translate(${pan.x},${pan.y}) scale(${scale})`}>
             {/* Campus background */}
-            <rect x={20} y={20} width={800} height={520} fill={CAMPUS_BG} rx={2} />
+            <rect x={20} y={20} width={800} height={645} fill={CAMPUS_BG} rx={2} />
 
             {/* Roads — vertical separators */}
-            <rect x={200} y={20} width={40} height={520} fill={ROAD} />
-            <rect x={560} y={20} width={40} height={520} fill={ROAD} />
+            <rect x={200} y={20} width={40} height={645} fill={ROAD} />
+            <rect x={560} y={20} width={40} height={645} fill={ROAD} />
             {/* Green median in right road */}
-            <rect x={570} y={20} width={10} height={520} fill={GRASS} />
+            <rect x={570} y={20} width={10} height={645} fill={GRASS} />
 
             {/* Roads — horizontal row separators */}
             <rect x={20} y={130} width={800} height={35} fill={ROAD} />
             <rect x={20} y={275} width={800} height={40} fill={ROAD} />
             <rect x={20} y={420} width={800} height={40} fill={ROAD} />
+            <rect x={20} y={520} width={800} height={35} fill={ROAD} />
 
             {/* Main entrance road */}
-            <rect x={370} y={540} width={100} height={26} fill={ROAD} />
+            <rect x={370} y={665} width={100} height={26} fill={ROAD} />
 
             {/* Central courtyard */}
             <rect x={240} y={315} width={320} height={105} fill={GRASS} rx={1} />
@@ -296,11 +324,11 @@ export default function CampusMap() {
             </text>
 
             {/* Campus boundary */}
-            <rect x={20} y={20} width={800} height={520} fill="none" stroke="#aac4ae" strokeWidth={2} rx={2} />
+            <rect x={20} y={20} width={800} height={645} fill="none" stroke="#aac4ae" strokeWidth={2} rx={2} />
 
             {/* Gate marker */}
-            <rect x={385} y={537} width={70} height={5} fill="#3c573f" rx={1} />
-            <text x={420} y={554} textAnchor="middle" fill="#3c573f" fontSize={9} fontWeight={500}>
+            <rect x={385} y={662} width={70} height={5} fill="#3c573f" rx={1} />
+            <text x={420} y={679} textAnchor="middle" fill="#3c573f" fontSize={9} fontWeight={500}>
               正門
             </text>
 
