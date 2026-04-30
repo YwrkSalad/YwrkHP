@@ -51,9 +51,9 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors ${
+                className={`relative pb-1 text-sm transition-colors ${
                   isActive(link.href)
-                    ? "text-accent-700 font-medium"
+                    ? "text-accent-700 font-medium after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-full after:bg-accent-600 after:content-['']"
                     : "text-zinc-600 hover:text-accent-700"
                 }`}
               >
