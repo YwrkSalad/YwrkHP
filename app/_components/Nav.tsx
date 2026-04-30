@@ -70,7 +70,10 @@ export default function Nav() {
   return (
     <>
       <header className="fixed top-0 right-0 left-0 z-50 border-b border-stone-200/60 bg-white/80 backdrop-blur-md">
-        <div ref={barRef} className="flex h-18 items-center justify-between px-6">
+        <div
+          ref={barRef}
+          className="flex h-18 items-center justify-between px-6"
+        >
           <Link
             ref={brandRef}
             href="/"
@@ -98,7 +101,7 @@ export default function Nav() {
           {/* Desktop nav */}
           <nav
             ref={navRef}
-            className={`${useHamburger ? "pointer-events-none absolute invisible" : "flex"} items-center gap-6`}
+            className={`${useHamburger ? "pointer-events-none invisible absolute" : "flex"} items-center gap-6`}
           >
             {navLinks.slice(1).map((link) => (
               <Link
@@ -138,7 +141,7 @@ export default function Nav() {
       <div
         ref={navMeasureRef}
         aria-hidden
-        className="pointer-events-none fixed top-0 left-[-9999px] invisible flex items-center gap-6 whitespace-nowrap"
+        className="pointer-events-none invisible fixed top-0 left-[-9999px] flex items-center gap-6 whitespace-nowrap"
       >
         {navLinks.slice(1).map((link) => (
           <span key={link.href} className="text-[13px] font-medium">
