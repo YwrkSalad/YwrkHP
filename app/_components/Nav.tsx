@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "ホーム", href: "/" },
   { label: "学部・大学院", href: "/faculties" },
-  { label: "入試情報", href: "/admissions" },
   { label: "研究・社会連携", href: "/research" },
+  { label: "入試情報", href: "/admissions" },
   { label: "キャンパスライフ", href: "/campus" },
   { label: "学生寮", href: "/dormitory" },
   { label: "アクセス", href: "/access" },
@@ -15,6 +16,10 @@ const navLinks = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -46,7 +51,11 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="hover:text-accent-700 text-sm text-zinc-600 transition-colors"
+                className={`text-sm transition-colors ${
+                  isActive(link.href)
+                    ? "text-accent-700 font-medium"
+                    : "text-zinc-600 hover:text-accent-700"
+                }`}
               >
                 {link.label}
               </Link>
@@ -82,7 +91,11 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="hover:text-accent-600 text-3xl font-semibold tracking-tight text-zinc-900 transition-colors"
+              className={`text-3xl font-semibold tracking-tight transition-colors ${
+                isActive(link.href)
+                  ? "text-accent-600"
+                  : "text-zinc-900 hover:text-accent-600"
+              }`}
             >
               {link.label}
             </Link>
