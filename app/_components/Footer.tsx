@@ -7,27 +7,23 @@ const footerCols = [
       { label: "学長挨拶", href: "/about#president" },
       { label: "沿革", href: "/about#history" },
       { label: "組織概要", href: "/about#organization" },
-      { label: "キャンパスマップ", href: "/access#map" },
     ],
   },
   {
-    title: "学部・大学院",
+    title: "学部・研究",
     links: [
-      { label: "理学部", href: "/faculties#science" },
-      { label: "工学部", href: "/faculties#engineering" },
-      { label: "農学部", href: "/faculties#agriculture" },
-      { label: "情報科学部", href: "/faculties#information-science" },
-      { label: "医学部", href: "/faculties#medicine" },
-    ],
-  },
-  {
-    title: "情報",
-    links: [
-      { label: "入試情報", href: "/admissions" },
+      { label: "学部・大学院", href: "/faculties" },
       { label: "研究・社会連携", href: "/research" },
+      { label: "入試情報", href: "/admissions" },
+    ],
+  },
+  {
+    title: "キャンパス",
+    links: [
       { label: "キャンパスライフ", href: "/campus" },
       { label: "学生寮", href: "/dormitory" },
       { label: "アクセス", href: "/access" },
+      { label: "キャンパスマップ", href: "/access#map" },
     ],
   },
 ];
