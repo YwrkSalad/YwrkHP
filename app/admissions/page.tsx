@@ -6,7 +6,6 @@ import PageTracker from "../_components/PageTracker";
 
 export const metadata: Metadata = { title: "入試情報" };
 
-
 const methods = [
   {
     name: "一般選抜",

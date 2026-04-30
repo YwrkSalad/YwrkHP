@@ -28,7 +28,11 @@ export const history = [
 
 export const board = [
   { role: "学長", name: "やわらか", note: "理学部教授 / 数理物理学" },
-  { role: "副学長（教育）", name: "すき", note: "工学部教授 / 情報システム工学" },
+  {
+    role: "副学長（教育）",
+    name: "すき",
+    note: "工学部教授 / 情報システム工学",
+  },
   { role: "副学長（研究）", name: "える", note: "農学部教授 / 生命機能科学" },
   { role: "事務局長", name: "わんわわ", note: "大学運営全般" },
 ];

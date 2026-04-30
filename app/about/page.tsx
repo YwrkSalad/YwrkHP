@@ -33,7 +33,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
               <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                President's Message
+                President&apos;s Message
               </p>
               <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
                 学長挨拶
@@ -192,4 +192,3 @@ export default function AboutPage() {
     </>
   );
 }
-

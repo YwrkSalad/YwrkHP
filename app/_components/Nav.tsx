@@ -53,8 +53,8 @@ export default function Nav() {
                 href={link.href}
                 className={`relative pb-1 text-sm transition-colors ${
                   isActive(link.href)
-                    ? "text-accent-700 font-medium after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-full after:bg-accent-600 after:content-['']"
-                    : "text-zinc-600 hover:text-accent-700"
+                    ? "text-accent-700 after:bg-accent-600 font-medium after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-full after:content-['']"
+                    : "hover:text-accent-700 text-zinc-600"
                 }`}
               >
                 {link.label}
@@ -94,7 +94,7 @@ export default function Nav() {
               className={`text-3xl font-semibold tracking-tight transition-colors ${
                 isActive(link.href)
                   ? "text-accent-600"
-                  : "text-zinc-900 hover:text-accent-600"
+                  : "hover:text-accent-600 text-zinc-900"
               }`}
             >
               {link.label}

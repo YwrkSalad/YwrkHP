@@ -7,7 +7,6 @@ import CampusMap from "../_components/CampusMap";
 
 export const metadata: Metadata = { title: "アクセス" };
 
-
 const routes = [
   {
     means: "電車",
@@ -78,7 +77,7 @@ export default function AccessPage() {
         <section className="bg-stone-50 px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-2 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+              <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
                 Access
               </p>
               <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
@@ -95,7 +94,7 @@ export default function AccessPage() {
         <section id="map" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                 Campus Map
               </p>
               <h2 className="mb-10 text-3xl font-semibold tracking-tight text-zinc-900">
@@ -112,7 +111,7 @@ export default function AccessPage() {
         <section id="campuses" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                 Campuses
               </p>
               <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
@@ -127,7 +126,7 @@ export default function AccessPage() {
                     <h3 className="mb-4 text-lg font-semibold text-zinc-900">
                       {c.name}
                     </h3>
-                    <address className="mb-5 not-italic text-sm leading-loose text-stone-600">
+                    <address className="mb-5 text-sm leading-loose text-stone-600 not-italic">
                       {c.zip}
                       <br />
                       {c.address}
@@ -137,7 +136,7 @@ export default function AccessPage() {
                       Email:{" "}
                       <a
                         href={`mailto:${c.email}`}
-                        className="text-accent-700 underline underline-offset-2 hover:text-accent-800"
+                        className="text-accent-700 hover:text-accent-800 underline underline-offset-2"
                       >
                         {c.email}
                       </a>
@@ -148,7 +147,7 @@ export default function AccessPage() {
                         {c.buildings.map((b) => (
                           <span
                             key={b}
-                            className="rounded border border-accent-200 bg-accent-50 px-3 py-0.5 text-xs text-accent-700"
+                            className="border-accent-200 bg-accent-50 text-accent-700 rounded border px-3 py-0.5 text-xs"
                           >
                             {b}
                           </span>
@@ -166,7 +165,7 @@ export default function AccessPage() {
         <section id="transportation" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="mb-3 text-xs font-medium tracking-[0.3em] text-accent-600 uppercase">
+              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
                 Transportation
               </p>
               <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
@@ -177,7 +176,7 @@ export default function AccessPage() {
             <ScrollReveal delay={0.1}>
               <table className="w-full border-collapse text-sm">
                 <tbody>
-                  {routes.map((r, i) => (
+                  {routes.map((r) => (
                     <tr key={r.means} className="border-t border-stone-200">
                       <th
                         scope="row"

@@ -2,7 +2,14 @@
 
 import { useRef, useState, useCallback } from "react";
 
-type Category = "faculty" | "research" | "facility" | "sports" | "admin" | "parking" | "dorm";
+type Category =
+  | "faculty"
+  | "research"
+  | "facility"
+  | "sports"
+  | "admin"
+  | "parking"
+  | "dorm";
 
 type BuildingData = {
   id: string;
@@ -21,13 +28,13 @@ const CAMPUS_BG = "#ffffff";
 const GRASS = "#c4d4c0";
 
 const CAT: Record<Category, { fill: string; stroke: string; fg: string }> = {
-  faculty:  { fill: "#5e8665", stroke: "#3c573f", fg: "#ffffff" },
+  faculty: { fill: "#5e8665", stroke: "#3c573f", fg: "#ffffff" },
   research: { fill: "#2d4030", stroke: "#1e2b20", fg: "#e5ede6" },
   facility: { fill: "#6b8fa0", stroke: "#4a6070", fg: "#ffffff" },
-  sports:   { fill: "#a06840", stroke: "#6a4020", fg: "#ffffff" },
-  admin:    { fill: "#556070", stroke: "#3a4450", fg: "#ffffff" },
-  parking:  { fill: "#b8b4ae", stroke: "#8a8680", fg: "#4a4440" },
-  dorm:     { fill: "#7a6a9c", stroke: "#4a3a6c", fg: "#ffffff" },
+  sports: { fill: "#a06840", stroke: "#6a4020", fg: "#ffffff" },
+  admin: { fill: "#556070", stroke: "#3a4450", fg: "#ffffff" },
+  parking: { fill: "#b8b4ae", stroke: "#8a8680", fg: "#4a4440" },
+  dorm: { fill: "#7a6a9c", stroke: "#4a3a6c", fg: "#ffffff" },
 };
 
 const BUILDINGS: BuildingData[] = [
@@ -36,160 +43,232 @@ const BUILDINGS: BuildingData[] = [
     id: "admin",
     name: "総合管理棟",
     en: "Administration",
-    x: 40, y: 40, w: 160, h: 90,
+    x: 40,
+    y: 40,
+    w: 160,
+    h: 90,
     category: "admin",
-    description: "大学本部・事務局・学長室・広報室が入る総合管理棟。正門正面に位置する。",
+    description:
+      "大学本部・事務局・学長室・広報室が入る総合管理棟。正門正面に位置する。",
   },
   {
     id: "grad1",
     name: "大学院研究棟 I",
     en: "Graduate School I",
-    x: 240, y: 40, w: 160, h: 90,
+    x: 240,
+    y: 40,
+    w: 160,
+    h: 90,
     category: "research",
-    description: "理工情報学研究科（修士・博士課程）。最先端実験設備と国際共同研究室を完備。年間 80+ 件の国際学会発表。",
+    description:
+      "理工情報学研究科（修士・博士課程）。最先端実験設備と国際共同研究室を完備。年間 80+ 件の国際学会発表。",
   },
   {
     id: "grad2",
     name: "大学院研究棟 II",
     en: "Graduate School II",
-    x: 410, y: 40, w: 150, h: 90,
+    x: 410,
+    y: 40,
+    w: 150,
+    h: 90,
     category: "research",
-    description: "生命農学・医科学研究科（修士・博士課程）。WHO・FAO との共同研究拠点として国際的評価が高い。",
+    description:
+      "生命農学・医科学研究科（修士・博士課程）。WHO・FAO との共同研究拠点として国際的評価が高い。",
   },
   {
     id: "hospital",
     name: "附属病院",
     en: "University Hospital",
-    x: 600, y: 40, w: 200, h: 90,
+    x: 600,
+    y: 40,
+    w: 200,
+    h: 90,
     category: "facility",
-    description: "医学部附属病院。臨床実習・研修医受入施設として地域医療を広く支える 400 床規模の病院。",
+    description:
+      "医学部附属病院。臨床実習・研修医受入施設として地域医療を広く支える 400 床規模の病院。",
   },
   // Row 2 — y: 165–275
   {
     id: "science",
     name: "理学部棟",
     en: "Faculty of Science",
-    x: 40, y: 165, w: 160, h: 110,
+    x: 40,
+    y: 165,
+    w: 160,
+    h: 110,
     category: "faculty",
-    description: "数学・物理学・化学・生物学・地球惑星科学・宇宙科学の6学科。大型実験室・観測ドームを備える。",
+    description:
+      "数学・物理学・化学・生物学・地球惑星科学・宇宙科学の6学科。大型実験室・観測ドームを備える。",
   },
   {
     id: "eng",
     name: "工学部棟",
     en: "Faculty of Engineering",
-    x: 240, y: 165, w: 128, h: 110,
+    x: 240,
+    y: 165,
+    w: 128,
+    h: 110,
     category: "faculty",
-    description: "機械航空・電気情報・建設環境・化学システム・材料科学の5学科。大型実習工場を併設。",
+    description:
+      "機械航空・電気情報・建設環境・化学システム・材料科学の5学科。大型実習工場を併設。",
   },
   {
     id: "infosc",
     name: "情報科学部棟",
     en: "Faculty of Info. Sci.",
-    x: 378, y: 165, w: 182, h: 110,
+    x: 378,
+    y: 165,
+    w: 182,
+    h: 110,
     category: "faculty",
-    description: "情報工学・知能情報・生体情報・数理情報の4学科。高性能 GPU クラスタ・演算センターを整備。",
+    description:
+      "情報工学・知能情報・生体情報・数理情報の4学科。高性能 GPU クラスタ・演算センターを整備。",
   },
   {
     id: "agri",
     name: "農学部棟",
     en: "Faculty of Agriculture",
-    x: 600, y: 165, w: 100, h: 110,
+    x: 600,
+    y: 165,
+    w: 100,
+    h: 110,
     category: "faculty",
-    description: "農業科学・生命機能・資源生物・応用生物化学の4学科。温室・実験農場・発酵実験室を有する。",
+    description:
+      "農業科学・生命機能・資源生物・応用生物化学の4学科。温室・実験農場・発酵実験室を有する。",
   },
   {
     id: "medicine",
     name: "医学部棟",
     en: "Faculty of Medicine",
-    x: 710, y: 165, w: 90, h: 110,
+    x: 710,
+    y: 165,
+    w: 90,
+    h: 110,
     category: "faculty",
-    description: "医学科・保健学科の2学科。解剖実習室・臨床シミュレーション室・医療機器研究室を完備。",
+    description:
+      "医学科・保健学科の2学科。解剖実習室・臨床シミュレーション室・医療機器研究室を完備。",
   },
   // Row 3 — y: 315–420
   {
     id: "library",
     name: "やわらか図書館",
     en: "Yawaraka Library",
-    x: 40, y: 315, w: 160, h: 105,
+    x: 40,
+    y: 315,
+    w: 160,
+    h: 105,
     category: "facility",
-    description: "蔵書 30 万冊。24時間学習スペース・グループ学習室・AV 視聴室・特殊コレクション閲覧室を完備。",
+    description:
+      "蔵書 30 万冊。24時間学習スペース・グループ学習室・AV 視聴室・特殊コレクション閲覧室を完備。",
   },
   {
     id: "gym",
     name: "体育館",
     en: "Gymnasium",
-    x: 600, y: 315, w: 200, h: 105,
+    x: 600,
+    y: 315,
+    w: 200,
+    h: 105,
     category: "sports",
-    description: "メインアリーナ・サブアリーナ・トレーニングルームを備えた総合体育館。各種公式大会にも対応。",
+    description:
+      "メインアリーナ・サブアリーナ・トレーニングルームを備えた総合体育館。各種公式大会にも対応。",
   },
   // Row 4 — y: 460–520
   {
     id: "welfare",
     name: "厚生施設",
     en: "Student Welfare",
-    x: 40, y: 460, w: 160, h: 60,
+    x: 40,
+    y: 460,
+    w: 160,
+    h: 60,
     category: "facility",
-    description: "保健センター・学生相談室・キャリアセンター・証明書自動発行機が集まる総合厚生施設。",
+    description:
+      "保健センター・学生相談室・キャリアセンター・証明書自動発行機が集まる総合厚生施設。",
   },
   {
     id: "cafeteria",
     name: "学生食堂",
     en: "Cafeteria",
-    x: 240, y: 460, w: 140, h: 60,
+    x: 240,
+    y: 460,
+    w: 140,
+    h: 60,
     category: "facility",
-    description: "定食・麺・丼など多彩なメニューを揃える。1,000 席以上を確保し、毎日 2,500 食を提供。",
+    description:
+      "定食・麺・丼など多彩なメニューを揃える。1,000 席以上を確保し、毎日 2,500 食を提供。",
   },
   {
     id: "scenter",
     name: "学生交流センター",
     en: "Student Center",
-    x: 390, y: 460, w: 170, h: 60,
+    x: 390,
+    y: 460,
+    w: 170,
+    h: 60,
     category: "facility",
-    description: "サークル活動室・多目的ホール・音楽スタジオ・DJ ブース（Pioneer CDJ-004504 × 4台、DDJ-A810 × 1台）を完備。",
+    description:
+      "サークル活動室・多目的ホール・音楽スタジオ・DJ ブース（Pioneer CDJ-004504 × 4台、DDJ-A810 × 1台）を完備。",
   },
   {
     id: "parking",
     name: "駐車場",
     en: "Parking",
-    x: 600, y: 460, w: 200, h: 60,
+    x: 600,
+    y: 460,
+    w: 200,
+    h: 60,
     category: "parking",
-    description: "第1〜第3駐車場 合計 200 台。来客の方は守衛室（管理棟横）にご連絡ください。",
+    description:
+      "第1〜第3駐車場 合計 200 台。来客の方は守衛室（管理棟横）にご連絡ください。",
   },
   // Row 5 — y: 555–645
   {
     id: "dormA",
     name: "第一学生寮",
     en: "Dormitory A",
-    x: 40, y: 555, w: 160, h: 90,
+    x: 40,
+    y: 555,
+    w: 160,
+    h: 90,
     category: "dorm",
-    description: "男子学生向け寮。全室個室（ユニットバス付）。共用ラウンジ・自習室・ランドリールームを完備。定員 120 名。",
+    description:
+      "男子学生向け寮。全室個室（ユニットバス付）。共用ラウンジ・自習室・ランドリールームを完備。定員 120 名。",
   },
   {
     id: "dormB",
     name: "第二学生寮",
     en: "Dormitory B",
-    x: 240, y: 555, w: 320, h: 90,
+    x: 240,
+    y: 555,
+    w: 320,
+    h: 90,
     category: "dorm",
-    description: "女子・混合棟。個室タイプ（A〜C室）と2人部屋を選択可。食堂直結・24時間セキュリティ対応。定員 200 名。",
+    description:
+      "女子・混合棟。個室タイプ（A〜C室）と2人部屋を選択可。食堂直結・24時間セキュリティ対応。定員 200 名。",
   },
   {
     id: "dormInt",
     name: "国際学生寮",
     en: "International House",
-    x: 600, y: 555, w: 200, h: 90,
+    x: 600,
+    y: 555,
+    w: 200,
+    h: 90,
     category: "dorm",
-    description: "留学生・海外研究者向けインターナショナルハウス。日本語・英語対応スタッフ常駐。交流ラウンジ付き。定員 80 名。",
+    description:
+      "留学生・海外研究者向けインターナショナルハウス。日本語・英語対応スタッフ常駐。交流ラウンジ付き。定員 80 名。",
   },
 ];
 
 const LEGEND: { category: Category; label: string }[] = [
-  { category: "faculty",  label: "学部棟" },
+  { category: "faculty", label: "学部棟" },
   { category: "research", label: "大学院・研究棟" },
   { category: "facility", label: "共通施設" },
-  { category: "sports",   label: "体育・課外施設" },
-  { category: "admin",    label: "管理棟" },
-  { category: "parking",  label: "駐車場" },
-  { category: "dorm",     label: "学生寮" },
+  { category: "sports", label: "体育・課外施設" },
+  { category: "admin", label: "管理棟" },
+  { category: "parking", label: "駐車場" },
+  { category: "dorm", label: "学生寮" },
 ];
 
 export default function CampusMap() {
@@ -200,7 +279,12 @@ export default function CampusMap() {
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1);
   const [isDragging, setIsDragging] = useState(false);
-  const dragRef = useRef<{ sx: number; sy: number; ox: number; oy: number } | null>(null);
+  const dragRef = useRef<{
+    sx: number;
+    sy: number;
+    ox: number;
+    oy: number;
+  } | null>(null);
 
   const displayId = selected ?? lastShown;
   const activeBuilding = BUILDINGS.find((b) => b.id === displayId) ?? null;
@@ -227,7 +311,6 @@ export default function CampusMap() {
     setIsDragging(false);
   }, []);
 
-
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
       {/* Map */}
@@ -245,7 +328,10 @@ export default function CampusMap() {
                   const next = Math.min(4, scale * 1.2);
                   const f = next / scale;
                   setScale(next);
-                  setPan({ x: 420 - (420 - pan.x) * f, y: 285 - (285 - pan.y) * f });
+                  setPan({
+                    x: 420 - (420 - pan.x) * f,
+                    y: 285 - (285 - pan.y) * f,
+                  });
                 },
               },
               {
@@ -254,7 +340,10 @@ export default function CampusMap() {
                   const next = Math.max(0.35, scale * 0.8);
                   const f = next / scale;
                   setScale(next);
-                  setPan({ x: 420 - (420 - pan.x) * f, y: 285 - (285 - pan.y) * f });
+                  setPan({
+                    x: 420 - (420 - pan.x) * f,
+                    y: 285 - (285 - pan.y) * f,
+                  });
                 },
               },
               {
@@ -277,7 +366,7 @@ export default function CampusMap() {
         </div>
 
         {/* North indicator */}
-        <div className="absolute bottom-3 right-3 z-10 flex h-7 w-7 select-none items-center justify-center rounded-full border border-stone-200 bg-white text-xs font-bold text-zinc-500 shadow-sm">
+        <div className="absolute right-3 bottom-3 z-10 flex h-7 w-7 items-center justify-center rounded-full border border-stone-200 bg-white text-xs font-bold text-zinc-500 shadow-sm select-none">
           N
         </div>
 
@@ -294,7 +383,14 @@ export default function CampusMap() {
         >
           <g transform={`translate(${pan.x},${pan.y}) scale(${scale})`}>
             {/* Campus background */}
-            <rect x={20} y={20} width={800} height={645} fill={CAMPUS_BG} rx={2} />
+            <rect
+              x={20}
+              y={20}
+              width={800}
+              height={645}
+              fill={CAMPUS_BG}
+              rx={2}
+            />
 
             {/* Roads — vertical separators */}
             <rect x={200} y={20} width={40} height={645} fill={ROAD} />
@@ -312,9 +408,17 @@ export default function CampusMap() {
             <rect x={370} y={665} width={100} height={26} fill={ROAD} />
 
             {/* Central courtyard */}
-            <rect x={240} y={315} width={320} height={105} fill={GRASS} rx={1} />
+            <rect
+              x={240}
+              y={315}
+              width={320}
+              height={105}
+              fill={GRASS}
+              rx={1}
+            />
             <text
-              x={400} y={372}
+              x={400}
+              y={372}
               textAnchor="middle"
               fill="#3c573f"
               fontSize={10}
@@ -324,11 +428,27 @@ export default function CampusMap() {
             </text>
 
             {/* Campus boundary */}
-            <rect x={20} y={20} width={800} height={645} fill="none" stroke="#aac4ae" strokeWidth={2} rx={2} />
+            <rect
+              x={20}
+              y={20}
+              width={800}
+              height={645}
+              fill="none"
+              stroke="#aac4ae"
+              strokeWidth={2}
+              rx={2}
+            />
 
             {/* Gate marker */}
             <rect x={385} y={662} width={70} height={5} fill="#3c573f" rx={1} />
-            <text x={420} y={679} textAnchor="middle" fill="#3c573f" fontSize={9} fontWeight={500}>
+            <text
+              x={420}
+              y={679}
+              textAnchor="middle"
+              fill="#3c573f"
+              fontSize={9}
+              fontWeight={500}
+            >
               正門
             </text>
 
@@ -346,7 +466,10 @@ export default function CampusMap() {
                 <g
                   key={b.id}
                   style={{ cursor: "pointer" }}
-                  onMouseEnter={() => { setHovered(b.id); setLastShown(b.id); }}
+                  onMouseEnter={() => {
+                    setHovered(b.id);
+                    setLastShown(b.id);
+                  }}
                   onMouseLeave={() => setHovered(null)}
                   onClick={(e) => {
                     e.stopPropagation();
@@ -354,11 +477,22 @@ export default function CampusMap() {
                   }}
                 >
                   <rect
-                    x={b.x} y={b.y} width={b.w} height={b.h}
+                    x={b.x}
+                    y={b.y}
+                    width={b.w}
+                    height={b.h}
                     fill={s.fill}
-                    stroke={isSelected ? "#80a486" : b.id === lastShown ? "#aac4ae" : s.stroke}
+                    stroke={
+                      isSelected
+                        ? "#80a486"
+                        : b.id === lastShown
+                          ? "#aac4ae"
+                          : s.stroke
+                    }
                     strokeWidth={isSelected ? 3 : b.id === lastShown ? 2 : 1}
-                    opacity={isHovered || isSelected || b.id === lastShown ? 1 : 0.9}
+                    opacity={
+                      isHovered || isSelected || b.id === lastShown ? 1 : 0.9
+                    }
                     rx={1}
                   />
                   <text
@@ -406,7 +540,7 @@ export default function CampusMap() {
         >
           {activeBuilding ? (
             <>
-              <p className="mb-1 text-[10px] font-medium uppercase tracking-widest text-accent-600">
+              <p className="text-accent-600 mb-1 text-[10px] font-medium tracking-widest uppercase">
                 {activeBuilding.en}
               </p>
               <h3 className="mb-2 text-sm font-semibold text-zinc-900">
@@ -425,7 +559,7 @@ export default function CampusMap() {
 
         {/* Legend */}
         <div className="rounded border border-stone-100 bg-white p-5">
-          <p className="mb-3 text-[10px] font-medium uppercase tracking-widest text-stone-400">
+          <p className="mb-3 text-[10px] font-medium tracking-widest text-stone-400 uppercase">
             凡例
           </p>
           <div className="space-y-2">

@@ -20,8 +20,14 @@ const dorms = [
     features: [
       { label: "部屋タイプ", value: "個室（18㎡）全120室" },
       { label: "設備", value: "ユニットバス・ロフトベッド・デスク・エアコン" },
-      { label: "共用施設", value: "ラウンジ・自習室・ランドリールーム・駐輪場" },
-      { label: "セキュリティ", value: "オートロック・防犯カメラ・管理人常駐（平日）" },
+      {
+        label: "共用施設",
+        value: "ラウンジ・自習室・ランドリールーム・駐輪場",
+      },
+      {
+        label: "セキュリティ",
+        value: "オートロック・防犯カメラ・管理人常駐（平日）",
+      },
     ],
   },
   {
@@ -34,10 +40,22 @@ const dorms = [
     description:
       "学食に直結した利便性の高い大型寮。個室・2人部屋から選択でき、低層フロアはバリアフリー対応。24時間セキュリティ体制で安心して生活できます。",
     features: [
-      { label: "部屋タイプ", value: "個室A（14㎡）・個室B（18㎡）・2人部屋（26㎡）" },
-      { label: "設備", value: "バス・トイレ別またはユニットバス・デスク・エアコン" },
-      { label: "共用施設", value: "食堂直結・談話室・シアタールーム・屋上テラス" },
-      { label: "セキュリティ", value: "24時間オートロック・顔認証入室・防犯カメラ" },
+      {
+        label: "部屋タイプ",
+        value: "個室A（14㎡）・個室B（18㎡）・2人部屋（26㎡）",
+      },
+      {
+        label: "設備",
+        value: "バス・トイレ別またはユニットバス・デスク・エアコン",
+      },
+      {
+        label: "共用施設",
+        value: "食堂直結・談話室・シアタールーム・屋上テラス",
+      },
+      {
+        label: "セキュリティ",
+        value: "24時間オートロック・顔認証入室・防犯カメラ",
+      },
     ],
   },
   {
@@ -51,26 +69,69 @@ const dorms = [
       "海外からの留学生や研究者を対象としたインターナショナルハウス。日本語・英語の両言語対応スタッフが常駐し、来日直後の生活サポートも万全です。",
     features: [
       { label: "部屋タイプ", value: "個室（20㎡）全80室" },
-      { label: "設備", value: "バス・トイレ別・デスク・エアコン・Wi-Fi（無料）" },
-      { label: "共用施設", value: "多目的交流ラウンジ・ランドリー・コンシェルジュカウンター" },
+      {
+        label: "設備",
+        value: "バス・トイレ別・デスク・エアコン・Wi-Fi（無料）",
+      },
+      {
+        label: "共用施設",
+        value: "多目的交流ラウンジ・ランドリー・コンシェルジュカウンター",
+      },
       { label: "対応言語", value: "日本語・英語スタッフ常駐" },
     ],
   },
 ];
 
 const fees = [
-  { item: "第一学生寮（個室）", monthly: "35,000円", includes: "共益費・Wi-Fi込み" },
-  { item: "第二学生寮（個室A）", monthly: "30,000円", includes: "共益費・Wi-Fi込み" },
-  { item: "第二学生寮（個室B）", monthly: "38,000円", includes: "共益費・Wi-Fi込み" },
-  { item: "第二学生寮（2人部屋 / 1名）", monthly: "22,000円", includes: "共益費・Wi-Fi込み" },
-  { item: "国際学生寮", monthly: "40,000円", includes: "共益費・Wi-Fi・生活サポート込み" },
+  {
+    item: "第一学生寮（個室）",
+    monthly: "35,000円",
+    includes: "共益費・Wi-Fi込み",
+  },
+  {
+    item: "第二学生寮（個室A）",
+    monthly: "30,000円",
+    includes: "共益費・Wi-Fi込み",
+  },
+  {
+    item: "第二学生寮（個室B）",
+    monthly: "38,000円",
+    includes: "共益費・Wi-Fi込み",
+  },
+  {
+    item: "第二学生寮（2人部屋 / 1名）",
+    monthly: "22,000円",
+    includes: "共益費・Wi-Fi込み",
+  },
+  {
+    item: "国際学生寮",
+    monthly: "40,000円",
+    includes: "共益費・Wi-Fi・生活サポート込み",
+  },
 ];
 
 const steps = [
-  { step: "01", title: "説明会参加", detail: "毎年3月・9月に開催する寮説明会（オンライン可）に参加してください。" },
-  { step: "02", title: "申込書類提出", detail: "所定の入居申込書・在学証明書・保証人確認書類を提出します。" },
-  { step: "03", title: "面接・選考", detail: "寮担当者による面接（約15分）ののち、入居可否を通知します。" },
-  { step: "04", title: "入居契約・鍵渡し", detail: "契約書・敷金（1ヶ月分）の手続き完了後、入居日に鍵をお渡しします。" },
+  {
+    step: "01",
+    title: "説明会参加",
+    detail:
+      "毎年3月・9月に開催する寮説明会（オンライン可）に参加してください。",
+  },
+  {
+    step: "02",
+    title: "申込書類提出",
+    detail: "所定の入居申込書・在学証明書・保証人確認書類を提出します。",
+  },
+  {
+    step: "03",
+    title: "面接・選考",
+    detail: "寮担当者による面接（約15分）ののち、入居可否を通知します。",
+  },
+  {
+    step: "04",
+    title: "入居契約・鍵渡し",
+    detail: "契約書・敷金（1ヶ月分）の手続き完了後、入居日に鍵をお渡しします。",
+  },
 ];
 
 export default function DormitoryPage() {
@@ -121,27 +182,37 @@ export default function DormitoryPage() {
                       />
                     </div>
                     <div className="p-8">
-                    <div className="mb-6">
-                      <p className="text-xs tracking-widest text-stone-400 uppercase">{d.en}</p>
-                      <h3 className="mt-1 text-xl font-semibold text-zinc-900">{d.name}</h3>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
-                          {d.target}
-                        </span>
-                        <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
-                          {d.capacity}
-                        </span>
-                      </div>
-                    </div>
-                    <p className="mb-6 text-sm leading-relaxed text-stone-600">{d.description}</p>
-                    <div className="divide-y divide-stone-200 rounded bg-white">
-                      {d.features.map((f) => (
-                        <div key={f.label} className="flex gap-6 px-5 py-3">
-                          <span className="w-28 shrink-0 text-xs text-stone-400">{f.label}</span>
-                          <span className="text-sm text-zinc-700">{f.value}</span>
+                      <div className="mb-6">
+                        <p className="text-xs tracking-widest text-stone-400 uppercase">
+                          {d.en}
+                        </p>
+                        <h3 className="mt-1 text-xl font-semibold text-zinc-900">
+                          {d.name}
+                        </h3>
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
+                            {d.target}
+                          </span>
+                          <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
+                            {d.capacity}
+                          </span>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                      <p className="mb-6 text-sm leading-relaxed text-stone-600">
+                        {d.description}
+                      </p>
+                      <div className="divide-y divide-stone-200 rounded bg-white">
+                        {d.features.map((f) => (
+                          <div key={f.label} className="flex gap-6 px-5 py-3">
+                            <span className="w-28 shrink-0 text-xs text-stone-400">
+                              {f.label}
+                            </span>
+                            <span className="text-sm text-zinc-700">
+                              {f.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -166,7 +237,10 @@ export default function DormitoryPage() {
               <div className="rounded-md border border-stone-100 bg-white">
                 <div className="divide-y divide-stone-100">
                   {fees.map((f) => (
-                    <div key={f.item} className="flex flex-col gap-0.5 px-8 py-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div
+                      key={f.item}
+                      className="flex flex-col gap-0.5 px-8 py-4 sm:flex-row sm:items-center sm:justify-between"
+                    >
                       <div>
                         <span className="text-sm text-stone-700">{f.item}</span>
                         <p className="text-xs text-stone-400">{f.includes}</p>
@@ -182,7 +256,8 @@ export default function DormitoryPage() {
 
             <ScrollReveal delay={0.15}>
               <p className="mt-4 text-xs leading-relaxed text-stone-400">
-                ※ 敷金は1ヶ月分（退去時精算）。食費は別途。光熱費は共益費に含まれます。
+                ※
+                敷金は1ヶ月分（退去時精算）。食費は別途。光熱費は共益費に含まれます。
               </p>
             </ScrollReveal>
           </div>
@@ -204,9 +279,15 @@ export default function DormitoryPage() {
               {steps.map((s, i) => (
                 <ScrollReveal key={s.step} delay={i * 0.08}>
                   <div className="rounded-md bg-stone-50 p-6">
-                    <p className="text-accent-600 mb-3 text-2xl font-semibold">{s.step}</p>
-                    <h3 className="mb-2 text-sm font-semibold text-zinc-900">{s.title}</h3>
-                    <p className="text-xs leading-relaxed text-stone-500">{s.detail}</p>
+                    <p className="text-accent-600 mb-3 text-2xl font-semibold">
+                      {s.step}
+                    </p>
+                    <h3 className="mb-2 text-sm font-semibold text-zinc-900">
+                      {s.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-stone-500">
+                      {s.detail}
+                    </p>
                   </div>
                 </ScrollReveal>
               ))}

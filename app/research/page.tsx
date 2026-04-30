@@ -6,7 +6,6 @@ import PageTracker from "../_components/PageTracker";
 
 export const metadata: Metadata = { title: "研究・社会連携" };
 
-
 const centers = [
   {
     name: "やわらか知のフォーラム研究センター",

@@ -6,7 +6,6 @@ import PageTracker from "../_components/PageTracker";
 
 export const metadata: Metadata = { title: "キャンパスライフ" };
 
-
 type Club = { name: string; note?: string };
 
 const clubs: { category: string; list: Club[] }[] = [
@@ -155,9 +154,13 @@ export default function CampusPage() {
                     <ul className="space-y-2.5">
                       {c.list.map((club) => (
                         <li key={club.name}>
-                          <span className="text-sm text-stone-600">{club.name}</span>
+                          <span className="text-sm text-stone-600">
+                            {club.name}
+                          </span>
                           {club.note && (
-                            <p className="mt-0.5 text-xs text-stone-400">{club.note}</p>
+                            <p className="mt-0.5 text-xs text-stone-400">
+                              {club.note}
+                            </p>
                           )}
                         </li>
                       ))}
