@@ -27,7 +27,7 @@ const CAT: Record<Category, { fill: string; stroke: string; fg: string }> = {
   sports:   { fill: "#a06840", stroke: "#6a4020", fg: "#ffffff" },
   admin:    { fill: "#556070", stroke: "#3a4450", fg: "#ffffff" },
   parking:  { fill: "#b8b4ae", stroke: "#8a8680", fg: "#4a4440" },
-  dorm:     { fill: "#7a9c7a", stroke: "#4a6a4a", fg: "#ffffff" },
+  dorm:     { fill: "#7a6a9c", stroke: "#4a3a6c", fg: "#ffffff" },
 };
 
 const BUILDINGS: BuildingData[] = [
