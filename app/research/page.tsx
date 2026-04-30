@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -70,17 +71,30 @@ export default function ResearchPage() {
         {/* ページヒーロー */}
         <section className="bg-stone-50 px-6 py-20">
           <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
-                Research
-              </p>
-              <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-                研究・社会連携
-              </h1>
-              <p className="mt-4 text-base font-light text-stone-500">
-                学際的な研究と地域・産業との連携を通じて、社会に価値を還元します。
-              </p>
-            </ScrollReveal>
+            <div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-16">
+              <ScrollReveal className="flex-1">
+                <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
+                  Research
+                </p>
+                <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
+                  研究・社会連携
+                </h1>
+                <p className="mt-4 text-base font-light text-stone-500">
+                  学際的な研究と地域・産業との連携を通じて、社会に価値を還元します。
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.1} className="shrink-0 md:w-96">
+                <div className="overflow-hidden rounded-md">
+                  <Image
+                    src="/researching.png"
+                    alt="研究の様子"
+                    width={384}
+                    height={256}
+                    className="w-full object-cover"
+                  />
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
 
