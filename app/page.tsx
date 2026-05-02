@@ -5,6 +5,7 @@ import HeroAnimation from "./_components/HeroAnimation";
 import ScrollReveal from "./_components/ScrollReveal";
 import PageTracker from "./_components/PageTracker";
 import Footer from "./_components/Footer";
+import SectionHeading from "./_components/SectionHeading";
 
 const news = [
   {
@@ -134,12 +135,13 @@ export default async function Home() {
             <ScrollReveal>
               <div className="mb-6 flex items-center justify-between sm:mb-12">
                 <div>
-                  <p className="text-accent-600 mb-1 text-[10px] font-medium tracking-[0.3em] uppercase sm:mb-2 sm:text-xs">
-                    News
-                  </p>
-                  <h2 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
-                    お知らせ
-                  </h2>
+                  <SectionHeading
+                    eyebrow="News"
+                    title="お知らせ"
+                    className=""
+                    eyebrowClassName="text-accent-600 mb-1 text-[10px] font-medium tracking-[0.3em] uppercase sm:mb-2 sm:text-xs"
+                    titleClassName="text-xl font-semibold tracking-tight text-zinc-900 sm:text-3xl"
+                  />
                 </div>
                 <Link
                   href="/admissions"
@@ -184,15 +186,14 @@ export default async function Home() {
           <div className="relative z-10 mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-white/60 uppercase">
-                  Faculties
-                </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  学部紹介
-                </h2>
-                <p className="mt-4 text-base font-light text-white/75">
-                  5つの学部で、理学・工学・農学・情報・医学を探究します。
-                </p>
+                <SectionHeading
+                  eyebrow="Faculties"
+                  title="学部紹介"
+                  description="5つの学部で、理学・工学・農学・情報・医学を探究します。"
+                  align="center"
+                  tone="dark"
+                  className=""
+                />
                 <Link
                   href="/faculties"
                   className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
@@ -244,12 +245,12 @@ export default async function Home() {
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
-                <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                  Philosophy
-                </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-                  やわらか大学の理念
-                </h2>
+                <SectionHeading
+                  eyebrow="Philosophy"
+                  title="やわらか大学の理念"
+                  align="center"
+                  className=""
+                />
                 <Link
                   href="/about"
                   className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
@@ -274,13 +275,13 @@ export default async function Home() {
 
             <div className="grid gap-8 sm:grid-cols-3">
               {values.map((v, i) => (
-                <ScrollReveal key={v.label} delay={i * 0.12}>
-                  <div className="border-accent-100 rounded-md border bg-white p-8 text-center">
+                <ScrollReveal key={v.label} delay={i * 0.12} className="h-full">
+                  <div className="border-accent-100 flex h-full flex-col rounded-md border bg-white p-8 text-center">
                     <div className="bg-accent-400 mx-auto mb-4 h-1 w-8 rounded" />
-                    <p className="text-accent-600 mb-2 text-xs tracking-widest uppercase">
+                    <p className="text-accent-600 mb-2 min-h-4 text-xs tracking-widest uppercase">
                       {v.label}
                     </p>
-                    <h3 className="mb-3 text-lg font-semibold text-zinc-900">
+                    <h3 className="mb-3 min-h-7 text-lg font-semibold text-zinc-900">
                       {v.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-stone-500">
@@ -308,16 +309,15 @@ export default async function Home() {
           <div className="relative z-10 mx-auto max-w-5xl">
             <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
               <ScrollReveal className="text-center md:text-left">
-                <p className="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                  Admissions
-                </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  入試情報
-                </h2>
-                <p className="mt-4 max-w-sm text-base font-light text-zinc-100">
-                  やわらか大学では、一般選抜・総合型選抜・学校推薦型選抜の
-                  3つの入試方式で学生を募集しています。
-                </p>
+                <SectionHeading
+                  eyebrow="Admissions"
+                  title="入試情報"
+                  description="やわらか大学では、一般選抜・総合型選抜・学校推薦型選抜の3つの入試方式で学生を募集しています。"
+                  tone="dark"
+                  className=""
+                  eyebrowClassName="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase"
+                  descriptionClassName="mt-4 max-w-sm text-base font-light text-zinc-100"
+                />
               </ScrollReveal>
 
               <ScrollReveal delay={0.15} className="flex flex-col gap-4">
@@ -349,12 +349,12 @@ export default async function Home() {
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-14 text-center">
-                <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                  Campus Life
-                </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-                  キャンパスライフ
-                </h2>
+                <SectionHeading
+                  eyebrow="Campus Life"
+                  title="キャンパスライフ"
+                  align="center"
+                  className=""
+                />
                 <Link
                   href="/campus"
                   className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
@@ -379,10 +379,14 @@ export default async function Home() {
                   body: "蔵書30万冊を誇る図書館と、24時間利用可能な学習スペースを完備しています。",
                 },
               ].map((item, i) => (
-                <ScrollReveal key={item.title} delay={i * 0.1}>
-                  <div className="rounded-md bg-white p-7">
+                <ScrollReveal
+                  key={item.title}
+                  delay={i * 0.1}
+                  className="h-full"
+                >
+                  <div className="flex h-full flex-col rounded-md bg-white p-7">
                     <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
-                    <h3 className="mb-3 text-lg font-semibold whitespace-nowrap text-zinc-900">
+                    <h3 className="mb-3 min-h-7 text-lg font-semibold whitespace-nowrap text-zinc-900">
                       {item.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-stone-500">
@@ -407,12 +411,14 @@ export default async function Home() {
           <div className="relative z-10 mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-12 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-white/60 uppercase">
-                  Access
-                </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-white">
-                  アクセス
-                </h2>
+                <SectionHeading
+                  eyebrow="Access"
+                  title="アクセス"
+                  align="center"
+                  tone="dark"
+                  className=""
+                  titleClassName="text-3xl font-semibold tracking-tight text-white"
+                />
                 <Link
                   href="/access"
                   className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
