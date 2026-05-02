@@ -100,15 +100,17 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <div className="relative">
-            <div className="bg-accent-200 absolute top-0 bottom-0 left-[5.5rem] w-px sm:left-24" />
+            <div className="bg-accent-200 absolute top-0 bottom-0 left-[5.25rem] w-px sm:left-[5.25rem]" />
             <div className="space-y-10">
               {history.map((item, i) => (
                 <ScrollReveal key={item.year} delay={i * 0.08}>
-                  <div className="flex items-start gap-6 sm:gap-10">
-                    <span className="w-16 shrink-0 pt-0.5 text-right text-sm font-medium text-stone-400 sm:w-20">
+                  <div className="grid grid-cols-[4rem_2.5rem_1fr] items-start sm:grid-cols-[4rem_2.5rem_1fr]">
+                    <span className="w-16 shrink-0 pt-0.5 text-right text-sm font-medium text-stone-400">
                       {item.year}
                     </span>
-                    <div className="bg-accent-400 relative z-10 mt-2 h-2.5 w-2.5 shrink-0 rounded" />
+                    <div className="relative flex h-full justify-center">
+                      <div className="bg-accent-400 relative z-10 mt-2 h-2.5 w-2.5 rounded" />
+                    </div>
                     <p className="text-sm leading-relaxed text-stone-600">
                       {item.event}
                     </p>
