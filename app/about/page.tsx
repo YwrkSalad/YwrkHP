@@ -20,7 +20,7 @@ export default function AboutPage() {
         <PageHero eyebrow="About" title="大学について" />
 
         {/* 学長挨拶 */}
-        <PageSection id="president" containerClassName="max-w-4xl">
+        <PageSection id="president">
           <ScrollReveal>
             <SectionHeading
               eyebrow="President's Message"
@@ -90,11 +90,7 @@ export default function AboutPage() {
         </PageSection>
 
         {/* 沿革 */}
-        <PageSection
-          id="history"
-          className="bg-accent-50 py-24"
-          containerClassName="max-w-4xl"
-        >
+        <PageSection id="history" className="bg-accent-50 py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="History"
@@ -124,7 +120,7 @@ export default function AboutPage() {
         </PageSection>
 
         {/* 組織概要 */}
-        <PageSection id="organization" containerClassName="max-w-4xl">
+        <PageSection id="organization">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Organization"

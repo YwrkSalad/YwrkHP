@@ -207,11 +207,7 @@ export default function DormitoryPage() {
         </PageSection>
 
         {/* 費用 */}
-        <PageSection
-          id="fees"
-          className="bg-stone-50 py-24"
-          containerClassName="max-w-4xl"
-        >
+        <PageSection id="fees" className="bg-stone-50 py-24">
           <ScrollReveal>
             <SectionHeading eyebrow="Fees" title="寮費" className="mb-12" />
           </ScrollReveal>
@@ -246,7 +242,7 @@ export default function DormitoryPage() {
         </PageSection>
 
         {/* 申し込みの流れ */}
-        <PageSection id="apply" containerClassName="max-w-4xl">
+        <PageSection id="apply">
           <ScrollReveal>
             <SectionHeading eyebrow="How to Apply" title="申し込みの流れ" />
           </ScrollReveal>

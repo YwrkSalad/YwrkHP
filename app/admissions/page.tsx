@@ -120,11 +120,7 @@ export default function AdmissionsPage() {
         </PageSection>
 
         {/* 学費 */}
-        <PageSection
-          id="tuition"
-          className="bg-stone-50 py-24"
-          containerClassName="max-w-4xl"
-        >
+        <PageSection id="tuition" className="bg-stone-50 py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Tuition"
