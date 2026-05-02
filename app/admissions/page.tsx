@@ -75,7 +75,7 @@ export default function AdmissionsPage() {
           eyebrow="Admissions"
           title="入試情報"
           description="やわらか大学は、4つの入試方式で2027年度学生を募集します。高専卒業生を対象とした編入学試験も実施します。"
-          imageSrc="/admissions/examing.jpg"
+          imageSrc="/admissions/expand_examing.jpg"
           imageAlt="入試の様子"
         />
 
