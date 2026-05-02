@@ -3,6 +3,7 @@ import Image from "next/image";
 
 type PageSectionProps = {
   children: ReactNode;
+  as?: "section" | "footer";
   id?: string;
   className?: string;
   containerClassName?: string;
@@ -15,6 +16,7 @@ type PageSectionProps = {
 
 export default function PageSection({
   children,
+  as: Element = "section",
   id,
   className = "bg-white py-24",
   containerClassName = "max-w-5xl",
@@ -25,7 +27,7 @@ export default function PageSection({
   overlayClassName,
 }: PageSectionProps) {
   return (
-    <section
+    <Element
       id={id}
       className={`${imageSrc ? "relative overflow-hidden" : ""} px-6 ${className}`}
     >
@@ -36,6 +38,6 @@ export default function PageSection({
       <div className={`mx-auto ${containerClassName} ${innerClassName ?? ""}`}>
         {children}
       </div>
-    </section>
+    </Element>
   );
 }
