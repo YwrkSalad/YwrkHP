@@ -184,18 +184,18 @@ export default async function Home() {
           <div className="relative z-10 mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-white/60 text-zinc-700 uppercase">
+                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-white/60 uppercase">
                   Faculties
                 </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-zinc-800 sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   学部紹介
                 </h2>
-                <p className="mt-4 text-base font-light text-zinc-800">
+                <p className="mt-4 text-base font-light text-white/75">
                   5つの学部で、理学・工学・農学・情報・医学を探究します。
                 </p>
                 <Link
                   href="/faculties"
-                  className="hover:text-accent-700 mt-6 inline-block text-sm font-medium text-zinc-800 transition-colors"
+                  className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
                 >
                   学部・大学院を詳しく見る →
                 </Link>
