@@ -99,7 +99,7 @@ export default function AccessPage() {
         </PageSection>
 
         {/* キャンパス情報 */}
-        <PageSection id="campuses" className="bg-stone-50 py-24">
+        <PageSection id="campuses" className="bg-stone-100 py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Campuses"
@@ -111,11 +111,11 @@ export default function AccessPage() {
           <div className="grid gap-6 sm:grid-cols-2">
             {campuses.map((c, i) => (
               <ScrollReveal key={c.name} delay={i * 0.1}>
-                <div className="rounded-md border border-stone-100 bg-white p-8">
+                <div className="rounded-md border border-stone-200 bg-white p-8">
                   <h3 className="mb-4 text-lg font-semibold text-zinc-900">
                     {c.name}
                   </h3>
-                  <address className="mb-5 text-sm leading-loose text-stone-600 not-italic">
+                  <address className="mb-5 text-sm leading-loose text-stone-700 not-italic">
                     {c.zip}
                     <br />
                     {c.address}
@@ -131,12 +131,12 @@ export default function AccessPage() {
                     </a>
                   </address>
                   <div>
-                    <p className="mb-2 text-xs text-stone-400">主要建物</p>
+                    <p className="mb-2 text-xs text-stone-500">主要建物</p>
                     <div className="flex flex-wrap gap-1.5">
                       {c.buildings.map((b) => (
                         <span
                           key={b}
-                          className="border-accent-200 bg-accent-50 text-accent-700 rounded border px-3 py-0.5 text-xs"
+                          className="border-accent-300 bg-accent-50 text-accent-800 rounded border px-3 py-0.5 text-xs"
                         >
                           {b}
                         </span>
@@ -163,14 +163,14 @@ export default function AccessPage() {
             <table className="w-full border-collapse text-sm">
               <tbody>
                 {routes.map((r) => (
-                  <tr key={r.means} className="border-t border-stone-200">
+                  <tr key={r.means} className="border-t border-stone-300">
                     <th
                       scope="row"
                       className="w-32 shrink-0 py-5 pr-8 text-left align-top text-xs font-semibold text-zinc-700 sm:w-40"
                     >
                       {r.means}
                     </th>
-                    <td className="py-5 text-stone-600">
+                    <td className="py-5 text-stone-700">
                       <ul className="space-y-1.5">
                         {r.items.map((text, j) => (
                           <li key={j}>{text}</li>
