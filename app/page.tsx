@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import Nav from "./_components/Nav";
 import HeroAnimation from "./_components/HeroAnimation";
 import ScrollReveal from "./_components/ScrollReveal";
@@ -176,16 +175,12 @@ export default async function Home() {
         {/* 学部紹介 */}
         <PageSection
           id="faculties"
-          className="relative overflow-hidden py-24"
+          className="py-24"
           innerClassName="relative z-10"
+          imageSrc="/bg_pattern/bg_science.png"
+          imageClassName="object-cover object-center"
+          overlayClassName="absolute inset-0 bg-black/50"
         >
-          <Image
-            src="/bg_pattern/bg_science.png"
-            alt=""
-            fill
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/50" />
           <ScrollReveal>
             <div className="mb-16 text-center">
               <SectionHeading
@@ -296,16 +291,13 @@ export default async function Home() {
         {/* 入試情報 */}
         <PageSection
           id="admissions"
-          className="relative overflow-hidden py-24"
+          className="py-24"
           innerClassName="relative z-10"
+          imageSrc="/admissions/expand_examing.jpg"
+          imageAlt="入試の様子"
+          imageClassName="object-cover object-center"
+          overlayClassName="absolute inset-0 bg-black/15"
         >
-          <Image
-            src="/admissions/expand_examing.jpg"
-            alt="入試の様子"
-            fill
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/15" />
           <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
             <ScrollReveal className="text-center md:text-left">
               <SectionHeading
@@ -394,16 +386,13 @@ export default async function Home() {
         {/* アクセス */}
         <PageSection
           id="access"
-          className="relative overflow-hidden py-24"
+          className="py-24"
           innerClassName="relative z-10"
+          imageSrc="/access/bus_stop_faculty_of_engineering.png"
+          imageAlt="バス停の様子"
+          imageClassName="object-cover object-center"
+          overlayClassName="absolute inset-0 bg-black/35"
         >
-          <Image
-            src="/access/bus_stop_faculty_of_engineering.png"
-            alt="バス停の様子"
-            fill
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/35" />
           <ScrollReveal>
             <div className="mb-12 text-center">
               <SectionHeading
