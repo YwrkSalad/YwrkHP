@@ -33,7 +33,7 @@ export default function PageHero({
           />
         )}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
-        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col justify-end pb-10 sm:pb-14">
+        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col justify-end pb-8 sm:pb-11">
           <div>
             <p className="mb-2 text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
               {eyebrow}
