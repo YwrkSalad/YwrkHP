@@ -180,7 +180,7 @@ export default async function Home() {
             fill
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
@@ -205,7 +205,7 @@ export default async function Home() {
             <div className="space-y-4">
               {faculties.map((f, i) => (
                 <ScrollReveal key={f.number} delay={i * 0.08}>
-                  <div className="flex items-start gap-6 rounded-md border border-white/10 bg-zinc-900/70 p-6 transition-shadow hover:shadow-md">
+                  <div className="flex items-start gap-6 rounded-md border border-white/10 border-zinc-700 bg-zinc-800/90 p-6 transition-shadow hover:shadow-md">
                     <span className="w-12 shrink-0 text-4xl leading-none font-bold text-white">
                       {f.number}
                     </span>
@@ -403,7 +403,7 @@ export default async function Home() {
             fill
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-black/35" />
           <div className="relative z-10 mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-12 text-center">
@@ -423,7 +423,7 @@ export default async function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <div className="rounded-md border border-white/10 bg-zinc-900/65 p-8 sm:p-12">
+              <div className="rounded-md border border-zinc-700 bg-zinc-900/90 p-8 sm:p-12">
                 <div className="grid gap-8 sm:grid-cols-2">
                   <div>
                     <h3 className="mb-4 text-lg font-semibold text-white">
