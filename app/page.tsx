@@ -5,6 +5,7 @@ import HeroAnimation from "./_components/HeroAnimation";
 import ScrollReveal from "./_components/ScrollReveal";
 import PageTracker from "./_components/PageTracker";
 import Footer from "./_components/Footer";
+import PageSection from "./_components/PageSection";
 import SectionHeading from "./_components/SectionHeading";
 
 const news = [
@@ -130,52 +131,54 @@ export default async function Home() {
         <HeroAnimation />
 
         {/* お知らせ */}
-        <section className="bg-white px-4 py-12 sm:px-6 sm:py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <div className="mb-6 flex items-center justify-between sm:mb-12">
-                <div>
-                  <SectionHeading
-                    eyebrow="News"
-                    title="お知らせ"
-                    className=""
-                    eyebrowClassName="text-accent-600 mb-1 text-[10px] font-medium tracking-[0.3em] uppercase sm:mb-2 sm:text-xs"
-                    titleClassName="text-xl font-semibold tracking-tight text-zinc-900 sm:text-3xl"
-                  />
-                </div>
-                <Link
-                  href="/admissions"
-                  className="text-accent-600 hover:text-accent-700 text-xs font-medium transition-colors sm:text-sm"
-                >
-                  入試情報を見る →
-                </Link>
+        <PageSection className="bg-white py-12 sm:py-24">
+          <ScrollReveal>
+            <div className="mb-6 flex items-center justify-between sm:mb-12">
+              <div>
+                <SectionHeading
+                  eyebrow="News"
+                  title="お知らせ"
+                  className=""
+                  eyebrowClassName="text-accent-600 mb-1 text-[10px] font-medium tracking-[0.3em] uppercase sm:mb-2 sm:text-xs"
+                  titleClassName="text-xl font-semibold tracking-tight text-zinc-900 sm:text-3xl"
+                />
               </div>
-            </ScrollReveal>
+              <Link
+                href="/admissions"
+                className="text-accent-600 hover:text-accent-700 text-xs font-medium transition-colors sm:text-sm"
+              >
+                入試情報を見る →
+              </Link>
+            </div>
+          </ScrollReveal>
 
-            <div className="overflow-x-auto">
-              <div className="divide-accent-100 divide-y">
-                {news.map((item, i) => (
-                  <ScrollReveal key={i} delay={i * 0.08}>
-                    <div className="flex min-w-max items-center gap-3 py-3 sm:gap-5 sm:py-4">
-                      <span className="w-20 shrink-0 text-[10px] text-stone-400 sm:w-22 sm:text-xs">
-                        {item.date}
-                      </span>
-                      <span className="bg-accent-50 text-accent-600 w-[4.5rem] shrink-0 rounded px-1.5 py-0.5 text-center text-[10px] sm:w-[5.5rem] sm:px-2 sm:text-xs">
-                        {item.category}
-                      </span>
-                      <span className="text-[10px] text-zinc-700 sm:text-sm">
-                        {item.title}
-                      </span>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
+          <div className="overflow-x-auto">
+            <div className="divide-accent-100 divide-y">
+              {news.map((item, i) => (
+                <ScrollReveal key={i} delay={i * 0.08}>
+                  <div className="flex min-w-max items-center gap-3 py-3 sm:gap-5 sm:py-4">
+                    <span className="w-20 shrink-0 text-[10px] text-stone-400 sm:w-22 sm:text-xs">
+                      {item.date}
+                    </span>
+                    <span className="bg-accent-50 text-accent-600 w-[4.5rem] shrink-0 rounded px-1.5 py-0.5 text-center text-[10px] sm:w-[5.5rem] sm:px-2 sm:text-xs">
+                      {item.category}
+                    </span>
+                    <span className="text-[10px] text-zinc-700 sm:text-sm">
+                      {item.title}
+                    </span>
+                  </div>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
-        </section>
+        </PageSection>
 
         {/* 学部紹介 */}
-        <section id="faculties" className="relative overflow-hidden px-6 py-24">
+        <PageSection
+          id="faculties"
+          className="relative overflow-hidden py-24"
+          innerClassName="relative z-10"
+        >
           <Image
             src="/bg_pattern/bg_science.png"
             alt=""
@@ -183,121 +186,118 @@ export default async function Home() {
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/50" />
-          <div className="relative z-10 mx-auto max-w-5xl">
-            <ScrollReveal>
-              <div className="mb-16 text-center">
-                <SectionHeading
-                  eyebrow="Faculties"
-                  title="学部紹介"
-                  description="5つの学部で、理学・工学・農学・情報・医学を探究します。"
-                  align="center"
-                  tone="dark"
-                  className=""
-                />
-                <Link
-                  href="/faculties"
-                  className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
-                >
-                  学部・大学院を詳しく見る →
-                </Link>
-              </div>
-            </ScrollReveal>
-
-            <div className="space-y-4">
-              {faculties.map((f, i) => (
-                <ScrollReveal key={f.number} delay={i * 0.08}>
-                  <div className="flex items-start gap-6 rounded-md border border-white/10 border-zinc-700 bg-zinc-800/90 p-6 transition-shadow hover:shadow-md">
-                    <span className="w-12 shrink-0 text-4xl leading-none font-bold text-white/70">
-                      {f.number}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="mb-2 flex flex-wrap items-baseline gap-3">
-                        <h3 className="text-lg font-semibold text-white">
-                          {f.name}
-                        </h3>
-                        <p className="text-xs tracking-widest text-white/90 uppercase">
-                          {f.en}
-                        </p>
-                      </div>
-                      <p className="mb-3 text-sm leading-relaxed text-white">
-                        {f.description}
-                      </p>
-                      <ul className="flex flex-wrap gap-2">
-                        {f.departments.map((d) => (
-                          <li
-                            key={d}
-                            className="rounded border border-white/90 px-3 py-0.5 text-xs text-white"
-                          >
-                            {d}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+          <ScrollReveal>
+            <div className="mb-16 text-center">
+              <SectionHeading
+                eyebrow="Faculties"
+                title="学部紹介"
+                description="5つの学部で、理学・工学・農学・情報・医学を探究します。"
+                align="center"
+                tone="dark"
+                className=""
+              />
+              <Link
+                href="/faculties"
+                className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
+              >
+                学部・大学院を詳しく見る →
+              </Link>
             </div>
+          </ScrollReveal>
+
+          <div className="space-y-4">
+            {faculties.map((f, i) => (
+              <ScrollReveal key={f.number} delay={i * 0.08}>
+                <div className="flex items-start gap-6 rounded-md border border-white/10 border-zinc-700 bg-zinc-800/90 p-6 transition-shadow hover:shadow-md">
+                  <span className="w-12 shrink-0 text-4xl leading-none font-bold text-white/70">
+                    {f.number}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-2 flex flex-wrap items-baseline gap-3">
+                      <h3 className="text-lg font-semibold text-white">
+                        {f.name}
+                      </h3>
+                      <p className="text-xs tracking-widest text-white/90 uppercase">
+                        {f.en}
+                      </p>
+                    </div>
+                    <p className="mb-3 text-sm leading-relaxed text-white">
+                      {f.description}
+                    </p>
+                    <ul className="flex flex-wrap gap-2">
+                      {f.departments.map((d) => (
+                        <li
+                          key={d}
+                          className="rounded border border-white/90 px-3 py-0.5 text-xs text-white"
+                        >
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
 
         {/* 大学の理念 */}
-        <section className="bg-accent-50 overflow-hidden px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <div className="mb-16 text-center">
-                <SectionHeading
-                  eyebrow="Philosophy"
-                  title="やわらか大学の理念"
-                  align="center"
-                  className=""
-                />
-                <Link
-                  href="/about"
-                  className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
-                >
-                  大学について詳しく見る →
-                </Link>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal blur delay={0.1}>
-              <blockquote className="mb-20 text-center">
-                <p className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
-                  やわらかであることは、強さである。
-                </p>
-                <p className="mx-auto mt-6 max-w-2xl text-base leading-loose font-light text-stone-500">
-                  固定観念を手放し、しなやかに考え、ていねいに行動する。
-                  やわらか大学は、知の柔軟性と人への深い敬意を根本に、
-                  多様な知を育む場です。
-                </p>
-              </blockquote>
-            </ScrollReveal>
-
-            <div className="grid gap-8 sm:grid-cols-3">
-              {values.map((v, i) => (
-                <ScrollReveal key={v.label} delay={i * 0.12} className="h-full">
-                  <div className="border-accent-100 flex h-full flex-col rounded-md border bg-white p-8 text-center">
-                    <div className="bg-accent-400 mx-auto mb-4 h-1 w-8 rounded" />
-                    <p className="text-accent-600 mb-2 min-h-4 text-xs tracking-widest uppercase">
-                      {v.label}
-                    </p>
-                    <h3 className="mb-3 min-h-7 text-lg font-semibold text-zinc-900">
-                      {v.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-stone-500">
-                      {v.body}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
+        <PageSection className="bg-accent-50 overflow-hidden py-24">
+          <ScrollReveal>
+            <div className="mb-16 text-center">
+              <SectionHeading
+                eyebrow="Philosophy"
+                title="やわらか大学の理念"
+                align="center"
+                className=""
+              />
+              <Link
+                href="/about"
+                className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
+              >
+                大学について詳しく見る →
+              </Link>
             </div>
+          </ScrollReveal>
+
+          <ScrollReveal blur delay={0.1}>
+            <blockquote className="mb-20 text-center">
+              <p className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
+                やわらかであることは、強さである。
+              </p>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-loose font-light text-stone-500">
+                固定観念を手放し、しなやかに考え、ていねいに行動する。
+                やわらか大学は、知の柔軟性と人への深い敬意を根本に、
+                多様な知を育む場です。
+              </p>
+            </blockquote>
+          </ScrollReveal>
+
+          <div className="grid gap-8 sm:grid-cols-3">
+            {values.map((v, i) => (
+              <ScrollReveal key={v.label} delay={i * 0.12} className="h-full">
+                <div className="border-accent-100 flex h-full flex-col rounded-md border bg-white p-8 text-center">
+                  <div className="bg-accent-400 mx-auto mb-4 h-1 w-8 rounded" />
+                  <p className="text-accent-600 mb-2 min-h-4 text-xs tracking-widest uppercase">
+                    {v.label}
+                  </p>
+                  <h3 className="mb-3 min-h-7 text-lg font-semibold text-zinc-900">
+                    {v.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-stone-500">
+                    {v.body}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
 
         {/* 入試情報 */}
-        <section
+        <PageSection
           id="admissions"
-          className="relative overflow-hidden px-6 py-24"
+          className="relative overflow-hidden py-24"
+          innerClassName="relative z-10"
         >
           <Image
             src="/admissions/expand_examing.jpg"
@@ -306,101 +306,97 @@ export default async function Home() {
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/15" />
-          <div className="relative z-10 mx-auto max-w-5xl">
-            <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
-              <ScrollReveal className="text-center md:text-left">
-                <SectionHeading
-                  eyebrow="Admissions"
-                  title="入試情報"
-                  description="やわらか大学では、一般選抜・総合型選抜・学校推薦型選抜の3つの入試方式で学生を募集しています。"
-                  tone="dark"
-                  className=""
-                  eyebrowClassName="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase"
-                  descriptionClassName="mt-4 max-w-sm text-base font-light text-zinc-100"
-                />
-              </ScrollReveal>
-
-              <ScrollReveal delay={0.15} className="flex flex-col gap-4">
-                <div className="rounded border border-zinc-700 bg-zinc-800/90 px-8 py-5">
-                  <p className="text-sm text-white">一般選抜</p>
-                  <p className="mt-1 text-lg font-medium text-white">
-                    2027年1月 出願開始
-                  </p>
-                </div>
-                <div className="rounded border border-zinc-700 bg-zinc-800/90 px-8 py-5">
-                  <p className="text-sm text-white">総合型選抜</p>
-                  <p className="mt-1 text-lg font-medium text-white">
-                    2026年9月 出願開始
-                  </p>
-                </div>
-                <a
-                  href="/admissions"
-                  className="hover:bg-accent-100/90 border-accent-600 bg-accent-50/90 text-accent-800 mt-2 rounded border px-8 py-3 text-center text-sm font-medium transition-colors"
-                >
-                  募集要項を見る
-                </a>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* キャンパスライフ */}
-        <section id="campus" className="bg-accent-50 px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <div className="mb-14 text-center">
-                <SectionHeading
-                  eyebrow="Campus Life"
-                  title="キャンパスライフ"
-                  align="center"
-                  className=""
-                />
-                <Link
-                  href="/campus"
-                  className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
-                >
-                  キャンパスライフを詳しく見る →
-                </Link>
-              </div>
+          <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
+            <ScrollReveal className="text-center md:text-left">
+              <SectionHeading
+                eyebrow="Admissions"
+                title="入試情報"
+                description="やわらか大学では、一般選抜・総合型選抜・学校推薦型選抜の3つの入試方式で学生を募集しています。"
+                tone="dark"
+                className=""
+                eyebrowClassName="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase"
+                descriptionClassName="mt-4 max-w-sm text-base font-light text-zinc-100"
+              />
             </ScrollReveal>
 
-            <div className="grid gap-6 sm:grid-cols-3">
-              {[
-                {
-                  title: "クラブ・サークル",
-                  body: "90以上のクラブ・サークルが活動中。学部の壁を越えた出会いが待っています。",
-                },
-                {
-                  title: "国際交流",
-                  body: "32カ国・60大学との協定により、留学・研究交流の機会が豊富に用意されています。",
-                },
-                {
-                  title: "図書館・学習環境",
-                  body: "蔵書30万冊を誇る図書館と、24時間利用可能な学習スペースを完備しています。",
-                },
-              ].map((item, i) => (
-                <ScrollReveal
-                  key={item.title}
-                  delay={i * 0.1}
-                  className="h-full"
-                >
-                  <div className="flex h-full flex-col rounded-md bg-white p-7">
-                    <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
-                    <h3 className="mb-3 min-h-7 text-lg font-semibold whitespace-nowrap text-zinc-900">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-stone-500">
-                      {item.body}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+            <ScrollReveal delay={0.15} className="flex flex-col gap-4">
+              <div className="rounded border border-zinc-700 bg-zinc-800/90 px-8 py-5">
+                <p className="text-sm text-white">一般選抜</p>
+                <p className="mt-1 text-lg font-medium text-white">
+                  2027年1月 出願開始
+                </p>
+              </div>
+              <div className="rounded border border-zinc-700 bg-zinc-800/90 px-8 py-5">
+                <p className="text-sm text-white">総合型選抜</p>
+                <p className="mt-1 text-lg font-medium text-white">
+                  2026年9月 出願開始
+                </p>
+              </div>
+              <a
+                href="/admissions"
+                className="hover:bg-accent-100/90 border-accent-600 bg-accent-50/90 text-accent-800 mt-2 rounded border px-8 py-3 text-center text-sm font-medium transition-colors"
+              >
+                募集要項を見る
+              </a>
+            </ScrollReveal>
           </div>
-        </section>
+        </PageSection>
+
+        {/* キャンパスライフ */}
+        <PageSection id="campus" className="bg-accent-50 py-24">
+          <ScrollReveal>
+            <div className="mb-14 text-center">
+              <SectionHeading
+                eyebrow="Campus Life"
+                title="キャンパスライフ"
+                align="center"
+                className=""
+              />
+              <Link
+                href="/campus"
+                className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
+              >
+                キャンパスライフを詳しく見る →
+              </Link>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[
+              {
+                title: "クラブ・サークル",
+                body: "90以上のクラブ・サークルが活動中。学部の壁を越えた出会いが待っています。",
+              },
+              {
+                title: "国際交流",
+                body: "32カ国・60大学との協定により、留学・研究交流の機会が豊富に用意されています。",
+              },
+              {
+                title: "図書館・学習環境",
+                body: "蔵書30万冊を誇る図書館と、24時間利用可能な学習スペースを完備しています。",
+              },
+            ].map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 0.1} className="h-full">
+                <div className="flex h-full flex-col rounded-md bg-white p-7">
+                  <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
+                  <h3 className="mb-3 min-h-7 text-lg font-semibold whitespace-nowrap text-zinc-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-stone-500">
+                    {item.body}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </PageSection>
 
         {/* アクセス */}
-        <section id="access" className="relative overflow-hidden px-6 py-24">
+        <PageSection
+          id="access"
+          className="relative overflow-hidden py-24"
+          innerClassName="relative z-10"
+        >
           <Image
             src="/access/bus_stop_faculty_of_engineering.png"
             alt="バス停の様子"
@@ -408,58 +404,56 @@ export default async function Home() {
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/35" />
-          <div className="relative z-10 mx-auto max-w-5xl">
-            <ScrollReveal>
-              <div className="mb-12 text-center">
-                <SectionHeading
-                  eyebrow="Access"
-                  title="アクセス"
-                  align="center"
-                  tone="dark"
-                  className=""
-                  titleClassName="text-3xl font-semibold tracking-tight text-white"
-                />
-                <Link
-                  href="/access"
-                  className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
-                >
-                  アクセス詳細・キャンパスマップ →
-                </Link>
-              </div>
-            </ScrollReveal>
+          <ScrollReveal>
+            <div className="mb-12 text-center">
+              <SectionHeading
+                eyebrow="Access"
+                title="アクセス"
+                align="center"
+                tone="dark"
+                className=""
+                titleClassName="text-3xl font-semibold tracking-tight text-white"
+              />
+              <Link
+                href="/access"
+                className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
+              >
+                アクセス詳細・キャンパスマップ →
+              </Link>
+            </div>
+          </ScrollReveal>
 
-            <ScrollReveal delay={0.1}>
-              <div className="rounded-md border border-zinc-700 bg-zinc-900/90 p-8 sm:p-12">
-                <div className="grid gap-8 sm:grid-cols-2">
-                  <div>
-                    <h3 className="mb-4 text-lg font-semibold text-white">
-                      やわらか大学 本キャンパス
-                    </h3>
-                    <address className="text-sm leading-loose text-white/75 not-italic">
-                      〒000-0000
-                      <br />
-                      やわらか県やわらか市やわらか町 1-1-1
-                      <br />
-                      TEL: 000-000-0000
-                      <br />
-                      Email: info@ywrk.org
-                    </address>
-                  </div>
-                  <div>
-                    <h3 className="mb-4 text-lg font-semibold text-white">
-                      交通アクセス
-                    </h3>
-                    <ul className="text-sm leading-loose text-white/75">
-                      <li>JR やわらか線「やわらか駅」より徒歩 5 分</li>
-                      <li>地下鉄「やわらか大学前駅」より徒歩 2 分</li>
-                      <li>バス「やわらか大学」停留所 すぐ</li>
-                    </ul>
-                  </div>
+          <ScrollReveal delay={0.1}>
+            <div className="rounded-md border border-zinc-700 bg-zinc-900/90 p-8 sm:p-12">
+              <div className="grid gap-8 sm:grid-cols-2">
+                <div>
+                  <h3 className="mb-4 text-lg font-semibold text-white">
+                    やわらか大学 本キャンパス
+                  </h3>
+                  <address className="text-sm leading-loose text-white/75 not-italic">
+                    〒000-0000
+                    <br />
+                    やわらか県やわらか市やわらか町 1-1-1
+                    <br />
+                    TEL: 000-000-0000
+                    <br />
+                    Email: info@ywrk.org
+                  </address>
+                </div>
+                <div>
+                  <h3 className="mb-4 text-lg font-semibold text-white">
+                    交通アクセス
+                  </h3>
+                  <ul className="text-sm leading-loose text-white/75">
+                    <li>JR やわらか線「やわらか駅」より徒歩 5 分</li>
+                    <li>地下鉄「やわらか大学前駅」より徒歩 2 分</li>
+                    <li>バス「やわらか大学」停留所 すぐ</li>
+                  </ul>
                 </div>
               </div>
-            </ScrollReveal>
-          </div>
-        </section>
+            </div>
+          </ScrollReveal>
+        </PageSection>
 
         <Footer />
       </main>

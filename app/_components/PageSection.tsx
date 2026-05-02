@@ -5,6 +5,7 @@ type PageSectionProps = {
   id?: string;
   className?: string;
   containerClassName?: string;
+  innerClassName?: string;
 };
 
 export default function PageSection({
@@ -12,10 +13,13 @@ export default function PageSection({
   id,
   className = "bg-white py-24",
   containerClassName = "max-w-5xl",
+  innerClassName,
 }: PageSectionProps) {
   return (
     <section id={id} className={className}>
-      <div className={`mx-auto px-5 sm:px-6 ${containerClassName}`}>
+      <div
+        className={`mx-auto px-5 sm:px-6 ${containerClassName} ${innerClassName ?? ""}`}
+      >
         {children}
       </div>
     </section>
