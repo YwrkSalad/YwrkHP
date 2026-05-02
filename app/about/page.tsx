@@ -4,6 +4,8 @@ import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+import PageHero from "../_components/PageHero";
+import SectionHeading from "../_components/SectionHeading";
 import { history, board, stats } from "../../data/about";
 
 export const metadata: Metadata = { title: "大学について" };
@@ -14,30 +16,18 @@ export default function AboutPage() {
       <PageTracker page="/about" />
       <Nav />
       <main className="pt-[4.5rem]">
-        {/* ページヒーロー */}
-        <section className="bg-stone-50 px-6 py-20">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
-                About
-              </p>
-              <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-                大学について
-              </h1>
-            </ScrollReveal>
-          </div>
-        </section>
+        <PageHero eyebrow="About" title="大学について" />
 
         {/* 学長挨拶 */}
         <section id="president" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                President&apos;s Message
-              </p>
-              <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
-                学長挨拶
-              </h2>
+              <SectionHeading
+                eyebrow="President's Message"
+                title="学長挨拶"
+                className="mb-12"
+                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              />
             </ScrollReveal>
 
             <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-16">
@@ -104,12 +94,11 @@ export default function AboutPage() {
         <section id="history" className="bg-accent-50 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                History
-              </p>
-              <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
-                沿革
-              </h2>
+              <SectionHeading
+                eyebrow="History"
+                title="沿革"
+                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              />
             </ScrollReveal>
 
             <div className="relative">
@@ -137,12 +126,11 @@ export default function AboutPage() {
         <section id="organization" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Organization
-              </p>
-              <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
-                組織概要
-              </h2>
+              <SectionHeading
+                eyebrow="Organization"
+                title="組織概要"
+                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              />
             </ScrollReveal>
 
             {/* 数字 */}

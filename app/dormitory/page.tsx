@@ -4,6 +4,8 @@ import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+import PageHero from "../_components/PageHero";
+import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "学生寮" };
 
@@ -140,33 +142,17 @@ export default function DormitoryPage() {
       <PageTracker page="/dormitory" />
       <Nav />
       <main className="pt-[4.5rem]">
-        {/* ヒーロー */}
-        <section className="bg-stone-50 px-6 py-20">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
-                Student Dormitory
-              </p>
-              <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-                学生寮
-              </h1>
-              <p className="mt-4 text-base font-light text-stone-500">
-                キャンパス南側に3棟。安心・快適な寮生活が、学びをもっと深めます。
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Student Dormitory"
+          title="学生寮"
+          description="キャンパス南側に3棟。安心・快適な寮生活が、学びをもっと深めます。"
+        />
 
         {/* 各寮の紹介 */}
         <section id="dorms" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Our Dorms
-              </p>
-              <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
-                寮の紹介
-              </h2>
+              <SectionHeading eyebrow="Our Dorms" title="寮の紹介" />
             </ScrollReveal>
 
             <div className="space-y-8">
@@ -225,12 +211,7 @@ export default function DormitoryPage() {
         <section id="fees" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Fees
-              </p>
-              <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
-                寮費
-              </h2>
+              <SectionHeading eyebrow="Fees" title="寮費" className="mb-12" />
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
@@ -267,12 +248,7 @@ export default function DormitoryPage() {
         <section id="apply" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                How to Apply
-              </p>
-              <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
-                申し込みの流れ
-              </h2>
+              <SectionHeading eyebrow="How to Apply" title="申し込みの流れ" />
             </ScrollReveal>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

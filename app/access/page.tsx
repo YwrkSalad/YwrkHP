@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
 import CampusMap from "../_components/CampusMap";
+import PageHero from "../_components/PageHero";
+import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "アクセス" };
 
@@ -74,39 +75,23 @@ export default function AccessPage() {
       <PageTracker page="/access" />
       <Nav />
       <main className="pt-[4.5rem]">
-        {/* ページヒーロー */}
-        <section className="relative flex h-72 overflow-hidden sm:h-96">
-          <Image
-            src="/access/bus_stop_faculty_of_engineering.png"
-            alt="やわらか大学 バス停"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
-          <div className="relative z-10 flex w-full flex-col justify-end px-8 pb-10 sm:px-14 sm:pb-14">
-            <p className="mb-2 text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
-              Access
-            </p>
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              アクセス
-            </h1>
-            <p className="mt-3 text-sm font-light text-white/75">
-              やわらか大学へのアクセス方法とキャンパス情報をご案内します。
-            </p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Access"
+          title="アクセス"
+          description="やわらか大学へのアクセス方法とキャンパス情報をご案内します。"
+          imageSrc="/access/bus_stop_faculty_of_engineering.png"
+          imageAlt="やわらか大学 バス停"
+        />
 
         {/* キャンパスマップ */}
         <section id="map" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Campus Map
-              </p>
-              <h2 className="mb-10 text-3xl font-semibold tracking-tight text-zinc-900">
-                キャンパスマップ
-              </h2>
+              <SectionHeading
+                eyebrow="Campus Map"
+                title="キャンパスマップ"
+                className="mb-10"
+              />
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <CampusMap />
@@ -118,12 +103,11 @@ export default function AccessPage() {
         <section id="campuses" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Campuses
-              </p>
-              <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
-                キャンパス一覧
-              </h2>
+              <SectionHeading
+                eyebrow="Campuses"
+                title="キャンパス一覧"
+                className="mb-12"
+              />
             </ScrollReveal>
 
             <div className="grid gap-6 sm:grid-cols-2">
@@ -172,12 +156,11 @@ export default function AccessPage() {
         <section id="transportation" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Transportation
-              </p>
-              <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
-                交通アクセス（本キャンパス）
-              </h2>
+              <SectionHeading
+                eyebrow="Transportation"
+                title="交通アクセス（本キャンパス）"
+                className="mb-12"
+              />
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>

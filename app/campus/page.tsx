@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+import PageHero from "../_components/PageHero";
+import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "キャンパスライフ" };
 
@@ -113,44 +114,26 @@ export default function CampusPage() {
       <PageTracker page="/campus" />
       <Nav />
       <main className="pt-[4.5rem]">
-        {/* ページヒーロー */}
-        <section className="relative overflow-hidden px-6 py-20">
-          <Image
-            src="/campus/campus_over.png"
-            alt=""
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-white/70" />
-          <div className="relative mx-auto max-w-5xl">
-            <ScrollReveal>
-              <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
-                Campus Life
-              </p>
-              <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-                キャンパスライフ
-              </h1>
-              <p className="mt-4 text-base font-light text-stone-500">
-                学びの外でも、やわらかな出会いと成長が待っています。
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Campus Life"
+          title="キャンパスライフ"
+          description="学びの外でも、やわらかな出会いと成長が待っています。"
+          imageSrc="/campus/campus_over.png"
+          variant="lightImage"
+          imageClassName="object-cover"
+        />
 
         {/* クラブ・サークル */}
         <section id="clubs" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Clubs & Circles
-              </p>
-              <h2 className="mb-4 text-3xl font-semibold tracking-tight text-zinc-900">
-                クラブ・サークル
-              </h2>
-              <p className="mb-12 text-base font-light text-stone-500">
-                90以上の団体が活動中。学部の壁を越えた出会いが待っています。
-              </p>
+              <SectionHeading
+                eyebrow="Clubs & Circles"
+                title="クラブ・サークル"
+                description="90以上の団体が活動中。学部の壁を越えた出会いが待っています。"
+                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+                descriptionClassName="mt-4 text-base font-light text-stone-500"
+              />
             </ScrollReveal>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -185,12 +168,12 @@ export default function CampusPage() {
         <section id="facilities" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Facilities
-              </p>
-              <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
-                キャンパス施設
-              </h2>
+              <SectionHeading
+                eyebrow="Facilities"
+                title="キャンパス施設"
+                className="mb-12"
+                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              />
             </ScrollReveal>
 
             <div className="grid gap-6 sm:grid-cols-2">
@@ -215,15 +198,13 @@ export default function CampusPage() {
         <section id="international" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                International Exchange
-              </p>
-              <h2 className="mb-4 text-3xl font-semibold tracking-tight text-zinc-900">
-                国際交流・留学
-              </h2>
-              <p className="mb-12 text-base font-light text-stone-500">
-                32カ国・60大学との協定により、多彩な国際交流プログラムを用意しています。
-              </p>
+              <SectionHeading
+                eyebrow="International Exchange"
+                title="国際交流・留学"
+                description="32カ国・60大学との協定により、多彩な国際交流プログラムを用意しています。"
+                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+                descriptionClassName="mt-4 text-base font-light text-stone-500"
+              />
             </ScrollReveal>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

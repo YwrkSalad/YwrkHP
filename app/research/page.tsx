@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+import PageHero from "../_components/PageHero";
+import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "研究・社会連携" };
 
@@ -68,39 +69,22 @@ export default function ResearchPage() {
       <PageTracker page="/research" />
       <Nav />
       <main className="pt-[4.5rem]">
-        {/* ページヒーロー */}
-        <section className="relative flex h-72 overflow-hidden sm:h-96">
-          <Image
-            src="/research/researching.png"
-            alt="研究の様子"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
-          <div className="relative z-10 flex w-full flex-col justify-end px-8 pb-10 sm:px-14 sm:pb-14">
-            <p className="mb-2 text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
-              Research
-            </p>
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              研究・社会連携
-            </h1>
-            <p className="mt-3 text-sm font-light text-white/75">
-              学際的な研究と地域・産業との連携を通じて、社会に価値を還元します。
-            </p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Research"
+          title="研究・社会連携"
+          description="学際的な研究と地域・産業との連携を通じて、社会に価値を還元します。"
+          imageSrc="/research/researching.png"
+          imageAlt="研究の様子"
+        />
 
         {/* 研究センター */}
         <section id="centers" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Research Centers
-              </p>
-              <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
-                研究センター・研究所
-              </h2>
+              <SectionHeading
+                eyebrow="Research Centers"
+                title="研究センター・研究所"
+              />
             </ScrollReveal>
 
             <div className="grid gap-6 sm:grid-cols-2">
@@ -134,12 +118,10 @@ export default function ResearchPage() {
         <section id="collaboration" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Partnerships
-              </p>
-              <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
-                社会連携・産学連携
-              </h2>
+              <SectionHeading
+                eyebrow="Partnerships"
+                title="社会連携・産学連携"
+              />
             </ScrollReveal>
 
             <div className="divide-y divide-stone-100 rounded-md bg-white">

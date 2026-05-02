@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+import PageHero from "../_components/PageHero";
+import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "入試情報" };
 
@@ -70,39 +71,19 @@ export default function AdmissionsPage() {
       <PageTracker page="/admissions" />
       <Nav />
       <main className="pt-[4.5rem]">
-        {/* ページヒーロー */}
-        <section className="relative flex h-72 overflow-hidden sm:h-96">
-          <Image
-            src="/admissions/examing.jpg"
-            alt="入試の様子"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
-          <div className="relative z-10 flex w-full flex-col justify-end px-8 pb-10 sm:px-14 sm:pb-14">
-            <p className="mb-2 text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
-              Admissions
-            </p>
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              入試情報
-            </h1>
-            <p className="mt-3 text-sm font-light text-white/75">
-              やわらか大学は、4つの入試方式で2027年度学生を募集します。高専卒業生を対象とした編入学試験も実施します。
-            </p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Admissions"
+          title="入試情報"
+          description="やわらか大学は、4つの入試方式で2027年度学生を募集します。高専卒業生を対象とした編入学試験も実施します。"
+          imageSrc="/admissions/examing.jpg"
+          imageAlt="入試の様子"
+        />
 
         {/* 入試方式 */}
         <section id="methods" className="bg-white px-6 py-24">
           <div className="mx-auto max-w-5xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Admission Methods
-              </p>
-              <h2 className="mb-14 text-3xl font-semibold tracking-tight text-zinc-900">
-                入試方式
-              </h2>
+              <SectionHeading eyebrow="Admission Methods" title="入試方式" />
             </ScrollReveal>
 
             <div className="space-y-8">
@@ -145,12 +126,11 @@ export default function AdmissionsPage() {
         <section id="tuition" className="bg-stone-50 px-6 py-24">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
-              <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Tuition
-              </p>
-              <h2 className="mb-12 text-3xl font-semibold tracking-tight text-zinc-900">
-                学費・奨学金
-              </h2>
+              <SectionHeading
+                eyebrow="Tuition"
+                title="学費・奨学金"
+                className="mb-12"
+              />
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>

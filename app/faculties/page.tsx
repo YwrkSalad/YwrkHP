@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
+import PageHero from "../_components/PageHero";
+import SectionHeading from "../_components/SectionHeading";
 import { faculties } from "../../data/faculties";
 
 export const metadata: Metadata = { title: "学部・大学院" };
@@ -14,38 +15,24 @@ export default function FacultiesPage() {
       <PageTracker page="/faculties" />
       <Nav />
       <main className="pt-[4.5rem]">
-        {/* ページヒーロー */}
-        <section className="relative flex h-72 overflow-hidden sm:h-96">
-          <Image
-            src="/bg_pattern/research_field.png"
-            alt="研究フィールド"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
-          <div className="relative z-10 flex w-full flex-col justify-end px-8 pb-10 sm:px-14 sm:pb-14">
-            <p className="mb-2 text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
-              Faculties
-            </p>
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              学部・大学院
-            </h1>
-            <p className="mt-3 text-sm font-light text-white/75">
-              5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。
-            </p>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Faculties"
+          title="学部・大学院"
+          description="5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。"
+          imageSrc="/bg_pattern/research_field.png"
+          imageAlt="研究フィールド"
+        />
 
         {/* 学士課程 */}
         <section id="undergraduate" className="bg-stone-50 px-6 py-12">
           <div className="mx-auto max-w-5xl">
-            <p className="text-accent-600 text-xs font-medium tracking-[0.3em] uppercase">
-              Undergraduate
-            </p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-zinc-900">
-              学士課程
-            </h2>
+            <SectionHeading
+              eyebrow="Undergraduate"
+              title="学士課程"
+              className=""
+              eyebrowClassName="text-accent-600 text-xs font-medium tracking-[0.3em] uppercase"
+              titleClassName="mt-1 text-2xl font-semibold tracking-tight text-zinc-900"
+            />
           </div>
         </section>
 
@@ -106,17 +93,15 @@ export default function FacultiesPage() {
           <div className="mx-auto max-w-5xl">
             {/* ヘッダー */}
             <ScrollReveal>
-              <p className="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
-                Graduate School
-              </p>
-              <h2 className="mb-4 text-3xl font-semibold text-white sm:text-4xl">
-                やわらか大学院
-              </h2>
-              <p className="text-accent-200 mb-16 max-w-2xl text-base leading-loose font-light">
-                5学部の学知を2研究科に統合。修士・博士課程を通じて国際的な研究者・
-                高度専門職業人を育成するエリート大学院です。
-                年間150件以上の国際学会発表、80本以上の国際共著論文を誇ります。
-              </p>
+              <SectionHeading
+                eyebrow="Graduate School"
+                title="やわらか大学院"
+                description="5学部の学知を2研究科に統合。修士・博士課程を通じて国際的な研究者・高度専門職業人を育成するエリート大学院です。年間150件以上の国際学会発表、80本以上の国際共著論文を誇ります。"
+                tone="dark"
+                className="mb-16"
+                titleClassName="mb-4 text-3xl font-semibold text-white sm:text-4xl"
+                descriptionClassName="text-accent-200 max-w-2xl text-base leading-loose font-light"
+              />
             </ScrollReveal>
 
             {/* 統計 */}
