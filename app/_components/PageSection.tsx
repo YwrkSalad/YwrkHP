@@ -27,15 +27,13 @@ export default function PageSection({
   return (
     <section
       id={id}
-      className={`${imageSrc ? "relative overflow-hidden" : ""} ${className}`}
+      className={`${imageSrc ? "relative overflow-hidden" : ""} px-6 ${className}`}
     >
       {imageSrc && (
         <Image src={imageSrc} alt={imageAlt} fill className={imageClassName} />
       )}
       {overlayClassName && <div className={overlayClassName} />}
-      <div
-        className={`mx-auto px-6 ${containerClassName} ${innerClassName ?? ""}`}
-      >
+      <div className={`mx-auto ${containerClassName} ${innerClassName ?? ""}`}>
         {children}
       </div>
     </section>
