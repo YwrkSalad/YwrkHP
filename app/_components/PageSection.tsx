@@ -34,7 +34,7 @@ export default function PageSection({
       )}
       {overlayClassName && <div className={overlayClassName} />}
       <div
-        className={`mx-auto px-5 sm:px-6 ${containerClassName} ${innerClassName ?? ""}`}
+        className={`mx-auto px-6 ${containerClassName} ${innerClassName ?? ""}`}
       >
         {children}
       </div>
