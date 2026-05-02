@@ -43,6 +43,18 @@ const methods = [
       { label: "合格発表", value: "2026年12月1日" },
     ],
   },
+  {
+    name: "編入学試験（高専卒業生対象）",
+    en: "Transfer Admission (Kosen Graduates)",
+    description:
+      "高等専門学校（高専）を卒業・修了した方を対象とした編入学試験です。専門的な知識・技術を活かし、3年次からの編入を認めます。筆記試験（専門科目・英語）および面接によって選抜します。",
+    schedule: [
+      { label: "出願期間", value: "2027年2月1日〜2月14日" },
+      { label: "筆記試験", value: "2027年3月1日" },
+      { label: "面接", value: "2027年3月8日" },
+      { label: "合格発表", value: "2027年3月15日" },
+    ],
+  },
 ];
 
 const tuition = [
@@ -76,7 +88,7 @@ export default function AdmissionsPage() {
               入試情報
             </h1>
             <p className="mt-3 text-sm font-light text-white/75">
-              やわらか大学は、3つの入試方式で2027年度学生を募集します。
+              やわらか大学は、4つの入試方式で2027年度学生を募集します。高専卒業生を対象とした編入学試験も実施します。
             </p>
           </div>
         </section>
