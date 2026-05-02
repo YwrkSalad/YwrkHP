@@ -158,7 +158,7 @@ export default function DormitoryPage() {
           <div className="space-y-8">
             {dorms.map((d, i) => (
               <ScrollReveal key={d.id} delay={i * 0.1}>
-                <div className="overflow-hidden rounded-md border border-stone-100 bg-stone-50">
+                <div className="overflow-hidden rounded-md border border-stone-200 bg-stone-100/70">
                   <div className="relative h-72 w-full sm:h-96">
                     <Image
                       src={d.image}
@@ -169,7 +169,7 @@ export default function DormitoryPage() {
                   </div>
                   <div className="p-8">
                     <div className="mb-6">
-                      <p className="text-xs tracking-widest text-stone-400 uppercase">
+                      <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {d.en}
                       </p>
                       <h3 className="mt-1 text-xl font-semibold text-zinc-900">
@@ -184,13 +184,13 @@ export default function DormitoryPage() {
                         </span>
                       </div>
                     </div>
-                    <p className="mb-6 text-sm leading-relaxed text-stone-600">
+                    <p className="mb-6 text-sm leading-relaxed text-stone-700">
                       {d.description}
                     </p>
-                    <div className="divide-y divide-stone-200 rounded bg-white">
+                    <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
                       {d.features.map((f) => (
                         <div key={f.label} className="flex gap-6 px-5 py-3">
-                          <span className="w-28 shrink-0 text-xs text-stone-400">
+                          <span className="w-28 shrink-0 text-xs text-stone-500">
                             {f.label}
                           </span>
                           <span className="text-sm text-zinc-700">
@@ -207,14 +207,14 @@ export default function DormitoryPage() {
         </PageSection>
 
         {/* 費用 */}
-        <PageSection id="fees" className="bg-stone-50 py-24">
+        <PageSection id="fees" className="bg-stone-100 py-24">
           <ScrollReveal>
             <SectionHeading eyebrow="Fees" title="寮費" className="mb-12" />
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="rounded-md border border-stone-100 bg-white">
-              <div className="divide-y divide-stone-100">
+            <div className="rounded-md border border-stone-200 bg-white">
+              <div className="divide-y divide-stone-200">
                 {fees.map((f) => (
                   <div
                     key={f.item}
@@ -222,7 +222,7 @@ export default function DormitoryPage() {
                   >
                     <div>
                       <span className="text-sm text-stone-700">{f.item}</span>
-                      <p className="text-xs text-stone-400">{f.includes}</p>
+                      <p className="text-xs text-stone-500">{f.includes}</p>
                     </div>
                     <span className="text-base font-semibold text-zinc-800">
                       月額 {f.monthly}
@@ -250,14 +250,14 @@ export default function DormitoryPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
               <ScrollReveal key={s.step} delay={i * 0.08}>
-                <div className="rounded-md bg-stone-50 p-6">
+                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6">
                   <p className="text-accent-600 mb-3 text-2xl font-semibold">
                     {s.step}
                   </p>
                   <h3 className="mb-2 text-sm font-semibold text-zinc-900">
                     {s.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-stone-500">
+                  <p className="text-xs leading-relaxed text-stone-600">
                     {s.detail}
                   </p>
                 </div>
