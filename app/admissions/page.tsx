@@ -4,6 +4,7 @@ import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
+import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "入試情報" };
@@ -80,95 +81,91 @@ export default function AdmissionsPage() {
         />
 
         {/* 入試方式 */}
-        <section id="methods" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading eyebrow="Admission Methods" title="入試方式" />
-            </ScrollReveal>
+        <PageSection id="methods">
+          <ScrollReveal>
+            <SectionHeading eyebrow="Admission Methods" title="入試方式" />
+          </ScrollReveal>
 
-            <div className="space-y-8">
-              {methods.map((m, i) => (
-                <ScrollReveal key={m.name} delay={i * 0.1}>
-                  <div className="rounded-md border border-stone-100 bg-stone-50 p-8">
-                    <div className="mb-6 flex items-start gap-4">
-                      <div>
-                        <p className="text-xs tracking-widest text-stone-400 uppercase">
-                          {m.en}
-                        </p>
-                        <h3 className="mt-1 text-xl font-semibold text-zinc-900">
-                          {m.name}
-                        </h3>
-                      </div>
-                    </div>
-                    <p className="mb-6 text-sm leading-relaxed text-stone-600">
-                      {m.description}
-                    </p>
-                    <div className="divide-y divide-stone-200 rounded bg-white">
-                      {m.schedule.map((s) => (
-                        <div key={s.label} className="flex gap-6 px-5 py-3">
-                          <span className="w-36 shrink-0 text-xs text-stone-400">
-                            {s.label}
-                          </span>
-                          <span className="text-sm text-zinc-700">
-                            {s.value}
-                          </span>
-                        </div>
-                      ))}
+          <div className="space-y-8">
+            {methods.map((m, i) => (
+              <ScrollReveal key={m.name} delay={i * 0.1}>
+                <div className="rounded-md border border-stone-100 bg-stone-50 p-6 sm:p-8">
+                  <div className="mb-6 flex items-start gap-4">
+                    <div>
+                      <p className="text-xs tracking-widest text-stone-400 uppercase">
+                        {m.en}
+                      </p>
+                      <h3 className="mt-1 text-xl font-semibold text-zinc-900">
+                        {m.name}
+                      </h3>
                     </div>
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                  <p className="mb-6 text-sm leading-relaxed text-stone-600">
+                    {m.description}
+                  </p>
+                  <div className="divide-y divide-stone-200 rounded bg-white">
+                    {m.schedule.map((s) => (
+                      <div key={s.label} className="flex gap-6 px-5 py-3">
+                        <span className="w-36 shrink-0 text-xs text-stone-400">
+                          {s.label}
+                        </span>
+                        <span className="text-sm text-zinc-700">{s.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
 
         {/* 学費 */}
-        <section id="tuition" className="bg-stone-50 px-6 py-24">
-          <div className="mx-auto max-w-4xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="Tuition"
-                title="学費・奨学金"
-                className="mb-12"
-              />
-            </ScrollReveal>
+        <PageSection
+          id="tuition"
+          className="bg-stone-50 py-24"
+          containerClassName="max-w-4xl"
+        >
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Tuition"
+              title="学費・奨学金"
+              className="mb-12"
+            />
+          </ScrollReveal>
 
-            <ScrollReveal delay={0.1}>
-              <div className="mb-10 rounded-md border border-stone-100 bg-white">
-                <div className="divide-y divide-stone-100">
-                  {tuition.map((t) => (
-                    <div
-                      key={t.item}
-                      className="flex justify-between px-8 py-4"
-                    >
-                      <span className="text-sm text-stone-600">{t.item}</span>
-                      <span className="text-sm font-medium text-zinc-800">
-                        {t.amount}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+          <ScrollReveal delay={0.1}>
+            <div className="mb-10 rounded-md border border-stone-100 bg-white">
+              <div className="divide-y divide-stone-100">
+                {tuition.map((t) => (
+                  <div
+                    key={t.item}
+                    className="flex justify-between gap-4 px-5 py-4 sm:px-6"
+                  >
+                    <span className="text-sm text-stone-600">{t.item}</span>
+                    <span className="text-sm font-medium text-zinc-800">
+                      {t.amount}
+                    </span>
+                  </div>
+                ))}
               </div>
-            </ScrollReveal>
+            </div>
+          </ScrollReveal>
 
-            <ScrollReveal delay={0.15}>
-              <div className="bg-accent-800 rounded-md p-8 text-white">
-                <h3 className="mb-3 text-lg font-semibold">
-                  やわらか奨学金制度
-                </h3>
-                <p className="text-accent-200 mb-4 text-sm leading-relaxed">
-                  経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
-                  入試成績優秀者には授業料の最大全額免除が適用されます。
-                </p>
-                <ul className="text-accent-200 space-y-1 text-sm">
-                  <li>• 特待生奨学金（授業料全額）：各学部5名</li>
-                  <li>• 優秀生奨学金（授業料半額）：各学部10名</li>
-                  <li>• 経済支援奨学金（月額3万円）：随時申請可</li>
-                </ul>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
+          <ScrollReveal delay={0.15}>
+            <div className="bg-accent-800 rounded-md p-6 text-white sm:p-8">
+              <h3 className="mb-3 text-lg font-semibold">やわらか奨学金制度</h3>
+              <p className="text-accent-200 mb-4 text-sm leading-relaxed">
+                経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
+                入試成績優秀者には授業料の最大全額免除が適用されます。
+              </p>
+              <ul className="text-accent-200 space-y-1 text-sm">
+                <li>• 特待生奨学金（授業料全額）：各学部5名</li>
+                <li>• 優秀生奨学金（授業料半額）：各学部10名</li>
+                <li>• 経済支援奨学金（月額3万円）：随時申請可</li>
+              </ul>
+            </div>
+          </ScrollReveal>
+        </PageSection>
       </main>
       <Footer />
     </>

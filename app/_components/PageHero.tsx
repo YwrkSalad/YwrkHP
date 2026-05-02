@@ -54,8 +54,8 @@ export default function PageHero({
     <section
       className={
         variant === "lightImage"
-          ? "relative overflow-hidden px-6 py-20"
-          : "bg-stone-50 px-6 py-20"
+          ? "relative overflow-hidden py-20"
+          : "bg-stone-50 py-20"
       }
     >
       {variant === "lightImage" && imageSrc && (
@@ -70,7 +70,7 @@ export default function PageHero({
           <div className="absolute inset-0 bg-white/70" />
         </>
       )}
-      <div className="relative mx-auto max-w-5xl">
+      <div className="relative mx-auto max-w-5xl px-5 sm:px-6">
         <ScrollReveal>
           <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
             {eyebrow}

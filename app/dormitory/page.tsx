@@ -5,6 +5,7 @@ import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
+import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "学生寮" };
@@ -149,137 +150,135 @@ export default function DormitoryPage() {
         />
 
         {/* 各寮の紹介 */}
-        <section id="dorms" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading eyebrow="Our Dorms" title="寮の紹介" />
-            </ScrollReveal>
+        <PageSection id="dorms">
+          <ScrollReveal>
+            <SectionHeading eyebrow="Our Dorms" title="寮の紹介" />
+          </ScrollReveal>
 
-            <div className="space-y-8">
-              {dorms.map((d, i) => (
-                <ScrollReveal key={d.id} delay={i * 0.1}>
-                  <div className="overflow-hidden rounded-md border border-stone-100 bg-stone-50">
-                    <div className="relative h-72 w-full sm:h-96">
-                      <Image
-                        src={d.image}
-                        alt={d.name}
-                        fill
-                        className="object-cover"
-                      />
+          <div className="space-y-8">
+            {dorms.map((d, i) => (
+              <ScrollReveal key={d.id} delay={i * 0.1}>
+                <div className="overflow-hidden rounded-md border border-stone-100 bg-stone-50">
+                  <div className="relative h-72 w-full sm:h-96">
+                    <Image
+                      src={d.image}
+                      alt={d.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-8">
+                    <div className="mb-6">
+                      <p className="text-xs tracking-widest text-stone-400 uppercase">
+                        {d.en}
+                      </p>
+                      <h3 className="mt-1 text-xl font-semibold text-zinc-900">
+                        {d.name}
+                      </h3>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
+                          {d.target}
+                        </span>
+                        <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
+                          {d.capacity}
+                        </span>
+                      </div>
                     </div>
-                    <div className="p-8">
-                      <div className="mb-6">
-                        <p className="text-xs tracking-widest text-stone-400 uppercase">
-                          {d.en}
-                        </p>
-                        <h3 className="mt-1 text-xl font-semibold text-zinc-900">
-                          {d.name}
-                        </h3>
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
-                            {d.target}
+                    <p className="mb-6 text-sm leading-relaxed text-stone-600">
+                      {d.description}
+                    </p>
+                    <div className="divide-y divide-stone-200 rounded bg-white">
+                      {d.features.map((f) => (
+                        <div key={f.label} className="flex gap-6 px-5 py-3">
+                          <span className="w-28 shrink-0 text-xs text-stone-400">
+                            {f.label}
                           </span>
-                          <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
-                            {d.capacity}
+                          <span className="text-sm text-zinc-700">
+                            {f.value}
                           </span>
                         </div>
-                      </div>
-                      <p className="mb-6 text-sm leading-relaxed text-stone-600">
-                        {d.description}
-                      </p>
-                      <div className="divide-y divide-stone-200 rounded bg-white">
-                        {d.features.map((f) => (
-                          <div key={f.label} className="flex gap-6 px-5 py-3">
-                            <span className="w-28 shrink-0 text-xs text-stone-400">
-                              {f.label}
-                            </span>
-                            <span className="text-sm text-zinc-700">
-                              {f.value}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                      ))}
                     </div>
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
 
         {/* 費用 */}
-        <section id="fees" className="bg-stone-50 px-6 py-24">
-          <div className="mx-auto max-w-4xl">
-            <ScrollReveal>
-              <SectionHeading eyebrow="Fees" title="寮費" className="mb-12" />
-            </ScrollReveal>
+        <PageSection
+          id="fees"
+          className="bg-stone-50 py-24"
+          containerClassName="max-w-4xl"
+        >
+          <ScrollReveal>
+            <SectionHeading eyebrow="Fees" title="寮費" className="mb-12" />
+          </ScrollReveal>
 
-            <ScrollReveal delay={0.1}>
-              <div className="rounded-md border border-stone-100 bg-white">
-                <div className="divide-y divide-stone-100">
-                  {fees.map((f) => (
-                    <div
-                      key={f.item}
-                      className="flex flex-col gap-0.5 px-8 py-4 sm:flex-row sm:items-center sm:justify-between"
-                    >
-                      <div>
-                        <span className="text-sm text-stone-700">{f.item}</span>
-                        <p className="text-xs text-stone-400">{f.includes}</p>
-                      </div>
-                      <span className="text-base font-semibold text-zinc-800">
-                        月額 {f.monthly}
-                      </span>
+          <ScrollReveal delay={0.1}>
+            <div className="rounded-md border border-stone-100 bg-white">
+              <div className="divide-y divide-stone-100">
+                {fees.map((f) => (
+                  <div
+                    key={f.item}
+                    className="flex flex-col gap-0.5 px-8 py-4 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <div>
+                      <span className="text-sm text-stone-700">{f.item}</span>
+                      <p className="text-xs text-stone-400">{f.includes}</p>
                     </div>
-                  ))}
-                </div>
+                    <span className="text-base font-semibold text-zinc-800">
+                      月額 {f.monthly}
+                    </span>
+                  </div>
+                ))}
               </div>
-            </ScrollReveal>
+            </div>
+          </ScrollReveal>
 
-            <ScrollReveal delay={0.15}>
-              <p className="mt-4 text-xs leading-relaxed text-stone-400">
-                ※
-                敷金は1ヶ月分（退去時精算）。食費は別途。光熱費は共益費に含まれます。
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
+          <ScrollReveal delay={0.15}>
+            <p className="mt-4 text-xs leading-relaxed text-stone-400">
+              ※
+              敷金は1ヶ月分（退去時精算）。食費は別途。光熱費は共益費に含まれます。
+            </p>
+          </ScrollReveal>
+        </PageSection>
 
         {/* 申し込みの流れ */}
-        <section id="apply" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-4xl">
-            <ScrollReveal>
-              <SectionHeading eyebrow="How to Apply" title="申し込みの流れ" />
-            </ScrollReveal>
+        <PageSection id="apply" containerClassName="max-w-4xl">
+          <ScrollReveal>
+            <SectionHeading eyebrow="How to Apply" title="申し込みの流れ" />
+          </ScrollReveal>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {steps.map((s, i) => (
-                <ScrollReveal key={s.step} delay={i * 0.08}>
-                  <div className="rounded-md bg-stone-50 p-6">
-                    <p className="text-accent-600 mb-3 text-2xl font-semibold">
-                      {s.step}
-                    </p>
-                    <h3 className="mb-2 text-sm font-semibold text-zinc-900">
-                      {s.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-stone-500">
-                      {s.detail}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            <ScrollReveal delay={0.2}>
-              <div className="bg-accent-800 mt-10 rounded-md p-8 text-white">
-                <h3 className="mb-2 text-lg font-semibold">お問い合わせ</h3>
-                <p className="text-accent-200 text-sm leading-relaxed">
-                  学生寮に関するご質問は、厚生施設内の学生支援課（寮担当）までお気軽にどうぞ。
-                  見学は随時受け付けています（事前予約制）。
-                </p>
-              </div>
-            </ScrollReveal>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((s, i) => (
+              <ScrollReveal key={s.step} delay={i * 0.08}>
+                <div className="rounded-md bg-stone-50 p-6">
+                  <p className="text-accent-600 mb-3 text-2xl font-semibold">
+                    {s.step}
+                  </p>
+                  <h3 className="mb-2 text-sm font-semibold text-zinc-900">
+                    {s.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-stone-500">
+                    {s.detail}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+
+          <ScrollReveal delay={0.2}>
+            <div className="bg-accent-800 mt-10 rounded-md p-8 text-white">
+              <h3 className="mb-2 text-lg font-semibold">お問い合わせ</h3>
+              <p className="text-accent-200 text-sm leading-relaxed">
+                学生寮に関するご質問は、厚生施設内の学生支援課（寮担当）までお気軽にどうぞ。
+                見学は随時受け付けています（事前予約制）。
+              </p>
+            </div>
+          </ScrollReveal>
+        </PageSection>
       </main>
       <Footer />
     </>

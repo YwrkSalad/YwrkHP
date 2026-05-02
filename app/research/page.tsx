@@ -4,6 +4,7 @@ import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
+import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "研究・社会連携" };
@@ -78,69 +79,62 @@ export default function ResearchPage() {
         />
 
         {/* 研究センター */}
-        <section id="centers" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="Research Centers"
-                title="研究センター・研究所"
-              />
-            </ScrollReveal>
+        <PageSection id="centers">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Research Centers"
+              title="研究センター・研究所"
+            />
+          </ScrollReveal>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {centers.map((c, i) => (
-                <ScrollReveal key={c.name} delay={i * 0.09}>
-                  <div className="rounded-md border border-stone-100 bg-stone-50 p-7">
-                    <h3 className="mb-3 text-base leading-snug font-semibold text-zinc-900">
-                      {c.name}
-                    </h3>
-                    <p className="mb-4 text-sm leading-relaxed text-stone-500">
-                      {c.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {c.topics.map((t) => (
-                        <span
-                          key={t}
-                          className="border-accent-200 text-accent-600 rounded border px-3 py-0.5 text-xs"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {centers.map((c, i) => (
+              <ScrollReveal key={c.name} delay={i * 0.09}>
+                <div className="rounded-md border border-stone-100 bg-stone-50 p-7">
+                  <h3 className="mb-3 text-base leading-snug font-semibold text-zinc-900">
+                    {c.name}
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-stone-500">
+                    {c.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {c.topics.map((t) => (
+                      <span
+                        key={t}
+                        className="border-accent-200 text-accent-600 rounded border px-3 py-0.5 text-xs"
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
 
         {/* 社会連携 */}
-        <section id="collaboration" className="bg-stone-50 px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="Partnerships"
-                title="社会連携・産学連携"
-              />
-            </ScrollReveal>
+        <PageSection id="collaboration" className="bg-stone-50 py-24">
+          <ScrollReveal>
+            <SectionHeading eyebrow="Partnerships" title="社会連携・産学連携" />
+          </ScrollReveal>
 
-            <div className="divide-y divide-stone-100 rounded-md bg-white">
-              {partnerships.map((p, i) => (
-                <ScrollReveal key={p.name} delay={i * 0.07}>
-                  <div className="flex flex-col gap-2 px-8 py-5 sm:flex-row sm:items-center sm:gap-6">
-                    <span className="w-20 shrink-0 rounded bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
-                      {p.type}
-                    </span>
-                    <span className="flex-1 text-sm font-medium text-zinc-800">
-                      {p.name}
-                    </span>
-                    <span className="text-xs text-stone-400">{p.detail}</span>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+          <div className="divide-y divide-stone-100 rounded-md bg-white">
+            {partnerships.map((p, i) => (
+              <ScrollReveal key={p.name} delay={i * 0.07}>
+                <div className="flex flex-col gap-2 px-8 py-5 sm:flex-row sm:items-center sm:gap-6">
+                  <span className="w-20 shrink-0 rounded bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
+                    {p.type}
+                  </span>
+                  <span className="flex-1 text-sm font-medium text-zinc-800">
+                    {p.name}
+                  </span>
+                  <span className="text-xs text-stone-400">{p.detail}</span>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
       </main>
       <Footer />
     </>

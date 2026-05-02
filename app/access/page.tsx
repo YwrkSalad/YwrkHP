@@ -5,6 +5,7 @@ import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
 import CampusMap from "../_components/CampusMap";
 import PageHero from "../_components/PageHero";
+import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "アクセス" };
@@ -84,110 +85,104 @@ export default function AccessPage() {
         />
 
         {/* キャンパスマップ */}
-        <section id="map" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="Campus Map"
-                title="キャンパスマップ"
-                className="mb-10"
-              />
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <CampusMap />
-            </ScrollReveal>
-          </div>
-        </section>
+        <PageSection id="map">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Campus Map"
+              title="キャンパスマップ"
+              className="mb-10"
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <CampusMap />
+          </ScrollReveal>
+        </PageSection>
 
         {/* キャンパス情報 */}
-        <section id="campuses" className="bg-stone-50 px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="Campuses"
-                title="キャンパス一覧"
-                className="mb-12"
-              />
-            </ScrollReveal>
+        <PageSection id="campuses" className="bg-stone-50 py-24">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Campuses"
+              title="キャンパス一覧"
+              className="mb-12"
+            />
+          </ScrollReveal>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {campuses.map((c, i) => (
-                <ScrollReveal key={c.name} delay={i * 0.1}>
-                  <div className="rounded-md border border-stone-100 bg-white p-8">
-                    <h3 className="mb-4 text-lg font-semibold text-zinc-900">
-                      {c.name}
-                    </h3>
-                    <address className="mb-5 text-sm leading-loose text-stone-600 not-italic">
-                      {c.zip}
-                      <br />
-                      {c.address}
-                      <br />
-                      TEL: {c.tel}
-                      <br />
-                      Email:{" "}
-                      <a
-                        href={`mailto:${c.email}`}
-                        className="text-accent-700 hover:text-accent-800 underline underline-offset-2"
-                      >
-                        {c.email}
-                      </a>
-                    </address>
-                    <div>
-                      <p className="mb-2 text-xs text-stone-400">主要建物</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {c.buildings.map((b) => (
-                          <span
-                            key={b}
-                            className="border-accent-200 bg-accent-50 text-accent-700 rounded border px-3 py-0.5 text-xs"
-                          >
-                            {b}
-                          </span>
-                        ))}
-                      </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {campuses.map((c, i) => (
+              <ScrollReveal key={c.name} delay={i * 0.1}>
+                <div className="rounded-md border border-stone-100 bg-white p-8">
+                  <h3 className="mb-4 text-lg font-semibold text-zinc-900">
+                    {c.name}
+                  </h3>
+                  <address className="mb-5 text-sm leading-loose text-stone-600 not-italic">
+                    {c.zip}
+                    <br />
+                    {c.address}
+                    <br />
+                    TEL: {c.tel}
+                    <br />
+                    Email:{" "}
+                    <a
+                      href={`mailto:${c.email}`}
+                      className="text-accent-700 hover:text-accent-800 underline underline-offset-2"
+                    >
+                      {c.email}
+                    </a>
+                  </address>
+                  <div>
+                    <p className="mb-2 text-xs text-stone-400">主要建物</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {c.buildings.map((b) => (
+                        <span
+                          key={b}
+                          className="border-accent-200 bg-accent-50 text-accent-700 rounded border px-3 py-0.5 text-xs"
+                        >
+                          {b}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
 
         {/* 交通アクセス */}
-        <section id="transportation" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="Transportation"
-                title="交通アクセス（本キャンパス）"
-                className="mb-12"
-              />
-            </ScrollReveal>
+        <PageSection id="transportation">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Transportation"
+              title="交通アクセス（本キャンパス）"
+              className="mb-12"
+            />
+          </ScrollReveal>
 
-            <ScrollReveal delay={0.1}>
-              <table className="w-full border-collapse text-sm">
-                <tbody>
-                  {routes.map((r) => (
-                    <tr key={r.means} className="border-t border-stone-200">
-                      <th
-                        scope="row"
-                        className="w-32 shrink-0 py-5 pr-8 text-left align-top text-xs font-semibold text-zinc-700 sm:w-40"
-                      >
-                        {r.means}
-                      </th>
-                      <td className="py-5 text-stone-600">
-                        <ul className="space-y-1.5">
-                          {r.items.map((text, j) => (
-                            <li key={j}>{text}</li>
-                          ))}
-                        </ul>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </ScrollReveal>
-          </div>
-        </section>
+          <ScrollReveal delay={0.1}>
+            <table className="w-full border-collapse text-sm">
+              <tbody>
+                {routes.map((r) => (
+                  <tr key={r.means} className="border-t border-stone-200">
+                    <th
+                      scope="row"
+                      className="w-32 shrink-0 py-5 pr-8 text-left align-top text-xs font-semibold text-zinc-700 sm:w-40"
+                    >
+                      {r.means}
+                    </th>
+                    <td className="py-5 text-stone-600">
+                      <ul className="space-y-1.5">
+                        {r.items.map((text, j) => (
+                          <li key={j}>{text}</li>
+                        ))}
+                      </ul>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </ScrollReveal>
+        </PageSection>
       </main>
       <Footer />
     </>

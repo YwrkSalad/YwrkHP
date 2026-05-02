@@ -4,6 +4,7 @@ import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
 import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
+import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 
 export const metadata: Metadata = { title: "キャンパスライフ" };
@@ -124,116 +125,110 @@ export default function CampusPage() {
         />
 
         {/* クラブ・サークル */}
-        <section id="clubs" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="Clubs & Circles"
-                title="クラブ・サークル"
-                description="90以上の団体が活動中。学部の壁を越えた出会いが待っています。"
-                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
-                descriptionClassName="mt-4 text-base font-light text-stone-500"
-              />
-            </ScrollReveal>
+        <PageSection id="clubs">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Clubs & Circles"
+              title="クラブ・サークル"
+              description="90以上の団体が活動中。学部の壁を越えた出会いが待っています。"
+              titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              descriptionClassName="mt-4 text-base font-light text-stone-500"
+            />
+          </ScrollReveal>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {clubs.map((c, i) => (
-                <ScrollReveal key={c.category} delay={i * 0.08}>
-                  <div className="rounded-md bg-stone-50 p-6">
-                    <h3 className="mb-4 text-sm font-semibold text-zinc-900">
-                      {c.category}
-                    </h3>
-                    <ul className="space-y-2.5">
-                      {c.list.map((club) => (
-                        <li key={club.name}>
-                          <span className="text-sm text-stone-600">
-                            {club.name}
-                          </span>
-                          {club.note && (
-                            <p className="mt-0.5 text-xs text-stone-400">
-                              {club.note}
-                            </p>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {clubs.map((c, i) => (
+              <ScrollReveal key={c.category} delay={i * 0.08}>
+                <div className="rounded-md bg-stone-50 p-6">
+                  <h3 className="mb-4 text-sm font-semibold text-zinc-900">
+                    {c.category}
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {c.list.map((club) => (
+                      <li key={club.name}>
+                        <span className="text-sm text-stone-600">
+                          {club.name}
+                        </span>
+                        {club.note && (
+                          <p className="mt-0.5 text-xs text-stone-400">
+                            {club.note}
+                          </p>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
 
         {/* 施設 */}
-        <section id="facilities" className="bg-stone-50 px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="Facilities"
-                title="キャンパス施設"
-                className="mb-12"
-                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
-              />
-            </ScrollReveal>
+        <PageSection id="facilities" className="bg-stone-50 py-24">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Facilities"
+              title="キャンパス施設"
+              className="mb-12"
+              titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+            />
+          </ScrollReveal>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {facilities.map((f, i) => (
-                <ScrollReveal key={f.name} delay={i * 0.08}>
-                  <div className="rounded-md bg-white p-7">
-                    <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
-                    <h3 className="mb-2 text-lg font-semibold text-zinc-900">
-                      {f.name}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-stone-500">
-                      {f.description}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {facilities.map((f, i) => (
+              <ScrollReveal key={f.name} delay={i * 0.08}>
+                <div className="rounded-md bg-white p-7">
+                  <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
+                  <h3 className="mb-2 text-lg font-semibold text-zinc-900">
+                    {f.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-stone-500">
+                    {f.description}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
 
         {/* 国際交流 */}
-        <section id="international" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow="International Exchange"
-                title="国際交流・留学"
-                description="32カ国・60大学との協定により、多彩な国際交流プログラムを用意しています。"
-                titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
-                descriptionClassName="mt-4 text-base font-light text-stone-500"
-              />
-            </ScrollReveal>
+        <PageSection id="international">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="International Exchange"
+              title="国際交流・留学"
+              description="32カ国・60大学との協定により、多彩な国際交流プログラムを用意しています。"
+              titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              descriptionClassName="mt-4 text-base font-light text-stone-500"
+            />
+          </ScrollReveal>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {overseas.map((o, i) => (
-                <ScrollReveal key={o.country} delay={i * 0.08}>
-                  <div className="rounded-md border border-stone-100 bg-stone-50 p-6 text-center">
-                    <p className="text-2xl font-semibold text-zinc-900">
-                      {o.universities}
-                    </p>
-                    <p className="text-xs text-stone-400">協定校</p>
-                    <p className="mt-2 text-sm font-medium text-zinc-700">
-                      {o.country}
-                    </p>
-                    <div className="mt-3 flex flex-wrap justify-center gap-1">
-                      {o.programs.map((p) => (
-                        <span
-                          key={p}
-                          className="border-accent-200 text-accent-600 rounded border px-2 py-0.5 text-xs"
-                        >
-                          {p}
-                        </span>
-                      ))}
-                    </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {overseas.map((o, i) => (
+              <ScrollReveal key={o.country} delay={i * 0.08}>
+                <div className="rounded-md border border-stone-100 bg-stone-50 p-6 text-center">
+                  <p className="text-2xl font-semibold text-zinc-900">
+                    {o.universities}
+                  </p>
+                  <p className="text-xs text-stone-400">協定校</p>
+                  <p className="mt-2 text-sm font-medium text-zinc-700">
+                    {o.country}
+                  </p>
+                  <div className="mt-3 flex flex-wrap justify-center gap-1">
+                    {o.programs.map((p) => (
+                      <span
+                        key={p}
+                        className="border-accent-200 text-accent-600 rounded border px-2 py-0.5 text-xs"
+                      >
+                        {p}
+                      </span>
+                    ))}
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
+        </PageSection>
       </main>
       <Footer />
     </>
