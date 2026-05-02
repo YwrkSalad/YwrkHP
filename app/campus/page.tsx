@@ -120,7 +120,6 @@ export default function CampusPage() {
           title="キャンパスライフ"
           description="学びの外でも、やわらかな出会いと成長が待っています。"
           imageSrc="/campus/campus_over.png"
-          variant="lightImage"
           imageClassName="object-cover"
         />
 
@@ -139,18 +138,18 @@ export default function CampusPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {clubs.map((c, i) => (
               <ScrollReveal key={c.category} delay={i * 0.08}>
-                <div className="rounded-md bg-stone-50 p-6">
+                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6">
                   <h3 className="mb-4 text-sm font-semibold text-zinc-900">
                     {c.category}
                   </h3>
                   <ul className="space-y-2.5">
                     {c.list.map((club) => (
                       <li key={club.name}>
-                        <span className="text-sm text-stone-600">
+                        <span className="text-sm text-stone-700">
                           {club.name}
                         </span>
                         {club.note && (
-                          <p className="mt-0.5 text-xs text-stone-400">
+                          <p className="mt-0.5 text-xs text-stone-500">
                             {club.note}
                           </p>
                         )}
@@ -164,7 +163,7 @@ export default function CampusPage() {
         </PageSection>
 
         {/* 施設 */}
-        <PageSection id="facilities" className="bg-stone-50 py-24">
+        <PageSection id="facilities" className="bg-stone-100 py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Facilities"
@@ -177,12 +176,12 @@ export default function CampusPage() {
           <div className="grid gap-6 sm:grid-cols-2">
             {facilities.map((f, i) => (
               <ScrollReveal key={f.name} delay={i * 0.08}>
-                <div className="rounded-md bg-white p-7">
+                <div className="rounded-md border border-stone-200 bg-white p-7">
                   <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
                   <h3 className="mb-2 text-lg font-semibold text-zinc-900">
                     {f.name}
                   </h3>
-                  <p className="text-sm leading-relaxed text-stone-500">
+                  <p className="text-sm leading-relaxed text-stone-700">
                     {f.description}
                   </p>
                 </div>
@@ -206,11 +205,11 @@ export default function CampusPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {overseas.map((o, i) => (
               <ScrollReveal key={o.country} delay={i * 0.08}>
-                <div className="rounded-md border border-stone-100 bg-stone-50 p-6 text-center">
+                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6 text-center">
                   <p className="text-2xl font-semibold text-zinc-900">
                     {o.universities}
                   </p>
-                  <p className="text-xs text-stone-400">協定校</p>
+                  <p className="text-xs text-stone-500">協定校</p>
                   <p className="mt-2 text-sm font-medium text-zinc-700">
                     {o.country}
                   </p>
@@ -218,7 +217,7 @@ export default function CampusPage() {
                     {o.programs.map((p) => (
                       <span
                         key={p}
-                        className="border-accent-200 text-accent-600 rounded border px-2 py-0.5 text-xs"
+                        className="border-accent-300 text-accent-700 rounded border px-2 py-0.5 text-xs"
                       >
                         {p}
                       </span>
