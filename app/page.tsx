@@ -389,19 +389,26 @@ export default async function Home() {
         </section>
 
         {/* アクセス */}
-        <section id="access" className="bg-white px-6 py-24">
-          <div className="mx-auto max-w-5xl">
+        <section id="access" className="relative overflow-hidden px-6 py-24">
+          <Image
+            src="/access/bus_stop_faculty_of_engineering.png"
+            alt="バス停の様子"
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative z-10 mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-12 text-center">
-                <p className="text-accent-600 mb-3 text-xs font-medium tracking-[0.3em] uppercase">
+                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-white/60 uppercase">
                   Access
                 </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-zinc-900">
+                <h2 className="text-3xl font-semibold tracking-tight text-white">
                   アクセス
                 </h2>
                 <Link
                   href="/access"
-                  className="text-accent-600 hover:text-accent-700 mt-6 inline-block text-sm font-medium transition-colors"
+                  className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
                 >
                   アクセス詳細・キャンパスマップ →
                 </Link>
@@ -409,13 +416,13 @@ export default async function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <div className="rounded-md border border-stone-100 bg-stone-50 p-8 sm:p-12">
+              <div className="rounded-md border border-white/10 bg-black/30 p-8 backdrop-blur-sm sm:p-12">
                 <div className="grid gap-8 sm:grid-cols-2">
                   <div>
-                    <h3 className="mb-4 text-lg font-semibold text-zinc-900">
+                    <h3 className="mb-4 text-lg font-semibold text-white">
                       やわらか大学 本キャンパス
                     </h3>
-                    <address className="text-sm leading-loose text-stone-600 not-italic">
+                    <address className="text-sm leading-loose text-white/75 not-italic">
                       〒000-0000
                       <br />
                       やわらか県やわらか市やわらか町 1-1-1
@@ -426,10 +433,10 @@ export default async function Home() {
                     </address>
                   </div>
                   <div>
-                    <h3 className="mb-4 text-lg font-semibold text-zinc-900">
+                    <h3 className="mb-4 text-lg font-semibold text-white">
                       交通アクセス
                     </h3>
-                    <ul className="text-sm leading-loose text-stone-600">
+                    <ul className="text-sm leading-loose text-white/75">
                       <li>JR やわらか線「やわらか駅」より徒歩 5 分</li>
                       <li>地下鉄「やわらか大学前駅」より徒歩 2 分</li>
                       <li>バス「やわらか大学」停留所 すぐ</li>
