@@ -99,7 +99,7 @@ export default function HeroAnimation() {
           </Link>
           <Link
             href="/admissions"
-            className="rounded border border-white/50 px-6 py-2.5 text-xs font-medium text-white transition-colors hover:border-white hover:bg-white/10"
+            className="rounded border border-white/50 px-6 py-2.5 text-xs font-medium text-white backdrop-blur-sm transition-colors hover:border-white hover:bg-white/10"
           >
             入試情報
           </Link>

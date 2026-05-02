@@ -180,22 +180,22 @@ export default async function Home() {
             fill
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 backdrop-blur-xs" />
           <div className="relative z-10 mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-16 text-center">
-                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-white/60 uppercase">
+                <p className="mb-3 text-xs font-medium tracking-[0.3em] text-white/60 text-zinc-700 uppercase">
                   Faculties
                 </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight text-zinc-800 sm:text-4xl">
                   学部紹介
                 </h2>
-                <p className="mt-4 text-base font-light text-white/70">
+                <p className="mt-4 text-base font-light text-zinc-800">
                   5つの学部で、理学・工学・農学・情報・医学を探究します。
                 </p>
                 <Link
                   href="/faculties"
-                  className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
+                  className="hover:text-accent-700 mt-6 inline-block text-sm font-medium text-zinc-800 transition-colors"
                 >
                   学部・大学院を詳しく見る →
                 </Link>
@@ -205,8 +205,8 @@ export default async function Home() {
             <div className="space-y-4">
               {faculties.map((f, i) => (
                 <ScrollReveal key={f.number} delay={i * 0.08}>
-                  <div className="flex items-start gap-6 rounded-md border border-white/10 bg-black/30 p-6 backdrop-blur-sm transition-shadow hover:shadow-md">
-                    <span className="w-12 shrink-0 text-4xl leading-none font-bold text-white/20">
+                  <div className="flex items-start gap-6 rounded-md border border-white/10 bg-black/50 p-6 backdrop-blur-md transition-shadow hover:shadow-md">
+                    <span className="w-12 shrink-0 text-4xl leading-none font-bold text-white">
                       {f.number}
                     </span>
                     <div className="min-w-0 flex-1">
@@ -214,18 +214,18 @@ export default async function Home() {
                         <h3 className="text-lg font-semibold text-white">
                           {f.name}
                         </h3>
-                        <p className="text-xs tracking-widest text-white/50 uppercase">
+                        <p className="text-xs tracking-widest text-white/90 uppercase">
                           {f.en}
                         </p>
                       </div>
-                      <p className="mb-3 text-sm leading-relaxed text-white/70">
+                      <p className="mb-3 text-sm leading-relaxed text-white">
                         {f.description}
                       </p>
                       <ul className="flex flex-wrap gap-2">
                         {f.departments.map((d) => (
                           <li
                             key={d}
-                            className="rounded border border-white/20 px-3 py-0.5 text-xs text-white/70"
+                            className="rounded border border-white/90 px-3 py-0.5 text-xs text-white"
                           >
                             {d}
                           </li>
@@ -403,7 +403,7 @@ export default async function Home() {
             fill
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 backdrop-blur-xs" />
           <div className="relative z-10 mx-auto max-w-5xl">
             <ScrollReveal>
               <div className="mb-12 text-center">
@@ -423,7 +423,7 @@ export default async function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <div className="rounded-md border border-white/10 bg-black/30 p-8 backdrop-blur-sm sm:p-12">
+              <div className="rounded-md border border-white/20 bg-black/40 p-8 backdrop-blur-xl sm:p-12">
                 <div className="grid gap-8 sm:grid-cols-2">
                   <div>
                     <h3 className="mb-4 text-lg font-semibold text-white">
