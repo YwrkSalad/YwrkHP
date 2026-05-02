@@ -89,10 +89,10 @@ export default function AdmissionsPage() {
           <div className="space-y-8">
             {methods.map((m, i) => (
               <ScrollReveal key={m.name} delay={i * 0.1}>
-                <div className="rounded-md border border-stone-100 bg-stone-50 p-6 sm:p-8">
+                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6 sm:p-8">
                   <div className="mb-6 flex items-start gap-4">
                     <div>
-                      <p className="text-xs tracking-widest text-stone-400 uppercase">
+                      <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {m.en}
                       </p>
                       <h3 className="mt-1 text-xl font-semibold text-zinc-900">
@@ -100,13 +100,13 @@ export default function AdmissionsPage() {
                       </h3>
                     </div>
                   </div>
-                  <p className="mb-6 text-sm leading-relaxed text-stone-600">
+                  <p className="mb-6 text-sm leading-relaxed text-stone-700">
                     {m.description}
                   </p>
-                  <div className="divide-y divide-stone-200 rounded bg-white">
+                  <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
                     {m.schedule.map((s) => (
                       <div key={s.label} className="flex gap-6 px-5 py-3">
-                        <span className="w-36 shrink-0 text-xs text-stone-400">
+                        <span className="w-36 shrink-0 text-xs text-stone-500">
                           {s.label}
                         </span>
                         <span className="text-sm text-zinc-700">{s.value}</span>
