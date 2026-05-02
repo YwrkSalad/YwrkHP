@@ -148,7 +148,7 @@ export default function AdmissionsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <div className="bg-accent-900 border-accent-700 rounded-md border p-6 text-white sm:p-8">
+            <div className="bg-accent-800 border-accent-700 rounded-md border p-6 text-white sm:p-8">
               <h3 className="mb-3 text-lg font-semibold">やわらか奨学金制度</h3>
               <p className="text-accent-200 mb-4 text-sm leading-relaxed">
                 経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
