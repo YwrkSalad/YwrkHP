@@ -26,13 +26,7 @@ export default function FacultiesPage() {
 
         {/* 学士課程 */}
         <PageSection id="undergraduate" className="bg-stone-50 py-12">
-          <SectionHeading
-            eyebrow="Undergraduate"
-            title="学士課程"
-            className=""
-            eyebrowClassName="text-accent-600 text-xs font-medium tracking-[0.3em] uppercase"
-            titleClassName="mt-1 text-2xl font-semibold tracking-tight text-zinc-900"
-          />
+          <SectionHeading eyebrow="Undergraduate" title="学士課程" />
         </PageSection>
 
         {/* 各学部 */}
