@@ -120,7 +120,7 @@ export default function AdmissionsPage() {
         </PageSection>
 
         {/* 学費 */}
-        <PageSection id="tuition" className="bg-stone-50 py-24">
+        <PageSection id="tuition" className="bg-stone-100 py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Tuition"
@@ -130,14 +130,14 @@ export default function AdmissionsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="mb-10 rounded-md border border-stone-100 bg-white">
-              <div className="divide-y divide-stone-100">
+            <div className="mb-10 rounded-md border border-stone-200 bg-white">
+              <div className="divide-y divide-stone-200">
                 {tuition.map((t) => (
                   <div
                     key={t.item}
                     className="flex justify-between gap-4 px-5 py-4 sm:px-6"
                   >
-                    <span className="text-sm text-stone-600">{t.item}</span>
+                    <span className="text-sm text-stone-700">{t.item}</span>
                     <span className="text-sm font-medium text-zinc-800">
                       {t.amount}
                     </span>
@@ -148,7 +148,7 @@ export default function AdmissionsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <div className="bg-accent-800 rounded-md p-6 text-white sm:p-8">
+            <div className="bg-accent-900 border-accent-700 rounded-md border p-6 text-white sm:p-8">
               <h3 className="mb-3 text-lg font-semibold">やわらか奨学金制度</h3>
               <p className="text-accent-200 mb-4 text-sm leading-relaxed">
                 経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
