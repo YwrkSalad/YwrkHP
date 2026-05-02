@@ -147,6 +147,8 @@ export default function DormitoryPage() {
           eyebrow="Student Dormitory"
           title="学生寮"
           description="キャンパス南側に3棟。安心・快適な寮生活が、学びをもっと深めます。"
+          imageSrc="/dormitory/in_dormitory.png"
+          imageAlt="学生寮の室内"
         />
 
         {/* 各寮の紹介 */}
