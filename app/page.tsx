@@ -206,7 +206,7 @@ export default async function Home() {
               {faculties.map((f, i) => (
                 <ScrollReveal key={f.number} delay={i * 0.08}>
                   <div className="flex items-start gap-6 rounded-md border border-white/10 border-zinc-700 bg-zinc-800/90 p-6 transition-shadow hover:shadow-md">
-                    <span className="w-12 shrink-0 text-4xl leading-none font-bold text-white">
+                    <span className="w-12 shrink-0 text-4xl leading-none font-bold text-white/70">
                       {f.number}
                     </span>
                     <div className="min-w-0 flex-1">
