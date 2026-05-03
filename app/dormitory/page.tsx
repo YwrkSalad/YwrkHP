@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Fragment } from "react";
 import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
@@ -187,16 +186,12 @@ export default function DormitoryPage() {
                     <p className="mb-6 text-sm leading-relaxed text-stone-700">
                       {d.description}
                     </p>
-                    <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
-                      {d.features.map((f, i) => (
-                        <Fragment key={f.label}>
-                          <span className={`px-5 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
-                            {f.label}
-                          </span>
-                          <span className={`px-5 py-3 text-sm text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
-                            {f.value}
-                          </span>
-                        </Fragment>
+                    <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
+                      {d.features.map((f) => (
+                        <div key={f.label} className="flex gap-4 px-5 py-3">
+                          <span className="shrink-0 whitespace-nowrap text-xs text-stone-500">{f.label}</span>
+                          <span className="text-sm text-zinc-700">{f.value}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
