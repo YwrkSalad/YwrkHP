@@ -48,7 +48,7 @@ export const news: NewsItem[] = [
 
 ■ 参加申し込み
 
-参加登録フォーム：[url]https://ywrk.org/forms/open-campus-2026[/url]
+不要です
 
 ■ アクセス
 
