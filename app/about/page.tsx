@@ -27,7 +27,7 @@ export default function AboutPage() {
               eyebrow="President's Message"
               title="学長挨拶"
               className="mb-7 sm:mb-12"
-              titleClassName="text-xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
+              titleClassName="text-lg sm:text-3xl font-semibold tracking-tight text-zinc-900"
             />
           </ScrollReveal>
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
             <div className="space-y-8 text-base leading-loose font-light text-stone-600">
               <ScrollReveal delay={0.1}>
                 <blockquote className="border-accent-300 border-l-2 pl-6">
-                  <p className="text-xl leading-snug font-semibold tracking-tight text-zinc-900 sm:text-2xl">
+                  <p className="text-lg leading-snug font-semibold tracking-tight text-zinc-900 sm:text-2xl">
                     やわらかであることは、強さである。
                   </p>
                 </blockquote>
@@ -96,7 +96,7 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="History"
               title="沿革"
-              titleClassName="text-xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
+              titleClassName="text-lg sm:text-3xl font-semibold tracking-tight text-zinc-900"
             />
           </ScrollReveal>
 
@@ -128,12 +128,12 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="Organization"
               title="組織概要"
-              titleClassName="text-xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
+              titleClassName="text-lg sm:text-3xl font-semibold tracking-tight text-zinc-900"
             />
           </ScrollReveal>
 
           {/* 数字 */}
-          <div className="mb-10 grid grid-cols-2 gap-6 sm:mb-16 sm:grid-cols-4">
+          <div className="mb-6 grid grid-cols-2 gap-6 sm:mb-16 sm:grid-cols-4">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.08}>
                 <div className="bg-accent-50 border-accent-100 rounded-md border p-6 text-center">

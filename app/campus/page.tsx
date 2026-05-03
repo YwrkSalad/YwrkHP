@@ -146,7 +146,7 @@ export default function CampusPage() {
               eyebrow="Clubs & Circles"
               title="クラブ・サークル"
               description="90以上の団体が活動中。学部の壁を越えた出会いが待っています。"
-              titleClassName="text-xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
+              titleClassName="text-lg sm:text-3xl font-semibold tracking-tight text-zinc-900"
               descriptionClassName="mt-4 text-base font-light text-stone-500"
             />
           </ScrollReveal>
@@ -189,7 +189,7 @@ export default function CampusPage() {
               eyebrow="Facilities"
               title="キャンパス施設"
               className="mb-7 sm:mb-12"
-              titleClassName="text-xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
+              titleClassName="text-lg sm:text-3xl font-semibold tracking-tight text-zinc-900"
             />
           </ScrollReveal>
 
@@ -227,7 +227,7 @@ export default function CampusPage() {
               eyebrow="International Exchange"
               title="国際交流・留学"
               description="32カ国・60大学との協定により、多彩な国際交流プログラムを用意しています。"
-              titleClassName="text-xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
+              titleClassName="text-lg sm:text-3xl font-semibold tracking-tight text-zinc-900"
               descriptionClassName="mt-4 text-base font-light text-stone-500"
             />
           </ScrollReveal>

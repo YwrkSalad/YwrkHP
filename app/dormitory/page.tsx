@@ -253,7 +253,7 @@ export default function DormitoryPage() {
             <SectionHeading eyebrow="How to Apply" title="申し込みの流れ" />
           </ScrollReveal>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {steps.map((s, i) => (
               <ScrollReveal key={s.step} delay={i * 0.08} className="h-full">
                 <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-6">
