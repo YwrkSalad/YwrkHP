@@ -22,7 +22,7 @@ export default function PageHero({
 }: PageHeroProps) {
   if (variant === "darkImage") {
     return (
-      <section className="relative flex h-52 overflow-hidden px-4 sm:h-96 sm:px-6">
+      <section className="relative flex h-52 overflow-hidden px-5 sm:h-96 sm:px-6">
         {imageSrc && (
           <Image
             src={imageSrc}
@@ -56,8 +56,8 @@ export default function PageHero({
     <section
       className={
         variant === "lightImage"
-          ? "relative overflow-hidden px-4 py-8 sm:px-6 sm:py-20"
-          : "bg-stone-50 px-4 py-8 sm:px-6 sm:py-20"
+          ? "relative overflow-hidden px-5 py-8 sm:px-6 sm:py-20"
+          : "bg-stone-50 px-5 py-8 sm:px-6 sm:py-20"
       }
     >
       {variant === "lightImage" && imageSrc && (

@@ -29,7 +29,7 @@ export default function PageSection({
   return (
     <Element
       id={id}
-      className={`${imageSrc ? "relative overflow-hidden" : ""} px-4 sm:px-6 ${className}`}
+      className={`${imageSrc ? "relative overflow-hidden" : ""} px-5 sm:px-6 ${className}`}
     >
       {imageSrc && (
         <Image src={imageSrc} alt={imageAlt} fill className={imageClassName} />
