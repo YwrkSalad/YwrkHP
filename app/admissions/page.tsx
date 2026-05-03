@@ -164,12 +164,10 @@ export default function AdmissionsPage() {
 
           <ScrollReveal delay={0.2}>
             <div className="bg-accent-800 border-accent-700 mt-6 rounded-md border p-6 text-white sm:p-8">
-              <h3 className="mb-3 text-lg font-semibold">
-                ゲスト登録による優待入場
-              </h3>
+              <h3 className="mb-3 text-lg font-semibold">ゲスト制度</h3>
               <p className="text-accent-200 text-sm leading-relaxed">
                 本学の学生・教職員など大学関係者を通じて事前にゲスト登録を行うと、
-                優待料金で入場できます。ゲスト登録時の入場料は 3,000円 +
+                優待料金で入学できます。ゲスト登録時の入学料は 3,000円 +
                 1ドリンクです。
               </p>
             </div>
