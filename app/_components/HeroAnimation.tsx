@@ -43,7 +43,7 @@ export default function HeroAnimation() {
           Yawaraka University
         </motion.p>
 
-        <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
+        <h1 className="text-xl font-semibold tracking-tight text-white sm:text-4xl">
           <span className="block">
             {heading1.map((char, i) => (
               <motion.span

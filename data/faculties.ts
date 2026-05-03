@@ -119,7 +119,7 @@ export const faculties = [
     en: "Faculty of Information Science and Technology",
     tagline: "情報の力で、知性と社会をつなぐ。",
     description:
-      "情報工学・知能情報工学・生体情報工学・数理情報科学の4学科から成る情報科学部。計算機科学を軸に、AI・数理・バイオインフォマティクスが融合した次世代情報研究者を育成します。",
+      "情報工学・知能情報工学・生体情報工学・数理情報科学・デザインの5学科から成る情報科学部。計算機科学と人間中心設計を軸に、次世代情報研究者と創造的な実践者を育成します。",
     departments: [
       {
         id: "information-science-information-engineering",
@@ -140,6 +140,11 @@ export const faculties = [
         id: "information-science-mathematical-informatics",
         name: "数理情報科学科",
         body: "確率論・最適化・暗号理論・情報理論の数理的基盤から応用まで深く学ぶ。",
+      },
+      {
+        id: "information-science-design",
+        name: "デザイン科",
+        body: "情報設計・UI/UX・視覚表現を横断し、繭子教授と人に届く体験を形にする。",
       },
     ],
   },

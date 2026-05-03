@@ -89,7 +89,7 @@ export default function AdmissionsPage() {
           <div className="space-y-8">
             {methods.map((m, i) => (
               <ScrollReveal key={m.name} delay={i * 0.1}>
-                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6 sm:p-8">
+                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-5 sm:p-8">
                   <div className="mb-6 flex items-start gap-4">
                     <div>
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
@@ -120,12 +120,12 @@ export default function AdmissionsPage() {
         </PageSection>
 
         {/* 学費 */}
-        <PageSection id="tuition" className="bg-stone-100 py-16 sm:py-24">
+        <PageSection id="tuition" className="bg-stone-100 py-12 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Tuition"
               title="学費・奨学金"
-              className="mb-8 sm:mb-12"
+              className="mb-7 sm:mb-12"
             />
           </ScrollReveal>
 
@@ -135,7 +135,7 @@ export default function AdmissionsPage() {
                 {tuition.map((t) => (
                   <div
                     key={t.item}
-                    className="flex justify-between gap-4 px-5 py-4 sm:px-6"
+                    className="flex justify-between gap-4 px-4 py-4 sm:px-6"
                   >
                     <span className="text-sm text-stone-700">{t.item}</span>
                     <span className="text-sm font-medium text-zinc-800">

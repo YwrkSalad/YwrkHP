@@ -47,7 +47,7 @@ export default async function FacultiesPage({
           <PageSection
             key={f.id}
             id={f.id}
-            className={`py-16 sm:py-24 ${fi % 2 === 0 ? "bg-white" : "bg-stone-50"}`}
+            className={`py-12 sm:py-24 ${fi % 2 === 0 ? "bg-white" : "bg-stone-50"}`}
           >
             <ScrollReveal>
               <div className="mb-8 flex items-start gap-4 sm:mb-12 sm:gap-6">
@@ -58,7 +58,7 @@ export default async function FacultiesPage({
                   <p className="mb-1 text-xs tracking-widest text-stone-400 uppercase">
                     {f.en}
                   </p>
-                  <h2 className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
+                  <h2 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
                     {f.name}
                   </h2>
                   <p className="mt-2 text-lg font-light text-stone-500">
@@ -104,7 +104,7 @@ export default async function FacultiesPage({
         ))}
 
         {/* 大学院 */}
-        <PageSection id="graduate" className="bg-accent-900 py-16 sm:py-24">
+        <PageSection id="graduate" className="bg-accent-900 py-12 sm:py-24">
           {/* ヘッダー */}
           <ScrollReveal>
             <SectionHeading
@@ -112,8 +112,8 @@ export default async function FacultiesPage({
               title="やわらか大学院"
               description="5学部の学知を2研究科に統合。修士・博士課程を通じて国際的な研究者・高度専門職業人を育成するエリート大学院です。年間150件以上の国際学会発表、80本以上の国際共著論文を誇ります。"
               tone="dark"
-              className="mb-10 sm:mb-16"
-              titleClassName="mb-4 text-2xl font-semibold text-white sm:text-4xl"
+              className="mb-8 sm:mb-16"
+              titleClassName="mb-4 text-xl font-semibold text-white sm:text-4xl"
               descriptionClassName="text-zinc-100 max-w-2xl text-base leading-loose font-light"
             />
           </ScrollReveal>
@@ -142,7 +142,7 @@ export default async function FacultiesPage({
           <div className="grid gap-6 sm:grid-cols-2">
             {/* 研究科 1 */}
             <ScrollReveal delay={0.1}>
-              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-6 sm:p-8">
+              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-5 sm:p-8">
                 <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School I
                 </p>
@@ -205,7 +205,7 @@ export default async function FacultiesPage({
 
             {/* 研究科 2 */}
             <ScrollReveal delay={0.18}>
-              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-6 sm:p-8">
+              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-5 sm:p-8">
                 <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School II
                 </p>
@@ -269,7 +269,7 @@ export default async function FacultiesPage({
 
           {/* 共通情報 */}
           <ScrollReveal delay={0.25}>
-            <div className="mt-8 rounded-md border border-white/15 bg-zinc-950/55 p-6 sm:p-8">
+            <div className="mt-8 rounded-md border border-white/15 bg-zinc-950/55 p-5 sm:p-8">
               <h3 className="mb-4 text-base font-semibold text-white">
                 共通の特色・支援制度
               </h3>

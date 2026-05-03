@@ -19,7 +19,7 @@ export default function SectionHeading({
   eyebrowClassName,
   titleClassName,
   descriptionClassName,
-  className = description ? "mb-8 sm:mb-12" : "mb-10 sm:mb-14",
+  className = description ? "mb-7 sm:mb-12" : "mb-8 sm:mb-14",
 }: SectionHeadingProps) {
   const isDark = tone === "dark";
 
@@ -38,7 +38,7 @@ export default function SectionHeading({
       <h2
         className={
           titleClassName ??
-          `text-2xl font-semibold tracking-tight ${
+          `text-xl font-semibold tracking-tight ${
             isDark ? "text-white" : "text-zinc-900"
           } sm:text-4xl`
         }
@@ -49,9 +49,9 @@ export default function SectionHeading({
         <p
           className={
             descriptionClassName ??
-            `mt-4 text-base font-light ${
+            `mt-3 text-sm font-light ${
               isDark ? "text-white/75" : "text-stone-500"
-            }`
+            } sm:mt-4 sm:text-base`
           }
         >
           {description}

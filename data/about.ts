@@ -63,6 +63,12 @@ export const board = [
     note: "理学部物理学科教授 / 量子物性物理学",
     href: "/faculties?department=science-physics#science",
   },
+  {
+    role: "デザイン担当",
+    name: "繭子",
+    note: "情報科学部デザイン科教授 / UI・情報デザイン",
+    href: "/faculties?department=information-science-design#information-science",
+  },
 ];
 
 export const stats = [

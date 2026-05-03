@@ -169,7 +169,7 @@ export default function DormitoryPage() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-6 sm:p-8">
+                  <div className="p-5 sm:p-8">
                     <div className="mb-6">
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {d.en}
@@ -209,12 +209,12 @@ export default function DormitoryPage() {
         </PageSection>
 
         {/* 費用 */}
-        <PageSection id="fees" className="bg-stone-100 py-16 sm:py-24">
+        <PageSection id="fees" className="bg-stone-100 py-12 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Fees"
               title="寮費"
-              className="mb-8 sm:mb-12"
+              className="mb-7 sm:mb-12"
             />
           </ScrollReveal>
 
@@ -257,7 +257,7 @@ export default function DormitoryPage() {
             {steps.map((s, i) => (
               <ScrollReveal key={s.step} delay={i * 0.08} className="h-full">
                 <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-6">
-                  <p className="text-accent-600 mb-3 text-2xl font-semibold">
+                  <p className="text-accent-600 mb-3 text-xl font-semibold">
                     {s.step}
                   </p>
                   <h3 className="mb-2 text-sm font-semibold text-zinc-900">

@@ -84,12 +84,13 @@ const faculties = [
     name: "情報科学部",
     en: "Faculty of Information Science and Technology",
     description:
-      "AI・数理・バイオインフォマティクスが融合した次世代情報研究者を育成します。",
+      "AI・数理・バイオインフォマティクス・デザインが融合した次世代人材を育成します。",
     departments: [
       "情報工学科",
       "知能情報工学科",
       "生体情報工学科",
       "数理情報科学科",
+      "デザイン科",
     ],
   },
   {
@@ -176,7 +177,7 @@ export default async function Home() {
         {/* 学部紹介 */}
         <PageSection
           id="faculties"
-          className="py-16 sm:py-24"
+          className="py-12 sm:py-24"
           innerClassName="relative z-10"
           imageSrc="/bg_pattern/bg_science.png"
           imageClassName="object-cover object-center"
@@ -238,7 +239,7 @@ export default async function Home() {
         </PageSection>
 
         {/* 大学の理念 */}
-        <PageSection className="bg-accent-50 overflow-hidden py-16 sm:py-24">
+        <PageSection className="bg-accent-50 overflow-hidden py-12 sm:py-24">
           <ScrollReveal>
             <div className="mb-10 text-center sm:mb-16">
               <SectionHeading
@@ -258,7 +259,7 @@ export default async function Home() {
 
           <ScrollReveal blur delay={0.1}>
             <blockquote className="mb-12 text-center sm:mb-20">
-              <p className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
+              <p className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
                 やわらかであることは、強さである。
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-loose font-light text-stone-500">
@@ -292,7 +293,7 @@ export default async function Home() {
         {/* 入試情報 */}
         <PageSection
           id="admissions"
-          className="py-16 sm:py-24"
+          className="py-12 sm:py-24"
           innerClassName="relative z-10"
           imageSrc="/admissions/expand_examing.jpg"
           imageAlt="入試の様子"
@@ -336,7 +337,7 @@ export default async function Home() {
         </PageSection>
 
         {/* キャンパスライフ */}
-        <PageSection id="campus" className="bg-accent-50 py-16 sm:py-24">
+        <PageSection id="campus" className="bg-accent-50 py-12 sm:py-24">
           <ScrollReveal>
             <div className="mb-14 text-center">
               <SectionHeading
@@ -387,7 +388,7 @@ export default async function Home() {
         {/* アクセス */}
         <PageSection
           id="access"
-          className="py-16 sm:py-24"
+          className="py-12 sm:py-24"
           innerClassName="relative z-10"
           imageSrc="/access/bus_stop_faculty_of_engineering.png"
           imageAlt="バス停の様子"
@@ -402,7 +403,7 @@ export default async function Home() {
                 align="center"
                 tone="dark"
                 className=""
-                titleClassName="text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+                titleClassName="text-xl font-semibold tracking-tight text-white sm:text-3xl"
               />
               <Link
                 href="/access"

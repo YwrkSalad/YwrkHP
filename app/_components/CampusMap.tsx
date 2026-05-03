@@ -122,7 +122,7 @@ const BUILDINGS: BuildingData[] = [
     h: 110,
     category: "faculty",
     description:
-      "情報工学・知能情報・生体情報・数理情報の4学科。高性能 GPU クラスタ・演算センターを整備。",
+      "情報工学・知能情報・生体情報・数理情報・デザインの5学科。高性能 GPU クラスタ・演算センター・デザインスタジオを整備。",
   },
   {
     id: "agri",
