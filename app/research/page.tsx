@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     url: "https://ywrk.org/research",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "研究・社会連携 | やわらか大学",
+    description: "研究センター・研究所、社会連携・産学連携情報をご案内します。",
+    images: ["/OGP/OGP_1200x630.png"],
+  },
 };
 
 const centers = [

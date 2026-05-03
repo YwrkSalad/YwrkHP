@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     url: "https://ywrk.org/access",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "アクセス | やわらか大学",
+    description:
+      "キャンパスマップ、キャンパス一覧、交通アクセスをご案内します。",
+    images: ["/OGP/OGP_1200x630.png"],
+  },
 };
 
 const routes = [

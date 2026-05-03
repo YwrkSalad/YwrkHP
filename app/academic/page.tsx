@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     url: "https://ywrk.org/academic",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "教務課 | やわらか大学",
+    description:
+      "履修・学籍・証明書発行など、学習に関する手続きをご案内します。",
+    images: ["/OGP/OGP_1200x630.png"],
+  },
 };
 
 const certificates = [

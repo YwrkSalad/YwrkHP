@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     url: "https://ywrk.org/about",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "大学について | やわらか大学",
+    description: "やわらか大学の歴史、学長メッセージ、組織概要をご紹介します。",
+    images: ["/OGP/OGP_1200x630.png"],
+  },
 };
 
 export default function AboutPage() {

@@ -19,6 +19,13 @@ export const metadata: Metadata = {
     url: "https://ywrk.org/campus",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "キャンパスライフ | やわらか大学",
+    description:
+      "クラブ・サークル、キャンパス施設、国際交流・留学情報をご案内します。",
+    images: ["/OGP/OGP_1200x630.png"],
+  },
 };
 
 type Club = { name: string; note?: string };

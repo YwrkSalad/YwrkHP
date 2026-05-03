@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     url: "https://ywrk.org/faculties",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "学部・大学院 | やわらか大学",
+    description:
+      "5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。",
+    images: ["/OGP/OGP_1200x630.png"],
+  },
 };
 
 type FacultiesPageProps = {

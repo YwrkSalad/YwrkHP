@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     url: "https://ywrk.org/admissions",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "入試情報 | やわらか大学",
+    description: "入試方式、学費・奨学金情報をご案内します。",
+    images: ["/OGP/OGP_1200x630.png"],
+  },
 };
 
 const methods = [

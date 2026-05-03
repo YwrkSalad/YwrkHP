@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     url: "https://ywrk.org/dormitory",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "学生寮 | やわらか大学",
+    description: "学生寮の紹介、寮費、申し込みの流れをご案内します。",
+    images: ["/OGP/OGP_1200x630.png"],
+  },
 };
 
 const dorms = [
