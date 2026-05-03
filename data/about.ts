@@ -22,7 +22,7 @@ export const history = [
   { year: "2015", event: "国際交流センター開設。協定校が60大学に拡大。" },
   {
     year: "2026",
-    event: "創立78周年。学生数6,800名、専任教員380名の総合大学へ。",
+    event: "創立78周年。学生数12,400名、専任教員380名の総合大学へ。",
   },
 ];
 
@@ -38,7 +38,7 @@ export const board = [
 ];
 
 export const stats = [
-  { num: "6,800", unit: "名", label: "学生数" },
+  { num: "12,400", unit: "名", label: "学生数" },
   { num: "380", unit: "名", label: "専任教員数" },
   { num: "5", unit: "学部", label: "学部構成" },
   { num: "78", unit: "年", label: "創立" },
