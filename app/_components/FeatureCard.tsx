@@ -28,7 +28,7 @@ export default function FeatureCard({
 
   return (
     <div
-      className={`flex h-full flex-col rounded-md bg-white p-5 sm:p-7 ${borderClass} ${center ? "text-center" : ""}`}
+      className={`flex h-full flex-col rounded-md bg-white p-4 sm:p-7 ${borderClass} ${center ? "text-center" : ""}`}
     >
       <div className={`${barClass} mb-4 h-1 w-8 rounded`} />
       {eyebrow && (

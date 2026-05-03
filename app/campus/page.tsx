@@ -159,7 +159,7 @@ export default function CampusPage() {
                 delay={i * 0.08}
                 className="h-full"
               >
-                <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-6">
+                <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-6">
                   <h3 className="mb-4 text-sm font-semibold text-zinc-900">
                     {c.category}
                   </h3>
@@ -223,7 +223,7 @@ export default function CampusPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {overseas.map((o, i) => (
               <ScrollReveal key={o.country} delay={i * 0.08}>
-                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6 text-center">
+                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-6 text-center">
                   <p className="text-lg font-semibold text-zinc-900">
                     {o.universities}
                   </p>

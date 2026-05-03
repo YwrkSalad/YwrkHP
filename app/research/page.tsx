@@ -91,7 +91,7 @@ export default function ResearchPage() {
           <div className="grid gap-6 sm:grid-cols-2">
             {centers.map((c, i) => (
               <ScrollReveal key={c.name} delay={i * 0.09}>
-                <div className="rounded-md border border-stone-100 bg-stone-50 p-7">
+                <div className="rounded-md border border-stone-100 bg-stone-50 p-4 sm:p-7">
                   <h3 className="mb-3 text-base leading-snug font-semibold text-zinc-900">
                     {c.name}
                   </h3>

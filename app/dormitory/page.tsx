@@ -171,7 +171,7 @@ export default function DormitoryPage() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-5 sm:p-8">
+                  <div className="p-4 sm:p-8">
                     <div className="mb-6">
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {d.en}
@@ -190,10 +190,10 @@ export default function DormitoryPage() {
                     <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
                       {d.features.map((f, i) => (
                         <Fragment key={f.label}>
-                          <span className={`px-5 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
+                          <span className={`px-4 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
                             {f.label}
                           </span>
-                          <span className={`px-5 py-3 text-sm text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
+                          <span className={`px-4 py-3 text-sm text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
                             {f.value}
                           </span>
                         </Fragment>
@@ -254,7 +254,7 @@ export default function DormitoryPage() {
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {steps.map((s, i) => (
               <ScrollReveal key={s.step} delay={i * 0.08} className="h-full">
-                <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-6">
+                <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-6">
                   <p className="text-accent-600 mb-3 text-lg font-semibold">
                     {s.step}
                   </p>
@@ -270,7 +270,7 @@ export default function DormitoryPage() {
           </div>
 
           <ScrollReveal delay={0.2}>
-            <div className="bg-accent-800 mt-10 rounded-md p-6 text-white sm:p-8">
+            <div className="bg-accent-800 mt-10 rounded-md p-4 text-white sm:p-8">
               <h3 className="mb-2 text-lg font-semibold">お問い合わせ</h3>
               <p className="text-accent-200 text-sm leading-relaxed">
                 学生寮に関するご質問は、厚生施設内の学生支援課（寮担当）までお気軽にどうぞ。

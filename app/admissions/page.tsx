@@ -90,7 +90,7 @@ export default function AdmissionsPage() {
           <div className="space-y-8">
             {methods.map((m, i) => (
               <ScrollReveal key={m.name} delay={i * 0.1}>
-                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-5 sm:p-8">
+                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-8">
                   <div className="mb-6 flex items-start gap-4">
                     <div>
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
@@ -144,7 +144,7 @@ export default function AdmissionsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <div className="bg-accent-800 border-accent-700 rounded-md border p-6 text-white sm:p-8">
+            <div className="bg-accent-800 border-accent-700 rounded-md border p-4 text-white sm:p-8">
               <h3 className="mb-3 text-lg font-semibold">やわらか奨学金制度</h3>
               <p className="text-accent-200 mb-4 text-sm leading-relaxed">
                 経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
@@ -159,7 +159,7 @@ export default function AdmissionsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <div className="bg-accent-800 border-accent-700 mt-6 rounded-md border p-6 text-white sm:p-8">
+            <div className="bg-accent-800 border-accent-700 mt-6 rounded-md border p-4 text-white sm:p-8">
               <h3 className="mb-3 text-lg font-semibold">ゲスト制度</h3>
               <p className="text-accent-200 text-sm leading-relaxed">
                 本学の学生・教職員など大学関係者を通じて事前にゲスト登録を行うと、

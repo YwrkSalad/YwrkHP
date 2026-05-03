@@ -10,7 +10,7 @@ export default function LabelValueRow({
   labelWidth = "w-36",
 }: LabelValueRowProps) {
   return (
-    <div className="flex gap-6 px-5 py-3">
+    <div className="flex gap-4 px-4 py-3">
       <span className={`${labelWidth} shrink-0 text-xs text-stone-500`}>
         {label}
       </span>

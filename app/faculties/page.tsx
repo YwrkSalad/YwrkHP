@@ -85,7 +85,7 @@ export default async function FacultiesPage({
                 >
                   <div
                     id={d.id}
-                    className={`h-full rounded-md border p-5 transition-colors sm:p-6 ${
+                    className={`h-full rounded-md border p-4 transition-colors sm:p-6 ${
                       highlightedDepartment === d.id
                         ? "border-accent-400 bg-accent-50 ring-accent-200 ring-2"
                         : "border-accent-100 bg-white"
@@ -138,7 +138,7 @@ export default async function FacultiesPage({
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
             {/* 研究科 1 */}
             <ScrollReveal delay={0.1}>
-              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-5 sm:p-8">
+              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-4 sm:p-8">
                 <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School I
                 </p>
@@ -196,7 +196,7 @@ export default async function FacultiesPage({
 
             {/* 研究科 2 */}
             <ScrollReveal delay={0.18}>
-              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-5 sm:p-8">
+              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-4 sm:p-8">
                 <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School II
                 </p>
@@ -255,7 +255,7 @@ export default async function FacultiesPage({
 
           {/* 共通情報 */}
           <ScrollReveal delay={0.25}>
-            <div className="mt-8 rounded-md border border-white/15 bg-zinc-950/55 p-5 sm:p-8">
+            <div className="mt-8 rounded-md border border-white/15 bg-zinc-950/55 p-4 sm:p-8">
               <h3 className="mb-4 text-base font-semibold text-white">
                 共通の特色・支援制度
               </h3>

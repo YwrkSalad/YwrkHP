@@ -207,7 +207,7 @@ export default async function Home() {
           <div className="space-y-4">
             {faculties.map((f, i) => (
               <ScrollReveal key={f.number} delay={i * 0.08}>
-                <div className="flex items-start gap-4 rounded-md border border-white/10 border-zinc-700 bg-zinc-800/90 p-5 transition-shadow hover:shadow-md sm:gap-6 sm:p-6">
+                <div className="flex items-start gap-4 rounded-md border border-white/10 border-zinc-700 bg-zinc-800/90 p-4 transition-shadow hover:shadow-md sm:gap-6 sm:p-6">
                   <span className="w-10 shrink-0 text-3xl leading-none font-bold text-white/70 sm:w-12 sm:text-4xl">
                     {f.number}
                   </span>
@@ -401,7 +401,7 @@ export default async function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="rounded-md border border-zinc-700 bg-zinc-900/90 p-6 sm:p-12">
+            <div className="rounded-md border border-zinc-700 bg-zinc-900/90 p-4 sm:p-12">
               <div className="grid gap-6 sm:grid-cols-2 sm:gap-8">
                 <div>
                   <h3 className="mb-4 text-lg font-semibold text-white">
