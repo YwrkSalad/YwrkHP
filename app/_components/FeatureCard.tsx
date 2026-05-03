@@ -36,10 +36,10 @@ export default function FeatureCard({
           {eyebrow}
         </p>
       )}
-      <h3 className="mb-3 min-h-7 text-lg font-semibold text-zinc-900">
+      <h3 className="mb-3 min-h-7 text-base font-semibold text-zinc-900">
         {title}
       </h3>
-      <p className="text-sm leading-relaxed text-stone-500">{body}</p>
+      <p className="text-xs leading-relaxed text-stone-500">{body}</p>
       {tags && tags.length > 0 && (
         <div className="mt-auto flex flex-wrap gap-2 pt-4">
           {tags.map((t) => (

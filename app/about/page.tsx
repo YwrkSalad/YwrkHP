@@ -44,19 +44,19 @@ export default function AboutPage() {
                   className="w-full object-cover"
                 />
               </div>
-              <p className="mt-4 text-center text-sm font-medium text-zinc-700">
+              <p className="mt-4 text-center text-xs font-medium text-zinc-700">
                 やわらか大学 学長
               </p>
-              <p className="mt-1 text-center text-base font-semibold text-zinc-900">
+              <p className="mt-1 text-center text-sm font-semibold text-zinc-900">
                 やわらか
               </p>
             </ScrollReveal>
 
             {/* 本文 */}
-            <div className="space-y-5 sm:space-y-8 text-base leading-loose font-light text-stone-600">
+            <div className="space-y-5 sm:space-y-8 text-sm leading-loose font-light text-stone-600">
               <ScrollReveal delay={0.1}>
                 <blockquote className="border-accent-300 border-l-2 pl-6">
-                  <p className="text-lg leading-snug font-semibold tracking-tight text-zinc-900 sm:text-2xl">
+                  <p className="text-base leading-snug font-semibold tracking-tight text-zinc-900 sm:text-2xl">
                     やわらかであることは、強さである。
                   </p>
                 </blockquote>
@@ -83,7 +83,7 @@ export default function AboutPage() {
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
-                <p className="text-right text-sm text-stone-400">
+                <p className="text-right text-xs text-stone-400">
                   やわらか大学 学長　やわらか
                 </p>
               </ScrollReveal>
@@ -107,13 +107,13 @@ export default function AboutPage() {
               {history.map((item, i) => (
                 <ScrollReveal key={item.year} delay={i * 0.08}>
                   <div className="grid grid-cols-[4rem_2.5rem_1fr] items-start sm:grid-cols-[4rem_2.5rem_1fr]">
-                    <span className="w-16 shrink-0 pt-0.5 text-right text-sm font-medium text-stone-400">
+                    <span className="w-16 shrink-0 pt-0.5 text-right text-xs font-medium text-stone-400">
                       {item.year}
                     </span>
                     <div className="relative flex h-full justify-center">
                       <div className="bg-accent-400 relative z-10 mt-2 h-2.5 w-2.5 rounded" />
                     </div>
-                    <p className="text-sm leading-relaxed text-stone-600">
+                    <p className="text-xs leading-relaxed text-stone-600">
                       {item.event}
                     </p>
                   </div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                   <span className="w-36 shrink-0 text-xs text-stone-400">
                     {member.role}
                   </span>
-                  <span className="w-16 text-base font-medium text-zinc-800 [text-align-last:justify]">
+                  <span className="w-16 text-sm font-medium text-zinc-800 [text-align-last:justify]">
                     {member.name}
                   </span>
                   <Link

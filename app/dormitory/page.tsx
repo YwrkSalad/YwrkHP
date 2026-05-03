@@ -176,7 +176,7 @@ export default function DormitoryPage() {
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {d.en}
                       </p>
-                      <h3 className="mt-1 text-lg font-semibold text-zinc-900">
+                      <h3 className="mt-1 text-base font-semibold text-zinc-900">
                         {d.name}
                       </h3>
                       <div className="mt-2 flex flex-wrap gap-2">
@@ -184,7 +184,7 @@ export default function DormitoryPage() {
                         <TagBadge variant="stone">{d.capacity}</TagBadge>
                       </div>
                     </div>
-                    <p className="mb-4 sm:mb-6 text-sm leading-relaxed text-stone-700">
+                    <p className="mb-4 sm:mb-6 text-xs leading-relaxed text-stone-700">
                       {d.description}
                     </p>
                     <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
@@ -193,7 +193,7 @@ export default function DormitoryPage() {
                           <span className={`px-4 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
                             {f.label}
                           </span>
-                          <span className={`px-4 py-3 text-sm text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
+                          <span className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
                             {f.value}
                           </span>
                         </Fragment>
@@ -225,10 +225,10 @@ export default function DormitoryPage() {
                     className="flex flex-col gap-0.5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-4"
                   >
                     <div>
-                      <span className="text-sm text-stone-700">{f.item}</span>
+                      <span className="text-xs text-stone-700">{f.item}</span>
                       <p className="text-xs text-stone-500">{f.includes}</p>
                     </div>
-                    <span className="text-base font-semibold text-zinc-800">
+                    <span className="text-sm font-semibold text-zinc-800">
                       月額 {f.monthly}
                     </span>
                   </div>
@@ -271,8 +271,8 @@ export default function DormitoryPage() {
 
           <ScrollReveal delay={0.2}>
             <div className="bg-accent-800 mt-10 rounded-md p-4 text-white sm:p-8">
-              <h3 className="mb-2 text-base font-semibold sm:text-lg">お問い合わせ</h3>
-              <p className="text-accent-200 text-sm leading-relaxed">
+              <h3 className="mb-2 text-sm font-semibold sm:text-lg">お問い合わせ</h3>
+              <p className="text-accent-200 text-xs leading-relaxed">
                 学生寮に関するご質問は、厚生施設内の学生支援課（寮担当）までお気軽にどうぞ。
                 見学は随時受け付けています（事前予約制）。
               </p>

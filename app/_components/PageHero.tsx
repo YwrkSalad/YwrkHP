@@ -38,7 +38,7 @@ export default function PageHero({
             <p className="mb-2 text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
               {eyebrow}
             </p>
-            <h1 className="text-xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h1 className="text-lg font-semibold tracking-tight text-white sm:text-4xl">
               {title}
             </h1>
             {description && (
@@ -77,11 +77,11 @@ export default function PageHero({
           <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
             {eyebrow}
           </p>
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
+          <h1 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
             {title}
           </h1>
           {description && (
-            <p className="mt-3 text-sm font-light text-stone-500 sm:mt-4 sm:text-base">
+            <p className="mt-3 text-xs font-light text-stone-500 sm:mt-4 sm:text-base">
               {description}
             </p>
           )}

@@ -213,14 +213,14 @@ export default async function Home() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <div className="mb-2 flex flex-wrap items-baseline gap-3">
-                      <h3 className="text-lg font-semibold text-white">
+                      <h3 className="text-base font-semibold text-white">
                         {f.name}
                       </h3>
                       <p className="text-xs tracking-widest text-white/90 uppercase">
                         {f.en}
                       </p>
                     </div>
-                    <p className="mb-3 text-sm leading-relaxed text-white">
+                    <p className="mb-3 text-xs leading-relaxed text-white">
                       {f.description}
                     </p>
                     <ul className="flex flex-wrap gap-2">
@@ -258,10 +258,10 @@ export default async function Home() {
 
           <ScrollReveal blur delay={0.1}>
             <blockquote className="mb-5 text-center sm:mb-20">
-              <p className="text-base font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
+              <p className="text-sm font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
                 やわらかであることは、強さである。
               </p>
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-loose font-light text-stone-500">
+              <p className="mx-auto mt-6 max-w-2xl text-sm leading-loose font-light text-stone-500">
                 固定観念を手放し、しなやかに考え、ていねいに行動する。
                 やわらか大学は、知の柔軟性と人への深い敬意を根本に、
                 多様な知を育む場です。
@@ -303,20 +303,20 @@ export default async function Home() {
                 tone="dark"
                 className=""
                 eyebrowClassName="text-accent-400 mb-3 text-xs font-medium tracking-[0.3em] uppercase"
-                descriptionClassName="mt-4 max-w-sm text-base font-light text-zinc-100"
+                descriptionClassName="mt-4 max-w-sm text-sm font-light text-zinc-100"
               />
             </ScrollReveal>
 
             <ScrollReveal delay={0.15} className="flex flex-col gap-4">
               <div className="rounded border border-zinc-700 bg-zinc-800/90 px-5 py-4 sm:px-8 sm:py-5">
-                <p className="text-sm text-white">一般選抜</p>
-                <p className="mt-1 text-lg font-medium text-white">
+                <p className="text-xs text-white">一般選抜</p>
+                <p className="mt-1 text-base font-medium text-white">
                   2027年1月 出願開始
                 </p>
               </div>
               <div className="rounded border border-zinc-700 bg-zinc-800/90 px-5 py-4 sm:px-8 sm:py-5">
-                <p className="text-sm text-white">総合型選抜</p>
-                <p className="mt-1 text-lg font-medium text-white">
+                <p className="text-xs text-white">総合型選抜</p>
+                <p className="mt-1 text-base font-medium text-white">
                   2026年9月 出願開始
                 </p>
               </div>
@@ -389,7 +389,7 @@ export default async function Home() {
                 align="center"
                 tone="dark"
                 className=""
-                titleClassName="text-lg font-semibold tracking-tight text-white sm:text-3xl"
+                titleClassName="text-base font-semibold tracking-tight text-white sm:text-3xl"
               />
               <Link
                 href="/access"
@@ -404,10 +404,10 @@ export default async function Home() {
             <div className="rounded-md border border-zinc-700 bg-zinc-900/90 p-4 sm:p-12">
               <div className="grid gap-6 sm:grid-cols-2 sm:gap-8">
                 <div>
-                  <h3 className="mb-4 text-lg font-semibold text-white">
+                  <h3 className="mb-4 text-base font-semibold text-white">
                     やわらか大学 本キャンパス
                   </h3>
-                  <address className="text-sm leading-loose text-white/75 not-italic">
+                  <address className="text-xs leading-loose text-white/75 not-italic">
                     〒000-0000
                     <br />
                     やわらか県やわらか市やわらか町 1-1-1
@@ -418,10 +418,10 @@ export default async function Home() {
                   </address>
                 </div>
                 <div>
-                  <h3 className="mb-4 text-lg font-semibold text-white">
+                  <h3 className="mb-4 text-base font-semibold text-white">
                     交通アクセス
                   </h3>
-                  <ul className="text-sm leading-loose text-white/75">
+                  <ul className="text-xs leading-loose text-white/75">
                     <li>JR やわらか線「やわらか駅」より徒歩 5 分</li>
                     <li>地下鉄「やわらか大学前駅」より徒歩 2 分</li>
                     <li>バス「やわらか大学」停留所 すぐ</li>

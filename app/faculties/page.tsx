@@ -53,17 +53,17 @@ export default async function FacultiesPage({
           >
             <ScrollReveal>
               <div className="mb-5 flex items-start gap-4 sm:mb-12 sm:gap-6">
-                <span className="text-accent-300 text-4xl leading-none font-bold sm:text-6xl">
+                <span className="text-accent-300 text-3xl leading-none font-bold sm:text-6xl">
                   {f.number}
                 </span>
                 <div>
                   <p className="mb-1 text-xs tracking-widest text-stone-400 uppercase">
                     {f.en}
                   </p>
-                  <h2 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
+                  <h2 className="text-lg font-semibold tracking-tight text-zinc-900 sm:text-4xl">
                     {f.name}
                   </h2>
-                  <p className="mt-2 text-lg font-light text-stone-500">
+                  <p className="mt-2 text-base font-light text-stone-500">
                     {f.tagline}
                   </p>
                 </div>
@@ -92,10 +92,10 @@ export default async function FacultiesPage({
                     }`}
                   >
                     <div className="bg-accent-300 mb-3 h-1 w-6 rounded" />
-                    <h3 className="mb-2 text-base font-semibold text-zinc-900">
+                    <h3 className="mb-2 text-sm font-semibold text-zinc-900">
                       {d.name}
                     </h3>
-                    <p className="text-sm leading-relaxed text-stone-500">
+                    <p className="text-xs leading-relaxed text-stone-500">
                       {d.body}
                     </p>
                   </div>
@@ -142,10 +142,10 @@ export default async function FacultiesPage({
                 <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School I
                 </p>
-                <h3 className="mb-3 text-lg font-semibold text-white">
+                <h3 className="mb-3 text-base font-semibold text-white">
                   理工情報学研究科
                 </h3>
-                <p className="mb-5 text-sm leading-relaxed text-zinc-100">
+                <p className="mb-5 text-xs leading-relaxed text-zinc-100">
                   理学部・工学部・情報科学部の学知を統合。
                   数理・物質・エネルギー・情報技術が交差する最前線で、
                   次世代の理工系研究者・高度技術者を育成します。
@@ -200,10 +200,10 @@ export default async function FacultiesPage({
                 <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School II
                 </p>
-                <h3 className="mb-3 text-lg font-semibold text-white">
+                <h3 className="mb-3 text-base font-semibold text-white">
                   生命農学・医科学研究科
                 </h3>
-                <p className="mb-5 text-sm leading-relaxed text-zinc-100">
+                <p className="mb-5 text-xs leading-relaxed text-zinc-100">
                   農学部・医学部の学知を統合。
                   食料・生命・疾病の複雑なメカニズムを多角的に探究し、
                   持続可能な食と健康の未来を担う研究者・医療科学者を育てます。
@@ -256,10 +256,10 @@ export default async function FacultiesPage({
           {/* 共通情報 */}
           <ScrollReveal delay={0.25}>
             <div className="mt-8 rounded-md border border-white/15 bg-zinc-950/55 p-4 sm:p-8">
-              <h3 className="mb-4 text-base font-semibold text-white">
+              <h3 className="mb-4 text-sm font-semibold text-white">
                 共通の特色・支援制度
               </h3>
-              <ul className="grid gap-2 text-sm text-zinc-100 sm:grid-cols-2">
+              <ul className="grid gap-2 text-xs text-zinc-100 sm:grid-cols-2">
                 {[
                   "RA・TA 制度による授業料免除（成績優秀者）",
                   "国際学会発表費用の全額支援",

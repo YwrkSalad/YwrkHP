@@ -92,10 +92,10 @@ export default function ResearchPage() {
             {centers.map((c, i) => (
               <ScrollReveal key={c.name} delay={i * 0.09}>
                 <div className="rounded-md border border-stone-100 bg-stone-50 p-4 sm:p-7">
-                  <h3 className="mb-3 text-base leading-snug font-semibold text-zinc-900">
+                  <h3 className="mb-3 text-sm leading-snug font-semibold text-zinc-900">
                     {c.name}
                   </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-stone-500">
+                  <p className="mb-4 text-xs leading-relaxed text-stone-500">
                     {c.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -122,7 +122,7 @@ export default function ResearchPage() {
                   <span className="w-20 shrink-0 rounded bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
                     {p.type}
                   </span>
-                  <span className="flex-1 text-sm font-medium text-zinc-800">
+                  <span className="flex-1 text-xs font-medium text-zinc-800">
                     {p.name}
                   </span>
                   <span className="text-xs text-stone-400">{p.detail}</span>

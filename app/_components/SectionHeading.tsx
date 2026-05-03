@@ -38,7 +38,7 @@ export default function SectionHeading({
       <h2
         className={
           titleClassName ??
-          `text-lg font-semibold tracking-tight ${
+          `text-base font-semibold tracking-tight ${
             isDark ? "text-white" : "text-zinc-900"
           } sm:text-4xl`
         }
@@ -49,7 +49,7 @@ export default function SectionHeading({
         <p
           className={
             descriptionClassName ??
-            `mt-3 text-sm font-light ${
+            `mt-3 text-xs font-light ${
               isDark ? "text-white/75" : "text-stone-500"
             } sm:mt-4 sm:text-base`
           }

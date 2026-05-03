@@ -112,10 +112,10 @@ export default function AccessPage() {
             {campuses.map((c, i) => (
               <ScrollReveal key={c.name} delay={i * 0.1} className="h-full">
                 <div className="h-full rounded-md border border-stone-200 bg-white p-4 sm:p-8">
-                  <h3 className="mb-4 text-lg font-semibold text-zinc-900">
+                  <h3 className="mb-4 text-base font-semibold text-zinc-900">
                     {c.name}
                   </h3>
-                  <address className="mb-5 text-sm leading-loose text-stone-700 not-italic">
+                  <address className="mb-5 text-xs leading-loose text-stone-700 not-italic">
                     {c.zip}
                     <br />
                     {c.address}
@@ -125,7 +125,7 @@ export default function AccessPage() {
                     Email:{" "}
                     <a
                       href={`mailto:${c.email}`}
-                      className="text-accent-700 hover:text-accent-800 underline underline-offset-2"
+                      className="text-accent-700 hover:text-accent-800 underline underline-offset-2 text-xs"
                     >
                       {c.email}
                     </a>
@@ -166,11 +166,11 @@ export default function AccessPage() {
                   <tr key={r.means} className="border-t border-stone-300">
                     <th
                       scope="row"
-                      className="w-32 shrink-0 py-5 pr-8 text-left align-top text-xs font-semibold text-zinc-700 sm:w-40"
+                      className="w-28 shrink-0 py-5 pr-8 text-left align-top text-xs font-semibold text-zinc-700 sm:w-40"
                     >
                       {r.means}
                     </th>
-                    <td className="py-5 text-stone-700">
+                    <td className="py-5 text-xs text-stone-700">
                       <ul className="space-y-1.5">
                         {r.items.map((text, j) => (
                           <li key={j}>{text}</li>

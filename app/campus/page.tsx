@@ -166,7 +166,7 @@ export default function CampusPage() {
                   <ul className="space-y-2.5">
                     {c.list.map((club) => (
                       <li key={club.name}>
-                        <span className="text-sm text-stone-700">
+                        <span className="text-xs text-stone-700">
                           {club.name}
                         </span>
                         {club.note && (
@@ -224,11 +224,11 @@ export default function CampusPage() {
             {overseas.map((o, i) => (
               <ScrollReveal key={o.country} delay={i * 0.08}>
                 <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-6 text-center">
-                  <p className="text-lg font-semibold text-zinc-900">
+                  <p className="text-base font-semibold text-zinc-900">
                     {o.universities}
                   </p>
                   <p className="text-xs text-stone-500">協定校</p>
-                  <p className="mt-2 text-sm font-medium text-zinc-700">
+                  <p className="mt-2 text-xs font-medium text-zinc-700">
                     {o.country}
                   </p>
                   <div className="mt-3 flex flex-wrap justify-center gap-1">

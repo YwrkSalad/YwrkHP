@@ -96,12 +96,12 @@ export default function AdmissionsPage() {
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {m.en}
                       </p>
-                      <h3 className="mt-1 text-lg font-semibold text-zinc-900">
+                      <h3 className="mt-1 text-base font-semibold text-zinc-900">
                         {m.name}
                       </h3>
                     </div>
                   </div>
-                  <p className="mb-4 sm:mb-6 text-sm leading-relaxed text-stone-700">
+                  <p className="mb-4 sm:mb-6 text-xs leading-relaxed text-stone-700">
                     {m.description}
                   </p>
                   <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
@@ -133,8 +133,8 @@ export default function AdmissionsPage() {
                     key={t.item}
                     className="flex justify-between gap-4 px-4 py-3 sm:px-6"
                   >
-                    <span className="text-sm text-stone-700">{t.item}</span>
-                    <span className="text-sm font-medium text-zinc-800">
+                    <span className="text-xs text-stone-700">{t.item}</span>
+                    <span className="text-xs font-medium text-zinc-800">
                       {t.amount}
                     </span>
                   </div>
@@ -145,12 +145,12 @@ export default function AdmissionsPage() {
 
           <ScrollReveal delay={0.15}>
             <div className="bg-accent-800 border-accent-700 rounded-md border p-4 text-white sm:p-8">
-              <h3 className="mb-3 text-base font-semibold sm:text-lg">やわらか奨学金制度</h3>
-              <p className="text-accent-200 mb-4 text-sm leading-relaxed">
+              <h3 className="mb-3 text-sm font-semibold sm:text-lg">やわらか奨学金制度</h3>
+              <p className="text-accent-200 mb-4 text-xs leading-relaxed">
                 経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
                 入試成績優秀者には授業料の最大全額免除が適用されます。
               </p>
-              <ul className="text-accent-200 space-y-1 text-sm">
+              <ul className="text-accent-200 space-y-1 text-xs">
                 <li>• 特待生奨学金（授業料全額）：各学部5名</li>
                 <li>• 優秀生奨学金（授業料半額）：各学部10名</li>
                 <li>• 経済支援奨学金（月額3万円）：随時申請可</li>
@@ -160,8 +160,8 @@ export default function AdmissionsPage() {
 
           <ScrollReveal delay={0.2}>
             <div className="bg-accent-800 border-accent-700 mt-6 rounded-md border p-4 text-white sm:p-8">
-              <h3 className="mb-3 text-base font-semibold sm:text-lg">ゲスト制度</h3>
-              <p className="text-accent-200 text-sm leading-relaxed">
+              <h3 className="mb-3 text-sm font-semibold sm:text-lg">ゲスト制度</h3>
+              <p className="text-accent-200 text-xs leading-relaxed">
                 本学の学生・教職員など大学関係者を通じて事前にゲスト登録を行うと、
                 優待料金で入学できます。ゲスト登録時の入学料は 3,000円 +
                 1ドリンクです。
