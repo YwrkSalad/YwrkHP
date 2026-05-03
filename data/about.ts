@@ -72,7 +72,7 @@ export const board = [
   {
     role: "教務",
     name: "sa2e",
-    note: "教務課",
+    note: "教務課 / 学務・教務",
     href: "/academic",
   },
 ];
