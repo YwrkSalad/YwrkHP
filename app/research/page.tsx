@@ -118,7 +118,7 @@ export default function ResearchPage() {
           <div className="divide-y divide-stone-100 rounded-md bg-white">
             {partnerships.map((p, i) => (
               <ScrollReveal key={p.name} delay={i * 0.07}>
-                <div className="flex flex-col gap-2 px-8 py-5 sm:flex-row sm:items-center sm:gap-6">
+                <div className="flex flex-col gap-2 px-4 py-4 sm:flex-row sm:items-center sm:gap-6 sm:px-8 sm:py-5">
                   <span className="w-20 shrink-0 rounded bg-stone-100 px-3 py-0.5 text-center text-xs text-stone-500">
                     {p.type}
                   </span>

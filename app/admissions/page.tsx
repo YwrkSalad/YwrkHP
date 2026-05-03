@@ -131,7 +131,7 @@ export default function AdmissionsPage() {
                 {tuition.map((t) => (
                   <div
                     key={t.item}
-                    className="flex justify-between gap-4 px-4 py-4 sm:px-6"
+                    className="flex justify-between gap-4 px-4 py-3 sm:px-6"
                   >
                     <span className="text-sm text-stone-700">{t.item}</span>
                     <span className="text-sm font-medium text-zinc-800">

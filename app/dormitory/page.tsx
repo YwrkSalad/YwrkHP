@@ -222,7 +222,7 @@ export default function DormitoryPage() {
                 {fees.map((f) => (
                   <div
                     key={f.item}
-                    className="flex flex-col gap-0.5 px-8 py-4 sm:flex-row sm:items-center sm:justify-between"
+                    className="flex flex-col gap-0.5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-4"
                   >
                     <div>
                       <span className="text-sm text-stone-700">{f.item}</span>
