@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Image from "next/image";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
@@ -7,7 +8,6 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
-import LabelValueRow from "../_components/LabelValueRow";
 import TagBadge from "../_components/TagBadge";
 
 export const metadata: Metadata = { title: "学生寮" };
@@ -187,9 +187,16 @@ export default function DormitoryPage() {
                     <p className="mb-6 text-sm leading-relaxed text-stone-700">
                       {d.description}
                     </p>
-                    <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
-                      {d.features.map((f) => (
-                        <LabelValueRow key={f.label} label={f.label} value={f.value} labelWidth="w-28" />
+                    <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
+                      {d.features.map((f, i) => (
+                        <Fragment key={f.label}>
+                          <span className={`px-5 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
+                            {f.label}
+                          </span>
+                          <span className={`px-5 py-3 text-sm text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
+                            {f.value}
+                          </span>
+                        </Fragment>
                       ))}
                     </div>
                   </div>
