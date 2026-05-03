@@ -52,19 +52,19 @@ export const board = [
     href: "/faculties?department=agriculture-joint-veterinary#agriculture",
   },
   {
-    role: "看護学担当",
+    role: "看護学",
     name: "寿司",
     note: "医学部保健学科教授 / 看護学",
     href: "/faculties?department=medicine-health-sciences#medicine",
   },
   {
-    role: "物理学担当",
+    role: "物理学",
     name: "しじみ",
     note: "理学部物理学科教授 / 量子物性物理学",
     href: "/faculties?department=science-physics#science",
   },
   {
-    role: "デザイン担当",
+    role: "デザイン",
     name: "繭子",
     note: "情報科学部デザイン科教授 / UI・情報デザイン",
     href: "/faculties?department=information-science-design#information-science",
