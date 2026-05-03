@@ -30,19 +30,19 @@ export const board = [
   {
     role: "学長",
     name: "やわらか",
-    note: "理学部教授 / 数理物理学",
+    note: "理学部物理学科教授 / 数理物理学",
     href: "/faculties?department=science-physics#science",
   },
   {
     role: "副学長（教育）",
     name: "すき",
-    note: "工学部教授 / 情報システム工学",
+    note: "工学部電気情報工学科教授 / 情報システム工学",
     href: "/faculties?department=engineering-electrical-information#engineering",
   },
   {
     role: "副学長（情報基盤）",
     name: "える",
-    note: "情報科学部教授 / 情報基盤",
+    note: "情報科学部情報工学科教授 / 情報基盤",
     href: "/faculties?department=information-science-information-engineering#information-science",
   },
   {
