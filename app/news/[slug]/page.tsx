@@ -8,6 +8,44 @@ import PageTracker from "../../_components/PageTracker";
 import PageSection from "../../_components/PageSection";
 import { news } from "../../../data/news";
 
+function renderInlineText(text: string) {
+  const urlPattern = /\[url\](.*?)\[\/url\]/g;
+  const nodes: Array<React.ReactNode> = [];
+
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = urlPattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(
+        <span key={`text-${lastIndex}`}>
+          {text.slice(lastIndex, match.index)}
+        </span>,
+      );
+    }
+
+    const url = match[1];
+    nodes.push(
+      <a
+        key={`url-${match.index}`}
+        href={url}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="text-accent-600 decoration-accent-300 hover:text-accent-700 hover:decoration-accent-500 underline underline-offset-2 transition-colors"
+      >
+        {url}
+      </a>,
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex)}</span>);
+  }
+
+  return nodes;
+}
+
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
@@ -97,7 +135,7 @@ export default async function NewsArticlePage({ params }: Props) {
                                 <span className="shrink-0 text-stone-400">
                                   –
                                 </span>
-                                <span>{line}</span>
+                                <span>{renderInlineText(line)}</span>
                               </li>
                             ))}
                           </ul>
@@ -111,7 +149,9 @@ export default async function NewsArticlePage({ params }: Props) {
                         {p.split("\n").map((line, j) => (
                           <li key={j} className="flex gap-2">
                             <span className="shrink-0 text-stone-400">–</span>
-                            <span>{line.replace(/^[-・]\s*/, "")}</span>
+                            <span>
+                              {renderInlineText(line.replace(/^[-・]\s*/, ""))}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -140,13 +180,13 @@ export default async function NewsArticlePage({ params }: Props) {
                         {lines.map((line, j) => (
                           <li key={j} className="flex gap-2">
                             <span className="shrink-0 text-stone-400">–</span>
-                            <span>{line}</span>
+                            <span>{renderInlineText(line)}</span>
                           </li>
                         ))}
                       </ul>
                     );
                   }
-                  return <p key={i}>{p}</p>;
+                  return <p key={i}>{renderInlineText(p)}</p>;
                 })}
               </div>
             </ScrollReveal>

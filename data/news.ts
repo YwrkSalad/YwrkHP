@@ -48,13 +48,13 @@ export const news: NewsItem[] = [
 
 ■ 参加申し込み
 
-不要です
+参加登録フォーム：[url]https://ywrk.org/forms/open-campus-2026[/url]
 
 ■ アクセス
 
 秋葉原キャンパスへのアクセス方法については、決定次第お知らせいたします。交通アクセスの詳細は以下のページをご参照ください。
 
-https://ywrk.org/access
+[url]https://ywrk.org/access[/url]
 
 ■ よくある質問
 
