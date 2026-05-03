@@ -29,6 +29,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: item.body.split("\n\n")[0],
       url: `https://ywrk.org/news/${slug}`,
       type: "article",
+      images: [
+        {
+          url: "/OGP/OGP_1200x630.png",
+          width: 1200,
+          height: 630,
+          alt: "やわらか大学",
+        },
+      ],
     },
   };
 }
