@@ -20,7 +20,7 @@ export default function StatBlock({
     );
   }
   return (
-    <div className="bg-accent-50 border-accent-100 rounded-md border p-4 sm:p-6 text-center">
+    <div className="bg-accent-50 border-accent-100 rounded-md border p-4 text-center sm:p-6">
       <p className="text-accent-700 text-xl font-semibold sm:text-3xl">
         {num}
         {unit && <span className="text-base text-stone-400">{unit}</span>}

@@ -223,7 +223,7 @@ export default function CampusPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {overseas.map((o, i) => (
               <ScrollReveal key={o.country} delay={i * 0.08}>
-                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-6 text-center">
+                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 text-center sm:p-6">
                   <p className="text-base font-semibold text-zinc-900">
                     {o.universities}
                   </p>

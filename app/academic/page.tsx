@@ -35,15 +35,24 @@ const procedures = [
       { label: "申請窓口", value: "教務課窓口（直接持参）" },
       { label: "休学申請期限", value: "前期：4月末 / 後期：9月末" },
       { label: "必要書類", value: "所定申請書・理由書・保証人署名書類" },
-      { label: "許可基準", value: "指導教員・学部長の承認後、教務委員会で審議" },
+      {
+        label: "許可基準",
+        value: "指導教員・学部長の承認後、教務委員会で審議",
+      },
     ],
   },
   {
     title: "卒業・修了認定",
     items: [
       { label: "卒業判定時期", value: "2月中旬（前期卒業：9月中旬）" },
-      { label: "必要単位数", value: "学部・学科の卒業要件による（124〜188単位）" },
-      { label: "確認方法", value: "YWRK Portal の「卒業要件チェック」で随時確認可" },
+      {
+        label: "必要単位数",
+        value: "学部・学科の卒業要件による（124〜188単位）",
+      },
+      {
+        label: "確認方法",
+        value: "YWRK Portal の「卒業要件チェック」で随時確認可",
+      },
       { label: "卒業式", value: "3月下旬（学部） / 9月下旬（大学院）" },
     ],
   },
@@ -73,23 +82,37 @@ export default function AcademicPage() {
         {/* 窓口案内 */}
         <PageSection id="counter">
           <ScrollReveal>
-            <SectionHeading eyebrow="Counter" title="窓口案内" className="mb-7 sm:mb-12" />
+            <SectionHeading
+              eyebrow="Counter"
+              title="窓口案内"
+              className="mb-7 sm:mb-12"
+            />
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-8">
-                <p className="mb-4 text-xs font-medium tracking-widest text-stone-500 uppercase">Location</p>
-                <p className="text-sm font-semibold text-zinc-900">総合管理棟 1階</p>
-                <p className="mt-1 text-xs text-stone-500">本キャンパス中央棟1F 教務課窓口</p>
+                <p className="mb-4 text-xs font-medium tracking-widest text-stone-500 uppercase">
+                  Location
+                </p>
+                <p className="text-sm font-semibold text-zinc-900">
+                  総合管理棟 1階
+                </p>
+                <p className="mt-1 text-xs text-stone-500">
+                  本キャンパス中央棟1F 教務課窓口
+                </p>
               </div>
               <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-8">
-                <p className="mb-4 text-xs font-medium tracking-widest text-stone-500 uppercase">Hours</p>
+                <p className="mb-4 text-xs font-medium tracking-widest text-stone-500 uppercase">
+                  Hours
+                </p>
                 <div className="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1.5 text-xs">
                   <span className="text-stone-500">月〜金</span>
                   <span className="text-zinc-700">9:00〜17:00</span>
                   <span className="text-stone-500">昼休み</span>
-                  <span className="text-zinc-700">12:00〜13:00（窓口休止）</span>
+                  <span className="text-zinc-700">
+                    12:00〜13:00（窓口休止）
+                  </span>
                   <span className="text-stone-500">土・日・祝</span>
                   <span className="text-zinc-700">休業</span>
                   <span className="text-stone-500">Email</span>
@@ -103,20 +126,42 @@ export default function AcademicPage() {
         {/* 証明書発行 */}
         <PageSection id="certificates" className="bg-stone-100 py-8 sm:py-24">
           <ScrollReveal>
-            <SectionHeading eyebrow="Certificates" title="証明書発行" className="mb-7 sm:mb-12" />
+            <SectionHeading
+              eyebrow="Certificates"
+              title="証明書発行"
+              className="mb-7 sm:mb-12"
+            />
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <div className="overflow-hidden rounded-md border border-stone-200 bg-white">
               <div className="grid grid-cols-[1fr_max-content_max-content]">
-                <div className="border-b border-stone-200 px-4 py-2.5 text-xs font-medium text-stone-500">証明書名</div>
-                <div className="border-b border-stone-200 px-4 py-2.5 text-xs font-medium text-stone-500">発行日数</div>
-                <div className="border-b border-stone-200 px-4 py-2.5 text-xs font-medium text-stone-500">手数料</div>
+                <div className="border-b border-stone-200 px-4 py-2.5 text-xs font-medium text-stone-500">
+                  証明書名
+                </div>
+                <div className="border-b border-stone-200 px-4 py-2.5 text-xs font-medium text-stone-500">
+                  発行日数
+                </div>
+                <div className="border-b border-stone-200 px-4 py-2.5 text-xs font-medium text-stone-500">
+                  手数料
+                </div>
                 {certificates.map((c, i) => (
                   <Fragment key={c.name}>
-                    <span className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>{c.name}</span>
-                    <span className={`px-4 py-3 text-xs text-stone-500 tabular-nums${i > 0 ? " border-t border-stone-200" : ""}`}>{c.days}</span>
-                    <span className={`px-4 py-3 text-xs text-stone-500 tabular-nums${i > 0 ? " border-t border-stone-200" : ""}`}>{c.fee}</span>
+                    <span
+                      className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? "border-t border-stone-200" : ""}`}
+                    >
+                      {c.name}
+                    </span>
+                    <span
+                      className={`px-4 py-3 text-xs text-stone-500 tabular-nums${i > 0 ? "border-t border-stone-200" : ""}`}
+                    >
+                      {c.days}
+                    </span>
+                    <span
+                      className={`px-4 py-3 text-xs text-stone-500 tabular-nums${i > 0 ? "border-t border-stone-200" : ""}`}
+                    >
+                      {c.fee}
+                    </span>
                   </Fragment>
                 ))}
               </div>
@@ -125,7 +170,8 @@ export default function AcademicPage() {
 
           <ScrollReveal delay={0.15}>
             <p className="mt-4 text-xs leading-relaxed text-stone-400">
-              ※ 即日発行は窓口受付15:30までの申請が対象。郵送での取り寄せは別途対応。
+              ※
+              即日発行は窓口受付15:30までの申請が対象。郵送での取り寄せは別途対応。
             </p>
           </ScrollReveal>
         </PageSection>
@@ -140,12 +186,22 @@ export default function AcademicPage() {
             {procedures.map((p, i) => (
               <ScrollReveal key={p.title} delay={i * 0.08}>
                 <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-8">
-                  <h3 className="mb-4 sm:mb-6 text-base font-semibold text-zinc-900">{p.title}</h3>
+                  <h3 className="mb-4 text-base font-semibold text-zinc-900 sm:mb-6">
+                    {p.title}
+                  </h3>
                   <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
                     {p.items.map((item, j) => (
                       <Fragment key={item.label}>
-                        <span className={`pl-4 py-3 text-xs text-stone-500 whitespace-nowrap${j > 0 ? " border-t border-stone-200" : ""}`}>{item.label}</span>
-                        <span className={`px-4 py-3 text-xs text-zinc-700${j > 0 ? " border-t border-stone-200" : ""}`}>{item.value}</span>
+                        <span
+                          className={`py-3 pl-4 text-xs text-stone-500 whitespace-nowrap${j > 0 ? "border-t border-stone-200" : ""}`}
+                        >
+                          {item.label}
+                        </span>
+                        <span
+                          className={`px-4 py-3 text-xs text-zinc-700${j > 0 ? "border-t border-stone-200" : ""}`}
+                        >
+                          {item.value}
+                        </span>
                       </Fragment>
                     ))}
                   </div>
@@ -158,17 +214,26 @@ export default function AcademicPage() {
         {/* 学年暦 */}
         <PageSection id="calendar" className="bg-stone-100 py-8 sm:py-24">
           <ScrollReveal>
-            <SectionHeading eyebrow="Academic Calendar" title="学年暦" className="mb-7 sm:mb-12" />
+            <SectionHeading
+              eyebrow="Academic Calendar"
+              title="学年暦"
+              className="mb-7 sm:mb-12"
+            />
           </ScrollReveal>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {calendar.map((c, i) => (
               <ScrollReveal key={c.month} delay={i * 0.07}>
                 <div className="rounded-md border border-stone-200 bg-white p-4 sm:p-6">
-                  <p className="text-accent-600 mb-3 text-base font-semibold">{c.month}</p>
+                  <p className="text-accent-600 mb-3 text-base font-semibold">
+                    {c.month}
+                  </p>
                   <ul className="space-y-1">
                     {c.events.map((ev) => (
-                      <li key={ev} className="flex gap-2 text-xs text-stone-600">
+                      <li
+                        key={ev}
+                        className="flex gap-2 text-xs text-stone-600"
+                      >
                         <span className="text-stone-300">–</span>
                         {ev}
                       </li>

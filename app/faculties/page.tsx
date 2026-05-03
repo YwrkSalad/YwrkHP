@@ -129,7 +129,12 @@ export default async function FacultiesPage({
                 { num: "30%", label: "外国人留学生比率" },
                 { num: "12", label: "海外共同博士プログラム" },
               ].map((s) => (
-                <StatBlock key={s.label} num={s.num} label={s.label} tone="dark" />
+                <StatBlock
+                  key={s.label}
+                  num={s.num}
+                  label={s.label}
+                  tone="dark"
+                />
               ))}
             </div>
           </ScrollReveal>
@@ -188,7 +193,9 @@ export default async function FacultiesPage({
                     "ロボティクス",
                     "マテリアルズインフォマティクス",
                   ].map((t) => (
-                    <TagBadge key={t} variant="dark">{t}</TagBadge>
+                    <TagBadge key={t} variant="dark">
+                      {t}
+                    </TagBadge>
                   ))}
                 </div>
               </div>
@@ -246,7 +253,9 @@ export default async function FacultiesPage({
                     "食品機能科学",
                     "環境毒性学",
                   ].map((t) => (
-                    <TagBadge key={t} variant="dark">{t}</TagBadge>
+                    <TagBadge key={t} variant="dark">
+                      {t}
+                    </TagBadge>
                   ))}
                 </div>
               </div>

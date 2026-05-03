@@ -184,16 +184,20 @@ export default function DormitoryPage() {
                         <TagBadge variant="stone">{d.capacity}</TagBadge>
                       </div>
                     </div>
-                    <p className="mb-4 sm:mb-6 text-xs leading-relaxed text-stone-700">
+                    <p className="mb-4 text-xs leading-relaxed text-stone-700 sm:mb-6">
                       {d.description}
                     </p>
                     <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
                       {d.features.map((f, i) => (
                         <Fragment key={f.label}>
-                          <span className={`pl-4 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
+                          <span
+                            className={`py-3 pl-4 text-xs text-stone-500 whitespace-nowrap${i > 0 ? "border-t border-stone-200" : ""}`}
+                          >
                             {f.label}
                           </span>
-                          <span className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
+                          <span
+                            className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? "border-t border-stone-200" : ""}`}
+                          >
                             {f.value}
                           </span>
                         </Fragment>
@@ -271,7 +275,9 @@ export default function DormitoryPage() {
 
           <ScrollReveal delay={0.2}>
             <div className="bg-accent-800 mt-10 rounded-md p-4 text-white sm:p-8">
-              <h3 className="mb-2 text-sm font-semibold sm:text-lg">お問い合わせ</h3>
+              <h3 className="mb-2 text-sm font-semibold sm:text-lg">
+                お問い合わせ
+              </h3>
               <p className="text-accent-200 text-xs leading-relaxed">
                 学生寮に関するご質問は、厚生施設内の学生支援課（寮担当）までお気軽にどうぞ。
                 見学は随時受け付けています（事前予約制）。

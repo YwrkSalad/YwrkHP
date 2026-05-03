@@ -53,7 +53,7 @@ export default function AboutPage() {
             </ScrollReveal>
 
             {/* 本文 */}
-            <div className="space-y-5 sm:space-y-8 text-sm leading-loose font-light text-stone-600">
+            <div className="space-y-5 text-sm leading-loose font-light text-stone-600 sm:space-y-8">
               <ScrollReveal delay={0.1}>
                 <blockquote className="border-accent-300 border-l-2 pl-6">
                   <p className="text-base leading-snug font-semibold tracking-tight text-zinc-900 sm:text-2xl">
@@ -144,7 +144,7 @@ export default function AboutPage() {
 
           {/* 役員・教授 */}
           <ScrollReveal>
-            <h3 className="mb-4 sm:mb-6 text-lg font-semibold text-zinc-900">
+            <h3 className="mb-4 text-lg font-semibold text-zinc-900 sm:mb-6">
               役員・教授一覧
             </h3>
           </ScrollReveal>

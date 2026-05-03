@@ -125,7 +125,7 @@ export default function AccessPage() {
                     Email:{" "}
                     <a
                       href={`mailto:${c.email}`}
-                      className="text-accent-700 hover:text-accent-800 underline underline-offset-2 text-xs"
+                      className="text-accent-700 hover:text-accent-800 text-xs underline underline-offset-2"
                     >
                       {c.email}
                     </a>

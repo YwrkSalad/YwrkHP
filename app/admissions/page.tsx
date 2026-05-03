@@ -91,7 +91,7 @@ export default function AdmissionsPage() {
             {methods.map((m, i) => (
               <ScrollReveal key={m.name} delay={i * 0.1}>
                 <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-8">
-                  <div className="mb-4 sm:mb-6 flex items-start gap-4">
+                  <div className="mb-4 flex items-start gap-4 sm:mb-6">
                     <div>
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {m.en}
@@ -101,16 +101,20 @@ export default function AdmissionsPage() {
                       </h3>
                     </div>
                   </div>
-                  <p className="mb-4 sm:mb-6 text-xs leading-relaxed text-stone-700">
+                  <p className="mb-4 text-xs leading-relaxed text-stone-700 sm:mb-6">
                     {m.description}
                   </p>
                   <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
                     {m.schedule.map((s, i) => (
                       <Fragment key={s.label}>
-                        <span className={`pl-4 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
+                        <span
+                          className={`py-3 pl-4 text-xs text-stone-500 whitespace-nowrap${i > 0 ? "border-t border-stone-200" : ""}`}
+                        >
                           {s.label}
                         </span>
-                        <span className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
+                        <span
+                          className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? "border-t border-stone-200" : ""}`}
+                        >
                           {s.value}
                         </span>
                       </Fragment>
@@ -133,7 +137,7 @@ export default function AdmissionsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="mb-6 sm:mb-10 rounded-md border border-stone-200 bg-white">
+            <div className="mb-6 rounded-md border border-stone-200 bg-white sm:mb-10">
               <div className="divide-y divide-stone-200">
                 {tuition.map((t) => (
                   <div
@@ -152,7 +156,9 @@ export default function AdmissionsPage() {
 
           <ScrollReveal delay={0.15}>
             <div className="bg-accent-800 border-accent-700 rounded-md border p-4 text-white sm:p-8">
-              <h3 className="mb-3 text-sm font-semibold sm:text-lg">やわらか奨学金制度</h3>
+              <h3 className="mb-3 text-sm font-semibold sm:text-lg">
+                やわらか奨学金制度
+              </h3>
               <p className="text-accent-200 mb-4 text-xs leading-relaxed">
                 経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
                 入試成績優秀者には授業料の最大全額免除が適用されます。
@@ -167,7 +173,9 @@ export default function AdmissionsPage() {
 
           <ScrollReveal delay={0.2}>
             <div className="bg-accent-800 border-accent-700 mt-6 rounded-md border p-4 text-white sm:p-8">
-              <h3 className="mb-3 text-sm font-semibold sm:text-lg">ゲスト制度</h3>
+              <h3 className="mb-3 text-sm font-semibold sm:text-lg">
+                ゲスト制度
+              </h3>
               <p className="text-accent-200 text-xs leading-relaxed">
                 本学の学生・教職員など大学関係者を通じて事前にゲスト登録を行うと、
                 優待料金で入学できます。ゲスト登録時の入学料は 3,000円 +

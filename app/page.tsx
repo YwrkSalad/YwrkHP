@@ -173,7 +173,7 @@ export default async function Home() {
               />
               <Link
                 href="/faculties"
-                className="mt-4 sm:mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
+                className="mt-4 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white sm:mt-6"
               >
                 学部・大学院を詳しく見る →
               </Link>
@@ -369,7 +369,7 @@ export default async function Home() {
               />
               <Link
                 href="/access"
-                className="mt-4 sm:mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
+                className="mt-4 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white sm:mt-6"
               >
                 アクセス詳細・キャンパスマップ →
               </Link>
