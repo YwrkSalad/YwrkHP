@@ -80,7 +80,7 @@ export default function Footer() {
   return (
     <PageSection as="footer" className="bg-zinc-900 py-8 sm:py-12">
       <div className="mb-6 grid grid-cols-2 gap-4 sm:mb-10 sm:grid-cols-5 sm:gap-8">
-        <div>
+        <div className="col-span-2 sm:col-span-1">
           <Link
             href="/"
             className="mb-3 block text-sm font-semibold text-white transition-colors hover:text-zinc-300"
