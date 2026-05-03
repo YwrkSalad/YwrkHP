@@ -56,8 +56,8 @@ export default function PageHero({
     <section
       className={
         variant === "lightImage"
-          ? "relative overflow-hidden px-4 py-12 sm:px-6 sm:py-20"
-          : "bg-stone-50 px-4 py-12 sm:px-6 sm:py-20"
+          ? "relative overflow-hidden px-4 py-8 sm:px-6 sm:py-20"
+          : "bg-stone-50 px-4 py-8 sm:px-6 sm:py-20"
       }
     >
       {variant === "lightImage" && imageSrc && (

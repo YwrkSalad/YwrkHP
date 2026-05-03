@@ -70,8 +70,8 @@ const footerCols: PageGroup[][] = [
 
 export default function Footer() {
   return (
-    <PageSection as="footer" className="bg-zinc-900 py-12">
-      <div className="mb-10 grid grid-cols-2 gap-6 sm:grid-cols-5 sm:gap-8">
+    <PageSection as="footer" className="bg-zinc-900 py-8 sm:py-12">
+      <div className="mb-6 grid grid-cols-2 gap-4 sm:mb-10 sm:grid-cols-5 sm:gap-8">
         <div>
           <Link
             href="/"
@@ -86,7 +86,7 @@ export default function Footer() {
           </p>
         </div>
         {footerCols.map((groups, ci) => (
-          <div key={ci} className="space-y-6">
+          <div key={ci} className="space-y-4 sm:space-y-6">
             {groups.map((g) => (
               <div key={g.page.href}>
                 <Link

@@ -38,7 +38,7 @@ export default function SectionHeading({
       <h2
         className={
           titleClassName ??
-          `text-xl font-semibold tracking-tight ${
+          `text-lg font-semibold tracking-tight ${
             isDark ? "text-white" : "text-zinc-900"
           } sm:text-4xl`
         }
