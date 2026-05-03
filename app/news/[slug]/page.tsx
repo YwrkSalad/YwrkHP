@@ -85,10 +85,24 @@ export default async function NewsArticlePage({ params }: Props) {
               <div className="space-y-5 text-sm leading-loose text-stone-700">
                 {paragraphs.map((p, i) => {
                   if (p.startsWith("■")) {
+                    const lines = p.split("\n").filter(Boolean);
+                    const [header, ...items] = lines;
                     return (
-                      <p key={i} className="font-semibold text-zinc-900">
-                        {p}
-                      </p>
+                      <div key={i}>
+                        <p className="font-semibold text-zinc-900">{header}</p>
+                        {items.length > 0 && (
+                          <ul className="mt-2 space-y-1 pl-1">
+                            {items.map((line, j) => (
+                              <li key={j} className="flex gap-2">
+                                <span className="shrink-0 text-stone-400">
+                                  –
+                                </span>
+                                <span>{line}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
                     );
                   }
                   if (p.startsWith("- ") || p.startsWith("・")) {
@@ -117,6 +131,19 @@ export default async function NewsArticlePage({ params }: Props) {
                           ),
                         )}
                       </div>
+                    );
+                  }
+                  const lines = p.split("\n").filter(Boolean);
+                  if (lines.length > 1) {
+                    return (
+                      <ul key={i} className="space-y-1 pl-1">
+                        {lines.map((line, j) => (
+                          <li key={j} className="flex gap-2">
+                            <span className="shrink-0 text-stone-400">–</span>
+                            <span>{line}</span>
+                          </li>
+                        ))}
+                      </ul>
                     );
                   }
                   return <p key={i}>{p}</p>;
