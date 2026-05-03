@@ -8,7 +8,18 @@ import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 import FeatureCard from "../_components/FeatureCard";
 
-export const metadata: Metadata = { title: "キャンパスライフ" };
+export const metadata: Metadata = {
+  title: "キャンパスライフ",
+  description:
+    "クラブ・サークル、キャンパス施設、国際交流・留学情報をご案内します。",
+  openGraph: {
+    title: "キャンパスライフ | やわらか大学",
+    description:
+      "クラブ・サークル、キャンパス施設、国際交流・留学情報をご案内します。",
+    url: "https://ywrk.org/campus",
+    type: "website",
+  },
+};
 
 type Club = { name: string; note?: string };
 

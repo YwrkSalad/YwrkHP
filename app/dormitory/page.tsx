@@ -10,7 +10,16 @@ import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 import TagBadge from "../_components/TagBadge";
 
-export const metadata: Metadata = { title: "学生寮" };
+export const metadata: Metadata = {
+  title: "学生寮",
+  description: "学生寮の紹介、寮費、申し込みの流れをご案内します。",
+  openGraph: {
+    title: "学生寮 | やわらか大学",
+    description: "学生寮の紹介、寮費、申し込みの流れをご案内します。",
+    url: "https://ywrk.org/dormitory",
+    type: "website",
+  },
+};
 
 const dorms = [
   {

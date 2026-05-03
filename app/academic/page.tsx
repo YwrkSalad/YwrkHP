@@ -8,7 +8,17 @@ import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 
-export const metadata: Metadata = { title: "教務課" };
+export const metadata: Metadata = {
+  title: "教務課",
+  description: "履修・学籍・証明書発行など、学習に関する手続きをご案内します。",
+  openGraph: {
+    title: "教務課 | やわらか大学",
+    description:
+      "履修・学籍・証明書発行など、学習に関する手続きをご案内します。",
+    url: "https://ywrk.org/academic",
+    type: "website",
+  },
+};
 
 const certificates = [
   { name: "在学証明書", days: "即日", fee: "200円" },

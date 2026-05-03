@@ -10,7 +10,18 @@ import StatBlock from "../_components/StatBlock";
 import TagBadge from "../_components/TagBadge";
 import { faculties } from "../../data/faculties";
 
-export const metadata: Metadata = { title: "学部・大学院" };
+export const metadata: Metadata = {
+  title: "学部・大学院",
+  description:
+    "5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。",
+  openGraph: {
+    title: "学部・大学院 | やわらか大学",
+    description:
+      "5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。",
+    url: "https://ywrk.org/faculties",
+    type: "website",
+  },
+};
 
 type FacultiesPageProps = {
   searchParams?: Promise<{

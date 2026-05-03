@@ -11,7 +11,16 @@ import SectionHeading from "../_components/SectionHeading";
 import StatBlock from "../_components/StatBlock";
 import { history, board, stats } from "../../data/about";
 
-export const metadata: Metadata = { title: "大学について" };
+export const metadata: Metadata = {
+  title: "大学について",
+  description: "やわらか大学の歴史、学長メッセージ、組織概要をご紹介します。",
+  openGraph: {
+    title: "大学について | やわらか大学",
+    description: "やわらか大学の歴史、学長メッセージ、組織概要をご紹介します。",
+    url: "https://ywrk.org/about",
+    type: "website",
+  },
+};
 
 export default function AboutPage() {
   return (

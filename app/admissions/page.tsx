@@ -8,7 +8,16 @@ import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 
-export const metadata: Metadata = { title: "入試情報" };
+export const metadata: Metadata = {
+  title: "入試情報",
+  description: "入試方式、学費・奨学金情報をご案内します。",
+  openGraph: {
+    title: "入試情報 | やわらか大学",
+    description: "入試方式、学費・奨学金情報をご案内します。",
+    url: "https://ywrk.org/admissions",
+    type: "website",
+  },
+};
 
 const methods = [
   {

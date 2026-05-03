@@ -8,7 +8,17 @@ import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 
-export const metadata: Metadata = { title: "アクセス" };
+export const metadata: Metadata = {
+  title: "アクセス",
+  description: "キャンパスマップ、キャンパス一覧、交通アクセスをご案内します。",
+  openGraph: {
+    title: "アクセス | やわらか大学",
+    description:
+      "キャンパスマップ、キャンパス一覧、交通アクセスをご案内します。",
+    url: "https://ywrk.org/access",
+    type: "website",
+  },
+};
 
 const routes = [
   {
