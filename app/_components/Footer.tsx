@@ -14,6 +14,14 @@ const footerCols: PageGroup[][] = [
         { label: "組織概要", href: "/about#organization" },
       ],
     },
+    {
+      page: { label: "教務課", href: "/academic" },
+      sections: [
+        { label: "窓口案内", href: "/academic#counter" },
+        { label: "証明書発行", href: "/academic#certificates" },
+        { label: "各種手続き", href: "/academic#procedures" },
+      ],
+    },
   ],
   [
     {
