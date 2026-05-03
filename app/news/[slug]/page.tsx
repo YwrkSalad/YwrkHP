@@ -21,12 +21,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: "記事が見つかりません",
     };
+  const title = item.title;
+  const description = item.body.split("\n\n")[0];
   return {
-    title: item.title,
-    description: item.body.split("\n\n")[0],
+    title,
+    description,
     openGraph: {
-      title: `${item.title} | やわらか大学`,
-      description: item.body.split("\n\n")[0],
+      title: `${title} | やわらか大学`,
+      description,
       url: `https://ywrk.org/news/${slug}`,
       type: "article",
       images: [
@@ -37,6 +39,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: "やわらか大学",
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/OGP/OGP_1200x630.png"],
     },
   };
 }
