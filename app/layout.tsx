@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | やわらか大学",
   },
   description: "やわらかな知性で、世界をひらく。",
-  icons: { icon: "/branding/logo.png" },
+  icons: { icon: "/favicon.ico" },
   openGraph: {
     title: "やわらか大学",
     description: "やわらかな知性で、世界をひらく。",
