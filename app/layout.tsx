@@ -38,8 +38,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: "やわらか大学",
+    alternateName: "Yawaraka University",
+    url: "https://ywrk.org",
+    logo: "https://ywrk.org/branding/logo.png",
+    description: "やわらかな知性で、世界をひらく。",
+    sameAs: [],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "000-000-0000",
+      contactType: "Customer Service",
+      email: "info@ywrk.org",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "やわらか町 1-1-1",
+      addressLocality: "やわらか市",
+      addressRegion: "やわらか県",
+      postalCode: "000-0000",
+      addressCountry: "JP",
+    },
+  };
+
   return (
     <html lang="ja">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
