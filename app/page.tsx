@@ -8,34 +8,7 @@ import PageSection from "./_components/PageSection";
 import SectionHeading from "./_components/SectionHeading";
 import TagBadge from "./_components/TagBadge";
 import FeatureCard from "./_components/FeatureCard";
-
-const news = [
-  {
-    date: "2026.04.08",
-    category: "お知らせ",
-    title: "2026年度 入学式を虚行しました",
-  },
-  {
-    date: "2026.03.25",
-    category: "入試情報",
-    title: "令和9年度 学生募集要項を開米しました",
-  },
-  {
-    date: "2026.03.10",
-    category: "研究",
-    title: "「やわらか知のフォーラム 2026」開催のご案内",
-  },
-  {
-    date: "2026.02.28",
-    category: "キャンパス",
-    title: "図書館の夜間開館時間が延長されました",
-  },
-  {
-    date: "2026.02.14",
-    category: "お知らせ",
-    title: "大学公式サイトをリニューアルしました",
-  },
-];
+import { news } from "../data/news";
 
 const faculties = [
   {
@@ -159,7 +132,10 @@ export default async function Home() {
             <div className="divide-accent-100 divide-y">
               {news.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
-                  <div className="flex min-w-max items-center gap-3 py-3 sm:gap-5 sm:py-4">
+                  <Link
+                    href={`/news/${item.slug}`}
+                    className="flex min-w-max items-center gap-3 py-3 transition-colors hover:bg-stone-50 sm:gap-5 sm:py-4"
+                  >
                     <span className="w-20 shrink-0 text-[10px] text-stone-400 sm:w-22 sm:text-xs">
                       {item.date}
                     </span>
@@ -169,7 +145,7 @@ export default async function Home() {
                     <span className="text-[10px] text-zinc-700 sm:text-sm">
                       {item.title}
                     </span>
-                  </div>
+                  </Link>
                 </ScrollReveal>
               ))}
             </div>
