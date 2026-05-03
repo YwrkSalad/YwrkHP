@@ -69,24 +69,40 @@ const clubs: { category: string; list: Club[] }[] = [
 
 const facilities = [
   {
-    name: "やわらか図書館",
+    name: "やわらか図書館・ラーニングコモンズ",
     description:
-      "蔵書30万冊、電子ジャーナル5万誌を擁する総合図書館。24時間利用可能なラーニングコモンズも併設しています。",
+      "蔵書30万冊、電子ジャーナル5万誌を備える総合図書館。24時間利用可能な学習席、グループ学習室、AV視聴室、特殊コレクション閲覧室を設けています。",
+    features: ["蔵書30万冊", "電子ジャーナル5万誌", "24時間学習席"],
   },
   {
-    name: "学生交流センター",
+    name: "研究設備・実験施設",
     description:
-      "カフェテリア・ラウンジ・会議室を備えた交流の場。クラブ活動や自主企画イベントの拠点として親しまれています。",
+      "理工・情報・生命科学の実験室に加え、GPUクラスタ、材料解析装置、バイオ実験室、臨床シミュレーション室を整備しています。",
+    features: ["GPUクラスタ", "材料解析", "バイオ実験室"],
+  },
+  {
+    name: "学生食堂・カフェテリア",
+    description:
+      "学生食堂は1,000席以上を確保し、定食・麺・丼・ベジタリアンメニューを提供。学生交流センターにはカフェとラウンジもあります。",
+    features: ["1,000席以上", "日替わり定食", "カフェ併設"],
+  },
+  {
+    name: "学生交流センター・課外活動設備",
+    description:
+      "多目的ホール、会議室、音楽スタジオ、DJブースを備え、サークル活動や学生主催イベントの拠点として利用されています。",
+    features: ["多目的ホール", "音楽スタジオ", "DJブース"],
   },
   {
     name: "健康・スポーツセンター",
     description:
-      "体育館・プール・トレーニングルームを完備。学生の心身の健康をサポートする相談室も設置しています。",
+      "体育館、プール、トレーニングルームを完備。保健センターと学生相談室が連携し、学生の心身の健康を支えます。",
+    features: ["体育館", "プール", "学生相談室"],
   },
   {
     name: "国際交流センター",
     description:
-      "留学・国際交流の窓口。語学学習ラウンジや留学生との交流プログラムを通じて、グローバルな視野を育みます。",
+      "留学・国際交流の窓口。語学学習ラウンジ、留学生サポートデスク、海外協定校との交流プログラムを運営しています。",
+    features: ["語学ラウンジ", "留学生支援", "交換留学相談"],
   },
 ];
 
@@ -173,17 +189,27 @@ export default function CampusPage() {
             />
           </ScrollReveal>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {facilities.map((f, i) => (
               <ScrollReveal key={f.name} delay={i * 0.08}>
-                <div className="rounded-md border border-stone-200 bg-white p-7">
+                <div className="flex h-full flex-col rounded-md border border-stone-200 bg-white p-7">
                   <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
                   <h3 className="mb-2 text-lg font-semibold text-zinc-900">
                     {f.name}
                   </h3>
-                  <p className="text-sm leading-relaxed text-stone-700">
+                  <p className="mb-5 text-sm leading-relaxed text-stone-700">
                     {f.description}
                   </p>
+                  <div className="mt-auto flex flex-wrap gap-2">
+                    {f.features.map((feature) => (
+                      <span
+                        key={feature}
+                        className="border-accent-300 text-accent-700 rounded border px-2.5 py-0.5 text-xs"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
