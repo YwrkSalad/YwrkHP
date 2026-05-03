@@ -48,6 +48,11 @@ export const board = [
     name: "寿司",
     note: "医学部保健学科教授 / 看護学",
   },
+  {
+    role: "物理学担当",
+    name: "しじみ",
+    note: "理学部物理学科教授 / 量子物性物理学",
+  },
 ];
 
 export const stats = [
