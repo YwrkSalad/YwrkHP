@@ -38,7 +38,7 @@ export default async function FacultiesPage({
         />
 
         {/* 学士課程 */}
-        <PageSection id="undergraduate" className="bg-stone-50 py-12">
+        <PageSection id="undergraduate" className="bg-stone-50 py-8">
           <SectionHeading eyebrow="Undergraduate" title="学士課程" />
         </PageSection>
 
@@ -47,7 +47,7 @@ export default async function FacultiesPage({
           <PageSection
             key={f.id}
             id={f.id}
-            className={`py-12 sm:py-24 ${fi % 2 === 0 ? "bg-white" : "bg-stone-50"}`}
+            className={`py-8 sm:py-24 ${fi % 2 === 0 ? "bg-white" : "bg-stone-50"}`}
           >
             <ScrollReveal>
               <div className="mb-8 flex items-start gap-4 sm:mb-12 sm:gap-6">
@@ -104,7 +104,7 @@ export default async function FacultiesPage({
         ))}
 
         {/* 大学院 */}
-        <PageSection id="graduate" className="bg-accent-900 py-12 sm:py-24">
+        <PageSection id="graduate" className="bg-accent-900 py-8 sm:py-24">
           {/* ヘッダー */}
           <ScrollReveal>
             <SectionHeading
@@ -131,7 +131,7 @@ export default async function FacultiesPage({
                   key={s.label}
                   className="rounded border border-white/15 bg-zinc-950/45 p-5 text-center"
                 >
-                  <p className="text-2xl font-bold text-white">{s.num}</p>
+                  <p className="text-xl font-bold text-white sm:text-2xl">{s.num}</p>
                   <p className="mt-1 text-xs text-zinc-300">{s.label}</p>
                 </div>
               ))}
@@ -146,7 +146,7 @@ export default async function FacultiesPage({
                 <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School I
                 </p>
-                <h3 className="mb-3 text-xl font-semibold text-white">
+                <h3 className="mb-3 text-lg font-semibold text-white">
                   理工情報学研究科
                 </h3>
                 <p className="mb-5 text-sm leading-relaxed text-zinc-100">
@@ -209,7 +209,7 @@ export default async function FacultiesPage({
                 <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School II
                 </p>
-                <h3 className="mb-3 text-xl font-semibold text-white">
+                <h3 className="mb-3 text-lg font-semibold text-white">
                   生命農学・医科学研究科
                 </h3>
                 <p className="mb-5 text-sm leading-relaxed text-zinc-100">

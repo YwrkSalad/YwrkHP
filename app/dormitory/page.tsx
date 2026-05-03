@@ -174,7 +174,7 @@ export default function DormitoryPage() {
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {d.en}
                       </p>
-                      <h3 className="mt-1 text-xl font-semibold text-zinc-900">
+                      <h3 className="mt-1 text-lg font-semibold text-zinc-900">
                         {d.name}
                       </h3>
                       <div className="mt-2 flex flex-wrap gap-2">
@@ -209,7 +209,7 @@ export default function DormitoryPage() {
         </PageSection>
 
         {/* 費用 */}
-        <PageSection id="fees" className="bg-stone-100 py-12 sm:py-24">
+        <PageSection id="fees" className="bg-stone-100 py-8 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Fees"
@@ -257,7 +257,7 @@ export default function DormitoryPage() {
             {steps.map((s, i) => (
               <ScrollReveal key={s.step} delay={i * 0.08} className="h-full">
                 <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-6">
-                  <p className="text-accent-600 mb-3 text-xl font-semibold">
+                  <p className="text-accent-600 mb-3 text-lg font-semibold">
                     {s.step}
                   </p>
                   <h3 className="mb-2 text-sm font-semibold text-zinc-900">

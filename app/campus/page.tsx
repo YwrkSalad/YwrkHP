@@ -183,7 +183,7 @@ export default function CampusPage() {
         </PageSection>
 
         {/* 施設 */}
-        <PageSection id="facilities" className="bg-stone-100 py-12 sm:py-24">
+        <PageSection id="facilities" className="bg-stone-100 py-8 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Facilities"
@@ -236,7 +236,7 @@ export default function CampusPage() {
             {overseas.map((o, i) => (
               <ScrollReveal key={o.country} delay={i * 0.08}>
                 <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6 text-center">
-                  <p className="text-xl font-semibold text-zinc-900">
+                  <p className="text-lg font-semibold text-zinc-900">
                     {o.universities}
                   </p>
                   <p className="text-xs text-stone-500">協定校</p>

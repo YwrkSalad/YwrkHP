@@ -95,7 +95,7 @@ export default function AdmissionsPage() {
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {m.en}
                       </p>
-                      <h3 className="mt-1 text-xl font-semibold text-zinc-900">
+                      <h3 className="mt-1 text-lg font-semibold text-zinc-900">
                         {m.name}
                       </h3>
                     </div>
@@ -120,7 +120,7 @@ export default function AdmissionsPage() {
         </PageSection>
 
         {/* 学費 */}
-        <PageSection id="tuition" className="bg-stone-100 py-12 sm:py-24">
+        <PageSection id="tuition" className="bg-stone-100 py-8 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Tuition"

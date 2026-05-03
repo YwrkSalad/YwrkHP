@@ -99,7 +99,7 @@ export default function AccessPage() {
         </PageSection>
 
         {/* キャンパス情報 */}
-        <PageSection id="campuses" className="bg-stone-100 py-12 sm:py-24">
+        <PageSection id="campuses" className="bg-stone-100 py-8 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Campuses"

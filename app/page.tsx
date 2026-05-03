@@ -132,7 +132,7 @@ export default async function Home() {
         <HeroAnimation />
 
         {/* お知らせ */}
-        <PageSection className="bg-white py-12 sm:py-24">
+        <PageSection className="bg-white py-8 sm:py-24">
           <ScrollReveal>
             <div className="mb-6 flex items-center justify-between sm:mb-12">
               <div>
@@ -141,7 +141,7 @@ export default async function Home() {
                   title="お知らせ"
                   className=""
                   eyebrowClassName="text-accent-600 mb-1 text-[10px] font-medium tracking-[0.3em] uppercase sm:mb-2 sm:text-xs"
-                  titleClassName="text-xl font-semibold tracking-tight text-zinc-900 sm:text-3xl"
+                  titleClassName="text-lg font-semibold tracking-tight text-zinc-900 sm:text-3xl"
                 />
               </div>
               <Link
@@ -177,14 +177,14 @@ export default async function Home() {
         {/* 学部紹介 */}
         <PageSection
           id="faculties"
-          className="py-12 sm:py-24"
+          className="py-8 sm:py-24"
           innerClassName="relative z-10"
           imageSrc="/bg_pattern/bg_science.png"
           imageClassName="object-cover object-center"
           overlayClassName="absolute inset-0 bg-black/50"
         >
           <ScrollReveal>
-            <div className="mb-10 text-center sm:mb-16">
+            <div className="mb-6 text-center sm:mb-16">
               <SectionHeading
                 eyebrow="Faculties"
                 title="学部紹介"
@@ -239,9 +239,9 @@ export default async function Home() {
         </PageSection>
 
         {/* 大学の理念 */}
-        <PageSection className="bg-accent-50 overflow-hidden py-12 sm:py-24">
+        <PageSection className="bg-accent-50 overflow-hidden py-8 sm:py-24">
           <ScrollReveal>
-            <div className="mb-10 text-center sm:mb-16">
+            <div className="mb-6 text-center sm:mb-16">
               <SectionHeading
                 eyebrow="Philosophy"
                 title="やわらか大学の理念"
@@ -258,8 +258,8 @@ export default async function Home() {
           </ScrollReveal>
 
           <ScrollReveal blur delay={0.1}>
-            <blockquote className="mb-12 text-center sm:mb-20">
-              <p className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
+            <blockquote className="mb-8 text-center sm:mb-20">
+              <p className="text-base font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
                 やわらかであることは、強さである。
               </p>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-loose font-light text-stone-500">
@@ -270,10 +270,10 @@ export default async function Home() {
             </blockquote>
           </ScrollReveal>
 
-          <div className="grid gap-6 sm:grid-cols-3 sm:gap-8">
+          <div className="grid gap-4 sm:grid-cols-3 sm:gap-8">
             {values.map((v, i) => (
               <ScrollReveal key={v.label} delay={i * 0.12} className="h-full">
-                <div className="border-accent-100 flex h-full flex-col rounded-md border bg-white p-6 text-center sm:p-8">
+                <div className="border-accent-100 flex h-full flex-col rounded-md border bg-white p-5 text-center sm:p-8">
                   <div className="bg-accent-400 mx-auto mb-4 h-1 w-8 rounded" />
                   <p className="text-accent-600 mb-2 min-h-4 text-xs tracking-widest uppercase">
                     {v.label}
@@ -293,14 +293,14 @@ export default async function Home() {
         {/* 入試情報 */}
         <PageSection
           id="admissions"
-          className="py-12 sm:py-24"
+          className="py-8 sm:py-24"
           innerClassName="relative z-10"
           imageSrc="/admissions/expand_examing.jpg"
           imageAlt="入試の様子"
           imageClassName="object-cover object-center"
           overlayClassName="absolute inset-0 bg-black/15"
         >
-          <div className="flex flex-col items-center gap-6 sm:gap-12 md:flex-row md:justify-between">
+          <div className="flex flex-col items-center gap-4 sm:gap-12 md:flex-row md:justify-between">
             <ScrollReveal className="text-center md:text-left">
               <SectionHeading
                 eyebrow="Admissions"
@@ -314,13 +314,13 @@ export default async function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15} className="flex flex-col gap-4">
-              <div className="rounded border border-zinc-700 bg-zinc-800/90 px-8 py-5">
+              <div className="rounded border border-zinc-700 bg-zinc-800/90 px-5 py-4 sm:px-8 sm:py-5">
                 <p className="text-sm text-white">一般選抜</p>
                 <p className="mt-1 text-lg font-medium text-white">
                   2027年1月 出願開始
                 </p>
               </div>
-              <div className="rounded border border-zinc-700 bg-zinc-800/90 px-8 py-5">
+              <div className="rounded border border-zinc-700 bg-zinc-800/90 px-5 py-4 sm:px-8 sm:py-5">
                 <p className="text-sm text-white">総合型選抜</p>
                 <p className="mt-1 text-lg font-medium text-white">
                   2026年9月 出願開始
@@ -328,7 +328,7 @@ export default async function Home() {
               </div>
               <a
                 href="/admissions"
-                className="hover:bg-accent-100/90 border-accent-600 bg-accent-50/90 text-accent-800 mt-2 rounded border px-8 py-3 text-center text-sm font-medium transition-colors"
+                className="hover:bg-accent-100/90 border-accent-600 bg-accent-50/90 text-accent-800 mt-2 rounded border px-5 py-3 text-center text-sm font-medium transition-colors sm:px-8"
               >
                 募集要項を見る
               </a>
@@ -337,9 +337,9 @@ export default async function Home() {
         </PageSection>
 
         {/* キャンパスライフ */}
-        <PageSection id="campus" className="bg-accent-50 py-12 sm:py-24">
+        <PageSection id="campus" className="bg-accent-50 py-8 sm:py-24">
           <ScrollReveal>
-            <div className="mb-14 text-center">
+            <div className="mb-8 text-center sm:mb-14">
               <SectionHeading
                 eyebrow="Campus Life"
                 title="キャンパスライフ"
@@ -355,7 +355,7 @@ export default async function Home() {
             </div>
           </ScrollReveal>
 
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-3">
             {[
               {
                 title: "クラブ・サークル",
@@ -371,7 +371,7 @@ export default async function Home() {
               },
             ].map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 0.1} className="h-full">
-                <div className="flex h-full flex-col rounded-md bg-white p-7">
+                <div className="flex h-full flex-col rounded-md bg-white p-5 sm:p-7">
                   <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
                   <h3 className="mb-3 min-h-7 text-lg font-semibold whitespace-nowrap text-zinc-900">
                     {item.title}
@@ -388,7 +388,7 @@ export default async function Home() {
         {/* アクセス */}
         <PageSection
           id="access"
-          className="py-12 sm:py-24"
+          className="py-8 sm:py-24"
           innerClassName="relative z-10"
           imageSrc="/access/bus_stop_faculty_of_engineering.png"
           imageAlt="バス停の様子"
@@ -403,7 +403,7 @@ export default async function Home() {
                 align="center"
                 tone="dark"
                 className=""
-                titleClassName="text-xl font-semibold tracking-tight text-white sm:text-3xl"
+                titleClassName="text-lg font-semibold tracking-tight text-white sm:text-3xl"
               />
               <Link
                 href="/access"

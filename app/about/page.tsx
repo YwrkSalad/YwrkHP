@@ -91,7 +91,7 @@ export default function AboutPage() {
         </PageSection>
 
         {/* 沿革 */}
-        <PageSection id="history" className="bg-accent-50 py-12 sm:py-24">
+        <PageSection id="history" className="bg-accent-50 py-8 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="History"
@@ -137,7 +137,7 @@ export default function AboutPage() {
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.08}>
                 <div className="bg-accent-50 border-accent-100 rounded-md border p-6 text-center">
-                  <p className="text-accent-700 text-3xl font-semibold">
+                  <p className="text-accent-700 text-2xl font-semibold sm:text-3xl">
                     {stat.num}
                     <span className="text-lg text-stone-400">{stat.unit}</span>
                   </p>

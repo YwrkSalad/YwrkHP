@@ -114,7 +114,7 @@ export default function ResearchPage() {
         </PageSection>
 
         {/* 社会連携 */}
-        <PageSection id="collaboration" className="bg-stone-50 py-12 sm:py-24">
+        <PageSection id="collaboration" className="bg-stone-50 py-8 sm:py-24">
           <ScrollReveal>
             <SectionHeading eyebrow="Partnerships" title="社会連携・産学連携" />
           </ScrollReveal>
