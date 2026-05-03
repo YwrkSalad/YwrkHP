@@ -7,6 +7,8 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import LabelValueRow from "../_components/LabelValueRow";
+import TagBadge from "../_components/TagBadge";
 
 export const metadata: Metadata = { title: "学生寮" };
 
@@ -178,12 +180,8 @@ export default function DormitoryPage() {
                         {d.name}
                       </h3>
                       <div className="mt-2 flex flex-wrap gap-2">
-                        <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
-                          {d.target}
-                        </span>
-                        <span className="rounded-full border border-stone-200 bg-white px-3 py-0.5 text-xs text-stone-500">
-                          {d.capacity}
-                        </span>
+                        <TagBadge variant="stone">{d.target}</TagBadge>
+                        <TagBadge variant="stone">{d.capacity}</TagBadge>
                       </div>
                     </div>
                     <p className="mb-6 text-sm leading-relaxed text-stone-700">
@@ -191,14 +189,7 @@ export default function DormitoryPage() {
                     </p>
                     <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
                       {d.features.map((f) => (
-                        <div key={f.label} className="flex gap-6 px-5 py-3">
-                          <span className="w-28 shrink-0 text-xs text-stone-500">
-                            {f.label}
-                          </span>
-                          <span className="text-sm text-zinc-700">
-                            {f.value}
-                          </span>
-                        </div>
+                        <LabelValueRow key={f.label} label={f.label} value={f.value} labelWidth="w-28" />
                       ))}
                     </div>
                   </div>

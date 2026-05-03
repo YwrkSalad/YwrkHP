@@ -6,6 +6,8 @@ import PageTracker from "./_components/PageTracker";
 import Footer from "./_components/Footer";
 import PageSection from "./_components/PageSection";
 import SectionHeading from "./_components/SectionHeading";
+import TagBadge from "./_components/TagBadge";
+import FeatureCard from "./_components/FeatureCard";
 
 const news = [
   {
@@ -223,11 +225,8 @@ export default async function Home() {
                     </p>
                     <ul className="flex flex-wrap gap-2">
                       {f.departments.map((d) => (
-                        <li
-                          key={d}
-                          className="rounded border border-white/90 px-3 py-0.5 text-xs text-white"
-                        >
-                          {d}
+                        <li key={d}>
+                          <TagBadge variant="white">{d}</TagBadge>
                         </li>
                       ))}
                     </ul>
@@ -273,18 +272,13 @@ export default async function Home() {
           <div className="grid gap-4 sm:grid-cols-3 sm:gap-8">
             {values.map((v, i) => (
               <ScrollReveal key={v.label} delay={i * 0.12} className="h-full">
-                <div className="border-accent-100 flex h-full flex-col rounded-md border bg-white p-5 text-center sm:p-8">
-                  <div className="bg-accent-400 mx-auto mb-4 h-1 w-8 rounded" />
-                  <p className="text-accent-600 mb-2 min-h-4 text-xs tracking-widest uppercase">
-                    {v.label}
-                  </p>
-                  <h3 className="mb-3 min-h-7 text-lg font-semibold text-zinc-900">
-                    {v.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-stone-500">
-                    {v.body}
-                  </p>
-                </div>
+                <FeatureCard
+                  eyebrow={v.label}
+                  title={v.title}
+                  body={v.body}
+                  center
+                  border
+                />
               </ScrollReveal>
             ))}
           </div>
@@ -371,15 +365,7 @@ export default async function Home() {
               },
             ].map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 0.1} className="h-full">
-                <div className="flex h-full flex-col rounded-md bg-white p-5 sm:p-7">
-                  <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
-                  <h3 className="mb-3 min-h-7 text-lg font-semibold whitespace-nowrap text-zinc-900">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-stone-500">
-                    {item.body}
-                  </p>
-                </div>
+                <FeatureCard title={item.title} body={item.body} />
               </ScrollReveal>
             ))}
           </div>

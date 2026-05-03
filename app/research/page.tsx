@@ -6,6 +6,7 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import TagBadge from "../_components/TagBadge";
 
 export const metadata: Metadata = { title: "研究・社会連携" };
 
@@ -99,12 +100,7 @@ export default function ResearchPage() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {c.topics.map((t) => (
-                      <span
-                        key={t}
-                        className="border-accent-200 text-accent-600 rounded border px-3 py-0.5 text-xs"
-                      >
-                        {t}
-                      </span>
+                      <TagBadge key={t}>{t}</TagBadge>
                     ))}
                   </div>
                 </div>

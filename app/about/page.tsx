@@ -8,6 +8,7 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import StatBlock from "../_components/StatBlock";
 import { history, board, stats } from "../../data/about";
 
 export const metadata: Metadata = { title: "大学について" };
@@ -136,13 +137,7 @@ export default function AboutPage() {
           <div className="mb-6 grid grid-cols-2 gap-6 sm:mb-16 sm:grid-cols-4">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.08}>
-                <div className="bg-accent-50 border-accent-100 rounded-md border p-6 text-center">
-                  <p className="text-accent-700 text-2xl font-semibold sm:text-3xl">
-                    {stat.num}
-                    <span className="text-lg text-stone-400">{stat.unit}</span>
-                  </p>
-                  <p className="mt-1 text-xs text-stone-500">{stat.label}</p>
-                </div>
+                <StatBlock num={stat.num} unit={stat.unit} label={stat.label} />
               </ScrollReveal>
             ))}
           </div>

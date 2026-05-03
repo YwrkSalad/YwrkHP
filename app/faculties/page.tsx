@@ -6,6 +6,8 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import StatBlock from "../_components/StatBlock";
+import TagBadge from "../_components/TagBadge";
 import { faculties } from "../../data/faculties";
 
 export const metadata: Metadata = { title: "学部・大学院" };
@@ -127,13 +129,7 @@ export default async function FacultiesPage({
                 { num: "30%", label: "外国人留学生比率" },
                 { num: "12", label: "海外共同博士プログラム" },
               ].map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded border border-white/15 bg-zinc-950/45 p-5 text-center"
-                >
-                  <p className="text-xl font-bold text-white sm:text-2xl">{s.num}</p>
-                  <p className="mt-1 text-xs text-zinc-300">{s.label}</p>
-                </div>
+                <StatBlock key={s.label} num={s.num} label={s.label} tone="dark" />
               ))}
             </div>
           </ScrollReveal>
@@ -192,12 +188,7 @@ export default async function FacultiesPage({
                     "ロボティクス",
                     "マテリアルズインフォマティクス",
                   ].map((t) => (
-                    <span
-                      key={t}
-                      className="rounded border border-white/20 bg-white/5 px-2 py-0.5 text-xs text-zinc-100"
-                    >
-                      {t}
-                    </span>
+                    <TagBadge key={t} variant="dark">{t}</TagBadge>
                   ))}
                 </div>
               </div>
@@ -255,12 +246,7 @@ export default async function FacultiesPage({
                     "食品機能科学",
                     "環境毒性学",
                   ].map((t) => (
-                    <span
-                      key={t}
-                      className="rounded border border-white/20 bg-white/5 px-2 py-0.5 text-xs text-zinc-100"
-                    >
-                      {t}
-                    </span>
+                    <TagBadge key={t} variant="dark">{t}</TagBadge>
                   ))}
                 </div>
               </div>

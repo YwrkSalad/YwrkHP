@@ -6,6 +6,7 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import LabelValueRow from "../_components/LabelValueRow";
 
 export const metadata: Metadata = { title: "入試情報" };
 
@@ -105,12 +106,7 @@ export default function AdmissionsPage() {
                   </p>
                   <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
                     {m.schedule.map((s) => (
-                      <div key={s.label} className="flex gap-6 px-5 py-3">
-                        <span className="w-36 shrink-0 text-xs text-stone-500">
-                          {s.label}
-                        </span>
-                        <span className="text-sm text-zinc-700">{s.value}</span>
-                      </div>
+                      <LabelValueRow key={s.label} label={s.label} value={s.value} />
                     ))}
                   </div>
                 </div>

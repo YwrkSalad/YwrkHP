@@ -6,6 +6,7 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import FeatureCard from "../_components/FeatureCard";
 
 export const metadata: Metadata = { title: "キャンパスライフ" };
 
@@ -196,25 +197,12 @@ export default function CampusPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {facilities.map((f, i) => (
               <ScrollReveal key={f.name} delay={i * 0.08}>
-                <div className="flex h-full flex-col rounded-md border border-stone-200 bg-white p-7">
-                  <div className="bg-accent-300 mb-4 h-1 w-8 rounded" />
-                  <h3 className="mb-2 text-lg font-semibold text-zinc-900">
-                    {f.name}
-                  </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-stone-700">
-                    {f.description}
-                  </p>
-                  <div className="mt-auto flex flex-wrap gap-2">
-                    {f.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="border-accent-300 text-accent-700 rounded border px-2.5 py-0.5 text-xs"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                <FeatureCard
+                  title={f.name}
+                  body={f.description}
+                  tags={f.features}
+                  border
+                />
               </ScrollReveal>
             ))}
           </div>
