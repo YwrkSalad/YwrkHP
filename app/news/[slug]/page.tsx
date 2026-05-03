@@ -17,8 +17,20 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const item = news.find((n) => n.slug === slug);
-  if (!item) return {};
-  return { title: item.title };
+  if (!item)
+    return {
+      title: "記事が見つかりません",
+    };
+  return {
+    title: item.title,
+    description: item.body.split("\n\n")[0],
+    openGraph: {
+      title: `${item.title} | やわらか大学`,
+      description: item.body.split("\n\n")[0],
+      url: `https://ywrk.org/news/${slug}`,
+      type: "article",
+    },
+  };
 }
 
 export default async function NewsArticlePage({ params }: Props) {

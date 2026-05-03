@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "./_components/Nav";
 import HeroAnimation from "./_components/HeroAnimation";
@@ -9,6 +10,17 @@ import SectionHeading from "./_components/SectionHeading";
 import TagBadge from "./_components/TagBadge";
 import FeatureCard from "./_components/FeatureCard";
 import { news } from "../data/news";
+
+export const metadata: Metadata = {
+  title: "ホーム",
+  description: "やわらかな知性で、世界をひらく。",
+  openGraph: {
+    title: "やわらか大学",
+    description: "やわらかな知性で、世界をひらく。",
+    url: "https://ywrk.org",
+    type: "website",
+  },
+};
 
 const faculties = [
   {
