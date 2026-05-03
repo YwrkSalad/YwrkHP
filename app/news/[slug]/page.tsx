@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Nav from "../../_components/Nav";
 import Footer from "../../_components/Footer";
@@ -85,7 +86,7 @@ export default async function NewsArticlePage({ params }: Props) {
                             </p>
                           ) : (
                             <p key={j}>{line}</p>
-                          )
+                          ),
                         )}
                       </div>
                     );
@@ -97,12 +98,12 @@ export default async function NewsArticlePage({ params }: Props) {
 
             <ScrollReveal delay={0.1}>
               <div className="mt-12 border-t border-stone-200 pt-6">
-                <a
+                <Link
                   href="/"
                   className="text-accent-600 hover:text-accent-700 text-xs transition-colors"
                 >
                   ← トップページへ戻る
-                </a>
+                </Link>
               </div>
             </ScrollReveal>
           </div>
