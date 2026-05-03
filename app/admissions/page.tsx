@@ -145,7 +145,7 @@ export default function AdmissionsPage() {
 
           <ScrollReveal delay={0.15}>
             <div className="bg-accent-800 border-accent-700 rounded-md border p-4 text-white sm:p-8">
-              <h3 className="mb-3 text-lg font-semibold">やわらか奨学金制度</h3>
+              <h3 className="mb-3 text-base font-semibold sm:text-lg">やわらか奨学金制度</h3>
               <p className="text-accent-200 mb-4 text-sm leading-relaxed">
                 経済的な理由で進学をためらう学生を支援するため、独自の給付型奨学金を設けています。
                 入試成績優秀者には授業料の最大全額免除が適用されます。
@@ -160,7 +160,7 @@ export default function AdmissionsPage() {
 
           <ScrollReveal delay={0.2}>
             <div className="bg-accent-800 border-accent-700 mt-6 rounded-md border p-4 text-white sm:p-8">
-              <h3 className="mb-3 text-lg font-semibold">ゲスト制度</h3>
+              <h3 className="mb-3 text-base font-semibold sm:text-lg">ゲスト制度</h3>
               <p className="text-accent-200 text-sm leading-relaxed">
                 本学の学生・教職員など大学関係者を通じて事前にゲスト登録を行うと、
                 優待料金で入学できます。ゲスト登録時の入学料は 3,000円 +

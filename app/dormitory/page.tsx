@@ -271,7 +271,7 @@ export default function DormitoryPage() {
 
           <ScrollReveal delay={0.2}>
             <div className="bg-accent-800 mt-10 rounded-md p-4 text-white sm:p-8">
-              <h3 className="mb-2 text-lg font-semibold">お問い合わせ</h3>
+              <h3 className="mb-2 text-base font-semibold sm:text-lg">お問い合わせ</h3>
               <p className="text-accent-200 text-sm leading-relaxed">
                 学生寮に関するご質問は、厚生施設内の学生支援課（寮担当）までお気軽にどうぞ。
                 見学は随時受け付けています（事前予約制）。
