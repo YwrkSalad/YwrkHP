@@ -238,10 +238,10 @@ export default function AcademicPage() {
             />
           </ScrollReveal>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {calendar.map((c, i) => (
-              <ScrollReveal key={c.month} delay={i * 0.07}>
-                <div className="rounded-md border border-stone-200 bg-white p-4 sm:p-6">
+              <ScrollReveal key={c.month} delay={i * 0.07} className="h-full">
+                <div className="h-full rounded-md border border-stone-200 bg-white p-4 sm:p-6">
                   <p className="text-accent-600 mb-3 text-base font-semibold">
                     {c.month}
                   </p>
