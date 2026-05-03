@@ -27,31 +27,41 @@ export const history = [
 ];
 
 export const board = [
-  { role: "学長", name: "やわらか", note: "理学部教授 / 数理物理学" },
+  {
+    role: "学長",
+    name: "やわらか",
+    note: "理学部教授 / 数理物理学",
+    href: "/faculties#science-physics",
+  },
   {
     role: "副学長（教育）",
     name: "すき",
     note: "工学部教授 / 情報システム工学",
+    href: "/faculties#engineering-electrical-information",
   },
   {
     role: "副学長（情報基盤）",
     name: "える",
     note: "情報科学部教授 / 情報基盤",
+    href: "/faculties#information-science-information-engineering",
   },
   {
     role: "事務局長",
     name: "わんわわ",
     note: "農学部共同獣医学科教授 / 大学運営全般",
+    href: "/faculties#agriculture-joint-veterinary",
   },
   {
     role: "看護学担当",
     name: "寿司",
     note: "医学部保健学科教授 / 看護学",
+    href: "/faculties#medicine-health-sciences",
   },
   {
     role: "物理学担当",
     name: "しじみ",
     note: "理学部物理学科教授 / 量子物性物理学",
+    href: "/faculties#science-physics",
   },
 ];
 

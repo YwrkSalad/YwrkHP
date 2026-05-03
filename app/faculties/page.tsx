@@ -68,7 +68,10 @@ export default function FacultiesPage() {
                   delay={0.1 + i * 0.08}
                   className="h-full"
                 >
-                  <div className="border-accent-100 h-full rounded-md border bg-white p-6">
+                  <div
+                    id={d.id}
+                    className="border-accent-100 h-full scroll-mt-28 rounded-md border bg-white p-6"
+                  >
                     <div className="bg-accent-300 mb-3 h-1 w-6 rounded" />
                     <h3 className="mb-2 text-base font-semibold text-zinc-900">
                       {d.name}

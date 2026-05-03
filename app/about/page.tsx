@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -162,7 +163,12 @@ export default function AboutPage() {
                   <span className="text-base font-medium text-zinc-800">
                     {member.name}
                   </span>
-                  <span className="text-xs text-stone-400">{member.note}</span>
+                  <Link
+                    href={member.href}
+                    className="text-accent-700 hover:text-accent-800 text-xs underline underline-offset-4 transition-colors"
+                  >
+                    {member.note}
+                  </Link>
                 </div>
               </ScrollReveal>
             ))}
