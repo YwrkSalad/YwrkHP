@@ -190,7 +190,7 @@ export default function DormitoryPage() {
                     <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
                       {d.features.map((f, i) => (
                         <Fragment key={f.label}>
-                          <span className={`px-4 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
+                          <span className={`pl-4 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
                             {f.label}
                           </span>
                           <span className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
