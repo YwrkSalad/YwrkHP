@@ -33,7 +33,7 @@ export default function HeroAnimation() {
       />
 
       {/* テキスト */}
-      <div className="relative z-10 flex w-full flex-col justify-end px-10 pb-16 sm:px-16 sm:pb-20">
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col justify-end px-4 pb-12 sm:px-6 sm:pb-20">
         <motion.p
           className="mb-4 text-xs font-medium tracking-[0.3em] text-white/70 uppercase"
           initial={{ opacity: 0, y: 12 }}
