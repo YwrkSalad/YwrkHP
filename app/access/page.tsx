@@ -110,8 +110,8 @@ export default function AccessPage() {
 
           <div className="grid gap-6 sm:grid-cols-2">
             {campuses.map((c, i) => (
-              <ScrollReveal key={c.name} delay={i * 0.1}>
-                <div className="rounded-md border border-stone-200 bg-white p-8">
+              <ScrollReveal key={c.name} delay={i * 0.1} className="h-full">
+                <div className="h-full rounded-md border border-stone-200 bg-white p-8">
                   <h3 className="mb-4 text-lg font-semibold text-zinc-900">
                     {c.name}
                   </h3>
