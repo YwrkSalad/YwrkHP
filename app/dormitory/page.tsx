@@ -251,8 +251,8 @@ export default function DormitoryPage() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
-              <ScrollReveal key={s.step} delay={i * 0.08}>
-                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6">
+              <ScrollReveal key={s.step} delay={i * 0.08} className="h-full">
+                <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-6">
                   <p className="text-accent-600 mb-3 text-2xl font-semibold">
                     {s.step}
                   </p>
