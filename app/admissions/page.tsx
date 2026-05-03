@@ -159,6 +159,16 @@ export default function AdmissionsPage() {
                 <li>• 優秀生奨学金（授業料半額）：各学部10名</li>
                 <li>• 経済支援奨学金（月額3万円）：随時申請可</li>
               </ul>
+              <div className="border-accent-700 mt-6 border-t pt-5">
+                <h4 className="mb-2 text-sm font-semibold">
+                  ゲスト登録による優待入場
+                </h4>
+                <p className="text-accent-200 text-sm leading-relaxed">
+                  本学の学生・教職員など大学関係者を通じて事前にゲスト登録を行うと、
+                  優待料金で入場できます。ゲスト登録時の入場料は 3,000円 +
+                  1ドリンクです。
+                </p>
+              </div>
             </div>
           </ScrollReveal>
         </PageSection>
