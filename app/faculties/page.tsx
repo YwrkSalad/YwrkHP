@@ -90,7 +90,7 @@ export default function FacultiesPage() {
               tone="dark"
               className="mb-16"
               titleClassName="mb-4 text-3xl font-semibold text-white sm:text-4xl"
-              descriptionClassName="text-stone-200 max-w-2xl text-base leading-loose font-light"
+              descriptionClassName="text-zinc-100 max-w-2xl text-base leading-loose font-light"
             />
           </ScrollReveal>
 
@@ -105,10 +105,10 @@ export default function FacultiesPage() {
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="rounded border border-white/10 bg-white/8 p-5 text-center"
+                  className="rounded border border-white/15 bg-zinc-950/45 p-5 text-center"
                 >
                   <p className="text-2xl font-bold text-white">{s.num}</p>
-                  <p className="mt-1 text-xs text-stone-300">{s.label}</p>
+                  <p className="mt-1 text-xs text-zinc-300">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -118,14 +118,14 @@ export default function FacultiesPage() {
           <div className="grid gap-6 sm:grid-cols-2">
             {/* 研究科 1 */}
             <ScrollReveal delay={0.1}>
-              <div className="rounded-md border border-white/10 bg-white/10 p-8">
-                <p className="mb-1 text-xs tracking-widest text-stone-400 uppercase">
+              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-8">
+                <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School I
                 </p>
                 <h3 className="mb-3 text-xl font-semibold text-white">
                   理工情報学研究科
                 </h3>
-                <p className="mb-5 text-sm leading-relaxed text-stone-200">
+                <p className="mb-5 text-sm leading-relaxed text-zinc-100">
                   理学部・工学部・情報科学部の学知を統合。
                   数理・物質・エネルギー・情報技術が交差する最前線で、
                   次世代の理工系研究者・高度技術者を育成します。
@@ -146,17 +146,17 @@ export default function FacultiesPage() {
                   ].map((c) => (
                     <div
                       key={c.course}
-                      className="rounded border border-white/10 bg-black/20 px-4 py-3"
+                      className="rounded border border-white/15 bg-zinc-950/60 px-4 py-3"
                     >
                       <div className="mb-1 flex items-center gap-2">
                         <span className="text-xs font-semibold text-white">
                           {c.course}
                         </span>
-                        <span className="text-xs text-stone-400">
+                        <span className="text-xs text-zinc-400">
                           （標準修業年限 {c.years}）
                         </span>
                       </div>
-                      <p className="text-xs text-stone-200">{c.desc}</p>
+                      <p className="text-xs text-zinc-100">{c.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -170,7 +170,7 @@ export default function FacultiesPage() {
                   ].map((t) => (
                     <span
                       key={t}
-                      className="rounded border border-white/20 bg-white/5 px-2 py-0.5 text-xs text-stone-200"
+                      className="rounded border border-white/20 bg-white/5 px-2 py-0.5 text-xs text-zinc-100"
                     >
                       {t}
                     </span>
@@ -181,14 +181,14 @@ export default function FacultiesPage() {
 
             {/* 研究科 2 */}
             <ScrollReveal delay={0.18}>
-              <div className="rounded-md border border-white/10 bg-white/10 p-8">
-                <p className="mb-1 text-xs tracking-widest text-stone-400 uppercase">
+              <div className="rounded-md border border-white/15 bg-zinc-950/55 p-8">
+                <p className="text-accent-300 mb-1 text-xs tracking-widest uppercase">
                   Graduate School II
                 </p>
                 <h3 className="mb-3 text-xl font-semibold text-white">
                   生命農学・医科学研究科
                 </h3>
-                <p className="mb-5 text-sm leading-relaxed text-stone-200">
+                <p className="mb-5 text-sm leading-relaxed text-zinc-100">
                   農学部・医学部の学知を統合。
                   食料・生命・疾病の複雑なメカニズムを多角的に探究し、
                   持続可能な食と健康の未来を担う研究者・医療科学者を育てます。
@@ -209,17 +209,17 @@ export default function FacultiesPage() {
                   ].map((c) => (
                     <div
                       key={c.course}
-                      className="rounded border border-white/10 bg-black/20 px-4 py-3"
+                      className="rounded border border-white/15 bg-zinc-950/60 px-4 py-3"
                     >
                       <div className="mb-1 flex items-center gap-2">
                         <span className="text-xs font-semibold text-white">
                           {c.course}
                         </span>
-                        <span className="text-xs text-stone-400">
+                        <span className="text-xs text-zinc-400">
                           （標準修業年限 {c.years}）
                         </span>
                       </div>
-                      <p className="text-xs text-stone-200">{c.desc}</p>
+                      <p className="text-xs text-zinc-100">{c.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -233,7 +233,7 @@ export default function FacultiesPage() {
                   ].map((t) => (
                     <span
                       key={t}
-                      className="rounded border border-white/20 bg-white/5 px-2 py-0.5 text-xs text-stone-200"
+                      className="rounded border border-white/20 bg-white/5 px-2 py-0.5 text-xs text-zinc-100"
                     >
                       {t}
                     </span>
@@ -245,11 +245,11 @@ export default function FacultiesPage() {
 
           {/* 共通情報 */}
           <ScrollReveal delay={0.25}>
-            <div className="mt-8 rounded-md border border-white/10 bg-black/20 p-8">
+            <div className="mt-8 rounded-md border border-white/15 bg-zinc-950/55 p-8">
               <h3 className="mb-4 text-base font-semibold text-white">
                 共通の特色・支援制度
               </h3>
-              <ul className="grid gap-2 text-sm text-stone-200 sm:grid-cols-2">
+              <ul className="grid gap-2 text-sm text-zinc-100 sm:grid-cols-2">
                 {[
                   "RA・TA 制度による授業料免除（成績優秀者）",
                   "国際学会発表費用の全額支援",
@@ -259,7 +259,7 @@ export default function FacultiesPage() {
                   "OB・OG ネットワークによるキャリア支援",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-0.5 shrink-0 text-stone-400">▸</span>
+                    <span className="text-accent-300 mt-0.5 shrink-0">▸</span>
                     {item}
                   </li>
                 ))}
