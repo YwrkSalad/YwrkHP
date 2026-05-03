@@ -153,8 +153,12 @@ export default function CampusPage() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {clubs.map((c, i) => (
-              <ScrollReveal key={c.category} delay={i * 0.08}>
-                <div className="rounded-md border border-stone-200 bg-stone-100/70 p-6">
+              <ScrollReveal
+                key={c.category}
+                delay={i * 0.08}
+                className="h-full"
+              >
+                <div className="h-full rounded-md border border-stone-200 bg-stone-100/70 p-6">
                   <h3 className="mb-4 text-sm font-semibold text-zinc-900">
                     {c.category}
                   </h3>
