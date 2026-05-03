@@ -146,10 +146,10 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* 役員 */}
+          {/* 役員・教授 */}
           <ScrollReveal>
             <h3 className="mb-6 text-lg font-semibold text-zinc-900">
-              役員一覧
+              役員・教授一覧
             </h3>
           </ScrollReveal>
           <div className="divide-y divide-stone-100">

@@ -43,6 +43,11 @@ export const board = [
     name: "わんわわ",
     note: "農学部共同獣医学科教授 / 大学運営全般",
   },
+  {
+    role: "看護学担当",
+    name: "寿司",
+    note: "医学部保健学科教授 / 看護学",
+  },
 ];
 
 export const stats = [
