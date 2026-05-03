@@ -10,7 +10,20 @@ import { faculties } from "../../data/faculties";
 
 export const metadata: Metadata = { title: "学部・大学院" };
 
-export default function FacultiesPage() {
+type FacultiesPageProps = {
+  searchParams?: Promise<{
+    department?: string | string[];
+  }>;
+};
+
+export default async function FacultiesPage({
+  searchParams,
+}: FacultiesPageProps) {
+  const params = await searchParams;
+  const highlightedDepartment = Array.isArray(params?.department)
+    ? params.department[0]
+    : params?.department;
+
   return (
     <>
       <PageTracker page="/faculties" />
@@ -70,7 +83,11 @@ export default function FacultiesPage() {
                 >
                   <div
                     id={d.id}
-                    className="border-accent-100 h-full rounded-md border bg-white p-6"
+                    className={`h-full rounded-md border p-6 transition-colors ${
+                      highlightedDepartment === d.id
+                        ? "border-accent-400 bg-accent-50 ring-accent-200 ring-2"
+                        : "border-accent-100 bg-white"
+                    }`}
                   >
                     <div className="bg-accent-300 mb-3 h-1 w-6 rounded" />
                     <h3 className="mb-2 text-base font-semibold text-zinc-900">
