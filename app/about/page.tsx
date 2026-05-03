@@ -26,12 +26,12 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="President's Message"
               title="学長挨拶"
-              className="mb-12"
-              titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              className="mb-8 sm:mb-12"
+              titleClassName="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
             />
           </ScrollReveal>
 
-          <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-16">
+          <div className="flex flex-col gap-8 sm:gap-12 md:flex-row md:items-start md:gap-16">
             {/* 写真 */}
             <ScrollReveal className="shrink-0 md:w-80">
               <div className="overflow-hidden rounded-md">
@@ -91,12 +91,12 @@ export default function AboutPage() {
         </PageSection>
 
         {/* 沿革 */}
-        <PageSection id="history" className="bg-accent-50 py-24">
+        <PageSection id="history" className="bg-accent-50 py-16 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="History"
               title="沿革"
-              titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              titleClassName="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
             />
           </ScrollReveal>
 
@@ -128,12 +128,12 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="Organization"
               title="組織概要"
-              titleClassName="text-3xl font-semibold tracking-tight text-zinc-900"
+              titleClassName="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-900"
             />
           </ScrollReveal>
 
           {/* 数字 */}
-          <div className="mb-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div className="mb-10 grid grid-cols-2 gap-6 sm:mb-16 sm:grid-cols-4">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.08}>
                 <div className="bg-accent-50 border-accent-100 rounded-md border p-6 text-center">

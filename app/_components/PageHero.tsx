@@ -22,7 +22,7 @@ export default function PageHero({
 }: PageHeroProps) {
   if (variant === "darkImage") {
     return (
-      <section className="relative flex h-72 overflow-hidden px-6 sm:h-96">
+      <section className="relative flex h-60 overflow-hidden px-6 sm:h-96">
         {imageSrc && (
           <Image
             src={imageSrc}
@@ -33,12 +33,12 @@ export default function PageHero({
           />
         )}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
-        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col justify-end pb-8 sm:pb-11">
+        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col justify-end pb-7 sm:pb-11">
           <div>
             <p className="mb-2 text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
               {eyebrow}
             </p>
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
               {title}
             </h1>
             {description && (
@@ -56,8 +56,8 @@ export default function PageHero({
     <section
       className={
         variant === "lightImage"
-          ? "relative overflow-hidden px-6 py-20"
-          : "bg-stone-50 px-6 py-20"
+          ? "relative overflow-hidden px-6 py-14 sm:py-20"
+          : "bg-stone-50 px-6 py-14 sm:py-20"
       }
     >
       {variant === "lightImage" && imageSrc && (
@@ -77,7 +77,7 @@ export default function PageHero({
           <p className="text-accent-600 mb-2 text-xs font-medium tracking-[0.3em] uppercase">
             {eyebrow}
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
             {title}
           </h1>
           {description && (

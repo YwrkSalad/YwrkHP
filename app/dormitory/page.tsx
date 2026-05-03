@@ -161,7 +161,7 @@ export default function DormitoryPage() {
             {dorms.map((d, i) => (
               <ScrollReveal key={d.id} delay={i * 0.1}>
                 <div className="overflow-hidden rounded-md border border-stone-200 bg-stone-100/70">
-                  <div className="relative h-72 w-full sm:h-96">
+                  <div className="relative h-56 w-full sm:h-96">
                     <Image
                       src={d.image}
                       alt={d.name}
@@ -169,7 +169,7 @@ export default function DormitoryPage() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-8">
+                  <div className="p-6 sm:p-8">
                     <div className="mb-6">
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {d.en}
@@ -209,9 +209,13 @@ export default function DormitoryPage() {
         </PageSection>
 
         {/* 費用 */}
-        <PageSection id="fees" className="bg-stone-100 py-24">
+        <PageSection id="fees" className="bg-stone-100 py-16 sm:py-24">
           <ScrollReveal>
-            <SectionHeading eyebrow="Fees" title="寮費" className="mb-12" />
+            <SectionHeading
+              eyebrow="Fees"
+              title="寮費"
+              className="mb-8 sm:mb-12"
+            />
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
@@ -268,7 +272,7 @@ export default function DormitoryPage() {
           </div>
 
           <ScrollReveal delay={0.2}>
-            <div className="bg-accent-800 mt-10 rounded-md p-8 text-white">
+            <div className="bg-accent-800 mt-10 rounded-md p-6 text-white sm:p-8">
               <h3 className="mb-2 text-lg font-semibold">お問い合わせ</h3>
               <p className="text-accent-200 text-sm leading-relaxed">
                 学生寮に関するご質問は、厚生施設内の学生支援課（寮担当）までお気軽にどうぞ。

@@ -18,7 +18,7 @@ export default function PageSection({
   children,
   as: Element = "section",
   id,
-  className = "bg-white py-24",
+  className = "bg-white py-16 sm:py-24",
   containerClassName = "max-w-5xl",
   innerClassName,
   imageSrc,

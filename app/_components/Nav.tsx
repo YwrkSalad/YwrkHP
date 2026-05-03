@@ -154,13 +154,13 @@ export default function Nav() {
       <div
         className={`fixed inset-0 z-40 ${useHamburger ? "flex" : "hidden"} flex-col items-center justify-center bg-white transition-all duration-500 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
       >
-        <nav className="flex flex-col items-center gap-8">
+        <nav className="flex flex-col items-center gap-6 sm:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`text-3xl font-semibold tracking-tight transition-colors ${
+              className={`text-2xl font-semibold tracking-tight transition-colors sm:text-3xl ${
                 isActive(link.href)
                   ? "text-accent-600"
                   : "hover:text-accent-600 text-zinc-900"

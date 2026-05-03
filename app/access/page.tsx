@@ -99,19 +99,19 @@ export default function AccessPage() {
         </PageSection>
 
         {/* キャンパス情報 */}
-        <PageSection id="campuses" className="bg-stone-100 py-24">
+        <PageSection id="campuses" className="bg-stone-100 py-16 sm:py-24">
           <ScrollReveal>
             <SectionHeading
               eyebrow="Campuses"
               title="キャンパス一覧"
-              className="mb-12"
+              className="mb-8 sm:mb-12"
             />
           </ScrollReveal>
 
           <div className="grid gap-6 sm:grid-cols-2">
             {campuses.map((c, i) => (
               <ScrollReveal key={c.name} delay={i * 0.1} className="h-full">
-                <div className="h-full rounded-md border border-stone-200 bg-white p-8">
+                <div className="h-full rounded-md border border-stone-200 bg-white p-6 sm:p-8">
                   <h3 className="mb-4 text-lg font-semibold text-zinc-900">
                     {c.name}
                   </h3>
@@ -155,7 +155,7 @@ export default function AccessPage() {
             <SectionHeading
               eyebrow="Transportation"
               title="交通アクセス（本キャンパス）"
-              className="mb-12"
+              className="mb-8 sm:mb-12"
             />
           </ScrollReveal>
 

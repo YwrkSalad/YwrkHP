@@ -71,7 +71,7 @@ const footerCols: PageGroup[][] = [
 export default function Footer() {
   return (
     <PageSection as="footer" className="bg-zinc-900 py-12">
-      <div className="mb-10 grid grid-cols-2 gap-8 sm:grid-cols-5">
+      <div className="mb-10 grid grid-cols-2 gap-6 sm:grid-cols-5 sm:gap-8">
         <div>
           <Link
             href="/"

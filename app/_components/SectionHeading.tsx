@@ -19,7 +19,7 @@ export default function SectionHeading({
   eyebrowClassName,
   titleClassName,
   descriptionClassName,
-  className = description ? "mb-12" : "mb-14",
+  className = description ? "mb-8 sm:mb-12" : "mb-10 sm:mb-14",
 }: SectionHeadingProps) {
   const isDark = tone === "dark";
 
@@ -38,7 +38,7 @@ export default function SectionHeading({
       <h2
         className={
           titleClassName ??
-          `text-3xl font-semibold tracking-tight ${
+          `text-2xl font-semibold tracking-tight ${
             isDark ? "text-white" : "text-zinc-900"
           } sm:text-4xl`
         }

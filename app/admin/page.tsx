@@ -168,7 +168,7 @@ export default function AdminPage() {
         </div>
 
         {/* Summary */}
-        <div className="mb-10 flex items-end gap-12">
+        <div className="mb-10 flex items-end gap-8 sm:gap-12">
           <div>
             <p className="text-4xl font-semibold text-zinc-900">
               {pageviews.length.toLocaleString("ja-JP")}

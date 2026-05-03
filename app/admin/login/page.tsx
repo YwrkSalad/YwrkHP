@@ -37,7 +37,7 @@ export default function AdminLogin() {
       <main className="mt-[4.5rem] flex h-[calc(100svh-4.5rem)] items-center justify-center bg-stone-50 px-8 pb-12">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-center gap-8"
+          className="flex flex-col items-center gap-6 sm:gap-8"
         >
           <p className="text-xs font-medium tracking-[0.3em] text-stone-400 uppercase">
             Admin Login
