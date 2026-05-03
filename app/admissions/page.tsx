@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -6,7 +7,6 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
-import LabelValueRow from "../_components/LabelValueRow";
 
 export const metadata: Metadata = { title: "入試情報" };
 
@@ -104,9 +104,16 @@ export default function AdmissionsPage() {
                   <p className="mb-4 sm:mb-6 text-xs leading-relaxed text-stone-700">
                     {m.description}
                   </p>
-                  <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
-                    {m.schedule.map((s) => (
-                      <LabelValueRow key={s.label} label={s.label} value={s.value} />
+                  <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">
+                    {m.schedule.map((s, i) => (
+                      <Fragment key={s.label}>
+                        <span className={`px-4 py-3 text-xs text-stone-500 whitespace-nowrap${i > 0 ? " border-t border-stone-200" : ""}`}>
+                          {s.label}
+                        </span>
+                        <span className={`px-4 py-3 text-xs text-zinc-700${i > 0 ? " border-t border-stone-200" : ""}`}>
+                          {s.value}
+                        </span>
+                      </Fragment>
                     ))}
                   </div>
                 </div>
