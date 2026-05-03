@@ -160,7 +160,7 @@ export default function AboutPage() {
                   <span className="w-36 shrink-0 text-xs text-stone-400">
                     {member.role}
                   </span>
-                  <span className="text-base font-medium text-zinc-800">
+                  <span className="w-16 text-base font-medium text-zinc-800 [text-align-last:justify]">
                     {member.name}
                   </span>
                   <Link
