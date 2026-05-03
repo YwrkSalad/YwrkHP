@@ -90,7 +90,7 @@ export default function AccessPage() {
             <SectionHeading
               eyebrow="Campus Map"
               title="キャンパスマップ"
-              className="mb-10"
+              className="mb-6 sm:mb-10"
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>

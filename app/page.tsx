@@ -197,7 +197,7 @@ export default async function Home() {
               />
               <Link
                 href="/faculties"
-                className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
+                className="mt-4 sm:mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
               >
                 学部・大学院を詳しく見る →
               </Link>
@@ -257,7 +257,7 @@ export default async function Home() {
           </ScrollReveal>
 
           <ScrollReveal blur delay={0.1}>
-            <blockquote className="mb-8 text-center sm:mb-20">
+            <blockquote className="mb-5 text-center sm:mb-20">
               <p className="text-base font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
                 やわらかであることは、強さである。
               </p>
@@ -333,7 +333,7 @@ export default async function Home() {
         {/* キャンパスライフ */}
         <PageSection id="campus" className="bg-accent-50 py-8 sm:py-24">
           <ScrollReveal>
-            <div className="mb-8 text-center sm:mb-14">
+            <div className="mb-5 text-center sm:mb-14">
               <SectionHeading
                 eyebrow="Campus Life"
                 title="キャンパスライフ"
@@ -393,7 +393,7 @@ export default async function Home() {
               />
               <Link
                 href="/access"
-                className="mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
+                className="mt-4 sm:mt-6 inline-block text-sm font-medium text-white/70 transition-colors hover:text-white"
               >
                 アクセス詳細・キャンパスマップ →
               </Link>

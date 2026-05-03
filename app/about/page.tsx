@@ -53,7 +53,7 @@ export default function AboutPage() {
             </ScrollReveal>
 
             {/* 本文 */}
-            <div className="space-y-8 text-base leading-loose font-light text-stone-600">
+            <div className="space-y-5 sm:space-y-8 text-base leading-loose font-light text-stone-600">
               <ScrollReveal delay={0.1}>
                 <blockquote className="border-accent-300 border-l-2 pl-6">
                   <p className="text-lg leading-snug font-semibold tracking-tight text-zinc-900 sm:text-2xl">
@@ -103,7 +103,7 @@ export default function AboutPage() {
 
           <div className="relative">
             <div className="bg-accent-200 absolute top-0 bottom-0 left-[5.25rem] w-px sm:left-[5.25rem]" />
-            <div className="space-y-10">
+            <div className="space-y-6 sm:space-y-10">
               {history.map((item, i) => (
                 <ScrollReveal key={item.year} delay={i * 0.08}>
                   <div className="grid grid-cols-[4rem_2.5rem_1fr] items-start sm:grid-cols-[4rem_2.5rem_1fr]">
@@ -144,7 +144,7 @@ export default function AboutPage() {
 
           {/* 役員・教授 */}
           <ScrollReveal>
-            <h3 className="mb-6 text-lg font-semibold text-zinc-900">
+            <h3 className="mb-4 sm:mb-6 text-lg font-semibold text-zinc-900">
               役員・教授一覧
             </h3>
           </ScrollReveal>

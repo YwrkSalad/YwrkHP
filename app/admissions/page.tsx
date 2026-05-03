@@ -87,11 +87,11 @@ export default function AdmissionsPage() {
             <SectionHeading eyebrow="Admission Methods" title="入試方式" />
           </ScrollReveal>
 
-          <div className="space-y-8">
+          <div className="space-y-5 sm:space-y-8">
             {methods.map((m, i) => (
               <ScrollReveal key={m.name} delay={i * 0.1}>
                 <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-8">
-                  <div className="mb-6 flex items-start gap-4">
+                  <div className="mb-4 sm:mb-6 flex items-start gap-4">
                     <div>
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {m.en}
@@ -101,7 +101,7 @@ export default function AdmissionsPage() {
                       </h3>
                     </div>
                   </div>
-                  <p className="mb-6 text-sm leading-relaxed text-stone-700">
+                  <p className="mb-4 sm:mb-6 text-sm leading-relaxed text-stone-700">
                     {m.description}
                   </p>
                   <div className="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
@@ -126,7 +126,7 @@ export default function AdmissionsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="mb-10 rounded-md border border-stone-200 bg-white">
+            <div className="mb-6 sm:mb-10 rounded-md border border-stone-200 bg-white">
               <div className="divide-y divide-stone-200">
                 {tuition.map((t) => (
                   <div

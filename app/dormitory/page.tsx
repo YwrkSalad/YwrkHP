@@ -159,7 +159,7 @@ export default function DormitoryPage() {
             <SectionHeading eyebrow="Our Dorms" title="寮の紹介" />
           </ScrollReveal>
 
-          <div className="space-y-8">
+          <div className="space-y-5 sm:space-y-8">
             {dorms.map((d, i) => (
               <ScrollReveal key={d.id} delay={i * 0.1}>
                 <div className="overflow-hidden rounded-md border border-stone-200 bg-stone-100/70">
@@ -172,7 +172,7 @@ export default function DormitoryPage() {
                     />
                   </div>
                   <div className="p-4 sm:p-8">
-                    <div className="mb-6">
+                    <div className="mb-4 sm:mb-6">
                       <p className="text-xs tracking-widest text-stone-500 uppercase">
                         {d.en}
                       </p>
@@ -184,7 +184,7 @@ export default function DormitoryPage() {
                         <TagBadge variant="stone">{d.capacity}</TagBadge>
                       </div>
                     </div>
-                    <p className="mb-6 text-sm leading-relaxed text-stone-700">
+                    <p className="mb-4 sm:mb-6 text-sm leading-relaxed text-stone-700">
                       {d.description}
                     </p>
                     <div className="grid grid-cols-[max-content_1fr] overflow-hidden rounded border border-stone-200 bg-white">

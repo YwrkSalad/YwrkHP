@@ -52,7 +52,7 @@ export default async function FacultiesPage({
             className={`py-8 sm:py-24 ${fi % 2 === 0 ? "bg-white" : "bg-stone-50"}`}
           >
             <ScrollReveal>
-              <div className="mb-8 flex items-start gap-4 sm:mb-12 sm:gap-6">
+              <div className="mb-5 flex items-start gap-4 sm:mb-12 sm:gap-6">
                 <span className="text-accent-300 text-4xl leading-none font-bold sm:text-6xl">
                   {f.number}
                 </span>
@@ -71,7 +71,7 @@ export default async function FacultiesPage({
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <p className="mb-8 max-w-2xl text-sm leading-loose font-light text-stone-600 sm:mb-12 sm:text-base">
+              <p className="mb-5 max-w-2xl text-sm leading-loose font-light text-stone-600 sm:mb-12 sm:text-base">
                 {f.description}
               </p>
             </ScrollReveal>
