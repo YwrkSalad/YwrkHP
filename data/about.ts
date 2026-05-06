@@ -85,7 +85,7 @@ export const board = [
     role: "カウンセラー",
     name: "しか",
     note: "学生相談室 / スクールカウンセラー",
-    href: "/campus",
+    href: "/campus#counseling",
   },
 ];
 

@@ -226,6 +226,49 @@ export default function CampusPage() {
           </div>
         </PageSection>
 
+        {/* 学生相談室 */}
+        <PageSection id="counseling">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Student Counseling"
+              title="学生相談室"
+              description="学習・生活・こころの悩みを、一人で抱え込まずに相談してください。"
+              titleClassName="text-lg sm:text-3xl font-semibold tracking-tight text-zinc-900"
+              descriptionClassName="mt-4 text-base font-light text-stone-500"
+              className="mb-7 sm:mb-12"
+            />
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-8">
+                <p className="mb-4 text-xs font-medium tracking-widest text-stone-500 uppercase">
+                  Counselor
+                </p>
+                <p className="text-sm font-semibold text-zinc-900">しか</p>
+                <p className="mt-1 text-xs text-stone-500">
+                  スクールカウンセラー / 学生相談室
+                </p>
+              </div>
+              <div className="rounded-md border border-stone-200 bg-stone-100/70 p-4 sm:p-8">
+                <p className="mb-4 text-xs font-medium tracking-widest text-stone-500 uppercase">
+                  Hours & Location
+                </p>
+                <div className="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1.5 text-xs">
+                  <span className="text-stone-500">場所</span>
+                  <span className="text-zinc-700">健康・スポーツセンター 2階</span>
+                  <span className="text-stone-500">月〜金</span>
+                  <span className="text-zinc-700">10:00〜17:00</span>
+                  <span className="text-stone-500">予約</span>
+                  <span className="text-zinc-700">窓口または Email にて受付</span>
+                  <span className="text-stone-500">Email</span>
+                  <span className="text-zinc-700">counseling@ywrk.org</span>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </PageSection>
+
         {/* 国際交流 */}
         <PageSection id="international">
           <ScrollReveal>

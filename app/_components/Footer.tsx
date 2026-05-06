@@ -52,6 +52,7 @@ const footerCols: PageGroup[][] = [
       sections: [
         { label: "クラブ・サークル", href: "/campus#clubs" },
         { label: "キャンパス施設", href: "/campus#facilities" },
+        { label: "学生相談室", href: "/campus#counseling" },
         { label: "国際交流・留学", href: "/campus#international" },
       ],
     },
