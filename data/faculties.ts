@@ -175,8 +175,34 @@ export const faculties = [
     ],
   },
   {
-    id: "medicine",
+    id: "political-economy",
     number: "06",
+    name: "政治経済学部",
+    en: "Faculty of Political Science and Economics",
+    tagline: "権力と富の動きを読み解き、社会の設計に関わる。",
+    description:
+      "政治学・経済学・国際関係学の3学科で構成される政治経済学部。ろーと教授をはじめとする教員陣のもと、政治制度・市場メカニズム・国際秩序を多角的に分析し、社会の課題に実践的に取り組める人材を育成します。",
+    departments: [
+      {
+        id: "political-economy-politics",
+        name: "政治学科",
+        body: "政治理論・比較政治・行政学を軸に、民主主義と統治のしくみを探究する。ろーと教授が政治経済論を担当。",
+      },
+      {
+        id: "political-economy-economics",
+        name: "経済学科",
+        body: "ミクロ・マクロ経済学・計量経済学を基礎に、現代経済の問題を理論と実証で分析する。",
+      },
+      {
+        id: "political-economy-international",
+        name: "国際関係学科",
+        body: "国際政治経済・外交・地域研究を通じ、グローバルな課題に対応できる視野を養う。",
+      },
+    ],
+  },
+  {
+    id: "medicine",
+    number: "07",
     name: "医学部",
     en: "Faculty of Medicine",
     tagline: "生命の謎に挑み、人の健康と未来を守る。",

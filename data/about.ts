@@ -76,6 +76,12 @@ export const board = [
     href: "/academic",
   },
   {
+    role: "政治経済",
+    name: "ろーと",
+    note: "政治経済学部政治学科教授 / 政治経済論",
+    href: "/faculties?department=political-economy-politics#political-economy",
+  },
+  {
     role: "神学",
     name: "天国生まれ",
     note: "神学部神学科教授 / 宗教哲学",
@@ -92,6 +98,6 @@ export const board = [
 export const stats = [
   { num: "12,400", unit: "名", label: "学生数" },
   { num: "380", unit: "名", label: "専任教員数" },
-  { num: "6", unit: "学部", label: "学部構成" },
+  { num: "7", unit: "学部", label: "学部構成" },
   { num: "78", unit: "年", label: "創立" },
 ];
