@@ -247,7 +247,9 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
 
           <ScrollReveal delay={0.1}>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className={`rounded-md border p-4 transition-colors sm:p-8 ${highlight === "counselor" ? "border-accent-400 bg-accent-50 ring-2 ring-accent-200" : "border-stone-200 bg-stone-100/70"}`}>
+              <div
+                className={`rounded-md border p-4 transition-colors sm:p-8 ${highlight === "counselor" ? "border-accent-400 bg-accent-50 ring-accent-200 ring-2" : "border-stone-200 bg-stone-100/70"}`}
+              >
                 <p className="mb-4 text-xs font-medium tracking-widest text-stone-500 uppercase">
                   Counselor
                 </p>
