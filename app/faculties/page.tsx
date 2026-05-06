@@ -13,11 +13,11 @@ import { faculties } from "../../data/faculties";
 export const metadata: Metadata = {
   title: "学部・大学院",
   description:
-    "5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。",
+    "8つの学部と大学院で、理学・工学・農学・情報・神学・政治経済・芸術・医学を深く探究します。",
   openGraph: {
     title: "学部・大学院 | やわらか大学",
     description:
-      "5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。",
+      "8つの学部と大学院で、理学・工学・農学・情報・神学・政治経済・芸術・医学を深く探究します。",
     url: "https://ywrk.org/faculties",
     type: "website",
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "学部・大学院 | やわらか大学",
     description:
-      "5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。",
+      "8つの学部と大学院で、理学・工学・農学・情報・神学・政治経済・芸術・医学を深く探究します。",
     images: ["/OGP/OGP_1200x630.png"],
   },
 };
@@ -52,7 +52,7 @@ export default async function FacultiesPage({
         <PageHero
           eyebrow="Faculties"
           title="学部・大学院"
-          description="5つの学部と大学院で、理学・工学・農学・情報・医学を深く探究します。"
+          description="8つの学部と大学院で、理学・工学・農学・情報・神学・政治経済・芸術・医学を深く探究します。"
           imageSrc="/bg_pattern/research_field.png"
           imageAlt="研究フィールド"
         />
@@ -130,7 +130,7 @@ export default async function FacultiesPage({
             <SectionHeading
               eyebrow="Graduate School"
               title="やわらか大学院"
-              description="5学部の学知を2研究科に統合。修士・博士課程を通じて国際的な研究者・高度専門職業人を育成するエリート大学院です。年間150件以上の国際学会発表、80本以上の国際共著論文を誇ります。"
+              description="8学部の学知を2研究科に統合。修士・博士課程を通じて国際的な研究者・高度専門職業人を育成するエリート大学院です。年間150件以上の国際学会発表、80本以上の国際共著論文を誇ります。"
               tone="dark"
               className="mb-8 sm:mb-16"
               titleClassName="mb-4 text-lg font-semibold text-white sm:text-4xl"
