@@ -18,12 +18,3 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
-
-@keyframes section-target {
-  from { box-shadow: inset 0 0 0 2px var(--color-accent-300); }
-  to   { box-shadow: inset 0 0 0 2px transparent; }
-}
-
-section:target {
-  animation: section-target 1.8s ease-out forwards;
-}
