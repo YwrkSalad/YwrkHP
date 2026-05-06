@@ -181,7 +181,7 @@ export const faculties = [
     en: "Faculty of Political Science and Economics",
     tagline: "権力と富の動きを読み解き、社会の設計に関わる。",
     description:
-      "政治学・経済学・国際関係学の3学科で構成される政治経済学部。政治制度・市場メカニズム・国際秩序を多角的に分析し、社会の課題に実践的に取り組める人材を育成します。",
+      "政治学・経済学・国際関係学・地域社会学の4学科で構成される政治経済学部。政治制度・市場メカニズム・国際秩序・地域社会を多角的に分析し、社会の課題に実践的に取り組める人材を育成します。",
     departments: [
       {
         id: "political-economy-politics",
@@ -197,6 +197,11 @@ export const faculties = [
         id: "political-economy-international",
         name: "国際関係学科",
         body: "国際政治経済・外交・地域研究を通じ、グローバルな課題に対応できる視野を養う。",
+      },
+      {
+        id: "political-economy-regional-sociology",
+        name: "地域社会学科",
+        body: "地域社会の構造・変容・コミュニティ形成を社会学的手法で分析し、現場に根ざした研究を行う。",
       },
     ],
   },

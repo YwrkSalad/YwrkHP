@@ -76,6 +76,12 @@ export const board = [
     href: "/academic",
   },
   {
+    role: "地域社会学",
+    name: "らくろじ",
+    note: "政治経済学部地域社会学科教授 / 地域社会学",
+    href: "/faculties?department=political-economy-regional-sociology#political-economy",
+  },
+  {
     role: "芸術学",
     name: "すずしろ",
     note: "芸術学部美術学科教授 / 芸術表現",
@@ -86,6 +92,12 @@ export const board = [
     name: "ろーと",
     note: "政治経済学部政治学科教授 / 政治経済論",
     href: "/faculties?department=political-economy-politics#political-economy",
+  },
+  {
+    role: "経済学",
+    name: "しんぷとん",
+    note: "政治経済学部経済学科教授 / 経済学",
+    href: "/faculties?department=political-economy-economics#political-economy",
   },
   {
     role: "神学",
