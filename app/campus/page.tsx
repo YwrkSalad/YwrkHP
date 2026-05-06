@@ -256,11 +256,15 @@ export default function CampusPage() {
                 </p>
                 <div className="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1.5 text-xs">
                   <span className="text-stone-500">場所</span>
-                  <span className="text-zinc-700">健康・スポーツセンター 2階</span>
+                  <span className="text-zinc-700">
+                    健康・スポーツセンター 2階
+                  </span>
                   <span className="text-stone-500">月〜金</span>
                   <span className="text-zinc-700">10:00〜17:00</span>
                   <span className="text-stone-500">予約</span>
-                  <span className="text-zinc-700">窓口または Email にて受付</span>
+                  <span className="text-zinc-700">
+                    窓口または Email にて受付
+                  </span>
                   <span className="text-stone-500">Email</span>
                   <span className="text-zinc-700">counseling@ywrk.org</span>
                 </div>
