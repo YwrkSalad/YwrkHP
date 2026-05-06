@@ -81,6 +81,12 @@ export const board = [
     note: "神学部神学科教授 / 宗教哲学",
     href: "/faculties?department=theology-theology#theology",
   },
+  {
+    role: "カウンセラー",
+    name: "しか",
+    note: "学生相談室 / スクールカウンセラー",
+    href: "/campus",
+  },
 ];
 
 export const stats = [
