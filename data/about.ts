@@ -75,11 +75,17 @@ export const board = [
     note: "教務課 / 学務・教務",
     href: "/academic",
   },
+  {
+    role: "神学",
+    name: "天国生まれ",
+    note: "神学部神学科教授 / 宗教哲学",
+    href: "/faculties?department=theology-theology#theology",
+  },
 ];
 
 export const stats = [
   { num: "12,400", unit: "名", label: "学生数" },
   { num: "380", unit: "名", label: "専任教員数" },
-  { num: "5", unit: "学部", label: "学部構成" },
+  { num: "6", unit: "学部", label: "学部構成" },
   { num: "78", unit: "年", label: "創立" },
 ];

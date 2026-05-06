@@ -149,8 +149,34 @@ export const faculties = [
     ],
   },
   {
-    id: "medicine",
+    id: "theology",
     number: "05",
+    name: "神学部",
+    en: "Faculty of Theology",
+    tagline: "信仰と知性の対話から、人間の根源を問う。",
+    description:
+      "神学・宗教学・哲学倫理学の3学科で構成される神学部。聖典解釈・宗教哲学・比較宗教学を通じて人間の精神的営みを深く探究し、多様な文化・信仰・価値観を理解し対話できる人材を育成します。天国生まれ教授のもと、信仰と学問の接点を追い求めます。",
+    departments: [
+      {
+        id: "theology-theology",
+        name: "神学科",
+        body: "聖典解釈学・組織神学・歴史神学を柱に、信仰の知的探究を深める。天国生まれ教授が宗教哲学を担当。",
+      },
+      {
+        id: "theology-religious-studies",
+        name: "宗教学科",
+        body: "比較宗教学・宗教社会学・儀礼論を通じ、世界の多様な宗教現象を学術的に分析する。",
+      },
+      {
+        id: "theology-philosophy-ethics",
+        name: "哲学倫理学科",
+        body: "倫理学・存在論・応用倫理を横断し、現代社会における価値と規範の問いに向き合う。",
+      },
+    ],
+  },
+  {
+    id: "medicine",
+    number: "06",
     name: "医学部",
     en: "Faculty of Medicine",
     tagline: "生命の謎に挑み、人の健康と未来を守る。",
