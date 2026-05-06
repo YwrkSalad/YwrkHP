@@ -201,8 +201,39 @@ export const faculties = [
     ],
   },
   {
-    id: "medicine",
+    id: "arts",
     number: "07",
+    name: "芸術学部",
+    en: "Faculty of Arts",
+    tagline: "表現することで、世界の見方を変える。",
+    description:
+      "美術・音楽・デザイン史・芸術学の4学科で構成される芸術学部。すずしろ教授をはじめとする実践と理論の両面に長けた教員陣のもと、創造力と批評眼を兼ね備えた芸術家・研究者を育成します。",
+    departments: [
+      {
+        id: "arts-fine-arts",
+        name: "美術学科",
+        body: "絵画・彫刻・版画・映像表現を横断し、すずしろ教授と芸術の本質と実践を深く学ぶ。",
+      },
+      {
+        id: "arts-music",
+        name: "音楽学科",
+        body: "演奏・作曲・音楽学を通じて、音の表現と理論を体系的に探究する。",
+      },
+      {
+        id: "arts-art-history",
+        name: "デザイン史学科",
+        body: "西洋・東洋・現代のデザイン史を軸に、視覚文化の変遷を批評的に読み解く。",
+      },
+      {
+        id: "arts-art-studies",
+        name: "芸術学科",
+        body: "美学・芸術哲学・キュレーション論を統合し、芸術の意味と価値を理論的に問い直す。",
+      },
+    ],
+  },
+  {
+    id: "medicine",
+    number: "08",
     name: "医学部",
     en: "Faculty of Medicine",
     tagline: "生命の謎に挑み、人の健康と未来を守る。",
