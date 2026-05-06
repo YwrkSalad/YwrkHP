@@ -66,7 +66,7 @@ export default function Nav() {
 
   return (
     <>
-      <header className="fixed top-0 right-0 left-0 z-50 border-b border-stone-200/60 bg-white/80 backdrop-blur-md">
+      <header className="fixed top-0 right-0 left-0 z-50 border-b border-stone-200 bg-white">
         <div
           ref={barRef}
           className="flex h-18 items-center justify-between px-6"
