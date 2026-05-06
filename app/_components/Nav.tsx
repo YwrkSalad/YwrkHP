@@ -7,12 +7,13 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "ホーム", href: "/" },
+  { label: "大学について", href: "/about" },
   { label: "学部・大学院", href: "/faculties" },
   { label: "研究・社会連携", href: "/research" },
   { label: "入試情報", href: "/admissions" },
-  { label: "教務課", href: "/academic" },
   { label: "キャンパスライフ", href: "/campus" },
   { label: "学生寮", href: "/dormitory" },
+  { label: "教務課", href: "/academic" },
   { label: "アクセス", href: "/access" },
 ];
 
