@@ -170,8 +170,8 @@ export default function AboutPage() {
                   <span className="w-36 shrink-0 text-xs text-stone-400">
                     {member.role}
                   </span>
-                  <span className="w-16 text-sm font-medium text-zinc-800 [text-align-last:justify]">
-                    {member.name}
+                  <span className="flex w-16 shrink-0 justify-between text-sm font-medium text-zinc-800">
+                    {[...member.name].map((c, i) => <span key={i}>{c}</span>)}
                   </span>
                   <Link
                     href={member.href}
