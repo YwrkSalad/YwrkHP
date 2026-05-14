@@ -12,7 +12,9 @@ export const meta: NewsItemMeta = {
 export default function Body() {
   return (
     <div className="space-y-5 text-sm leading-loose text-stone-700">
-      <p>2026年4月8日（水）、やわらか大学体育館にて、2026年度入学式を虚行いたしました。</p>
+      <p>
+        2026年4月8日（水）、やわらか大学体育館にて、2026年度入学式を虚行いたしました。
+      </p>
       <p>
         今年度は学部生・大学院生あわせて1,240名が入学し、保護者・来賓を含む約3,000名が式に参加しました。
       </p>

@@ -26,7 +26,9 @@ export default function Body() {
           </li>
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>
-            <span>会場：やわらか大学 学生交流センター 多目的ホール（本キャンパス）</span>
+            <span>
+              会場：やわらか大学 学生交流センター 多目的ホール（本キャンパス）
+            </span>
           </li>
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>
@@ -45,7 +47,9 @@ export default function Body() {
         <ul className="mt-2 space-y-1 pl-1">
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>
-            <span>10:00　開会・基調講演「知の解体と再編──学際研究の現在地」</span>
+            <span>
+              10:00　開会・基調講演「知の解体と再編──学際研究の現在地」
+            </span>
           </li>
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>
@@ -53,7 +57,9 @@ export default function Body() {
           </li>
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>
-            <span>13:00　分科会セッション（文理融合・共生社会・情報生命・環境）</span>
+            <span>
+              13:00　分科会セッション（文理融合・共生社会・情報生命・環境）
+            </span>
           </li>
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>

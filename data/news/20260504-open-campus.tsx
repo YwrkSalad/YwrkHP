@@ -24,7 +24,8 @@ export default function Body() {
       <div>
         <p className="font-semibold text-zinc-900">■ 会場</p>
         <p className="mt-1">
-          やわらか大学 秋葉原キャンパス（詳細については決定次第、本ウェブサイトおよびメールにてご案内します）
+          やわらか大学
+          秋葉原キャンパス（詳細については決定次第、本ウェブサイトおよびメールにてご案内します）
         </p>
       </div>
 
@@ -32,7 +33,8 @@ export default function Body() {
         <p className="font-semibold text-zinc-900">■ 対象</p>
         <p className="mt-1">大学生・保護者（成人済）</p>
         <p className="mt-1">
-          ※ 当日IDチェックを行いますので、顔写真付きの身分証明書を必ずご持参ください。
+          ※
+          当日IDチェックを行いますので、顔写真付きの身分証明書を必ずご持参ください。
         </p>
       </div>
 
@@ -54,7 +56,9 @@ export default function Body() {
           </li>
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>
-            <span>各学部の特色、研究内容、キャリア形成について詳しく知ることができます</span>
+            <span>
+              各学部の特色、研究内容、キャリア形成について詳しく知ることができます
+            </span>
           </li>
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>
@@ -116,15 +120,24 @@ export default function Body() {
           </div>
           <div>
             <p className="font-medium">Q: 在学生に直接質問できますか？</p>
-            <p>A: はい。学生相談コーナーでは、学生生活について在学生に直接相談できます。</p>
+            <p>
+              A:
+              はい。学生相談コーナーでは、学生生活について在学生に直接相談できます。
+            </p>
           </div>
           <div>
             <p className="font-medium">Q: 昼食は用意されますか？</p>
-            <p>A: オープンキャンパス開催当日は、夜間ですので昼食は提供されません。</p>
+            <p>
+              A:
+              オープンキャンパス開催当日は、夜間ですので昼食は提供されません。
+            </p>
           </div>
           <div>
             <p className="font-medium">Q: 参加証明書は発行されますか？</p>
-            <p>A: ご希望の方には、参加証明書を発行いたします。受付時にお申し付けください。</p>
+            <p>
+              A:
+              ご希望の方には、参加証明書を発行いたします。受付時にお申し付けください。
+            </p>
           </div>
         </div>
       </div>

@@ -17,7 +17,9 @@ export default function Body() {
       </p>
 
       <div>
-        <p className="font-semibold text-zinc-900">■ 変更後の開館時間（2026年4月1日〜）</p>
+        <p className="font-semibold text-zinc-900">
+          ■ 変更後の開館時間（2026年4月1日〜）
+        </p>
         <ul className="mt-2 space-y-1 pl-1">
           <li className="flex gap-2">
             <span className="shrink-0 text-stone-400">–</span>
@@ -62,7 +64,9 @@ export default function Body() {
       <p>
         試験期間中はさらに延長される場合があります。最新の開館カレンダーは図書館ウェブページをご確認ください。
       </p>
-      <p>ご不明な点は図書館カウンター（lib@ywrk.org）までお問い合わせください。</p>
+      <p>
+        ご不明な点は図書館カウンター（lib@ywrk.org）までお問い合わせください。
+      </p>
     </div>
   );
 }

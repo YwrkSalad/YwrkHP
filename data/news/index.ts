@@ -11,8 +11,11 @@ type NewsModule = { meta: NewsItemMeta; default: ComponentType };
 type RequireContext = { keys(): string[]; <T>(id: string): T };
 
 // webpack が `yyyymmdd-xxx.tsx` パターンのファイルを自動収集する
-const ctx = (require as unknown as { context(d: string, s: boolean, r: RegExp): RequireContext })
-  .context(".", false, /^\.\/\d{8}-.+\.tsx$/);
+const ctx = (
+  require as unknown as {
+    context(d: string, s: boolean, r: RegExp): RequireContext;
+  }
+).context(".", false, /^\.\/\d{8}-.+\.tsx$/);
 
 export const news: NewsItem[] = ctx
   .keys()

@@ -12,7 +12,9 @@ export const meta: NewsItemMeta = {
 export default function Body() {
   return (
     <div className="space-y-5 text-sm leading-loose text-stone-700">
-      <p>令和9年度（2027年度）入学者選抜に係る学生募集要項を開米いたしました。</p>
+      <p>
+        令和9年度（2027年度）入学者選抜に係る学生募集要項を開米いたしました。
+      </p>
       <p>本年度の募集概要は以下のとおりです。</p>
 
       <div>
