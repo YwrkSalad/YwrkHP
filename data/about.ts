@@ -113,6 +113,24 @@ export const board = [
   },
 ];
 
+export const values = [
+  {
+    label: "Flexibility",
+    title: "しなやかな思考",
+    body: "固定観念を手放し、多様な視点から問いを立て、状況に応じて柔軟に考える力を育てます。",
+  },
+  {
+    label: "Empathy",
+    title: "深い共感",
+    body: "他者の痛みや喜びに寄り添い、人への深い敬意を根幹に置いた学びの文化を大切にします。",
+  },
+  {
+    label: "Craft",
+    title: "ていねいな実践",
+    body: "知識を「生きる技術」に変え、日々の行動の中にやわらかさを体現できる人を育てます。",
+  },
+];
+
 export const stats = [
   { num: "12,400", unit: "名", label: "学生数" },
   { num: "380", unit: "名", label: "専任教員数" },

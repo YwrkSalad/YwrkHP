@@ -10,6 +10,8 @@ import SectionHeading from "./_components/SectionHeading";
 import TagBadge from "./_components/TagBadge";
 import FeatureCard from "./_components/FeatureCard";
 import { news } from "../data/news";
+import { faculties } from "../data/faculties";
+import { values } from "../data/about";
 
 export const metadata: Metadata = {
   title: "ホーム",
@@ -21,92 +23,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-const faculties = [
-  {
-    number: "01",
-    name: "理学部",
-    en: "Faculty of Science",
-    description:
-      "数学・物理学・化学・生物学・地球惑星科学・宇宙科学の6学科で自然界の本質を探究します。",
-    departments: [
-      "数学科",
-      "物理学科",
-      "化学科",
-      "生物学科",
-      "地球惑星科学科",
-      "宇宙科学科",
-    ],
-  },
-  {
-    number: "02",
-    name: "工学部",
-    en: "Faculty of Engineering",
-    description:
-      "機械航空・電気情報・建設環境・化学システム・材料科学で社会を支えるエンジニアを育てます。",
-    departments: [
-      "機械航空工学科",
-      "電気情報工学科",
-      "建設環境工学科",
-      "化学システム工学科",
-      "材料科学工学科",
-    ],
-  },
-  {
-    number: "03",
-    name: "農学部",
-    en: "Faculty of Agriculture",
-    description:
-      "食料・生命・環境・動物医療を横断する農学の視点から、持続可能な社会の実現に貢献します。",
-    departments: [
-      "農業科学科",
-      "生命機能科学科",
-      "資源生物科学科",
-      "応用生物化学科",
-      "共同獣医学科",
-    ],
-  },
-  {
-    number: "04",
-    name: "情報科学部",
-    en: "Faculty of Information Science and Technology",
-    description:
-      "AI・数理・バイオインフォマティクス・デザインが融合した次世代人材を育成します。",
-    departments: [
-      "情報工学科",
-      "知能情報工学科",
-      "生体情報工学科",
-      "数理情報科学科",
-      "デザイン科",
-    ],
-  },
-  {
-    number: "05",
-    name: "医学部",
-    en: "Faculty of Medicine",
-    description:
-      "基礎医学から臨床・公衆衛生・看護科学まで幅広く学び、科学的根拠に基づいた医療人・研究者を育成します。",
-    departments: ["医学科", "保健学科"],
-  },
-];
-
-const values = [
-  {
-    label: "Flexibility",
-    title: "しなやかな思考",
-    body: "固定観念を手放し、多様な視点から問いを立て、状況に応じて柔軟に考える力を育てます。",
-  },
-  {
-    label: "Empathy",
-    title: "深い共感",
-    body: "他者の痛みや喜びに寄り添い、人への深い敬意を根幹に置いた学びの文化を大切にします。",
-  },
-  {
-    label: "Craft",
-    title: "ていねいな実践",
-    body: "知識を「生きる技術」に変え、日々の行動の中にやわらかさを体現できる人を育てます。",
-  },
-];
 
 export default async function Home() {
   return (
@@ -178,7 +94,7 @@ export default async function Home() {
               <SectionHeading
                 eyebrow="Faculties"
                 title="学部紹介"
-                description="5つの学部で、理学・工学・農学・情報・医学を探究します。"
+                description={`${faculties.length}つの学部で、多様な知を探究します。`}
                 align="center"
                 tone="dark"
                 className=""
@@ -213,8 +129,8 @@ export default async function Home() {
                     </p>
                     <ul className="flex flex-wrap gap-2">
                       {f.departments.map((d) => (
-                        <li key={d}>
-                          <TagBadge variant="white">{d}</TagBadge>
+                        <li key={d.id}>
+                          <TagBadge variant="white">{d.name}</TagBadge>
                         </li>
                       ))}
                     </ul>
