@@ -9,6 +9,7 @@ import {
   Tooltip,
   ResponsiveContainer,
   Cell,
+  LabelList,
 } from "recharts";
 
 type Pageview = { ts: number; uid: string; page: string };
@@ -87,6 +88,11 @@ export default function PageBreakdownChart({ pageviews }: Props) {
             {data.map((_, i) => (
               <Cell key={i} fill={COLORS[i % COLORS.length]} />
             ))}
+            <LabelList
+              dataKey="count"
+              position="right"
+              style={{ fontSize: 11, fill: "#78716c", fontVariantNumeric: "tabular-nums" }}
+            />
           </Bar>
         </BarChart>
       </ResponsiveContainer>

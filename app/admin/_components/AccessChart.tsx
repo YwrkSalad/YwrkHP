@@ -194,8 +194,8 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
             stroke="#6366f1"
             strokeWidth={2}
             fill="url(#accessGrad)"
-            dot={false}
-            activeDot={{ r: 4, fill: "#6366f1", strokeWidth: 0 }}
+            dot={data.length <= 48 ? { r: 2.5, fill: "#6366f1", strokeWidth: 0 } : false}
+            activeDot={{ r: 5, fill: "#6366f1", strokeWidth: 0 }}
           />
         </AreaChart>
       </ResponsiveContainer>
