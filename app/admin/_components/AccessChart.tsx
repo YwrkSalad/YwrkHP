@@ -154,7 +154,7 @@ export default function AccessChart({ pageviews }: Props) {
             tick={{ fontSize: 10, fill: "#a8a29e" }}
             tickLine={false}
             axisLine={false}
-            interval={Math.max(1, Math.floor(data.length / 6))}
+            interval={Math.max(1, Math.floor(data.length / 12))}
           />
           <YAxis
             tick={{ fontSize: 10, fill: "#a8a29e" }}
