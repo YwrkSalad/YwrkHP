@@ -68,7 +68,7 @@ export default function AdminPage() {
   const [pageviews, setPageviews] = useState<Pageview[]>([]);
   const [modal, setModal] = useState<VisitorStat | null>(null);
   const [visitorLimit, setVisitorLimit] = useState(10);
-  const [logLimit, setLogLimit] = useState(20);
+  const [logLimit, setLogLimit] = useState(10);
   const [myUid, setMyUid] = useState<string | null>(null);
   const [period, setPeriod] = useState<Period>("1D");
   const router = useRouter();
