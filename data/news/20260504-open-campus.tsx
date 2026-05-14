@@ -18,7 +18,7 @@ export default function Body() {
 
       <div>
         <p className="font-semibold text-zinc-900">■ 開催日時</p>
-        <p className="mt-1">2026年6月18日（木）23:00〜29:00</p>
+        <p className="mt-1">2026年6月18日（木）23:00〜5:00</p>
       </div>
 
       <div>
