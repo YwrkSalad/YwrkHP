@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import {
   AreaChart,
   Area,
@@ -13,7 +13,7 @@ import {
 
 type Pageview = { ts: number; uid: string; page: string };
 
-type Period = "1h" | "3h" | "6h" | "1D" | "7d" | "1M" | "6M" | "1Y";
+export type Period = "1h" | "3h" | "6h" | "1D" | "7d" | "1M" | "6M" | "1Y";
 
 const PERIODS: { label: string; value: Period }[] = [
   { label: "1H", value: "1h" },
@@ -59,7 +59,7 @@ function getBuckets(period: Period): { ms: number; fmt: (d: Date) => string } {
   }
 }
 
-function getPeriodMs(period: Period): number {
+export function getPeriodMs(period: Period): number {
   switch (period) {
     case "1h": return 60 * 60 * 1000;
     case "3h": return 3 * 60 * 60 * 1000;
@@ -74,10 +74,11 @@ function getPeriodMs(period: Period): number {
 
 interface Props {
   pageviews: Pageview[];
+  period: Period;
+  onPeriodChange: (p: Period) => void;
 }
 
-export default function AccessChart({ pageviews }: Props) {
-  const [period, setPeriod] = useState<Period>("1D");
+export default function AccessChart({ pageviews, period, onPeriodChange }: Props) {
 
   const data = useMemo(() => {
     const now = Date.now();
@@ -127,7 +128,7 @@ export default function AccessChart({ pageviews }: Props) {
           {PERIODS.map((p) => (
             <button
               key={p.value}
-              onClick={() => setPeriod(p.value)}
+              onClick={() => onPeriodChange(p.value)}
               className={`rounded-md px-3 py-1.5 text-xs font-medium tracking-widest transition-all ${
                 period === p.value
                   ? "bg-white text-zinc-800 shadow-sm"

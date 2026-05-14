@@ -9,9 +9,8 @@ import Nav from "@/app/_components/Nav";
 import PageTracker from "@/app/_components/PageTracker";
 import { MoreHorizontal, X, LogOut, Activity, Users, Eye, TrendingUp } from "lucide-react";
 import { verifyToken, eraseVisitorLog } from "./actions";
-import AccessChart from "./_components/AccessChart";
+import AccessChart, { type Period, getPeriodMs } from "./_components/AccessChart";
 import PageBreakdownChart from "./_components/PageBreakdownChart";
-import HourlyChart from "./_components/HourlyChart";
 
 const TOKEN_KEY = "ywrk-admin-token";
 const VISITOR_KEY = "ywrk-visitor-id";
@@ -71,6 +70,7 @@ export default function AdminPage() {
   const [visitorLimit, setVisitorLimit] = useState(10);
   const [logLimit, setLogLimit] = useState(20);
   const [myUid, setMyUid] = useState<string | null>(null);
+  const [period, setPeriod] = useState<Period>("1D");
   const router = useRouter();
 
   useEffect(() => {
@@ -256,13 +256,14 @@ export default function AdminPage() {
 
         {/* Charts row 1 */}
         <div className="mb-6">
-          <AccessChart pageviews={pageviews} />
+          <AccessChart pageviews={pageviews} period={period} onPeriodChange={setPeriod} />
         </div>
 
         {/* Charts row 2 */}
-        <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <PageBreakdownChart pageviews={pageviews} />
-          <HourlyChart pageviews={pageviews} />
+        <div className="mb-10">
+          <PageBreakdownChart
+            pageviews={pageviews.filter((pv) => pv.ts >= Date.now() - getPeriodMs(period))}
+          />
         </div>
 
         {/* Visitors table */}
