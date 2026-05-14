@@ -1,14 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  ResponsiveContainer,
-} from "recharts";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 type Pageview = { ts: number; uid: string; page: string };
 
@@ -30,11 +23,11 @@ function getBuckets(period: Period): { ms: number; fmt: (d: Date) => string } {
     case "1h":  return { ms: 5 * 60 * 1000,           fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
     case "3h":  return { ms: 10 * 60 * 1000,          fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
     case "6h":  return { ms: 15 * 60 * 1000,          fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
-    case "1D":  return { ms: 60 * 60 * 1000,           fmt: (d) => `${d.getHours()}:00` };
-    case "7d":  return { ms: 6 * 60 * 60 * 1000,       fmt: (d) => `${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:00` };
-    case "1M":  return { ms: 24 * 60 * 60 * 1000,      fmt: (d) => `${d.getMonth() + 1}/${d.getDate()}` };
-    case "6M":  return { ms: 7 * 24 * 60 * 60 * 1000,  fmt: (d) => `${d.getMonth() + 1}/${d.getDate()}` };
-    case "1Y":  return { ms: 14 * 24 * 60 * 60 * 1000, fmt: (d) => `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}` };
+    case "1D":  return { ms: 60 * 60 * 1000,          fmt: (d) => `${d.getHours()}:00` };
+    case "7d":  return { ms: 6 * 60 * 60 * 1000,      fmt: (d) => `${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:00` };
+    case "1M":  return { ms: 24 * 60 * 60 * 1000,     fmt: (d) => `${d.getMonth() + 1}/${d.getDate()}` };
+    case "6M":  return { ms: 7 * 24 * 60 * 60 * 1000, fmt: (d) => `${d.getMonth() + 1}/${d.getDate()}` };
+    case "1Y":  return { ms: 14 * 24 * 60 * 60 * 1000,fmt: (d) => `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}` };
   }
 }
 
@@ -51,8 +44,6 @@ export function getPeriodMs(period: Period): number {
   }
 }
 
-type TooltipState = { x: number; y: number; label: string; count: number } | null;
-
 interface Props {
   pageviews: Pageview[];
   period: Period;
@@ -60,17 +51,14 @@ interface Props {
 }
 
 export default function AccessChart({ pageviews, period, onPeriodChange }: Props) {
-  const [tooltip, setTooltip] = useState<TooltipState>(null);
-
   const data = useMemo(() => {
     const now = Date.now();
     const periodMs = getPeriodMs(period);
     const { ms: bucketMs, fmt } = getBuckets(period);
     const start = now - periodMs;
     const filtered = pageviews.filter((pv) => pv.ts >= start);
-    const bucketCount = Math.ceil(periodMs / bucketMs);
     const buckets: Record<number, number> = {};
-    for (let i = 0; i < bucketCount; i++) {
+    for (let i = 0; i < Math.ceil(periodMs / bucketMs); i++) {
       buckets[Math.floor((start + i * bucketMs) / bucketMs)] = 0;
     }
     for (const pv of filtered) {
@@ -95,7 +83,6 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
             <span className="ml-2 text-sm font-normal text-stone-400">in period</span>
           </p>
         </div>
-        {/* モバイル */}
         <select
           value={period}
           onChange={(e) => onPeriodChange(e.target.value as Period)}
@@ -103,40 +90,19 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
         >
           {PERIODS.map((p) => <option key={p.value} value={p.value}>{p.label}</option>)}
         </select>
-        {/* デスクトップ */}
         <div className="hidden sm:flex gap-1 rounded-lg bg-stone-100 p-1">
           {PERIODS.map((p) => (
-            <button
-              key={p.value}
-              onClick={() => onPeriodChange(p.value)}
+            <button key={p.value} onClick={() => onPeriodChange(p.value)}
               className={`rounded-md px-3 py-1.5 text-xs font-medium tracking-widest transition-all ${
                 period === p.value ? "bg-white text-zinc-800 shadow-sm" : "text-stone-500 hover:text-zinc-700"
               }`}
-            >
-              {p.label}
-            </button>
+            >{p.label}</button>
           ))}
         </div>
       </div>
 
       <ResponsiveContainer width="100%" height={220}>
-        <AreaChart
-          data={data}
-          margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
-          onMouseMove={(state: any, event: any) => {
-            if (state.isTooltipActive && state.activePayload?.length) {
-              setTooltip({
-                x: event.clientX,
-                y: event.clientY,
-                label: state.activeLabel,
-                count: state.activePayload[0].value,
-              });
-            } else {
-              setTooltip(null);
-            }
-          }}
-          onMouseLeave={() => setTooltip(null)}
-        >
+        <AreaChart data={data} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
           <defs>
             <linearGradient id="accessGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#6366f1" stopOpacity={0.15} />
@@ -146,19 +112,15 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
           <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" vertical={false} />
           <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#a8a29e" }} tickLine={false} axisLine={false} interval={Math.max(1, Math.floor(data.length / 12))} />
           <YAxis tick={{ fontSize: 10, fill: "#a8a29e" }} tickLine={false} axisLine={false} allowDecimals={false} domain={[0, max + 1]} />
+          <Tooltip
+            contentStyle={{ background: "#1c1917", border: "none", borderRadius: "8px", color: "#fafaf9", fontSize: "12px", padding: "8px 12px" }}
+            itemStyle={{ color: "#a5b4fc" }}
+            cursor={{ stroke: "#6366f1", strokeWidth: 1, strokeDasharray: "4 4" }}
+            formatter={(v) => [v as number, "Views"]}
+          />
           <Area type="monotone" dataKey="count" stroke="#6366f1" strokeWidth={2} fill="url(#accessGrad)" dot={false} activeDot={{ r: 4, fill: "#6366f1", strokeWidth: 0 }} />
         </AreaChart>
       </ResponsiveContainer>
-
-      {tooltip && (
-        <div
-          className="pointer-events-none fixed z-50 rounded-lg bg-stone-900 px-3 py-2 text-xs text-stone-50 shadow-lg"
-          style={{ left: tooltip.x + 14, top: tooltip.y - 48 }}
-        >
-          <p className="text-indigo-300">{tooltip.label}</p>
-          <p>{tooltip.count} Views</p>
-        </div>
-      )}
     </div>
   );
 }
