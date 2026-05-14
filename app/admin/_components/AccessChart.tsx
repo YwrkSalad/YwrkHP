@@ -27,36 +27,24 @@ const PERIODS: { label: string; value: Period }[] = [
 ];
 
 function getBuckets(period: Period): { ms: number; fmt: (d: Date) => string } {
-  switch (period) {
-    case "1h":
-      return { ms: 5 * 60 * 1000, fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
-    case "3h":
-      return { ms: 10 * 60 * 1000, fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
-    case "6h":
-      return { ms: 15 * 60 * 1000, fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
-    case "1D":
-      return { ms: 60 * 60 * 1000, fmt: (d) => `${d.getHours()}:00` };
-    case "7d":
-      return {
-        ms: 6 * 60 * 60 * 1000,
-        fmt: (d) => `${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:00`,
-      };
-    case "1M":
-      return {
-        ms: 24 * 60 * 60 * 1000,
-        fmt: (d) => `${d.getMonth() + 1}/${d.getDate()}`,
-      };
-    case "6M":
-      return {
-        ms: 7 * 24 * 60 * 60 * 1000,
-        fmt: (d) => `${d.getMonth() + 1}/${d.getDate()}`,
-      };
-    case "1Y":
-      return {
-        ms: 14 * 24 * 60 * 60 * 1000,
-        fmt: (d) => `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`,
-      };
+  const periodMs = getPeriodMs(period);
+  const ms = Math.ceil(periodMs / 24);
+
+  const H = 60 * 60 * 1000;
+  const D = 24 * H;
+
+  let fmt: (d: Date) => string;
+  if (ms < H) {
+    fmt = (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}`;
+  } else if (ms < D) {
+    fmt = (d) => `${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:00`;
+  } else if (periodMs <= 180 * D) {
+    fmt = (d) => `${d.getMonth() + 1}/${d.getDate()}`;
+  } else {
+    fmt = (d) => `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
   }
+
+  return { ms, fmt };
 }
 
 export function getPeriodMs(period: Period): number {
