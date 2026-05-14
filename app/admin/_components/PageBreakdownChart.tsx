@@ -53,12 +53,12 @@ export default function PageBreakdownChart({ pageviews }: Props) {
           </p>
         </div>
         <div className="flex gap-1 rounded-lg bg-stone-100 p-1">
-          {(["総数", "ユニーク"] as const).map((label) => {
-            const active = label === "ユニーク" ? mode === "unique" : mode === "total";
+          {(["総数", "人数"] as const).map((label) => {
+            const active = label === "人数" ? mode === "unique" : mode === "total";
             return (
               <button
                 key={label}
-                onClick={() => setMode(label === "ユニーク" ? "unique" : "total")}
+                onClick={() => setMode(label === "人数" ? "unique" : "total")}
                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
                   active ? "bg-white text-zinc-800 shadow-sm" : "text-stone-500 hover:text-zinc-700"
                 }`}
