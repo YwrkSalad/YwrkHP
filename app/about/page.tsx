@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "../_components/Nav";
@@ -10,23 +9,13 @@ import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 import StatBlock from "../_components/StatBlock";
 import { history, board, stats } from "../../data/about";
+import { createMetadata } from "../../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "大学について",
-  description: "やわらか大学の歴史、学長メッセージ、組織概要をご紹介します。",
-  openGraph: {
-    title: "大学について | やわらか大学",
-    description: "やわらか大学の歴史、学長メッセージ、組織概要をご紹介します。",
-    url: "https://ywrk.org/about",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "大学について | やわらか大学",
-    description: "やわらか大学の歴史、学長メッセージ、組織概要をご紹介します。",
-    images: ["/OGP/OGP_1200x630.png"],
-  },
-};
+export const metadata = createMetadata(
+  "大学について",
+  "やわらか大学の歴史、学長メッセージ、組織概要をご紹介します。",
+  "/about",
+);
 
 export default function AboutPage() {
   return (
