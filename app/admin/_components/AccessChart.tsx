@@ -152,6 +152,8 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
         </div>
       </div>
 
+      {/* onClickCapture でクリックが recharts に届く前に止め、tooltip の固定を防ぐ */}
+      <div onClickCapture={(e) => e.stopPropagation()}>
       <ResponsiveContainer width="100%" height={220}>
         <AreaChart data={data} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
           <defs>
@@ -199,6 +201,7 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
           />
         </AreaChart>
       </ResponsiveContainer>
+      </div>
     </div>
   );
 }

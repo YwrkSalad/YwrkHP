@@ -51,6 +51,7 @@ export default function PageBreakdownChart({ pageviews }: Props) {
         <span className="ml-2 text-sm font-normal text-stone-400">pages</span>
       </p>
 
+      <div onClickCapture={(e) => e.stopPropagation()}>
       <ResponsiveContainer width="100%" height={220}>
         <BarChart
           data={data}
@@ -96,6 +97,7 @@ export default function PageBreakdownChart({ pageviews }: Props) {
           </Bar>
         </BarChart>
       </ResponsiveContainer>
+      </div>
     </div>
   );
 }
