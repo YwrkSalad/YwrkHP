@@ -13,15 +13,17 @@ import {
 
 type Pageview = { ts: number; uid: string; page: string };
 
-type Period = "1h" | "3h" | "6h" | "24h" | "7d" | "30d";
+type Period = "1h" | "3h" | "6h" | "1D" | "7d" | "1M" | "6M" | "1Y";
 
 const PERIODS: { label: string; value: Period }[] = [
   { label: "1H", value: "1h" },
   { label: "3H", value: "3h" },
   { label: "6H", value: "6h" },
-  { label: "24H", value: "24h" },
+  { label: "1D", value: "1D" },
   { label: "7D", value: "7d" },
-  { label: "30D", value: "30d" },
+  { label: "1M", value: "1M" },
+  { label: "6M", value: "6M" },
+  { label: "1Y", value: "1Y" },
 ];
 
 function getBuckets(period: Period): { ms: number; fmt: (d: Date) => string } {
@@ -32,18 +34,27 @@ function getBuckets(period: Period): { ms: number; fmt: (d: Date) => string } {
       return { ms: 10 * 60 * 1000, fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
     case "6h":
       return { ms: 15 * 60 * 1000, fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
-    case "24h":
+    case "1D":
       return { ms: 60 * 60 * 1000, fmt: (d) => `${d.getHours()}:00` };
     case "7d":
       return {
         ms: 6 * 60 * 60 * 1000,
-        fmt: (d) =>
-          `${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:00`,
+        fmt: (d) => `${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:00`,
       };
-    case "30d":
+    case "1M":
       return {
         ms: 24 * 60 * 60 * 1000,
         fmt: (d) => `${d.getMonth() + 1}/${d.getDate()}`,
+      };
+    case "6M":
+      return {
+        ms: 7 * 24 * 60 * 60 * 1000,
+        fmt: (d) => `${d.getMonth() + 1}/${d.getDate()}`,
+      };
+    case "1Y":
+      return {
+        ms: 14 * 24 * 60 * 60 * 1000,
+        fmt: (d) => `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`,
       };
   }
 }
@@ -53,9 +64,11 @@ function getPeriodMs(period: Period): number {
     case "1h": return 60 * 60 * 1000;
     case "3h": return 3 * 60 * 60 * 1000;
     case "6h": return 6 * 60 * 60 * 1000;
-    case "24h": return 24 * 60 * 60 * 1000;
+    case "1D": return 24 * 60 * 60 * 1000;
     case "7d": return 7 * 24 * 60 * 60 * 1000;
-    case "30d": return 30 * 24 * 60 * 60 * 1000;
+    case "1M": return 30 * 24 * 60 * 60 * 1000;
+    case "6M": return 180 * 24 * 60 * 60 * 1000;
+    case "1Y": return 365 * 24 * 60 * 60 * 1000;
   }
 }
 
@@ -64,7 +77,7 @@ interface Props {
 }
 
 export default function AccessChart({ pageviews }: Props) {
-  const [period, setPeriod] = useState<Period>("24h");
+  const [period, setPeriod] = useState<Period>("1D");
 
   const data = useMemo(() => {
     const now = Date.now();
