@@ -301,7 +301,7 @@ export default function AdminPage() {
                       </td>
                       <td className="hidden px-5 py-3.5 md:table-cell">
                         <div className="flex flex-wrap gap-1">
-                          {[...v.pages].map((page) => (
+                          {[...v.pages].slice(0, 5).map((page) => (
                             <span
                               key={page}
                               className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-600"
@@ -309,6 +309,11 @@ export default function AdminPage() {
                               {page}
                             </span>
                           ))}
+                          {v.pages.size > 5 && (
+                            <span className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-400">
+                              …
+                            </span>
+                          )}
                         </div>
                       </td>
                       <td className="hidden px-5 py-3.5 font-mono text-xs text-stone-400 md:table-cell">
