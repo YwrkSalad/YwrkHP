@@ -1,7 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
+import { useMemo, useState } from "react";
+import {
+  BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList,
+} from "recharts";
 
 type Pageview = { ts: number; uid: string; page: string };
 
@@ -12,6 +14,8 @@ interface Props {
 }
 
 export default function PageBreakdownChart({ pageviews }: Props) {
+  const [hover, setHover] = useState<{ page: string; count: number } | null>(null);
+
   const { data, yAxisWidth } = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const pv of pageviews) {
@@ -33,28 +37,37 @@ export default function PageBreakdownChart({ pageviews }: Props) {
         <span className="ml-2 text-sm font-normal text-stone-400">pages</span>
       </p>
 
-      <ResponsiveContainer width="100%" height={220}>
-        <BarChart data={data} layout="vertical" margin={{ top: 0, right: 32, left: 0, bottom: 0 }}>
-          <XAxis type="number" tick={{ fontSize: 10, fill: "#a8a29e" }} tickLine={false} axisLine={false} allowDecimals={false} />
-          <YAxis type="category" dataKey="page" tick={{ fontSize: 11, fill: "#78716c" }} tickLine={false} axisLine={false} width={yAxisWidth} />
-          <Tooltip
-            cursor={{ fill: "#f5f5f4" }}
-            content={({ active, payload, label }) => {
-              if (!active || !payload?.length) return null;
-              return (
-                <div style={{ background: "#1c1917", borderRadius: 8, padding: "8px 12px", fontSize: 12, color: "#fafaf9" }}>
-                  <p style={{ marginBottom: 2 }}>{label}</p>
-                  <p style={{ color: "#a5b4fc" }}>{payload[0].value} Views</p>
-                </div>
-              );
+      <div className="relative">
+        <ResponsiveContainer width="100%" height={220}>
+          <BarChart
+            data={data}
+            layout="vertical"
+            margin={{ top: 0, right: 32, left: 0, bottom: 0 }}
+            onMouseMove={(state: any) => {
+              if (state.isTooltipActive && state.activePayload?.length) {
+                setHover({ page: state.activeLabel, count: state.activePayload[0].value });
+              } else {
+                setHover(null);
+              }
             }}
-          />
-          <Bar dataKey="count" radius={[0, 4, 4, 0]}>
-            {data.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
-            <LabelList dataKey="count" position="right" style={{ fontSize: 11, fill: "#78716c" }} />
-          </Bar>
-        </BarChart>
-      </ResponsiveContainer>
+            onMouseLeave={() => setHover(null)}
+          >
+            <XAxis type="number" tick={{ fontSize: 10, fill: "#a8a29e" }} tickLine={false} axisLine={false} allowDecimals={false} />
+            <YAxis type="category" dataKey="page" tick={{ fontSize: 11, fill: "#78716c" }} tickLine={false} axisLine={false} width={yAxisWidth} />
+            <Bar dataKey="count" radius={[0, 4, 4, 0]}>
+              {data.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+              <LabelList dataKey="count" position="right" style={{ fontSize: 11, fill: "#78716c" }} />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+
+        {hover && (
+          <div className="pointer-events-none absolute right-2 top-2 rounded-lg bg-stone-900 px-3 py-2 text-xs text-stone-50 shadow-lg">
+            <p className="text-stone-400">{hover.page}</p>
+            <p className="text-indigo-300 font-medium">{hover.count} Views</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
