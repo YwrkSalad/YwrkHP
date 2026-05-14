@@ -43,8 +43,8 @@ export default function PageBreakdownChart({ pageviews }: Props) {
               if (!active || !payload?.length) return null;
               return (
                 <div style={{ background: "#1c1917", borderRadius: 8, padding: "8px 12px", fontSize: 12, color: "#fafaf9" }}>
-                  <p style={{ color: "#a5b4fc", marginBottom: 2 }}>{label}</p>
-                  <p>{payload[0].value} Views</p>
+                  <p style={{ marginBottom: 2 }}>{label}</p>
+                  <p style={{ color: "#a5b4fc" }}>{payload[0].value} Views</p>
                 </div>
               );
             }}
