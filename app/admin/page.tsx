@@ -155,12 +155,13 @@ export default function AdminPage() {
   todayStart.setHours(0, 0, 0, 0);
   const todayCount = pageviews.filter((pv) => pv.ts >= todayStart.getTime()).length;
 
-  const topPage =
-    (() => {
-      const counts: Record<string, number> = {};
-      for (const pv of pageviews) counts[pv.page] = (counts[pv.page] ?? 0) + 1;
-      return Object.entries(counts).sort(([, a], [, b]) => b - a)[0]?.[0] ?? "—";
-    })();
+  const trendingPage = (() => {
+    const since = Date.now() - 3 * 24 * 60 * 60 * 1000;
+    const counts: Record<string, number> = {};
+    for (const pv of pageviews.filter((p) => p.ts >= since))
+      counts[pv.page] = (counts[pv.page] ?? 0) + 1;
+    return Object.entries(counts).sort(([, a], [, b]) => b - a)[0]?.[0] ?? "—";
+  })();
 
   const fmt = (ts: number) =>
     new Date(ts).toLocaleString("ja-JP", {
@@ -247,9 +248,9 @@ export default function AdminPage() {
           />
           <StatCard
             icon={TrendingUp}
-            label="Top Page"
-            value={topPage}
-            sub="Most visited"
+            label="Trending"
+            value={trendingPage}
+            sub="Past 3 days"
             accent="bg-amber-50 text-amber-500"
           />
         </div>
