@@ -124,7 +124,18 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
             </span>
           </p>
         </div>
-        <div className="flex gap-1 rounded-lg bg-stone-100 p-1">
+        {/* モバイル: ドロップダウン */}
+        <select
+          value={period}
+          onChange={(e) => onPeriodChange(e.target.value as Period)}
+          className="sm:hidden rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 shadow-sm"
+        >
+          {PERIODS.map((p) => (
+            <option key={p.value} value={p.value}>{p.label}</option>
+          ))}
+        </select>
+        {/* デスクトップ: ボタングループ */}
+        <div className="hidden sm:flex gap-1 rounded-lg bg-stone-100 p-1">
           {PERIODS.map((p) => (
             <button
               key={p.value}
