@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Fragment } from "react";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
@@ -7,23 +6,13 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import { createMetadata } from "../../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "入試情報",
-  description: "入試方式、学費・奨学金情報をご案内します。",
-  openGraph: {
-    title: "入試情報 | やわらか大学",
-    description: "入試方式、学費・奨学金情報をご案内します。",
-    url: "https://ywrk.org/admissions",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "入試情報 | やわらか大学",
-    description: "入試方式、学費・奨学金情報をご案内します。",
-    images: ["/OGP/OGP_1200x630.png"],
-  },
-};
+export const metadata = createMetadata(
+  "入試情報",
+  "入試方式、学費・奨学金情報をご案内します。",
+  "/admissions",
+);
 
 const methods = [
   {

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Fragment } from "react";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
@@ -7,25 +6,13 @@ import PageTracker from "../_components/PageTracker";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import { createMetadata } from "../../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "教務課",
-  description: "履修・学籍・証明書発行など、学習に関する手続きをご案内します。",
-  openGraph: {
-    title: "教務課 | やわらか大学",
-    description:
-      "履修・学籍・証明書発行など、学習に関する手続きをご案内します。",
-    url: "https://ywrk.org/academic",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "教務課 | やわらか大学",
-    description:
-      "履修・学籍・証明書発行など、学習に関する手続きをご案内します。",
-    images: ["/OGP/OGP_1200x630.png"],
-  },
-};
+export const metadata = createMetadata(
+  "教務課",
+  "履修・学籍・証明書発行など、学習に関する手続きをご案内します。",
+  "/academic",
+);
 
 const certificates = [
   { name: "在学証明書", days: "即日", fee: "200円" },

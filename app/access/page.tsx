@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -7,25 +6,13 @@ import CampusMap from "../_components/CampusMap";
 import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
+import { createMetadata } from "../../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "アクセス",
-  description: "キャンパスマップ、キャンパス一覧、交通アクセスをご案内します。",
-  openGraph: {
-    title: "アクセス | やわらか大学",
-    description:
-      "キャンパスマップ、キャンパス一覧、交通アクセスをご案内します。",
-    url: "https://ywrk.org/access",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "アクセス | やわらか大学",
-    description:
-      "キャンパスマップ、キャンパス一覧、交通アクセスをご案内します。",
-    images: ["/OGP/OGP_1200x630.png"],
-  },
-};
+export const metadata = createMetadata(
+  "アクセス",
+  "キャンパスマップ、キャンパス一覧、交通アクセスをご案内します。",
+  "/access",
+);
 
 const routes = [
   {

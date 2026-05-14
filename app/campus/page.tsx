@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -7,26 +6,13 @@ import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 import FeatureCard from "../_components/FeatureCard";
+import { createMetadata } from "../../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "キャンパスライフ",
-  description:
-    "クラブ・サークル、キャンパス施設、国際交流・留学情報をご案内します。",
-  openGraph: {
-    title: "キャンパスライフ | やわらか大学",
-    description:
-      "クラブ・サークル、キャンパス施設、国際交流・留学情報をご案内します。",
-    url: "https://ywrk.org/campus",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "キャンパスライフ | やわらか大学",
-    description:
-      "クラブ・サークル、キャンパス施設、国際交流・留学情報をご案内します。",
-    images: ["/OGP/OGP_1200x630.png"],
-  },
-};
+export const metadata = createMetadata(
+  "キャンパスライフ",
+  "クラブ・サークル、キャンパス施設、国際交流・留学情報をご案内します。",
+  "/campus",
+);
 
 type Club = { name: string; note?: string };
 

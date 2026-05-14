@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
 import ScrollReveal from "../_components/ScrollReveal";
@@ -7,23 +6,13 @@ import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 import TagBadge from "../_components/TagBadge";
+import { createMetadata } from "../../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "研究・社会連携",
-  description: "研究センター・研究所、社会連携・産学連携情報をご案内します。",
-  openGraph: {
-    title: "研究・社会連携 | やわらか大学",
-    description: "研究センター・研究所、社会連携・産学連携情報をご案内します。",
-    url: "https://ywrk.org/research",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "研究・社会連携 | やわらか大学",
-    description: "研究センター・研究所、社会連携・産学連携情報をご案内します。",
-    images: ["/OGP/OGP_1200x630.png"],
-  },
-};
+export const metadata = createMetadata(
+  "研究・社会連携",
+  "研究センター・研究所、社会連携・産学連携情報をご案内します。",
+  "/research",
+);
 
 const centers = [
   {

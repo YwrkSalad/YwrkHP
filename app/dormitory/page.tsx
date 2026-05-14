@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Fragment } from "react";
 import Image from "next/image";
 import Nav from "../_components/Nav";
@@ -9,23 +8,13 @@ import PageHero from "../_components/PageHero";
 import PageSection from "../_components/PageSection";
 import SectionHeading from "../_components/SectionHeading";
 import TagBadge from "../_components/TagBadge";
+import { createMetadata } from "../../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "学生寮",
-  description: "学生寮の紹介、寮費、申し込みの流れをご案内します。",
-  openGraph: {
-    title: "学生寮 | やわらか大学",
-    description: "学生寮の紹介、寮費、申し込みの流れをご案内します。",
-    url: "https://ywrk.org/dormitory",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "学生寮 | やわらか大学",
-    description: "学生寮の紹介、寮費、申し込みの流れをご案内します。",
-    images: ["/OGP/OGP_1200x630.png"],
-  },
-};
+export const metadata = createMetadata(
+  "学生寮",
+  "学生寮の紹介、寮費、申し込みの流れをご案内します。",
+  "/dormitory",
+);
 
 const dorms = [
   {
