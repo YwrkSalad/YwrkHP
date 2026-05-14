@@ -26,15 +26,18 @@ interface Props {
 }
 
 export default function PageBreakdownChart({ pageviews }: Props) {
-  const data = useMemo(() => {
+  const { data, yAxisWidth } = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const pv of pageviews) {
       counts[pv.page] = (counts[pv.page] ?? 0) + 1;
     }
-    return Object.entries(counts)
+    const entries = Object.entries(counts)
       .sort(([, a], [, b]) => b - a)
       .slice(0, 8)
       .map(([page, count]) => ({ page, count }));
+    // 11px フォントで 1文字 ≈ 6.5px
+    const maxLen = Math.max(...entries.map((d) => d.page.length), 1);
+    return { data: entries, yAxisWidth: Math.min(maxLen * 6.5 + 8, 240) };
   }, [pageviews]);
 
   return (
@@ -66,7 +69,7 @@ export default function PageBreakdownChart({ pageviews }: Props) {
             tick={{ fontSize: 11, fill: "#78716c" }}
             tickLine={false}
             axisLine={false}
-            width={80}
+            width={yAxisWidth}
           />
           <Tooltip
             contentStyle={{
