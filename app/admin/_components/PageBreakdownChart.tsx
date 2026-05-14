@@ -1,12 +1,11 @@
 "use client";
 
-import { useMemo, useEffect, useRef } from "react";
+import { useMemo, useState } from "react";
 import {
   BarChart,
   Bar,
   XAxis,
   YAxis,
-  Tooltip,
   ResponsiveContainer,
   Cell,
   LabelList,
@@ -14,19 +13,17 @@ import {
 
 type Pageview = { ts: number; uid: string; page: string };
 
-const COLORS = [
-  "#6366f1",
-  "#8b5cf6",
-  "#a78bfa",
-  "#c4b5fd",
-  "#ddd6fe",
-];
+const COLORS = ["#6366f1", "#8b5cf6", "#a78bfa", "#c4b5fd", "#ddd6fe"];
+
+type TooltipState = { x: number; y: number; page: string; count: number } | null;
 
 interface Props {
   pageviews: Pageview[];
 }
 
 export default function PageBreakdownChart({ pageviews }: Props) {
+  const [tooltip, setTooltip] = useState<TooltipState>(null);
+
   const { data, yAxisWidth } = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const pv of pageviews) {
@@ -36,28 +33,9 @@ export default function PageBreakdownChart({ pageviews }: Props) {
       .sort(([, a], [, b]) => b - a)
       .slice(0, 8)
       .map(([page, count]) => ({ page, count }));
-    // 11px フォントで 1文字 ≈ 6.5px
     const maxLen = Math.max(...entries.map((d) => d.page.length), 1);
     return { data: entries, yAxisWidth: Math.min(maxLen * 6.5 + 8, 240) };
   }, [pageviews]);
-
-  const chartWrapperRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = chartWrapperRef.current;
-    if (!el) return;
-    const reset = () => {
-      const wrapper = el.querySelector(".recharts-wrapper");
-      if (wrapper) {
-        wrapper.dispatchEvent(new MouseEvent("mouseleave", { bubbles: true }));
-      }
-    };
-    el.addEventListener("click", reset);
-    el.addEventListener("touchend", reset);
-    return () => {
-      el.removeEventListener("click", reset);
-      el.removeEventListener("touchend", reset);
-    };
-  }, []);
 
   return (
     <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm">
@@ -69,53 +47,43 @@ export default function PageBreakdownChart({ pageviews }: Props) {
         <span className="ml-2 text-sm font-normal text-stone-400">pages</span>
       </p>
 
-      <div ref={chartWrapperRef}>
       <ResponsiveContainer width="100%" height={220}>
         <BarChart
           data={data}
           layout="vertical"
-          margin={{ top: 0, right: 16, left: 0, bottom: 0 }}
+          margin={{ top: 0, right: 32, left: 0, bottom: 0 }}
+          onMouseMove={(state: any, event: any) => {
+            if (state.isTooltipActive && state.activePayload?.length) {
+              setTooltip({
+                x: event.clientX,
+                y: event.clientY,
+                page: state.activeLabel,
+                count: state.activePayload[0].value,
+              });
+            } else {
+              setTooltip(null);
+            }
+          }}
+          onMouseLeave={() => setTooltip(null)}
         >
-          <XAxis
-            type="number"
-            tick={{ fontSize: 10, fill: "#a8a29e" }}
-            tickLine={false}
-            axisLine={false}
-            allowDecimals={false}
-          />
-          <YAxis
-            type="category"
-            dataKey="page"
-            tick={{ fontSize: 11, fill: "#78716c" }}
-            tickLine={false}
-            axisLine={false}
-            width={yAxisWidth}
-          />
-          <Tooltip
-            contentStyle={{
-              background: "#1c1917",
-              border: "none",
-              borderRadius: "8px",
-              color: "#fafaf9",
-              fontSize: "12px",
-              padding: "8px 12px",
-            }}
-            cursor={{ fill: "#f5f5f4" }}
-            formatter={(v) => [v as number, "Views"]}
-          />
+          <XAxis type="number" tick={{ fontSize: 10, fill: "#a8a29e" }} tickLine={false} axisLine={false} allowDecimals={false} />
+          <YAxis type="category" dataKey="page" tick={{ fontSize: 11, fill: "#78716c" }} tickLine={false} axisLine={false} width={yAxisWidth} />
           <Bar dataKey="count" radius={[0, 4, 4, 0]}>
-            {data.map((_, i) => (
-              <Cell key={i} fill={COLORS[i % COLORS.length]} />
-            ))}
-            <LabelList
-              dataKey="count"
-              position="right"
-              style={{ fontSize: 11, fill: "#78716c", fontVariantNumeric: "tabular-nums" }}
-            />
+            {data.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+            <LabelList dataKey="count" position="right" style={{ fontSize: 11, fill: "#78716c", fontVariantNumeric: "tabular-nums" }} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      </div>
+
+      {tooltip && (
+        <div
+          className="pointer-events-none fixed z-50 rounded-lg bg-stone-900 px-3 py-2 text-xs text-stone-50 shadow-lg"
+          style={{ left: tooltip.x + 14, top: tooltip.y - 48 }}
+        >
+          <p className="text-indigo-300">{tooltip.page}</p>
+          <p>{tooltip.count} Views</p>
+        </div>
+      )}
     </div>
   );
 }
