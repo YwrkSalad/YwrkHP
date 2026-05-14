@@ -13,10 +13,12 @@ import {
 
 type Pageview = { ts: number; uid: string; page: string };
 
-type Period = "1h" | "24h" | "7d" | "30d";
+type Period = "1h" | "3h" | "6h" | "24h" | "7d" | "30d";
 
 const PERIODS: { label: string; value: Period }[] = [
   { label: "1H", value: "1h" },
+  { label: "3H", value: "3h" },
+  { label: "6H", value: "6h" },
   { label: "24H", value: "24h" },
   { label: "7D", value: "7d" },
   { label: "30D", value: "30d" },
@@ -26,6 +28,10 @@ function getBuckets(period: Period): { ms: number; fmt: (d: Date) => string } {
   switch (period) {
     case "1h":
       return { ms: 5 * 60 * 1000, fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
+    case "3h":
+      return { ms: 10 * 60 * 1000, fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
+    case "6h":
+      return { ms: 15 * 60 * 1000, fmt: (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}` };
     case "24h":
       return { ms: 60 * 60 * 1000, fmt: (d) => `${d.getHours()}:00` };
     case "7d":
@@ -45,6 +51,8 @@ function getBuckets(period: Period): { ms: number; fmt: (d: Date) => string } {
 function getPeriodMs(period: Period): number {
   switch (period) {
     case "1h": return 60 * 60 * 1000;
+    case "3h": return 3 * 60 * 60 * 1000;
+    case "6h": return 6 * 60 * 60 * 1000;
     case "24h": return 24 * 60 * 60 * 1000;
     case "7d": return 7 * 24 * 60 * 60 * 1000;
     case "30d": return 30 * 24 * 60 * 60 * 1000;
