@@ -1,14 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { onChildAdded, onChildRemoved, ref } from "firebase/database";
 import { getClientDb } from "@/lib/firebase-client";
 import { indexToName } from "@/lib/visitorname";
 import Nav from "@/app/_components/Nav";
 import PageTracker from "@/app/_components/PageTracker";
-import { MoreHorizontal, X } from "lucide-react";
+import { MoreHorizontal, X, LogOut, Activity, Users, Eye, TrendingUp } from "lucide-react";
 import { verifyToken, eraseVisitorLog } from "./actions";
+import AccessChart from "./_components/AccessChart";
+import PageBreakdownChart from "./_components/PageBreakdownChart";
+import HourlyChart from "./_components/HourlyChart";
 
 const TOKEN_KEY = "ywrk-admin-token";
 const VISITOR_KEY = "ywrk-visitor-id";
@@ -28,6 +31,39 @@ type VisitorStat = {
   last: number;
 };
 
+function StatCard({
+  icon: Icon,
+  label,
+  value,
+  sub,
+  accent,
+}: {
+  icon: React.ElementType;
+  label: string;
+  value: string | number;
+  sub?: string;
+  accent?: string;
+}) {
+  return (
+    <div className="flex flex-col gap-3 rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-medium tracking-[0.2em] text-stone-400 uppercase">
+          {label}
+        </p>
+        <span
+          className={`flex h-8 w-8 items-center justify-center rounded-lg ${accent ?? "bg-indigo-50 text-indigo-500"}`}
+        >
+          <Icon size={15} />
+        </span>
+      </div>
+      <p className="text-3xl font-semibold text-zinc-800">
+        {typeof value === "number" ? value.toLocaleString("ja-JP") : value}
+      </p>
+      {sub && <p className="text-xs text-stone-400">{sub}</p>}
+    </div>
+  );
+}
+
 export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [pageviews, setPageviews] = useState<Pageview[]>([]);
@@ -38,7 +74,6 @@ export default function AdminPage() {
 
   useEffect(() => {
     let cancelled = false;
-
     async function guard() {
       const token = localStorage.getItem(TOKEN_KEY) ?? "";
       if (!token) {
@@ -46,7 +81,6 @@ export default function AdminPage() {
         if (!cancelled) router.replace("/admin/login");
         return;
       }
-
       try {
         const ok = await verifyToken(token);
         if (!ok) {
@@ -62,28 +96,22 @@ export default function AdminPage() {
         if (!cancelled) router.replace("/admin/login");
       }
     }
-
     void guard();
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, [router]);
 
   useEffect(() => {
     if (!authed) return;
     const pvRef = ref(getClientDb(), "pageviews");
-
     const unsubAdd = onChildAdded(pvRef, (snap) => {
       const v = snap.val();
       if (!v?.ts || !v?.uid) return;
-      const row: Pageview = {
-        ts: v.ts,
-        uid: v.uid,
-        page: v.page ?? "/",
-      };
-      setPageviews((prev) => [row, ...prev].sort((a, b) => b.ts - a.ts));
+      setPageviews((prev) =>
+        [{ ts: v.ts, uid: v.uid, page: v.page ?? "/" }, ...prev].sort(
+          (a, b) => b.ts - a.ts,
+        ),
+      );
     });
-
     const unsubRemove = onChildRemoved(pvRef, (snap) => {
       const v = snap.val();
       if (!v?.ts || !v?.uid) return;
@@ -91,26 +119,18 @@ export default function AdminPage() {
         prev.filter((p) => !(p.ts === v.ts && p.uid === v.uid)),
       );
     });
-
-    return () => {
-      unsubAdd();
-      unsubRemove();
-    };
+    return () => { unsubAdd(); unsubRemove(); };
   }, [authed]);
 
   if (!authed) return null;
 
-  // uid → name マッピング（辞書順ソート = 初回訪問時刻の昇順）
   const sortedUids = [...new Set(pageviews.map((pv) => pv.uid))].sort();
   const uidToName: Record<string, string> = {};
-  sortedUids.forEach((uid, i) => {
-    uidToName[uid] = indexToName(i);
-  });
+  sortedUids.forEach((uid, i) => { uidToName[uid] = indexToName(i); });
 
   const displayName = (uid: string) =>
     uid === myUid ? `${uidToName[uid] ?? uid} (me)` : (uidToName[uid] ?? uid);
 
-  // 集計
   const visitorMap = new Map<string, VisitorStat>();
   for (const pv of pageviews) {
     const name = uidToName[pv.uid] ?? pv.uid;
@@ -118,7 +138,7 @@ export default function AdminPage() {
       name,
       uid: pv.uid,
       count: 0,
-      pages: new Set(),
+      pages: new Set<string>(),
       first: pv.ts,
       last: pv.ts,
     };
@@ -129,6 +149,17 @@ export default function AdminPage() {
     visitorMap.set(pv.uid, s);
   }
   const visitors = [...visitorMap.values()].sort((a, b) => b.count - a.count);
+
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+  const todayCount = pageviews.filter((pv) => pv.ts >= todayStart.getTime()).length;
+
+  const topPage =
+    (() => {
+      const counts: Record<string, number> = {};
+      for (const pv of pageviews) counts[pv.page] = (counts[pv.page] ?? 0) + 1;
+      return Object.entries(counts).sort(([, a], [, b]) => b - a)[0]?.[0] ?? "—";
+    })();
 
   const fmt = (ts: number) =>
     new Date(ts).toLocaleString("ja-JP", {
@@ -157,151 +188,196 @@ export default function AdminPage() {
     <>
       <PageTracker page="/admin" />
       <Nav />
-      <main className="mt-[4.5rem] h-[calc(100svh-4.5rem)] overflow-y-auto bg-stone-50 px-8 pb-12">
-        <div className="mb-10 flex justify-end pt-8">
-          <button
-            onClick={logout}
-            className="text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
-          >
-            logout
-          </button>
+      <main className="mt-[4.5rem] min-h-[calc(100svh-4.5rem)] bg-stone-50 px-6 pb-16 md:px-10">
+        {/* Header */}
+        <div className="flex items-center justify-between py-8">
+          <div>
+            <h1 className="text-xl font-semibold text-zinc-800">Dashboard</h1>
+            <p className="mt-0.5 text-xs text-stone-400">
+              {new Date().toLocaleDateString("ja-JP", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <span className="text-xs font-medium tracking-[0.25em] text-zinc-400 uppercase">
+                Live
+              </span>
+            </div>
+            <button
+              onClick={logout}
+              className="flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs text-stone-500 shadow-sm transition-colors hover:border-stone-300 hover:text-zinc-700"
+            >
+              <LogOut size={12} />
+              Logout
+            </button>
+          </div>
         </div>
 
-        {/* Summary */}
-        <div className="mb-10 flex items-end gap-8 sm:gap-12">
-          <div>
-            <p className="text-4xl font-semibold text-zinc-900">
-              {pageviews.length.toLocaleString("ja-JP")}
-            </p>
-            <p className="mt-1 text-xs tracking-[0.2em] text-stone-500 uppercase">
-              Total Visits
-            </p>
-          </div>
-          <div>
-            <p className="text-4xl font-semibold text-zinc-900">
-              {visitors.length.toLocaleString("ja-JP")}
-            </p>
-            <p className="mt-1 text-xs tracking-[0.2em] text-stone-500 uppercase">
-              Visitors
-            </p>
-          </div>
-          <div className="ml-auto flex items-center gap-2 pb-1">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            <span className="text-xs font-medium tracking-[0.3em] text-zinc-400 uppercase">
-              Live
-            </span>
-          </div>
+        {/* KPI Cards */}
+        <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <StatCard
+            icon={Eye}
+            label="Total Views"
+            value={pageviews.length}
+            sub="All time"
+            accent="bg-indigo-50 text-indigo-500"
+          />
+          <StatCard
+            icon={Users}
+            label="Visitors"
+            value={visitors.length}
+            sub="Unique users"
+            accent="bg-violet-50 text-violet-500"
+          />
+          <StatCard
+            icon={Activity}
+            label="Today"
+            value={todayCount}
+            sub="Views today"
+            accent="bg-emerald-50 text-emerald-500"
+          />
+          <StatCard
+            icon={TrendingUp}
+            label="Top Page"
+            value={topPage}
+            sub="Most visited"
+            accent="bg-amber-50 text-amber-500"
+          />
+        </div>
+
+        {/* Charts row 1 */}
+        <div className="mb-6">
+          <AccessChart pageviews={pageviews} />
+        </div>
+
+        {/* Charts row 2 */}
+        <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <PageBreakdownChart pageviews={pageviews} />
+          <HourlyChart pageviews={pageviews} />
         </div>
 
         {/* Visitors table */}
-        <section className="mb-12">
+        <section className="mb-10">
           <p className="mb-4 text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
             Visitors
           </p>
-          <div className="overflow-x-auto">
+          <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-stone-100 bg-stone-50 text-left text-xs tracking-widest text-stone-400 uppercase">
+                    <th className="px-5 py-3 font-medium">#</th>
+                    <th className="px-5 py-3 font-medium">Name</th>
+                    <th className="px-5 py-3 font-medium">Visits</th>
+                    <th className="hidden px-5 py-3 font-medium md:table-cell">Pages</th>
+                    <th className="hidden px-5 py-3 font-medium md:table-cell">First</th>
+                    <th className="px-5 py-3 font-medium">Last</th>
+                    <th className="px-5 py-3 font-medium" />
+                  </tr>
+                </thead>
+                <tbody>
+                  {visitors.map((v, i) => (
+                    <tr
+                      key={v.uid}
+                      className="border-b border-stone-100 transition-colors last:border-0 hover:bg-stone-50"
+                    >
+                      <td className="px-5 py-3.5 font-mono text-xs text-stone-400">
+                        {i + 1}
+                      </td>
+                      <td className="px-5 py-3.5 font-medium text-zinc-700">
+                        {displayName(v.uid)}
+                      </td>
+                      <td className="px-5 py-3.5 tabular-nums text-zinc-700">
+                        {v.count}
+                      </td>
+                      <td className="hidden px-5 py-3.5 md:table-cell">
+                        <div className="flex flex-wrap gap-1">
+                          {[...v.pages].map((page) => (
+                            <span
+                              key={page}
+                              className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-600"
+                            >
+                              {page}
+                            </span>
+                          ))}
+                        </div>
+                      </td>
+                      <td className="hidden px-5 py-3.5 font-mono text-xs text-stone-400 md:table-cell">
+                        {fmt(v.first)}
+                      </td>
+                      <td className="px-5 py-3.5 font-mono text-xs text-stone-400">
+                        {fmt(v.last)}
+                      </td>
+                      <td className="px-5 py-3.5">
+                        <button
+                          onClick={() => setModal(v)}
+                          className="flex items-center justify-center rounded-lg bg-stone-100 p-1.5 text-stone-500 transition-colors hover:bg-stone-200 hover:text-zinc-700"
+                        >
+                          <MoreHorizontal size={14} />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Recent activity */}
+        <section>
+          <p className="mb-4 text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
+            Recent Activity
+          </p>
+          <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-stone-300 text-left text-xs tracking-widest text-stone-500 uppercase">
-                  <th className="pr-8 pb-3 font-medium">#</th>
-                  <th className="pr-8 pb-3 font-medium">Name</th>
-                  <th className="pr-8 pb-3 font-medium">Visits</th>
-                  <th className="hidden pr-8 pb-3 font-medium md:table-cell">
-                    Pages
-                  </th>
-                  <th className="hidden pr-8 pb-3 font-medium md:table-cell">
-                    First
-                  </th>
-                  <th className="pr-8 pb-3 font-medium">Last</th>
-                  <th className="pb-3 font-medium" />
+                <tr className="border-b border-stone-100 bg-stone-50 text-left text-xs tracking-widest text-stone-400 uppercase">
+                  <th className="px-5 py-3 font-medium">Name</th>
+                  <th className="px-5 py-3 font-medium">Page</th>
+                  <th className="px-5 py-3 font-medium">Time</th>
                 </tr>
               </thead>
               <tbody>
-                {visitors.map((v, i) => (
-                  <tr key={v.uid} className="border-b border-stone-200">
-                    <td className="py-3 pr-8 font-mono text-xs text-stone-400">
-                      {i + 1}
+                {pageviews.slice(0, logLimit).map((pv, i) => (
+                  <tr
+                    key={i}
+                    className="border-b border-stone-100 transition-colors last:border-0 hover:bg-stone-50"
+                  >
+                    <td className="px-5 py-3 font-medium text-zinc-700">
+                      {displayName(pv.uid)}
                     </td>
-                    <td className="py-3 pr-8 font-medium text-zinc-700">
-                      {displayName(v.uid)}
+                    <td className="px-5 py-3">
+                      <span className="rounded-md bg-stone-100 px-2 py-0.5 font-mono text-xs text-stone-600">
+                        {pv.page}
+                      </span>
                     </td>
-                    <td className="py-3 pr-8 text-zinc-700 tabular-nums">
-                      {v.count}
-                    </td>
-                    <td className="hidden py-3 pr-8 md:table-cell">
-                      <div className="flex flex-wrap gap-1">
-                        {[...v.pages].map((page) => (
-                          <span
-                            key={page}
-                            className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600"
-                          >
-                            {page}
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="hidden py-3 pr-8 font-mono text-xs text-stone-500 md:table-cell">
-                      {fmt(v.first)}
-                    </td>
-                    <td className="py-3 pr-8 font-mono text-xs text-stone-500">
-                      {fmt(v.last)}
-                    </td>
-                    <td className="py-3">
-                      <button
-                        onClick={() => setModal(v)}
-                        className="flex items-center justify-center rounded bg-stone-200 p-1.5 text-stone-600 transition-colors hover:bg-stone-300 hover:text-zinc-700"
-                      >
-                        <MoreHorizontal size={14} />
-                      </button>
+                    <td className="px-5 py-3 font-mono text-xs text-stone-400">
+                      {fmtFull(pv.ts)}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            {pageviews.length > logLimit && (
+              <div className="border-t border-stone-100 px-5 py-3">
+                <button
+                  onClick={() => setLogLimit((n) => n + 50)}
+                  className="text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
+                >
+                  +50 more ({pageviews.length - logLimit} remaining)
+                </button>
+              </div>
+            )}
           </div>
-        </section>
-
-        {/* Recent log */}
-        <section>
-          <p className="mb-4 text-xs font-medium tracking-[0.3em] text-stone-500 uppercase">
-            Recent Activity
-          </p>
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-stone-300 text-left text-xs tracking-widest text-stone-500 uppercase">
-                <th className="pr-6 pb-2 font-medium">Name</th>
-                <th className="pr-6 pb-2 font-medium">Page</th>
-                <th className="pb-2 font-medium">Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pageviews.slice(0, logLimit).map((pv, i) => (
-                <tr key={i} className="border-b border-stone-200">
-                  <td className="py-2.5 pr-6 font-medium text-zinc-700">
-                    {displayName(pv.uid)}
-                  </td>
-                  <td className="py-2.5 pr-6">
-                    <span className="rounded bg-stone-200 px-2 py-0.5 font-mono text-xs text-stone-600">
-                      {pv.page}
-                    </span>
-                  </td>
-                  <td className="py-2.5 font-mono text-xs text-stone-400">
-                    {fmtFull(pv.ts)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {pageviews.length > logLimit && (
-            <button
-              onClick={() => setLogLimit((n) => n + 50)}
-              className="mt-4 text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
-            >
-              +50 more ({pageviews.length - logLimit} remaining)
-            </button>
-          )}
         </section>
 
         {/* Modal */}
@@ -311,7 +387,7 @@ export default function AdminPage() {
             onClick={() => setModal(null)}
           >
             <div
-              className="w-full max-w-lg rounded-lg bg-white p-10 shadow-xl"
+              className="w-full max-w-lg rounded-2xl bg-white p-10 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mb-8 flex items-start justify-between">
@@ -320,7 +396,7 @@ export default function AdminPage() {
                 </p>
                 <button
                   onClick={() => setModal(null)}
-                  className="flex h-9 w-9 items-center justify-center rounded bg-stone-200 text-stone-500 transition-colors hover:bg-stone-300 hover:text-zinc-700"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-stone-100 text-stone-500 transition-colors hover:bg-stone-200 hover:text-zinc-700"
                 >
                   <X size={16} />
                 </button>
@@ -332,15 +408,11 @@ export default function AdminPage() {
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-stone-500">First</dt>
-                  <dd className="font-mono text-sm text-zinc-700">
-                    {fmt(modal.first)}
-                  </dd>
+                  <dd className="font-mono text-sm text-zinc-700">{fmt(modal.first)}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-stone-500">Last</dt>
-                  <dd className="font-mono text-sm text-zinc-700">
-                    {fmt(modal.last)}
-                  </dd>
+                  <dd className="font-mono text-sm text-zinc-700">{fmt(modal.last)}</dd>
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <dt className="shrink-0 text-stone-500">Pages</dt>
@@ -349,7 +421,7 @@ export default function AdminPage() {
                       {[...modal.pages].map((page) => (
                         <span
                           key={page}
-                          className="shrink-0 rounded bg-stone-200 px-2.5 py-1 font-mono text-sm text-stone-600"
+                          className="shrink-0 rounded-md bg-stone-100 px-2.5 py-1 font-mono text-sm text-stone-600"
                         >
                           {page}
                         </span>
@@ -358,16 +430,14 @@ export default function AdminPage() {
                   </dd>
                 </div>
               </dl>
-
-              <div className="mt-10 border-t border-stone-200 pt-6">
+              <div className="mt-10 border-t border-stone-100 pt-6">
                 <button
                   onClick={async () => {
-                    if (!confirm(`${modal.name} のログを全て削除しますか？`))
-                      return;
+                    if (!confirm(`${modal.name} のログを全て削除しますか？`)) return;
                     await eraseVisitorLog(modal.uid);
                     setModal(null);
                   }}
-                  className="w-full rounded-lg border border-red-100 bg-red-50 py-3 text-sm font-medium text-red-400 transition-colors hover:bg-red-100 hover:text-red-600"
+                  className="w-full rounded-xl border border-red-100 bg-red-50 py-3 text-sm font-medium text-red-400 transition-colors hover:bg-red-100 hover:text-red-600"
                 >
                   Erase log about this user
                 </button>
