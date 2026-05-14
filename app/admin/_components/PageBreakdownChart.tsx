@@ -38,9 +38,16 @@ export default function PageBreakdownChart({ pageviews }: Props) {
           <XAxis type="number" tick={{ fontSize: 10, fill: "#a8a29e" }} tickLine={false} axisLine={false} allowDecimals={false} />
           <YAxis type="category" dataKey="page" tick={{ fontSize: 11, fill: "#78716c" }} tickLine={false} axisLine={false} width={yAxisWidth} />
           <Tooltip
-            contentStyle={{ background: "#1c1917", border: "none", borderRadius: "8px", color: "#fafaf9", fontSize: "12px", padding: "8px 12px" }}
             cursor={{ fill: "#f5f5f4" }}
-            formatter={(v) => [v as number, "Views"]}
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div style={{ background: "#1c1917", borderRadius: 8, padding: "8px 12px", fontSize: 12, color: "#fafaf9" }}>
+                  <p style={{ color: "#a5b4fc", marginBottom: 2 }}>{label}</p>
+                  <p>{payload[0].value} Views</p>
+                </div>
+              );
+            }}
           />
           <Bar dataKey="count" radius={[0, 4, 4, 0]}>
             {data.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
