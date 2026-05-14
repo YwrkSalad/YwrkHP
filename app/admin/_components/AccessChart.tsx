@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid,
   ReferenceLine, ResponsiveContainer,
@@ -55,6 +55,8 @@ interface Props {
 
 export default function AccessChart({ pageviews, period, onPeriodChange }: Props) {
   const [hover, setHover] = useState<{ label: string; count: number } | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dataRef = useRef<{ label: string; count: number }[]>([]);
 
   const data = useMemo(() => {
     const now = Date.now();
@@ -74,6 +76,46 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
       .sort(([a], [b]) => Number(a) - Number(b))
       .map(([key, count]) => ({ label: fmt(new Date(Number(key) * bucketMs)), count }));
   }, [pageviews, period]);
+
+  // ref に最新 data を持たせてイベントリスナー内で使う
+  dataRef.current = data;
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const onMove = (e: MouseEvent) => {
+      const d = dataRef.current;
+      if (!d.length) return;
+      const svg = el.querySelector("svg");
+      const yAxisEl = el.querySelector(".recharts-yAxis");
+      if (!svg) return;
+
+      const { left: svgLeft, width: svgWidth } = svg.getBoundingClientRect();
+      const yAxisWidth = yAxisEl ? yAxisEl.getBoundingClientRect().width : 30;
+      const plotLeft = svgLeft + yAxisWidth + (-20); // margin.left = -20
+      const plotRight = svgLeft + svgWidth - 4;      // margin.right = 4
+      const plotWidth = plotRight - plotLeft;
+
+      const relX = e.clientX - plotLeft;
+      if (relX < 0 || relX > plotWidth || plotWidth <= 0) {
+        setHover(null);
+        return;
+      }
+
+      const idx = Math.max(0, Math.min(d.length - 1, Math.round((relX / plotWidth) * (d.length - 1))));
+      setHover(d[idx]);
+    };
+
+    const onLeave = () => setHover(null);
+
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseleave", onLeave);
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
 
   const max = Math.max(...data.map((d) => d.count), 1);
   const total = data.reduce((s, d) => s + d.count, 0);
@@ -106,20 +148,9 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
         </div>
       </div>
 
-      <div className="relative">
+      <div ref={containerRef} className="relative">
         <ResponsiveContainer width="100%" height={220}>
-          <AreaChart
-            data={data}
-            margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
-            onMouseMove={(state: any) => {
-              if (state.isTooltipActive && state.activePayload?.length) {
-                setHover({ label: state.activeLabel, count: state.activePayload[0].value });
-              } else {
-                setHover(null);
-              }
-            }}
-            onMouseLeave={() => setHover(null)}
-          >
+          <AreaChart data={data} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
             <defs>
               <linearGradient id="accessGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#6366f1" stopOpacity={0.15} />
@@ -129,10 +160,8 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
             <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" vertical={false} />
             <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#a8a29e" }} tickLine={false} axisLine={false} interval={Math.max(1, Math.floor(data.length / 12))} />
             <YAxis tick={{ fontSize: 10, fill: "#a8a29e" }} tickLine={false} axisLine={false} allowDecimals={false} domain={[0, max + 1]} />
-            {hover && (
-              <ReferenceLine x={hover.label} stroke="#6366f1" strokeWidth={1} strokeDasharray="4 4" />
-            )}
-            <Area type="monotone" dataKey="count" stroke="#6366f1" strokeWidth={2} fill="url(#accessGrad)" dot={false} activeDot={{ r: 4, fill: "#6366f1", strokeWidth: 0 }} />
+            {hover && <ReferenceLine x={hover.label} stroke="#6366f1" strokeWidth={1} strokeDasharray="4 4" />}
+            <Area type="monotone" dataKey="count" stroke="#6366f1" strokeWidth={2} fill="url(#accessGrad)" dot={false} activeDot={false} />
           </AreaChart>
         </ResponsiveContainer>
 
