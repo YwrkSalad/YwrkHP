@@ -18,3 +18,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
+
+/* マウスクリック時の青枠を非表示（キーボード操作時は残す） */
+:focus:not(:focus-visible) {
+  outline: none;
+}
