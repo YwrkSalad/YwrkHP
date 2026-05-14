@@ -310,7 +310,7 @@ export default function AdminPage() {
                             </span>
                           ))}
                           {v.pages.size > 5 && (
-                            <span className="font-mono text-xs text-stone-400">…</span>
+                            <span className="font-mono text-xs text-stone-400">. . .</span>
                           )}
                         </div>
                       </td>
