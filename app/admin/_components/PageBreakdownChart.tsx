@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect, useRef } from "react";
 import {
   BarChart,
   Bar,
@@ -41,6 +41,19 @@ export default function PageBreakdownChart({ pageviews }: Props) {
     return { data: entries, yAxisWidth: Math.min(maxLen * 6.5 + 8, 240) };
   }, [pageviews]);
 
+  const chartWrapperRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = chartWrapperRef.current;
+    if (!el) return;
+    const block = (e: Event) => { e.stopPropagation(); e.preventDefault(); };
+    el.addEventListener("click", block, { capture: true });
+    el.addEventListener("touchstart", block, { capture: true, passive: false });
+    return () => {
+      el.removeEventListener("click", block, { capture: true });
+      el.removeEventListener("touchstart", block, { capture: true });
+    };
+  }, []);
+
   return (
     <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm">
       <p className="mb-1 text-xs font-medium tracking-[0.25em] text-stone-400 uppercase">
@@ -51,7 +64,7 @@ export default function PageBreakdownChart({ pageviews }: Props) {
         <span className="ml-2 text-sm font-normal text-stone-400">pages</span>
       </p>
 
-      <div onClickCapture={(e) => e.stopPropagation()}>
+      <div ref={chartWrapperRef}>
       <ResponsiveContainer width="100%" height={220}>
         <BarChart
           data={data}

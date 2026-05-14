@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect, useRef } from "react";
 import {
   AreaChart,
   Area,
@@ -110,6 +110,19 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
   const max = Math.max(...data.map((d) => d.count), 1);
   const total = data.reduce((s, d) => s + d.count, 0);
 
+  const chartWrapperRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = chartWrapperRef.current;
+    if (!el) return;
+    const block = (e: Event) => { e.stopPropagation(); e.preventDefault(); };
+    el.addEventListener("click", block, { capture: true });
+    el.addEventListener("touchstart", block, { capture: true, passive: false });
+    return () => {
+      el.removeEventListener("click", block, { capture: true });
+      el.removeEventListener("touchstart", block, { capture: true });
+    };
+  }, []);
+
   return (
     <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm">
       <div className="mb-5 flex items-center justify-between">
@@ -152,7 +165,7 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
         </div>
       </div>
 
-      <div onClickCapture={(e) => e.stopPropagation()}>
+      <div ref={chartWrapperRef}>
       <ResponsiveContainer width="100%" height={220}>
         <AreaChart data={data} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
           <defs>
