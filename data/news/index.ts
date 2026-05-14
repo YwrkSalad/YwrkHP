@@ -1,11 +1,11 @@
 import type { ComponentType } from "react";
 import type { NewsItemMeta } from "./_types";
-import { meta as metaOpenCampus, default as BodyOpenCampus } from "./open-campus-2026-06-18";
-import { meta as metaEntrance, default as BodyEntrance } from "./2026-entrance-ceremony";
-import { meta as metaRecruitment, default as BodyRecruitment } from "./2027-recruitment";
-import { meta as metaForum, default as BodyForum } from "./forum-2026";
-import { meta as metaLibrary, default as BodyLibrary } from "./library-extended-hours";
-import { meta as metaRenewal, default as BodyRenewal } from "./website-renewal";
+import { meta as metaOpenCampus, default as BodyOpenCampus } from "./20260504-open-campus";
+import { meta as metaEntrance, default as BodyEntrance } from "./20260408-entrance-ceremony";
+import { meta as metaRecruitment, default as BodyRecruitment } from "./20260325-recruitment-2027";
+import { meta as metaForum, default as BodyForum } from "./20260310-forum-2026";
+import { meta as metaLibrary, default as BodyLibrary } from "./20260228-library-extended-hours";
+import { meta as metaRenewal, default as BodyRenewal } from "./20260214-website-renewal";
 
 export type { NewsItemMeta };
 
