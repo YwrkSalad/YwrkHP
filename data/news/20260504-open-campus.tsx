@@ -2,7 +2,7 @@ import type { NewsItemMeta } from "./_types";
 
 export const meta: NewsItemMeta = {
   slug: "open-campus-2026-06-18",
-  date: "2026.05.04",
+  date: "2026.05.14",
   category: "入試情報",
   title: "2026年オープンキャンパス開催のご案内(予定)",
   description:
