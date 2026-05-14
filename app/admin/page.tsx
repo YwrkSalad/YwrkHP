@@ -68,6 +68,7 @@ export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [pageviews, setPageviews] = useState<Pageview[]>([]);
   const [modal, setModal] = useState<VisitorStat | null>(null);
+  const [visitorLimit, setVisitorLimit] = useState(10);
   const [logLimit, setLogLimit] = useState(20);
   const [myUid, setMyUid] = useState<string | null>(null);
   const router = useRouter();
@@ -284,7 +285,7 @@ export default function AdminPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {visitors.map((v, i) => (
+                  {visitors.slice(0, visitorLimit).map((v, i) => (
                     <tr
                       key={v.uid}
                       className="border-b border-stone-100 transition-colors last:border-0 hover:bg-stone-50"
@@ -329,6 +330,16 @@ export default function AdminPage() {
                 </tbody>
               </table>
             </div>
+            {visitors.length > visitorLimit && (
+              <div className="border-t border-stone-100 px-5 py-3">
+                <button
+                  onClick={() => setVisitorLimit((n) => n + 50)}
+                  className="text-xs tracking-widest text-stone-400 uppercase transition-colors hover:text-stone-600"
+                >
+                  +50 more ({visitors.length - visitorLimit} remaining)
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
