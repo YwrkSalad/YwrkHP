@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   AreaChart,
   Area,
@@ -79,6 +79,7 @@ interface Props {
 }
 
 export default function AccessChart({ pageviews, period, onPeriodChange }: Props) {
+  const [cumulative, setCumulative] = useState(false);
 
   const data = useMemo(() => {
     const now = Date.now();
@@ -99,16 +100,23 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
       if (key in buckets) buckets[key] = (buckets[key] ?? 0) + 1;
     }
 
-    return Object.entries(buckets)
+    const sorted = Object.entries(buckets)
       .sort(([a], [b]) => Number(a) - Number(b))
       .map(([key, count]) => ({
         label: fmt(new Date(Number(key) * bucketMs)),
         count,
       }));
-  }, [pageviews, period]);
+
+    if (!cumulative) return sorted;
+
+    let acc = 0;
+    return sorted.map((d) => ({ label: d.label, count: (acc += d.count) }));
+  }, [pageviews, period, cumulative]);
 
   const max = Math.max(...data.map((d) => d.count), 1);
-  const total = data.reduce((s, d) => s + d.count, 0);
+  const total = cumulative
+    ? data[data.length - 1]?.count ?? 0
+    : data.reduce((s, d) => s + d.count, 0);
 
   return (
     <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm">
@@ -124,15 +132,27 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
             </span>
           </p>
         </div>
-        <select
-          value={period}
-          onChange={(e) => onPeriodChange(e.target.value as Period)}
-          className="sm:hidden rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 shadow-sm"
-        >
-          {PERIODS.map((p) => (
-            <option key={p.value} value={p.value}>{p.label}</option>
-          ))}
-        </select>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setCumulative((v) => !v)}
+            className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-all ${
+              cumulative
+                ? "border-indigo-300 bg-indigo-50 text-indigo-700"
+                : "border-stone-200 bg-white text-stone-500 hover:text-zinc-700"
+            }`}
+          >
+            累積
+          </button>
+          <select
+            value={period}
+            onChange={(e) => onPeriodChange(e.target.value as Period)}
+            className="sm:hidden rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 shadow-sm"
+          >
+            {PERIODS.map((p) => (
+              <option key={p.value} value={p.value}>{p.label}</option>
+            ))}
+          </select>
+        </div>
         <div className="hidden sm:flex gap-1 rounded-lg bg-stone-100 p-1">
           {PERIODS.map((p) => (
             <button
