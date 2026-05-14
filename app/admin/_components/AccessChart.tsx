@@ -133,16 +133,24 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => setCumulative((v) => !v)}
-            className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-all ${
-              cumulative
-                ? "border-indigo-300 bg-indigo-50 text-indigo-700"
-                : "border-stone-200 bg-white text-stone-500 hover:text-zinc-700"
-            }`}
-          >
-            累積
-          </button>
+          {/* 瞬間 / 累積 トグル */}
+          <div className="flex gap-1 rounded-lg bg-stone-100 p-1">
+            {(["瞬間", "累積"] as const).map((label) => {
+              const active = label === "累積" ? cumulative : !cumulative;
+              return (
+                <button
+                  key={label}
+                  onClick={() => setCumulative(label === "累積")}
+                  className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
+                    active ? "bg-white text-zinc-800 shadow-sm" : "text-stone-500 hover:text-zinc-700"
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+          {/* 期間セレクタ: モバイルはドロップダウン、デスクトップはボタン */}
           <select
             value={period}
             onChange={(e) => onPeriodChange(e.target.value as Period)}
@@ -152,21 +160,21 @@ export default function AccessChart({ pageviews, period, onPeriodChange }: Props
               <option key={p.value} value={p.value}>{p.label}</option>
             ))}
           </select>
-        </div>
-        <div className="hidden sm:flex gap-1 rounded-lg bg-stone-100 p-1">
-          {PERIODS.map((p) => (
-            <button
-              key={p.value}
-              onClick={() => onPeriodChange(p.value)}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium tracking-widest transition-all ${
-                period === p.value
-                  ? "bg-white text-zinc-800 shadow-sm"
-                  : "text-stone-500 hover:text-zinc-700"
-              }`}
-            >
-              {p.label}
-            </button>
-          ))}
+          <div className="hidden sm:flex gap-1 rounded-lg bg-stone-100 p-1">
+            {PERIODS.map((p) => (
+              <button
+                key={p.value}
+                onClick={() => onPeriodChange(p.value)}
+                className={`rounded-md px-3 py-1.5 text-xs font-medium tracking-widest transition-all ${
+                  period === p.value
+                    ? "bg-white text-zinc-800 shadow-sm"
+                    : "text-stone-500 hover:text-zinc-700"
+                }`}
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
