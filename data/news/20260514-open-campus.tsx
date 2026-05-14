@@ -13,12 +13,12 @@ export default function Body() {
   return (
     <div className="space-y-5 text-sm leading-loose text-stone-700">
       <p>
-        やわらか大学では、大学生・保護者の皆さまを対象に、2026年オープンキャンパスを開催いたします。本学の教育理念、学びの環境、キャンパスライフについて直接体験できる絶好の機会です。是非ご参加ください。
+        やわらか大学では、大学生・保護者・社会人の皆さまを対象に、2026年オープンキャンパスを開催いたします。本学の教育理念、学びの環境、キャンパスライフについて直接体験できる絶好の機会です。是非ご参加ください。
       </p>
 
       <div>
         <p className="font-semibold text-zinc-900">■ 開催日時</p>
-        <p className="mt-1">2026年6月18日（木）23:00〜29:00</p>
+        <p className="mt-1">2026年6月18日（木）24:00〜29:00</p>
       </div>
 
       <div>
@@ -31,7 +31,7 @@ export default function Body() {
 
       <div>
         <p className="font-semibold text-zinc-900">■ 対象</p>
-        <p className="mt-1">大学生・保護者（成人済）</p>
+        <p className="mt-1">大学生・社会人・保護者（成人済）</p>
         <p className="mt-1">
           ※
           当日IDチェックを行いますので、顔写真付きの身分証明書を必ずご持参ください。
@@ -116,7 +116,7 @@ export default function Body() {
         <div className="mt-2 space-y-3">
           <div>
             <p className="font-medium">Q: 1人での参加でも大丈夫ですか？</p>
-            <p>A: もちろんです。多くの大学生が1人で参加されています。</p>
+            <p>A: もちろんです。多くの大学生・社会人が1人で参加されています。</p>
           </div>
           <div>
             <p className="font-medium">Q: 在学生に直接質問できますか？</p>
