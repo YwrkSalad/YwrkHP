@@ -92,7 +92,7 @@ export default function PageBreakdownChart({ pageviews }: Props) {
             <LabelList
               dataKey="count"
               position="right"
-              style={{ fontSize: 11, fill: "#78716c", fontVariantNumeric: "tabular-nums", pointerEvents: "none" }}
+              style={{ fontSize: 11, fill: "#78716c", fontVariantNumeric: "tabular-nums" }}
             />
           </Bar>
         </BarChart>
