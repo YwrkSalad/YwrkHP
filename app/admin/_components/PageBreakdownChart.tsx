@@ -45,12 +45,17 @@ export default function PageBreakdownChart({ pageviews }: Props) {
   useEffect(() => {
     const el = chartWrapperRef.current;
     if (!el) return;
-    const block = (e: Event) => { e.stopPropagation(); e.preventDefault(); };
-    el.addEventListener("click", block, { capture: true });
-    el.addEventListener("touchstart", block, { capture: true, passive: false });
+    const reset = () => {
+      const wrapper = el.querySelector(".recharts-wrapper");
+      if (wrapper) {
+        wrapper.dispatchEvent(new MouseEvent("mouseleave", { bubbles: true }));
+      }
+    };
+    el.addEventListener("click", reset);
+    el.addEventListener("touchend", reset);
     return () => {
-      el.removeEventListener("click", block, { capture: true });
-      el.removeEventListener("touchstart", block, { capture: true });
+      el.removeEventListener("click", reset);
+      el.removeEventListener("touchend", reset);
     };
   }, []);
 
